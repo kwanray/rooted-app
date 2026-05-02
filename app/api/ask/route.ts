@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
 My question is: ${question.trim()}`
 
     const response = await client.chat.completions.create({
-      model: 'grok-2-1212',
+      model: 'grok-3',
       max_tokens: 1024,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
