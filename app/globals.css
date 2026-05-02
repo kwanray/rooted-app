@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0D0A05;
+  --surface: #161009;
+  --border: #1A1208;
+  --text: #F5E6C8;
+  --muted: #B8A08A;
+
+  /* Phase 0 — Knowledge */
+  --p0-accent: #D4A853;
+  --p0-dim: #251800;
+
+  /* Phase 1 — Existence */
+  --p1-accent: #9B72CF;
+  --p1-dim: #190930;
+
+  /* Phase 2 — Identity */
+  --p2-accent: #CF6060;
+  --p2-dim: #2E0808;
+
+  /* Phase 3 — Authority */
+  --p3-accent: #5CCF88;
+  --p3-dim: #082416;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Lato', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px currentColor; }
+  50%       { box-shadow: 0 0 18px currentColor; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Prose */
+.prose-rooted p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* Copy button flash */
+@keyframes copy-flash {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.copy-flash {
+  animation: copy-flash 0.3s ease;
+}
+
+/* Gradient text utilities */
+.gradient-underline {
+  position: relative;
+}
+
+.gradient-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, currentColor 0%, transparent 100%);
+}
