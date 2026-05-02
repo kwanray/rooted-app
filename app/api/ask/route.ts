@@ -32,19 +32,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Question is required.' }, { status: 400 })
     }
 
-    const apiKey = process.env.XAI_API_KEY
+    const apiKey = process.env.GROQ_API_KEY
     if (!apiKey) {
       return NextResponse.json({ error: 'AI service not configured.' }, { status: 503 })
     }
 
-    const client = new OpenAI({ apiKey, baseURL: 'https://api.x.ai/v1' })
+    const client = new OpenAI({ apiKey, baseURL: 'https://api.groq.com/openai/v1' })
 
     const userMessage = `I am studying Point ${pointN}: "${pointTitle}" in Geisler's Twelve Points.
 
 My question is: ${question.trim()}`
 
     const response = await client.chat.completions.create({
-      model: 'grok-3',
+      model: 'llama-3.3-70b-versatile',
       max_tokens: 1024,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
