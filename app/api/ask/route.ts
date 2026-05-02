@@ -1,7 +1,5 @@
-import Anthropic from '@anthropic-ai/sdk'
+import OpenAI from 'openai'
 import { NextRequest, NextResponse } from 'next/server'
-
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 const SYSTEM_PROMPT = `You are a warm, knowledgeable classical Christian apologist helping young Christians in Singapore navigate faith questions. You are thoroughly versed in Norman Geisler's twelve-point apologetic framework and you answer exclusively within that logical structure.
 
@@ -34,19 +32,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Question is required.' }, { status: 400 })
     }
 
+    const apiKey = process.env.XAI_API_KEY
+    if (!apiKey) {
+      return NextResponse.json({ error: 'AI service not configured.' }, { status: 503 })
+    }
+
+    const client = new OpenAI({ apiKey, baseURL: 'https://api.x.ai/v1' })
+
     const userMessage = `I am studying Point ${pointN}: "${pointTitle}" in Geisler's Twelve Points.
 
 My question is: ${question.trim()}`
 
-    const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
+    const response = await client.chat.completions.create({
+      model: 'grok-3',
       max_tokens: 1024,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: userMessage }],
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user', content: userMessage },
+      ],
     })
 
-    const answer =
-      message.content[0].type === 'text' ? message.content[0].text : ''
+    const answer = response.choices[0]?.message?.content ?? ''
 
     return NextResponse.json({ answer })
   } catch (err) {
