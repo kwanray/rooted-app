@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
 My question is: ${question.trim()}`
 
     const response = await client.chat.completions.create({
-      model: 'grok-3',
+      model: 'grok-2-1212',
       max_tokens: 1024,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
@@ -56,10 +56,19 @@ My question is: ${question.trim()}`
 
     return NextResponse.json({ answer })
   } catch (err) {
-    console.error('[/api/ask] Error:', err)
-    return NextResponse.json(
-      { error: 'Something went wrong. Please try again.' },
-      { status: 500 }
-    )
+    const message =
+      err instanceof Error ? err.message : 'Unknown error'
+    console.error('[/api/ask] Error:', message)
+
+    // Surface a readable reason to the client (never expose raw stack traces)
+    const userFacing = message.includes('API key')
+      ? 'Invalid or missing API key. Please contact the site administrator.'
+      : message.includes('model')
+      ? 'AI model unavailable. Please contact the site administrator.'
+      : message.includes('429')
+      ? 'Too many requests — please wait a moment and try again.'
+      : 'Something went wrong. Please try again.'
+
+    return NextResponse.json({ error: userFacing }, { status: 500 })
   }
 }
