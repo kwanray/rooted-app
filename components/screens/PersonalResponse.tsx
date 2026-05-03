@@ -25,7 +25,7 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
       <div className="w-full max-w-lg">
         <div
           className="text-xs font-bold tracking-widest mb-3 text-center"
-          style={{ color: '#5CCF88', fontFamily: 'Lato, sans-serif', letterSpacing: '0.25em' }}
+          style={{ color: '#10B981', fontFamily: 'Lato, sans-serif', letterSpacing: '0.25em' }}
         >
           PERSONAL RESPONSE
         </div>
@@ -35,14 +35,14 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
             fontFamily: 'Cormorant Garamond, serif',
             fontSize: 'clamp(2rem, 5vw, 3rem)',
             fontWeight: 400,
-            color: '#F5E6C8',
+            color: '#1C1E21',
           }}
         >
           Where do you stand?
         </h2>
         <p
           className="text-center mb-10 text-sm"
-          style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}
+          style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}
         >
           You've worked through the evidence. This is your moment to respond honestly.
         </p>
@@ -52,17 +52,17 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
             <button
               onClick={() => setPath('believe')}
               className="w-full rounded-xl p-5 text-left transition-all"
-              style={{ background: '#082416', border: '1.5px solid #5CCF8844' }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#5CCF8888')}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#5CCF8844')}
+              style={{ background: '#D1FAE5', border: '1.5px solid #10B98144' }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#10B98188')}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#10B98144')}
             >
               <div
                 className="font-bold text-lg mb-1"
-                style={{ color: '#5CCF88', fontFamily: 'Cormorant Garamond, serif' }}
+                style={{ color: '#10B981', fontFamily: 'Cormorant Garamond, serif' }}
               >
                 "I believe."
               </div>
-              <div className="text-sm" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
+              <div className="text-sm" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}>
                 The evidence is compelling. I want to commit my faith to Jesus Christ.
               </div>
             </button>
@@ -70,17 +70,17 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
             <button
               onClick={() => setPath('working')}
               className="w-full rounded-xl p-5 text-left transition-all"
-              style={{ background: '#161009', border: '1.5px solid #1A1208' }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#4a3f2f')}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#1A1208')}
+              style={{ background: '#FFFFFF', border: '1.5px solid #E4E6EB' }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#8A8D91')}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#E4E6EB')}
             >
               <div
                 className="font-bold text-lg mb-1"
-                style={{ color: '#D4A853', fontFamily: 'Cormorant Garamond, serif' }}
+                style={{ color: '#1877F2', fontFamily: 'Cormorant Garamond, serif' }}
               >
                 "Still working through it."
               </div>
-              <div className="text-sm" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
+              <div className="text-sm" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}>
                 I have remaining questions. I want to keep exploring before I decide.
               </div>
             </button>
@@ -91,17 +91,17 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
           <div className="animate-fade-in">
             <div
               className="rounded-xl p-5 mb-6"
-              style={{ background: '#082416', border: '1px solid #5CCF8833' }}
+              style={{ background: '#D1FAE5', border: '1px solid #10B98133' }}
             >
               <div
                 className="text-xs font-bold tracking-widest mb-3"
-                style={{ color: '#5CCF88', fontFamily: 'Lato, sans-serif' }}
+                style={{ color: '#10B981', fontFamily: 'Lato, sans-serif' }}
               >
                 A PRAYER OF COMMITMENT
               </div>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif', fontStyle: 'italic' }}
+                style={{ color: '#65676B', fontFamily: 'Lato, sans-serif', fontStyle: 'italic' }}
               >
                 {PRAYER_TEXT}
               </p>
@@ -110,11 +110,11 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
             <div className="mb-6">
               <div
                 className="text-xs font-bold tracking-widest mb-2"
-                style={{ color: '#5CCF88', fontFamily: 'Lato, sans-serif' }}
+                style={{ color: '#10B981', fontFamily: 'Lato, sans-serif' }}
               >
                 YOUR DECLARATION (optional)
               </div>
-              <p className="text-sm mb-3" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
+              <p className="text-sm mb-3" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}>
                 Write your own response to what you've learned — a commitment, a question, a prayer.
               </p>
               <textarea
@@ -124,21 +124,21 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
                 rows={4}
                 className="w-full rounded-lg px-4 py-3 text-sm resize-none outline-none"
                 style={{
-                  background: '#082416',
-                  border: '1.5px solid #5CCF8833',
-                  color: '#F5E6C8',
+                  background: '#FFFFFF',
+                  border: '1.5px solid #10B98133',
+                  color: '#1C1E21',
                   fontFamily: 'Lato, sans-serif',
                   lineHeight: 1.7,
                 }}
-                onFocus={(e) => (e.target.style.borderColor = '#5CCF8866')}
-                onBlur={(e) => (e.target.style.borderColor = '#5CCF8833')}
+                onFocus={(e) => (e.target.style.borderColor = '#10B98166')}
+                onBlur={(e) => (e.target.style.borderColor = '#10B98133')}
               />
               <button
                 onClick={handleSaveDeclaration}
                 className="mt-2 px-4 py-2 rounded-lg text-xs font-bold transition-all"
                 style={{
-                  background: saved ? '#5CCF88' : '#5CCF8822',
-                  color: saved ? '#0D0A05' : '#5CCF88',
+                  background: saved ? '#10B981' : '#10B98122',
+                  color: saved ? '#FFFFFF' : '#10B981',
                   fontFamily: 'Lato, sans-serif',
                 }}
               >
@@ -149,7 +149,7 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
             <button
               onClick={onComplete}
               className="w-full rounded-xl px-6 py-4 text-sm font-bold"
-              style={{ background: '#5CCF88', color: '#0D0A05', fontFamily: 'Lato, sans-serif', letterSpacing: '0.08em' }}
+              style={{ background: '#10B981', color: '#FFFFFF', fontFamily: 'Lato, sans-serif', letterSpacing: '0.08em' }}
             >
               COMPLETE MY JOURNEY →
             </button>
@@ -160,7 +160,7 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
           <div className="animate-fade-in">
             <p
               className="text-sm mb-6 text-center"
-              style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}
+              style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}
             >
               That's honest — and honesty is where good thinking starts. Ask your remaining questions below.
             </p>
@@ -169,8 +169,8 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
               <AskAI
                 pointN={12}
                 pointTitle="The Complete Case for Christianity"
-                accent="#D4A853"
-                dim="#251800"
+                accent="#1877F2"
+                dim="#E7F0FD"
               />
             </div>
 
@@ -179,8 +179,8 @@ export default function PersonalResponse({ declaration, onDeclarationChange, onC
               className="w-full rounded-xl px-6 py-3 text-sm font-bold transition-all"
               style={{
                 background: 'transparent',
-                color: '#D4A853',
-                border: '1.5px solid #D4A85344',
+                color: '#1877F2',
+                border: '1.5px solid #1877F244',
                 fontFamily: 'Lato, sans-serif',
                 letterSpacing: '0.08em',
               }}

@@ -19,6 +19,8 @@ interface Props {
   onBack: () => void
 }
 
+const POINT_ICONS = ['🔍', '⚖️', '🌌', '✨', '📜', '📖', '✝️', '☀️', '👑', '💬', '📝', '📕']
+
 export default function PointView({
   idx,
   completed,
@@ -41,7 +43,7 @@ export default function PointView({
       {/* Foundation bar */}
       <div
         className="sticky top-0 z-10"
-        style={{ background: 'var(--bg)', borderBottom: '1px solid var(--border)' }}
+        style={{ background: '#FFFFFF', borderBottom: '1px solid #E4E6EB', boxShadow: '0 1px 4px #0001' }}
       >
         <FoundationBar completed={completed} currentIdx={idx} />
       </div>
@@ -61,7 +63,7 @@ export default function PointView({
           >
             {phaseLabel.toUpperCase()}
           </span>
-          <span className="text-xs" style={{ color: '#4a3f2f', fontFamily: 'Lato, sans-serif' }}>
+          <span className="text-xs" style={{ color: '#8A8D91', fontFamily: 'Lato, sans-serif' }}>
             Point {pt.n} of 12
           </span>
         </div>
@@ -70,29 +72,37 @@ export default function PointView({
         {isHighlighted && (
           <div
             className="rounded-xl p-4 mb-6 border"
-            style={{ background: '#251800', borderColor: '#D4A85344' }}
+            style={{ background: '#E7F0FD', borderColor: '#1877F244' }}
           >
             <div className="flex items-start gap-2">
               <span style={{ fontSize: 16, flexShrink: 0 }}>✦</span>
-              <p className="text-sm leading-relaxed" style={{ color: '#D4A853', fontFamily: 'Lato, sans-serif' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#1877F2', fontFamily: 'Lato, sans-serif' }}>
                 {pt.highlightMsg}
               </p>
             </div>
           </div>
         )}
 
-        {/* Title */}
-        <h1
-          className="mb-2 leading-tight"
-          style={{
-            fontFamily: 'Cormorant Garamond, serif',
-            fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
-            fontWeight: 400,
-            color: '#F5E6C8',
-          }}
-        >
-          {pt.title}
-        </h1>
+        {/* Icon + Title */}
+        <div className="flex items-start gap-4 mb-2">
+          <div
+            className="flex-shrink-0 flex items-center justify-center rounded-2xl"
+            style={{ width: 52, height: 52, background: dim, border: `1px solid ${accent}33`, fontSize: 26 }}
+          >
+            {POINT_ICONS[idx] ?? '📌'}
+          </div>
+          <h1
+            className="leading-tight flex-1"
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
+              fontWeight: 400,
+              color: '#1C1E21',
+            }}
+          >
+            {pt.title}
+          </h1>
+        </div>
         <div
           className="mb-8 rounded-full"
           style={{ height: 2, width: '4rem', background: `linear-gradient(90deg, ${accent} 0%, transparent 100%)` }}
@@ -111,18 +121,18 @@ export default function PointView({
           </div>
           <p
             className="leading-relaxed"
-            style={{ color: '#F5E6C8', fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontStyle: 'italic' }}
+            style={{ color: '#1C1E21', fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontStyle: 'italic' }}
           >
             {pt.claim}
           </p>
         </div>
 
         {/* Singapore Context */}
-        <div className="mb-6 rounded-xl p-5" style={{ background: '#161009', border: '1px solid #1A1208' }}>
-          <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
-            YOUR CONTEXT
+        <div className="mb-6 rounded-xl p-5" style={{ background: '#FFFFFF', border: '1px solid #E4E6EB' }}>
+          <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}>
+            🇸🇬 YOUR CONTEXT
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
+          <p className="text-sm leading-relaxed" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}>
             {pt.sg}
           </p>
         </div>
@@ -140,15 +150,15 @@ export default function PointView({
             onClick={() => setArgsOpen((o) => !o)}
             className="w-full flex items-center justify-between rounded-xl px-5 py-4 transition-all"
             style={{
-              background: argsOpen ? dim : '#161009',
-              border: `1.5px solid ${argsOpen ? accent + '44' : '#1A1208'}`,
+              background: argsOpen ? dim : '#FFFFFF',
+              border: `1.5px solid ${argsOpen ? accent + '44' : '#E4E6EB'}`,
             }}
           >
             <span
               className="text-sm font-bold"
-              style={{ color: argsOpen ? accent : '#B8A08A', fontFamily: 'Lato, sans-serif' }}
+              style={{ color: argsOpen ? accent : '#65676B', fontFamily: 'Lato, sans-serif' }}
             >
-              Study Geisler's Arguments
+              📚 Study Geisler's Arguments
             </span>
             <span style={{ color: accent, fontSize: 18 }}>{argsOpen ? '−' : '+'}</span>
           </button>
@@ -164,13 +174,21 @@ export default function PointView({
                   className="px-5 py-4 border-t"
                   style={{ borderColor: accent + '1a', background: dim }}
                 >
-                  <div
-                    className="font-bold text-sm mb-2"
-                    style={{ color: accent, fontFamily: 'Lato, sans-serif' }}
-                  >
-                    {arg.head}
+                  <div className="flex items-center gap-2 mb-2">
+                    <span
+                      className="flex-shrink-0 flex items-center justify-center rounded-full text-xs font-bold"
+                      style={{ width: 20, height: 20, background: accent, color: '#FFFFFF', fontFamily: 'Lato, sans-serif' }}
+                    >
+                      {i + 1}
+                    </span>
+                    <div
+                      className="font-bold text-sm"
+                      style={{ color: accent, fontFamily: 'Lato, sans-serif' }}
+                    >
+                      {arg.head}
+                    </div>
                   </div>
-                  <p className="text-sm leading-relaxed" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
+                  <p className="text-sm leading-relaxed pl-7" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}>
                     {arg.body}
                   </p>
                 </div>
@@ -188,9 +206,9 @@ export default function PointView({
           }}
         >
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
-            KEY INSIGHT
+            💡 KEY INSIGHT
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: '#F5E6C8', fontFamily: 'Lato, sans-serif' }}>
+          <p className="text-sm leading-relaxed" style={{ color: '#1C1E21', fontFamily: 'Lato, sans-serif' }}>
             {pt.insight}
           </p>
         </div>
@@ -218,18 +236,18 @@ export default function PointView({
         </div>
 
         {/* Scripture */}
-        <div className="text-center mb-10 px-4">
+        <div className="text-center mb-10 px-4 rounded-xl py-6" style={{ background: '#FFFFFF', border: '1px solid #E4E6EB' }}>
           <p
             className="text-lg mb-1"
-            style={{ color: '#F5E6C8', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 300 }}
+            style={{ color: '#1C1E21', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 300 }}
           >
             &ldquo;{pt.scripture}&rdquo;
           </p>
-          <p className="text-sm" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
+          <p className="text-sm mt-2" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
             — {pt.ref}
           </p>
           {pt.verses.length > 0 && (
-            <p className="text-xs mt-1" style={{ color: '#4a3f2f', fontFamily: 'Lato, sans-serif' }}>
+            <p className="text-xs mt-1" style={{ color: '#BCC0C4', fontFamily: 'Lato, sans-serif' }}>
               Also: {pt.verses.join(' · ')}
             </p>
           )}
@@ -241,13 +259,13 @@ export default function PointView({
             onClick={onBack}
             className="flex-1 rounded-xl px-4 py-3 text-sm font-bold transition-all"
             style={{
-              background: 'transparent',
-              color: '#B8A08A',
-              border: '1.5px solid #1A1208',
+              background: '#FFFFFF',
+              color: '#65676B',
+              border: '1.5px solid #E4E6EB',
               fontFamily: 'Lato, sans-serif',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#4a3f2f')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#1A1208')}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#8A8D91')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#E4E6EB')}
           >
             ← Back
           </button>
@@ -255,8 +273,8 @@ export default function PointView({
             onClick={onMarkDone}
             className="flex-2 flex-grow rounded-xl px-4 py-3 text-sm font-bold transition-all"
             style={{
-              background: isDone ? accent + '33' : accent,
-              color: isDone ? accent : '#0D0A05',
+              background: isDone ? dim : accent,
+              color: isDone ? accent : '#FFFFFF',
               border: isDone ? `1.5px solid ${accent}` : 'none',
               fontFamily: 'Lato, sans-serif',
               letterSpacing: '0.05em',

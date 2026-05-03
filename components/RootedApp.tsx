@@ -214,7 +214,7 @@ export default function RootedApp() {
             <button
               onClick={signOut}
               className="text-xs"
-              style={{ color: '#8A7A6A' }}
+              style={{ color: '#65676B' }}
             >
               Sign out
             </button>

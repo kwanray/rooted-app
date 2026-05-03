@@ -7,13 +7,13 @@ interface Props {
   onContinue: () => void
 }
 
-const SESSION_COLORS = ['#D4A853', '#9B72CF', '#CF6060']
-const SESSION_DIMS = ['#251800', '#190930', '#2E0808']
+const SESSION_COLORS = ['#1877F2', '#8B5CF6', '#EF4444']
+const SESSION_DIMS = ['#E7F0FD', '#EDE9FE', '#FEE2E2']
 
 export default function PhaseCelebrate({ celebrationIdx, onContinue }: Props) {
   const cel = CELEBRATIONS[celebrationIdx]
-  const accent = SESSION_COLORS[celebrationIdx] ?? '#D4A853'
-  const dim = SESSION_DIMS[celebrationIdx] ?? '#251800'
+  const accent = SESSION_COLORS[celebrationIdx] ?? '#1877F2'
+  const dim = SESSION_DIMS[celebrationIdx] ?? '#E7F0FD'
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-16 animate-fade-in">
@@ -40,12 +40,12 @@ export default function PhaseCelebrate({ celebrationIdx, onContinue }: Props) {
               fontFamily: 'Cormorant Garamond, serif',
               fontSize: 'clamp(2rem, 5vw, 3rem)',
               fontWeight: 400,
-              color: '#F5E6C8',
+              color: '#1C1E21',
             }}
           >
             {cel.title}
           </h2>
-          <p className="text-sm" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
+          <p className="text-sm" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}>
             {cel.subtitle}
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function PhaseCelebrate({ celebrationIdx, onContinue }: Props) {
             {cel.established.map((item, i) => (
               <li key={i} className="flex items-start gap-2">
                 <span style={{ color: accent, flexShrink: 0, marginTop: 2 }}>✓</span>
-                <span className="text-sm" style={{ color: '#F5E6C8', fontFamily: 'Lato, sans-serif', lineHeight: 1.6 }}>
+                <span className="text-sm" style={{ color: '#1C1E21', fontFamily: 'Lato, sans-serif', lineHeight: 1.6 }}>
                   {item}
                 </span>
               </li>
@@ -76,32 +76,32 @@ export default function PhaseCelebrate({ celebrationIdx, onContinue }: Props) {
         {/* Save note */}
         <div
           className="rounded-xl px-4 py-3 mb-6 text-center"
-          style={{ background: '#161009', border: '1px solid #1A1208' }}
+          style={{ background: '#FFFFFF', border: '1px solid #E4E6EB' }}
         >
-          <p className="text-xs" style={{ color: '#4a3f2f', fontFamily: 'Lato, sans-serif' }}>
+          <p className="text-xs" style={{ color: '#8A8D91', fontFamily: 'Lato, sans-serif' }}>
             Your progress is saved — you can come back anytime.
           </p>
         </div>
 
         {/* What's next */}
-        <div className="rounded-xl p-5 mb-8" style={{ background: '#161009', border: '1px solid #1A1208' }}>
+        <div className="rounded-xl p-5 mb-8" style={{ background: '#FFFFFF', border: '1px solid #E4E6EB' }}>
           <div
             className="text-xs font-bold tracking-widest mb-1"
-            style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}
+            style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}
           >
             COMING UP NEXT
           </div>
           <div
             className="font-bold mb-3"
-            style={{ color: '#F5E6C8', fontFamily: 'Cormorant Garamond, serif', fontSize: 18 }}
+            style={{ color: '#1C1E21', fontFamily: 'Cormorant Garamond, serif', fontSize: 18 }}
           >
             {cel.nextTitle}
           </div>
           <ul className="flex flex-col gap-1.5">
             {cel.nextPoints.map((p, i) => (
               <li key={i} className="flex items-start gap-2">
-                <span style={{ color: '#4a3f2f', flexShrink: 0, marginTop: 2, fontSize: 12 }}>→</span>
-                <span className="text-sm" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif', lineHeight: 1.5 }}>
+                <span style={{ color: accent, flexShrink: 0, marginTop: 2, fontSize: 12 }}>→</span>
+                <span className="text-sm" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif', lineHeight: 1.5 }}>
                   {p}
                 </span>
               </li>
@@ -114,7 +114,7 @@ export default function PhaseCelebrate({ celebrationIdx, onContinue }: Props) {
           className="w-full rounded-xl px-6 py-4 text-sm font-bold transition-all"
           style={{
             background: accent,
-            color: '#0D0A05',
+            color: '#FFFFFF',
             fontFamily: 'Lato, sans-serif',
             letterSpacing: '0.08em',
           }}

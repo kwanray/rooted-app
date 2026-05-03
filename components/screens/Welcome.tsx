@@ -13,22 +13,22 @@ export default function Welcome({ onStart, onResume, hasProgress }: Props) {
       <div className="mb-8">
         <div
           className="inline-flex items-center justify-center rounded-full mb-4"
-          style={{ width: 72, height: 72, background: '#251800', border: '2px solid #D4A85344' }}
+          style={{ width: 72, height: 72, background: '#E7F0FD', border: '2px solid #1877F244' }}
         >
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
             <path
               d="M18 4 L18 32 M8 14 Q18 8 28 14"
-              stroke="#D4A853"
+              stroke="#1877F2"
               strokeWidth="2"
               strokeLinecap="round"
               fill="none"
             />
-            <circle cx="18" cy="4" r="2" fill="#D4A853" />
+            <circle cx="18" cy="4" r="2" fill="#1877F2" />
           </svg>
         </div>
         <div
           className="text-xs font-bold tracking-widest"
-          style={{ color: '#D4A853', fontFamily: 'Lato, sans-serif', letterSpacing: '0.3em' }}
+          style={{ color: '#1877F2', fontFamily: 'Lato, sans-serif', letterSpacing: '0.3em' }}
         >
           ROOTED
         </div>
@@ -40,23 +40,23 @@ export default function Welcome({ onStart, onResume, hasProgress }: Props) {
           fontFamily: 'Cormorant Garamond, serif',
           fontSize: 'clamp(2.5rem, 6vw, 4rem)',
           fontWeight: 300,
-          color: '#F5E6C8',
+          color: '#1C1E21',
         }}
       >
         Build your faith<br />
-        <em style={{ color: '#D4A853', fontStyle: 'italic' }}>on solid ground.</em>
+        <em style={{ color: '#1877F2', fontStyle: 'italic' }}>on solid ground.</em>
       </h1>
 
       <p
         className="max-w-md mb-3 leading-relaxed"
-        style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif', fontSize: 16 }}
+        style={{ color: '#65676B', fontFamily: 'Lato, sans-serif', fontSize: 16 }}
       >
         A step-by-step journey through the logical case for Christianity — built on Norman Geisler's Twelve Points of classical apologetics.
       </p>
 
       <p
         className="max-w-sm mb-12 text-sm"
-        style={{ color: '#4a3f2f', fontFamily: 'Lato, sans-serif' }}
+        style={{ color: '#8A8D91', fontFamily: 'Lato, sans-serif' }}
       >
         Designed for young Christians in Singapore asking real questions.
       </p>
@@ -64,10 +64,10 @@ export default function Welcome({ onStart, onResume, hasProgress }: Props) {
       {/* Phase tags */}
       <div className="flex flex-wrap gap-2 justify-center mb-12">
         {[
-          { label: 'Knowledge', color: '#D4A853' },
-          { label: 'Existence', color: '#9B72CF' },
-          { label: 'Identity', color: '#CF6060' },
-          { label: 'Authority', color: '#5CCF88' },
+          { label: 'Knowledge', color: '#1877F2' },
+          { label: 'Existence', color: '#8B5CF6' },
+          { label: 'Identity', color: '#EF4444' },
+          { label: 'Authority', color: '#10B981' },
         ].map((tag) => (
           <span
             key={tag.label}
@@ -90,13 +90,13 @@ export default function Welcome({ onStart, onResume, hasProgress }: Props) {
           onClick={onStart}
           className="w-full rounded-xl px-6 py-4 text-sm font-bold transition-all"
           style={{
-            background: '#D4A853',
-            color: '#0D0A05',
+            background: '#1877F2',
+            color: '#FFFFFF',
             fontFamily: 'Lato, sans-serif',
             letterSpacing: '0.08em',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = '#e6b85c')}
-          onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A853')}
+          onMouseEnter={(e) => (e.currentTarget.style.background = '#166FE5')}
+          onMouseLeave={(e) => (e.currentTarget.style.background = '#1877F2')}
         >
           START THE JOURNEY
         </button>
@@ -107,21 +107,21 @@ export default function Welcome({ onStart, onResume, hasProgress }: Props) {
             className="w-full rounded-xl px-6 py-3 text-sm font-bold transition-all"
             style={{
               background: 'transparent',
-              color: '#D4A853',
-              border: '1.5px solid #D4A85344',
+              color: '#1877F2',
+              border: '1.5px solid #1877F244',
               fontFamily: 'Lato, sans-serif',
               letterSpacing: '0.08em',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#D4A85388')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#D4A85344')}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#1877F288')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#1877F244')}
           >
             RESUME JOURNEY
           </button>
         )}
       </div>
 
-      <p className="mt-10 text-xs" style={{ color: '#2a2015', fontFamily: 'Lato, sans-serif' }}>
-        12 points · 4 sessions · Progress saved locally
+      <p className="mt-10 text-xs" style={{ color: '#BCC0C4', fontFamily: 'Lato, sans-serif' }}>
+        12 points · 4 sessions · Progress saved to cloud
       </p>
     </div>
   )

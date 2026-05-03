@@ -17,9 +17,9 @@ export default function FoundationBar({ completed, currentIdx }: Props) {
           const accent = PHASE_ACCENTS[pt.phase]
           const dim = PHASE_DIMS[pt.phase]
 
-          let bg = '#0D0A05'
-          let border = '#1A1208'
-          let textColor = '#4a3f2f'
+          let bg = '#F0F2F5'
+          let border = '#E4E6EB'
+          let textColor = '#BCC0C4'
           let shadow = ''
 
           if (isDone) {

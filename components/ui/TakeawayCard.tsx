@@ -30,7 +30,7 @@ export default function TakeawayCard({ text, accent, dim }: Props) {
         <div className="text-xs font-bold tracking-widest mb-1" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
           ONE LINE TO REMEMBER
         </div>
-        <p className="text-base font-medium leading-snug" style={{ color: '#F5E6C8', fontFamily: 'Cormorant Garamond, serif', fontSize: 18 }}>
+        <p className="text-base font-medium leading-snug" style={{ color: '#1C1E21', fontFamily: 'Cormorant Garamond, serif', fontSize: 18 }}>
           &ldquo;{text}&rdquo;
         </p>
       </div>
@@ -40,7 +40,7 @@ export default function TakeawayCard({ text, accent, dim }: Props) {
         className="flex-shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition-all"
         style={{
           background: copied ? accent : accent + '22',
-          color: copied ? '#0D0A05' : accent,
+          color: copied ? '#FFFFFF' : accent,
           fontFamily: 'Lato, sans-serif',
           letterSpacing: '0.05em',
           minWidth: 56,

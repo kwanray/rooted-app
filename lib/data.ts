@@ -521,17 +521,17 @@ export const PHASE_LABELS: Record<number, string> = {
 }
 
 export const PHASE_ACCENTS: Record<number, string> = {
-  0: '#D4A853',
-  1: '#9B72CF',
-  2: '#CF6060',
-  3: '#5CCF88',
+  0: '#1877F2',
+  1: '#8B5CF6',
+  2: '#EF4444',
+  3: '#10B981',
 }
 
 export const PHASE_DIMS: Record<number, string> = {
-  0: '#251800',
-  1: '#190930',
-  2: '#2E0808',
-  3: '#082416',
+  0: '#E7F0FD',
+  1: '#EDE9FE',
+  2: '#FEE2E2',
+  3: '#D1FAE5',
 }
 
 export const SESSION_BREAK_INDICES = [1, 5, 8]
