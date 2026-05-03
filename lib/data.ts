@@ -148,7 +148,7 @@ export const POINTS: Point[] = [
     n: 4,
     title: 'If God Exists, Miracles Are Possible',
     short: 'Miracles Possible',
-    phase: 1,
+    phase: 2,
     highlight: ['science', 'bible'],
     highlightMsg: `Miracles aren't anti-science — they're only impossible if you've already ruled out God.`,
     takeaway: `A God who created the universe can certainly act within it.`,
@@ -183,7 +183,7 @@ export const POINTS: Point[] = [
     n: 5,
     title: `Miracles Confirm God's Messengers`,
     short: 'Miracles Confirm',
-    phase: 1,
+    phase: 2,
     highlight: ['bible', 'jesus'],
     highlightMsg: `This is why Jesus's resurrection isn't just a religious claim — it's God's own seal of approval.`,
     takeaway: `God would not use miracles to endorse a liar or a fraud.`,
@@ -218,7 +218,7 @@ export const POINTS: Point[] = [
     n: 6,
     title: 'The New Testament Is Historically Reliable',
     short: 'NT Reliable',
-    phase: 2,
+    phase: 3,
     highlight: ['bible', 'inherited'],
     highlightMsg: `The NT is more historically attested than any other ancient document — better than Caesar or Plato.`,
     takeaway: `The New Testament passes every test applied to ancient documents.`,
@@ -253,7 +253,7 @@ export const POINTS: Point[] = [
     n: 7,
     title: 'Jesus Claimed to Be God',
     short: `Jesus's Claim`,
-    phase: 2,
+    phase: 3,
     highlight: ['jesus', 'defense'],
     highlightMsg: `The "Jesus was just a good teacher" position is precisely what his own words make impossible.`,
     takeaway: `Jesus left no room for the "just a great moral teacher" option.`,
@@ -288,7 +288,7 @@ export const POINTS: Point[] = [
     n: 8,
     title: `Jesus's Claim Was Confirmed by Miracles`,
     short: 'Claim Confirmed',
-    phase: 2,
+    phase: 3,
     highlight: ['jesus', 'science'],
     highlightMsg: `The resurrection isn't just a doctrine — it's a historical event with multiple, independent lines of evidence.`,
     takeaway: `The resurrection is the best-evidenced miracle in history.`,
@@ -323,7 +323,7 @@ export const POINTS: Point[] = [
     n: 9,
     title: 'Therefore, Jesus Is God',
     short: 'Jesus Is God',
-    phase: 2,
+    phase: 3,
     highlight: ['jesus', 'inherited'],
     highlightMsg: `This isn't blind faith — it's the logical conclusion of everything the evidence has established so far.`,
     takeaway: `The argument is complete: God confirmed Jesus's identity through resurrection.`,
@@ -393,7 +393,7 @@ export const POINTS: Point[] = [
     n: 11,
     title: "Jesus Affirmed the Bible as God's Word",
     short: 'Bible Affirmed',
-    phase: 3,
+    phase: 4,
     highlight: ['bible', 'inherited'],
     highlightMsg: `Jesus didn't just use the Bible — he staked his authority on it, and confirmed the entire OT and the coming NT.`,
     takeaway: `Jesus quoted, fulfilled, and endorsed Scripture as the Word of God.`,
@@ -428,7 +428,7 @@ export const POINTS: Point[] = [
     n: 12,
     title: 'Therefore, the Bible Is the Word of God',
     short: 'Bible = Word',
-    phase: 3,
+    phase: 4,
     highlight: ['bible', 'defense', 'inherited'],
     highlightMsg: `The chain is complete — and it rests on logic and history, not circular reasoning.`,
     takeaway: `The Bible's authority rests on God's existence and Jesus's endorsement — not on itself.`,
@@ -464,27 +464,27 @@ export const POINTS: Point[] = [
 export const CELEBRATIONS: Celebration[] = [
   {
     session: 1,
-    title: 'Foundation Laid',
-    subtitle: 'Session 1 Complete — The Tools of Truth',
+    title: 'Truth Established',
+    subtitle: 'Session 1 Complete — The Foundations of Truth',
     established: [
       'Truth about reality is knowable and objective',
       'Logic and non-contradiction are unavoidable foundations',
     ],
-    nextTitle: 'Session 2 — Does God Exist?',
+    nextTitle: 'Session 2 — God & Miracles',
     nextPoints: [
       'The universe demands a Creator',
-      "Miracles are possible if God exists",
-      "Miracles can authenticate God's messengers",
+      'Miracles are possible once God exists',
+      "Miracles authenticate God's messengers",
       'The New Testament passes every historical test',
     ],
   },
   {
     session: 2,
-    title: 'God Is Real',
-    subtitle: 'Session 2 Complete — From Cosmos to Christ',
+    title: 'God & Miracles Confirmed',
+    subtitle: 'Session 2 Complete — God, Miracles & the Case for Christ',
     established: [
       'A theistic God exists — eternal, personal, all-powerful',
-      "Miracles are logically possible once God exists",
+      'Miracles are logically possible once God exists',
       "Miracles authenticate God's true messengers",
       "The New Testament is one of history's best-attested documents",
     ],
@@ -514,24 +514,27 @@ export const CELEBRATIONS: Celebration[] = [
 ]
 
 export const PHASE_LABELS: Record<number, string> = {
-  0: 'Knowledge',
-  1: 'Existence',
-  2: 'Identity',
-  3: 'Authority',
+  0: 'Truth',
+  1: 'God',
+  2: 'Miracles',
+  3: 'Jesus',
+  4: 'Bible',
 }
 
 export const PHASE_ACCENTS: Record<number, string> = {
   0: '#1877F2',
   1: '#8B5CF6',
-  2: '#EF4444',
-  3: '#10B981',
+  2: '#F59E0B',
+  3: '#EF4444',
+  4: '#10B981',
 }
 
 export const PHASE_DIMS: Record<number, string> = {
   0: '#E7F0FD',
   1: '#EDE9FE',
-  2: '#FEE2E2',
-  3: '#D1FAE5',
+  2: '#FEF3C7',
+  3: '#FEE2E2',
+  4: '#D1FAE5',
 }
 
 export const SESSION_BREAK_INDICES = [1, 5, 8]

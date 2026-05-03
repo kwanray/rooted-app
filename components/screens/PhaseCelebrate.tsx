@@ -7,8 +7,8 @@ interface Props {
   onContinue: () => void
 }
 
-const SESSION_COLORS = ['#1877F2', '#8B5CF6', '#EF4444']
-const SESSION_DIMS = ['#E7F0FD', '#EDE9FE', '#FEE2E2']
+const SESSION_COLORS = ['#1877F2', '#F59E0B', '#EF4444']
+const SESSION_DIMS = ['#E7F0FD', '#FEF3C7', '#FEE2E2']
 
 export default function PhaseCelebrate({ celebrationIdx, onContinue }: Props) {
   const cel = CELEBRATIONS[celebrationIdx]
@@ -25,7 +25,7 @@ export default function PhaseCelebrate({ celebrationIdx, onContinue }: Props) {
             style={{ width: 72, height: 72, background: dim, border: `2px solid ${accent}55` }}
           >
             <span style={{ fontSize: 32 }}>
-              {celebrationIdx === 0 ? '🏛️' : celebrationIdx === 1 ? '⭐' : '✝️'}
+              {celebrationIdx === 0 ? '💡' : celebrationIdx === 1 ? '✨' : '✝️'}
             </span>
           </div>
           <div

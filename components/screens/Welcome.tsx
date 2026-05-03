@@ -44,15 +44,15 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
           color: '#1C1E21',
         }}
       >
-        Build your faith<br />
-        <em style={{ color: '#1877F2', fontStyle: 'italic' }}>on solid ground.</em>
+        Rooted in Truth.<br />
+        <em style={{ color: '#1877F2', fontStyle: 'italic' }}>Grounded in Faith.</em>
       </h1>
 
       <p
         className="max-w-md mb-3 leading-relaxed"
         style={{ color: '#65676B', fontFamily: 'Lato, sans-serif', fontSize: 16 }}
       >
-        A step-by-step journey through the logical case for Christianity — built on Norman Geisler's Twelve Points of classical apologetics.
+        Walk through the foundations of truth, God, miracles, Bible and Jesus in 12 steps.
       </p>
 
       <p
@@ -65,10 +65,11 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
       {/* Phase tags */}
       <div className="flex flex-wrap gap-2 justify-center mb-12">
         {[
-          { label: 'Knowledge', color: '#1877F2' },
-          { label: 'Existence', color: '#8B5CF6' },
-          { label: 'Identity', color: '#EF4444' },
-          { label: 'Authority', color: '#10B981' },
+          { label: 'Truth', color: '#1877F2' },
+          { label: 'God', color: '#8B5CF6' },
+          { label: 'Miracles', color: '#F59E0B' },
+          { label: 'Jesus', color: '#EF4444' },
+          { label: 'Bible', color: '#10B981' },
         ].map((tag) => (
           <span
             key={tag.label}

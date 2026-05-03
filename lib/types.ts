@@ -1,4 +1,4 @@
-export type Phase = 0 | 1 | 2 | 3
+export type Phase = 0 | 1 | 2 | 3 | 4
 
 export type SpecialViz = 'surge' | '5es' | 'trilemma' | 'attributes' | null
 
