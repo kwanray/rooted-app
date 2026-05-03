@@ -9,11 +9,11 @@ interface Props {
 }
 
 const SURGE_ROWS = [
-  { letter: 'S', head: 'Something Exists', body: 'We know beyond doubt that something exists right now — including us. The question is: why is there something rather than nothing?' },
-  { letter: 'U', head: 'Universe Began', body: 'Modern cosmology (Big Bang, thermodynamic entropy) confirms the universe had an absolute beginning. It is not eternal.' },
-  { letter: 'R', head: 'Requires a Cause', body: 'Everything that begins to exist has a cause. The universe began. Therefore the universe has a cause outside itself.' },
-  { letter: 'G', head: 'God Is That Cause', body: 'The cause must be uncaused, spaceless, timeless, and immensely powerful. This is precisely what theists mean by God.' },
-  { letter: 'E', head: 'Eternal Personal Being', body: 'The cause must be personal — only a personal agent can choose to create. An impersonal force has no power of initiation.' },
+  { letter: 'S', head: 'Second Law of Thermodynamics', body: 'Usable energy in the universe is constantly being depleted. Since the universe is running down, it cannot be eternal — it had a starting point with maximum usable energy.' },
+  { letter: 'U', head: 'Universe is Expanding', body: 'Galaxy redshifts show the universe is expanding outward from a single point. Wind the expansion back and everything converges to an absolute beginning — the Big Bang.' },
+  { letter: 'R', head: 'Radiation Afterglow', body: 'The cosmic microwave background radiation is the residual heat left over from the Big Bang explosion — a direct fingerprint confirming the universe had a fiery origin.' },
+  { letter: 'G', head: 'Great Galaxy Seeds', body: 'Tiny variations in the cosmic microwave background radiation provided the "seeds" that allowed matter to clump together and form galaxies. Without them, the universe would be a uniform void.' },
+  { letter: 'E', head: 'Einstein\'s General Relativity', body: 'Einstein\'s equations prove that space, time, and matter are interconnected and had a definite beginning. The universe is not a static, eternal backdrop — it came into existence.' },
 ]
 
 const FIVES_ES_NT = [
