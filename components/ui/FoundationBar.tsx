@@ -1,6 +1,6 @@
 'use client'
 
-import { POINTS, PHASE_ACCENTS, PHASE_DIMS } from '@/lib/data'
+import { POINTS, PHASE_ACCENTS, PHASE_DIMS, PHASE_LABELS } from '@/lib/data'
 
 interface Props {
   completed: number[]
@@ -63,7 +63,7 @@ export default function FoundationBar({ completed, currentIdx }: Props) {
         })}
       </div>
       <div className="flex gap-4 justify-center mt-2 flex-wrap">
-        {[0, 1, 2, 3].map((phase) => (
+        {[0, 1, 2, 3, 4].map((phase) => (
           <div key={phase} className="flex items-center gap-1">
             <div
               style={{
@@ -76,7 +76,7 @@ export default function FoundationBar({ completed, currentIdx }: Props) {
             <span
               style={{ fontSize: 9, color: PHASE_ACCENTS[phase], fontFamily: 'Lato, sans-serif', letterSpacing: '0.05em' }}
             >
-              {['Knowledge', 'Existence', 'Identity', 'Authority'][phase]}
+              {PHASE_LABELS[phase]}
             </span>
           </div>
         ))}
