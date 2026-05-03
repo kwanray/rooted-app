@@ -197,7 +197,7 @@ export default function RootedApp() {
   }
 
   return (
-    <main style={{ background: '#0D0A05', minHeight: '100vh' }}>
+    <main style={{ background: '#F0F2F5', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
         <>
           {/* User avatar + sign out */}
