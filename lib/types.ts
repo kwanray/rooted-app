@@ -52,6 +52,7 @@ export type Screen =
   | 'celebrate'
   | 'personal-response'
   | 'complete'
+  | 'search'
 
 export interface AppState {
   screen: Screen

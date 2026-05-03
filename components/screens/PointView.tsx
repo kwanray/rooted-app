@@ -17,6 +17,7 @@ interface Props {
   onReflectionChange: (val: string) => void
   onMarkDone: () => void
   onBack: () => void
+  onSearch: () => void
 }
 
 const POINT_ICONS = ['🔍', '⚖️', '🌌', '✨', '📜', '📖', '✝️', '☀️', '👑', '💬', '📝', '📕']
@@ -29,6 +30,7 @@ export default function PointView({
   onReflectionChange,
   onMarkDone,
   onBack,
+  onSearch,
 }: Props) {
   const pt = POINTS[idx]
   const accent = PHASE_ACCENTS[pt.phase]
@@ -42,10 +44,23 @@ export default function PointView({
     <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: 'var(--bg)' }}>
       {/* Foundation bar */}
       <div
-        className="sticky top-0 z-10"
+        className="sticky top-0 z-10 flex items-center"
         style={{ background: '#FFFFFF', borderBottom: '1px solid #E4E6EB', boxShadow: '0 1px 4px #0001' }}
       >
-        <FoundationBar completed={completed} currentIdx={idx} />
+        <div className="flex-1">
+          <FoundationBar completed={completed} currentIdx={idx} />
+        </div>
+        <button
+          onClick={onSearch}
+          className="flex-shrink-0 flex items-center justify-center mr-3"
+          style={{ width: 34, height: 34, borderRadius: '50%', background: '#F0F2F5', border: '1px solid #E4E6EB', color: '#65676B' }}
+          aria-label="Search"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
       </div>
 
       <div className="flex-1 w-full max-w-2xl mx-auto px-4 py-8">

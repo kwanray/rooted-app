@@ -3,10 +3,11 @@
 interface Props {
   onStart: () => void
   onResume: () => void
+  onSearch: () => void
   hasProgress: boolean
 }
 
-export default function Welcome({ onStart, onResume, hasProgress }: Props) {
+export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Props) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center animate-fade-in">
       {/* Logo mark */}
@@ -118,6 +119,26 @@ export default function Welcome({ onStart, onResume, hasProgress }: Props) {
             RESUME JOURNEY
           </button>
         )}
+
+        <button
+          onClick={onSearch}
+          className="w-full rounded-xl px-6 py-3 text-sm font-bold flex items-center justify-center gap-2 transition-all"
+          style={{
+            background: '#FFFFFF',
+            color: '#65676B',
+            border: '1.5px solid #E4E6EB',
+            fontFamily: 'Lato, sans-serif',
+            letterSpacing: '0.05em',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#8A8D91')}
+          onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#E4E6EB')}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          SEARCH ALL CONTENT
+        </button>
       </div>
 
       <p className="mt-10 text-xs" style={{ color: '#BCC0C4', fontFamily: 'Lato, sans-serif' }}>

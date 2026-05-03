@@ -20,6 +20,7 @@ import PointView from '@/components/screens/PointView'
 import PhaseCelebrate from '@/components/screens/PhaseCelebrate'
 import PersonalResponse from '@/components/screens/PersonalResponse'
 import Complete from '@/components/screens/Complete'
+import Search from '@/components/screens/Search'
 import SignIn from '@/components/SignIn'
 
 const INITIAL_STATE: AppState = {
@@ -38,6 +39,7 @@ export default function RootedApp() {
   const [showResume, setShowResume] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [guestMode, setGuestMode] = useState(false)
+  const [searchReturnScreen, setSearchReturnScreen] = useState<AppState['screen']>('welcome')
 
   useEffect(() => {
     if (authLoading) return
@@ -171,6 +173,23 @@ export default function RootedApp() {
     update({ screen: 'complete' })
   }
 
+  const handleOpenSearch = () => {
+    setSearchReturnScreen(state.screen)
+    setState((prev) => ({ ...prev, screen: 'search' }))
+  }
+
+  const handleSearchNavigate = (idx: number) => {
+    setState((prev) => ({
+      ...prev,
+      screen: 'point',
+      idx,
+    }))
+  }
+
+  const handleSearchBack = () => {
+    setState((prev) => ({ ...prev, screen: searchReturnScreen }))
+  }
+
   const handleReset = () => {
     clearProgress()
     if (user) clearProgressFromFirestore(user.uid)
@@ -220,7 +239,7 @@ export default function RootedApp() {
               </button>
             )}
           </div>
-          <Welcome onStart={handleStart} onResume={handleResume} hasProgress={showResume} />
+          <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} />
         </>
       )}
 
@@ -237,6 +256,7 @@ export default function RootedApp() {
           onReflectionChange={handleReflectionChange}
           onMarkDone={handleMarkDone}
           onBack={handleBack}
+          onSearch={handleOpenSearch}
         />
       )}
 
@@ -257,6 +277,10 @@ export default function RootedApp() {
 
       {state.screen === 'complete' && (
         <Complete onReset={handleReset} />
+      )}
+
+      {state.screen === 'search' && (
+        <Search onNavigate={handleSearchNavigate} onBack={handleSearchBack} />
       )}
     </main>
   )
