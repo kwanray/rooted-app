@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { PAIN_POINTS } from '@/lib/data'
+import { PAIN_POINTS, PAIN_POINT_ENTRY, PHASE_ACCENTS, PHASE_DIMS, POINTS } from '@/lib/data'
 import type { PainPointId } from '@/lib/types'
 
 interface Props {
@@ -40,7 +40,7 @@ export default function PainPoint({ onSelect }: Props) {
           className="text-center mb-10 text-sm"
           style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}
         >
-          Select the one that resonates most. You'll journey through all 12 points — but the content will be personalised to your question.
+          Select the one that resonates most. You'll cover all 12 points — starting with what matters to you, then building the complete foundation.
         </p>
 
         <div className="flex flex-col gap-3 mb-8">
@@ -73,11 +73,29 @@ export default function PainPoint({ onSelect }: Props) {
                       {pp.desc}
                     </div>
                     {(isHovered || isSelected) && (
-                      <div
-                        className="mt-2 text-xs leading-relaxed"
-                        style={{ color: '#1877F2', fontFamily: 'Lato, sans-serif' }}
-                      >
-                        {pp.hint}
+                      <div className="mt-2 flex flex-col gap-1.5">
+                        <div
+                          className="text-xs leading-relaxed"
+                          style={{ color: '#1877F2', fontFamily: 'Lato, sans-serif' }}
+                        >
+                          {pp.hint}
+                        </div>
+                        <div className="flex items-center gap-1.5 mt-0.5">
+                          {(() => {
+                            const entryIdx = PAIN_POINT_ENTRY[pp.id]
+                            const phase = POINTS[entryIdx].phase
+                            const accent = PHASE_ACCENTS[phase]
+                            const dim = PHASE_DIMS[phase]
+                            return (
+                              <span
+                                className="text-xs font-bold px-2 py-0.5 rounded-full"
+                                style={{ background: dim, color: accent, border: `1px solid ${accent}33`, fontFamily: 'Lato, sans-serif' }}
+                              >
+                                {pp.journeyHint}
+                              </span>
+                            )
+                          })()}
+                        </div>
                       </div>
                     )}
                   </div>

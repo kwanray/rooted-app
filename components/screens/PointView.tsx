@@ -11,6 +11,7 @@ import type { PainPointId } from '@/lib/types'
 
 interface Props {
   idx: number
+  startingIdx: number
   completed: number[]
   painPointId: PainPointId | null
   reflection: string
@@ -24,6 +25,7 @@ const POINT_ICONS = ['🔍', '⚖️', '🌌', '✨', '📜', '📖', '✝️', 
 
 export default function PointView({
   idx,
+  startingIdx,
   completed,
   painPointId,
   reflection,
@@ -40,6 +42,13 @@ export default function PointView({
   const isDone = completed.includes(idx)
   const [argsOpen, setArgsOpen] = useState(false)
 
+  const isEntryPoint = startingIdx > 0 && idx === startingIdx
+  const isBacktracking = startingIdx > 0 && idx < startingIdx
+  const entryBanner = isEntryPoint && painPointId ? pt.entryBanners?.[painPointId] : null
+  const activeHighlightMsg = painPointId && pt.highlightMsgs?.[painPointId]
+    ? pt.highlightMsgs[painPointId]
+    : pt.highlightMsg
+
   return (
     <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: 'var(--bg)' }}>
       {/* Foundation bar */}
@@ -48,7 +57,7 @@ export default function PointView({
         style={{ background: '#FFFFFF', borderBottom: '1px solid #E4E6EB', boxShadow: '0 1px 4px #0001' }}
       >
         <div className="flex-1">
-          <FoundationBar completed={completed} currentIdx={idx} />
+          <FoundationBar completed={completed} currentIdx={idx} startingIdx={startingIdx} />
         </div>
         <button
           onClick={onSearch}
@@ -83,7 +92,37 @@ export default function PointView({
           </span>
         </div>
 
-        {/* Highlight banner */}
+        {/* Entry banner — shown only on the very first point of a circular journey */}
+        {entryBanner && (
+          <div
+            className="rounded-xl p-4 mb-6 border"
+            style={{ background: '#FEF3C7', borderColor: '#F59E0B44' }}
+          >
+            <div className="flex items-start gap-2">
+              <span style={{ fontSize: 16, flexShrink: 0 }}>🧭</span>
+              <p className="text-sm leading-relaxed" style={{ color: '#92400E', fontFamily: 'Lato, sans-serif' }}>
+                {entryBanner}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Backtrack banner — shown on foundation points after looping back */}
+        {isBacktracking && (
+          <div
+            className="rounded-xl p-4 mb-6 border"
+            style={{ background: dim, borderColor: accent + '44' }}
+          >
+            <div className="flex items-start gap-2">
+              <span style={{ fontSize: 16, flexShrink: 0 }}>🏗️</span>
+              <p className="text-sm leading-relaxed" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
+                Foundation point — this underpins everything you've already read.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Personalised highlight banner */}
         {isHighlighted && (
           <div
             className="rounded-xl p-4 mb-6 border"
@@ -92,7 +131,7 @@ export default function PointView({
             <div className="flex items-start gap-2">
               <span style={{ fontSize: 16, flexShrink: 0 }}>✦</span>
               <p className="text-sm leading-relaxed" style={{ color: '#1877F2', fontFamily: 'Lato, sans-serif' }}>
-                {pt.highlightMsg}
+                {activeHighlightMsg}
               </p>
             </div>
           </div>

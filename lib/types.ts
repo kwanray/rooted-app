@@ -14,6 +14,8 @@ export interface Point {
   phase: Phase
   highlight: string[]
   highlightMsg: string
+  highlightMsgs?: Partial<Record<PainPointId, string>>
+  entryBanners?: Partial<Record<PainPointId, string>>
   takeaway: string
   claim: string
   sg: string
@@ -43,6 +45,7 @@ export interface PainPoint {
   label: string
   desc: string
   hint: string
+  journeyHint: string
 }
 
 export type Screen =
@@ -53,11 +56,13 @@ export type Screen =
   | 'personal-response'
   | 'complete'
   | 'search'
+  | 'foundation-bridge'
 
 export interface AppState {
   screen: Screen
   painPointId: PainPointId | null
   idx: number
+  startingIdx: number
   completed: number[]
   reflections: Record<number, string>
   declaration: string
@@ -67,6 +72,7 @@ export interface AppState {
 export interface SavedProgress {
   painPointId: PainPointId | null
   idx: number
+  startingIdx?: number
   completed: number[]
   reflections: Record<number, string>
   declaration?: string

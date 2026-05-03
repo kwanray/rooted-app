@@ -7,6 +7,7 @@ export const PAIN_POINTS: PainPoint[] = [
     label: `I inherited this faith`,
     desc: `I grew up Christian but wonder if I actually believe it for myself.`,
     hint: `Your faith can move from borrowed to owned — built on reasons you've examined yourself.`,
+    journeyHint: `Full journey from Point 1 — evaluate the case from first principles.`,
   },
   {
     id: 'science',
@@ -14,6 +15,7 @@ export const PAIN_POINTS: PainPoint[] = [
     label: `Science seems to contradict faith`,
     desc: `Evolution, the Big Bang, neuroscience — it feels like Christianity can't keep up.`,
     hint: `Many of the best arguments for God come from science itself. You may be surprised.`,
+    journeyHint: `Starting at Point 3 — the cosmological case for God, built from physics.`,
   },
   {
     id: 'bible',
@@ -21,6 +23,7 @@ export const PAIN_POINTS: PainPoint[] = [
     label: `I doubt the Bible's reliability`,
     desc: `How do we know it wasn't changed, fabricated, or just legend?`,
     hint: `The NT is among the best-attested ancient documents in history. Let's look at the evidence.`,
+    journeyHint: `Starting at Point 6 — the New Testament examined as a historical document.`,
   },
   {
     id: 'jesus',
@@ -28,6 +31,7 @@ export const PAIN_POINTS: PainPoint[] = [
     label: `I'm not sure about Jesus`,
     desc: `Maybe he was a great teacher, but claiming to be God seems like a stretch.`,
     hint: `The evidence for the resurrection is stronger than most people realise. Let's examine it.`,
+    journeyHint: `Starting at Point 7 — what Jesus actually claimed, and what the evidence says.`,
   },
   {
     id: 'defense',
@@ -35,6 +39,7 @@ export const PAIN_POINTS: PainPoint[] = [
     label: `I want to defend my faith better`,
     desc: `Friends and colleagues challenge me and I don't know how to respond.`,
     hint: `Classical apologetics gives you a logical, step-by-step framework anyone can follow.`,
+    journeyHint: `Full journey from Point 1 — the complete logical framework, step by step.`,
   },
 ]
 
@@ -46,6 +51,11 @@ export const POINTS: Point[] = [
     phase: 0,
     highlight: ['inherited', 'defense'],
     highlightMsg: `If you've been told faith is just personal opinion — this point shows why objective truth is unavoidable.`,
+    highlightMsgs: {
+      inherited: `Owning your faith starts here — can truth even be known? This point shows it can, and that you can't avoid it.`,
+      defense: `Every conversation about faith rests on this foundation. Without objective truth, no argument matters — yours or theirs.`,
+      science: `Science itself assumes objective truth exists. This point makes that assumption explicit and shows why it can't be abandoned.`,
+    },
     takeaway: `Truth is not relative; denying it proves it.`,
     claim: `Objective truth about reality exists and is knowable by the human mind.`,
     sg: `In Singapore's multicultural climate, it's common to hear "all religions are equally true" or "truth is what works for you." But if everything is equally true, then the statement "all truths are relative" must itself be absolutely true — a self-defeating contradiction. Geisler's starting point isn't aggressive; it's the foundation that makes any conversation meaningful. Without it, you cannot even say that science is more reliable than astrology.`,
@@ -81,6 +91,11 @@ export const POINTS: Point[] = [
     phase: 0,
     highlight: ['science', 'defense'],
     highlightMsg: `Science itself depends on this principle — without it, no experimental result could ever rule anything out.`,
+    highlightMsgs: {
+      science: `Every experiment assumes that a result either confirms or refutes a hypothesis — not both. Logic is science's silent foundation.`,
+      defense: `This is the tool that cuts through vague pluralism: Christianity and Islam cannot both be true. Words mean things.`,
+      inherited: `Inheriting a faith doesn't mean it's false — but it does mean you should examine whether its claims hold up logically. Start here.`,
+    },
     takeaway: `A God who both exists and doesn't exist is no God at all.`,
     claim: `The law of non-contradiction is the bedrock of all knowledge — including religious knowledge.`,
     sg: `Singaporeans are culturally wired toward harmony and away from confrontation. This is a strength — but it can blur into a false tolerance where we treat incompatible worldviews as equally valid to avoid offence. Christianity, Islam, and atheism make mutually exclusive truth claims. They cannot all be true simultaneously. Acknowledging this is not intolerance; it is intellectual honesty, and it is the only path to genuine dialogue.`,
@@ -116,6 +131,13 @@ export const POINTS: Point[] = [
     phase: 1,
     highlight: ['science', 'inherited'],
     highlightMsg: `The very existence of the universe — and its fine-tuning for life — points powerfully to a Creator.`,
+    highlightMsgs: {
+      science: `These arguments don't require faith to follow — they're built from thermodynamics, cosmic expansion, and Einstein's equations. Science points here.`,
+      inherited: `If you're going to own your faith, this is where to start: does the universe actually require a cause? The evidence is stronger than you might think.`,
+    },
+    entryBanners: {
+      science: `You're starting here because science and faith feel at odds. These arguments come straight from physics and cosmology — and they point somewhere surprising. After this section, you'll complete the full case by briefly revisiting the philosophical foundations at the end.`,
+    },
     takeaway: `Something cannot come from nothing; the universe needs a Cause.`,
     claim: `An eternal, all-powerful, personal Creator necessarily exists as the explanation for the universe.`,
     sg: `In Singapore, many educated people identify as "free thinkers" — a label that sounds open-minded, but in practice often means closed to the idea that a creator God exists. The irony is that true open-mindedness has to follow the evidence wherever it leads. And the evidence is striking: the Big Bang confirms the universe had a beginning — and whatever begins to exist has a cause. The cause of all space, time, matter, and energy must itself be outside space, time, matter, and energy: eternal, immaterial, unimaginably powerful, and personal (since it chose to create). That is precisely what Christians mean by God. The real free thinker is the one willing to consider that.`,
@@ -151,6 +173,10 @@ export const POINTS: Point[] = [
     phase: 2,
     highlight: ['science', 'bible'],
     highlightMsg: `Miracles aren't anti-science — they're only impossible if you've already ruled out God.`,
+    highlightMsgs: {
+      science: `Rejecting miracles because "science rules them out" assumes naturalism before you've examined the evidence. This point shows why that's circular.`,
+      bible: `The reliability of the NT's miracle accounts depends on whether miracles are even possible. This point clears that hurdle first.`,
+    },
     takeaway: `A God who created the universe can certainly act within it.`,
     claim: `If an all-powerful Creator God exists, then supernatural intervention in the natural order is possible.`,
     sg: `Many educated Singaporeans reject miracles not on the basis of evidence but on a prior philosophical commitment to naturalism: the belief that nature is all there is. But that commitment is itself not scientifically proven — it is a worldview assumption. Once we acknowledge that God created the natural order, there is no logical reason he cannot act within it. Rejecting miracles because "they don't happen" is circular reasoning if God's existence has already been established.`,
@@ -186,6 +212,10 @@ export const POINTS: Point[] = [
     phase: 2,
     highlight: ['bible', 'jesus'],
     highlightMsg: `This is why Jesus's resurrection isn't just a religious claim — it's God's own seal of approval.`,
+    highlightMsgs: {
+      bible: `If miracles authenticate God's messengers, and Jesus rose from the dead, then what he endorsed — including every book of the Bible — carries divine authority.`,
+      jesus: `The resurrection is the evidence. If it happened, it's God's own verdict that everything Jesus said is true. This is the hinge the whole argument turns on.`,
+    },
     takeaway: `God would not use miracles to endorse a liar or a fraud.`,
     claim: `God uses miracles to confirm the message of those he sends — and he would not authenticate false teachers.`,
     sg: `In Singapore's context of religious pluralism, the question naturally arises: why trust Jesus over other religious founders? Geisler's answer is principled, not sectarian. Any teacher making claims about God who is confirmed by genuine miracles — especially a uniquely verifiable one like resurrection — has divine endorsement. Other religious founders' miracles are historically thin or unverifiable. The resurrection of Jesus is a singular, testable historical claim, supported by multiple independent lines of evidence.`,
@@ -221,6 +251,14 @@ export const POINTS: Point[] = [
     phase: 3,
     highlight: ['bible', 'inherited'],
     highlightMsg: `The NT is more historically attested than any other ancient document — better than Caesar or Plato.`,
+    highlightMsgs: {
+      bible: `This point speaks directly to your doubt. The NT passes every test historians apply to ancient documents — manuscript count, eyewitness claims, external corroboration. It's not legend.`,
+      jesus: `Before we evaluate what Jesus claimed, we need to know whether the documents reporting those claims can be trusted. This is that foundation.`,
+      inherited: `Owning your faith means examining the evidence yourself. This is what the historical evidence for the NT actually looks like — not secondhand scepticism.`,
+    },
+    entryBanners: {
+      bible: `You're starting here because you're not sure the Bible can be trusted. This section examines the New Testament the way historians examine any ancient source — manuscript evidence, eyewitness claims, external records. After working through to Point 12, you'll loop back to see the logical foundation that makes it all coherent.`,
+    },
     takeaway: `The New Testament passes every test applied to ancient documents.`,
     claim: `The New Testament documents are historically reliable accounts of the life and teaching of Jesus.`,
     sg: `Many Singapore students encounter the claim that the Bible was "changed" or "made up" by the Church — an idea that has spread through popular fiction and online content. But this is historically uninformed. The New Testament documents were written within the lifetime of eyewitnesses (some within 20 years of the events), are preserved in over 5,700 Greek manuscripts, and are corroborated by Roman and Jewish historians who had no interest in promoting Christianity. No serious ancient historian dismisses Jesus's existence.`,
@@ -256,6 +294,14 @@ export const POINTS: Point[] = [
     phase: 3,
     highlight: ['jesus', 'defense'],
     highlightMsg: `The "Jesus was just a good teacher" position is precisely what his own words make impossible.`,
+    highlightMsgs: {
+      jesus: `This is where your question gets answered directly. Jesus didn't leave room for "great teacher" — the words are too extreme. You have to decide what to do with them.`,
+      defense: `This is the Liar, Lunatic, or Lord argument. It's one of the most effective tools for cutting through the vague "Jesus was a good person" deflection.`,
+      bible: `The claims recorded in the NT aren't incidental — they're the whole point. Jesus claimed things no mere teacher would dare claim. The documents are reporting, not inventing.`,
+    },
+    entryBanners: {
+      jesus: `You're starting here because you're unsure about Jesus. We'll examine what he actually claimed, why "good teacher" doesn't hold up, and what the evidence for the resurrection looks like. After Point 12, you'll loop back to the foundations — why God's existence makes the resurrection coherent.`,
+    },
     takeaway: `Jesus left no room for the "just a great moral teacher" option.`,
     claim: `The New Testament clearly records that Jesus of Nazareth claimed to be the divine Son of God.`,
     sg: `Many Singaporeans — influenced by a pluralistic culture — prefer to see Jesus as one of many great religious teachers. This is a comfortable but historically untenable position. Jesus made claims no mere teacher would make: he forgave sins (a divine prerogative), accepted worship, identified himself with YHWH ("Before Abraham was, I AM"), and told his disciples that seeing him was seeing the Father. These are not the statements of a humble moral guide — they are the claims of someone who believed he was God in human form.`,
@@ -291,6 +337,10 @@ export const POINTS: Point[] = [
     phase: 3,
     highlight: ['jesus', 'science'],
     highlightMsg: `The resurrection isn't just a doctrine — it's a historical event with multiple, independent lines of evidence.`,
+    highlightMsgs: {
+      jesus: `This is where faith meets history. The resurrection either happened or it didn't — and the evidence (empty tomb, 500+ witnesses, hostile converts) demands a verdict.`,
+      science: `Approach this as a historian would: what is the best explanation for the empty tomb, the appearances, and the explosive growth of the church in Jerusalem weeks after the crucifixion?`,
+    },
     takeaway: `The resurrection is the best-evidenced miracle in history.`,
     claim: `Jesus's divine claim was uniquely confirmed by his resurrection from the dead and other miraculous acts.`,
     sg: `In Singapore, where pragmatism rules, the resurrection is often dismissed as too fantastic to investigate. But consider: what if the question isn't "can dead men rise?" but "did this particular man rise?" The evidence for the resurrection — empty tomb, post-death appearances to hundreds of witnesses, the conversion of Paul and James, the explosion of the early church among hostile eyewitnesses — demands a historical explanation. The resurrection is not a feeling or a metaphor. It is a proposed historical fact.`,
@@ -326,6 +376,10 @@ export const POINTS: Point[] = [
     phase: 3,
     highlight: ['jesus', 'inherited'],
     highlightMsg: `This isn't blind faith — it's the logical conclusion of everything the evidence has established so far.`,
+    highlightMsgs: {
+      jesus: `You've seen the claim and the evidence. This point draws the only logical conclusion: if God raised Jesus, God has verified who Jesus is.`,
+      inherited: `This is where inherited belief becomes owned conviction — not because you were told, but because the evidence points here.`,
+    },
     takeaway: `The argument is complete: God confirmed Jesus's identity through resurrection.`,
     claim: `The cumulative evidence leads to one unavoidable conclusion: Jesus of Nazareth is the incarnate God.`,
     sg: `In Singapore, many people say they respect Jesus but cannot accept his divinity. But the argument now reaches its conclusion: we have established that God exists, that miracles are possible, that a reliable historical document records Jesus's divine claims, and that God confirmed those claims through the miracle of resurrection. The only intellectually consistent response is to accept what Jesus said about himself. Anything less is selective scepticism — accepting the evidence that is convenient and rejecting what demands a response.`,
@@ -361,6 +415,10 @@ export const POINTS: Point[] = [
     phase: 3,
     highlight: ['inherited', 'defense'],
     highlightMsg: `Once you accept that Jesus is God, his teachings become the most reliable source of truth available to humans.`,
+    highlightMsgs: {
+      inherited: `If Jesus is God, then every command, promise, and warning he made is the Creator speaking. That changes how you read the Gospels.`,
+      defense: `This is a key step in the chain: Jesus is God → therefore his teachings are true → therefore what he says about the Bible carries divine weight.`,
+    },
     takeaway: `God cannot lie — so whatever Jesus taught, we can trust completely.`,
     claim: `Because Jesus is God, everything he affirmed — including about the afterlife, sin, salvation, and Scripture — is true.`,
     sg: `Singaporeans are pragmatic — we want to know: what does this mean for how I live? If Jesus is God, his teachings carry a weight that no philosopher, scientist, or guru can match. He was not a brilliant human thinker speculating about the divine — he is the divine, speaking from first-hand knowledge. His statements about forgiveness, eternal life, the nature of sin, the existence of heaven and hell, and the path of salvation are not religious opinions. They are authoritative truth.`,
@@ -396,6 +454,10 @@ export const POINTS: Point[] = [
     phase: 4,
     highlight: ['bible', 'inherited'],
     highlightMsg: `Jesus didn't just use the Bible — he staked his authority on it, and confirmed the entire OT and the coming NT.`,
+    highlightMsgs: {
+      bible: `If Jesus is who the evidence shows him to be, then his endorsement of Scripture settles the question. He didn't pick and choose — he treated every word as authoritative.`,
+      inherited: `You may have grown up being told to trust the Bible. Here's the reason: Jesus trusted it completely, and Jesus is God. That's a different kind of authority.`,
+    },
     takeaway: `Jesus quoted, fulfilled, and endorsed Scripture as the Word of God.`,
     claim: `Jesus of Nazareth explicitly affirmed that the Old Testament is the authoritative Word of God and anticipated a New Testament.`,
     sg: `Some Singaporean Christians feel uncertain about the Bible — accepting Jesus personally but unsure whether the whole Bible can be trusted. But Jesus did not pick and choose from Scripture. He quoted it to resist temptation (Matthew 4), treated Old Testament narratives as historical fact (Adam, Noah, Lot, Jonah), said "Scripture cannot be broken" (John 10:35), and promised his disciples that the Holy Spirit would lead them into all truth — anticipating the New Testament (John 16:13). To trust Jesus but distrust the Bible is to ignore what Jesus himself taught.`,
@@ -431,6 +493,11 @@ export const POINTS: Point[] = [
     phase: 4,
     highlight: ['bible', 'defense', 'inherited'],
     highlightMsg: `The chain is complete — and it rests on logic and history, not circular reasoning.`,
+    highlightMsgs: {
+      bible: `This is the destination your doubt was pointing toward. The Bible's authority isn't circular — it's grounded in God's existence, verified miracles, and Jesus's personal endorsement.`,
+      defense: `This is how you answer "the Bible is just a book written by men." The authority flows through a chain: God → Jesus → Jesus's endorsement of Scripture. Not circular.`,
+      inherited: `You didn't inherit a fairy tale. You inherited a faith with a logical chain behind it — and now you've seen every link for yourself.`,
+    },
     takeaway: `The Bible's authority rests on God's existence and Jesus's endorsement — not on itself.`,
     claim: `The Bible is the written Word of God — divinely inspired, fully authoritative, and completely trustworthy.`,
     sg: `This final point completes the chain that began with epistemology (Points 1-2), moved through cosmology (Points 3-5), established Christology (Points 6-9), and now arrives at bibliology (Points 10-12). The authority of the Bible is not circular ("the Bible is true because the Bible says so") — it is grounded in history and logic. We trust the Bible because we trust Jesus, and we trust Jesus because of a chain of historically verified evidence. For young Singaporean Christians, this foundation is transformative: faith is not a feeling or a tradition — it is a reasoned commitment to truth.`,
@@ -538,3 +605,28 @@ export const PHASE_DIMS: Record<number, string> = {
 }
 
 export const SESSION_BREAK_INDICES = [1, 5, 8]
+
+import type { PainPointId } from './types'
+
+export const PAIN_POINT_ENTRY: Record<PainPointId, number> = {
+  inherited: 0,
+  defense:   0,
+  science:   2,  // Point 3
+  bible:     5,  // Point 6
+  jesus:     6,  // Point 7
+}
+
+export const FOUNDATION_BRIDGE: Partial<Record<PainPointId, { title: string; body: string }>> = {
+  bible: {
+    title: 'Now for the Foundation',
+    body: "You've seen the historical case for the New Testament and how Jesus personally staked his authority on Scripture. But why does any of this hold together? The next 5 points lay the logical bedrock — starting with whether truth itself is knowable, building up to the God whose existence makes Jesus's resurrection meaningful.",
+  },
+  jesus: {
+    title: 'Now for the Foundation',
+    body: "You've worked through what Jesus claimed and whether the evidence holds up. Now let's build the philosophical and scientific foundation underneath it — why God exists, why miracles are logically possible, and why the NT documents are trustworthy. These are the premises that make the resurrection argument even stronger.",
+  },
+  science: {
+    title: 'Two More to Complete the Picture',
+    body: "You've traced the case from God's existence all the way through to the Bible's authority. Two foundational points remain — the nature of truth and the laws of logic. These underpin everything you've just read, including science itself.",
+  },
+}

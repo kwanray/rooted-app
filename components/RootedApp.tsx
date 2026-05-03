@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import { POINTS, SESSION_BREAK_INDICES } from '@/lib/data'
+import { POINTS, SESSION_BREAK_INDICES, PAIN_POINT_ENTRY } from '@/lib/data'
 import {
   loadProgress,
   saveProgress,
@@ -20,6 +20,7 @@ import PointView from '@/components/screens/PointView'
 import PhaseCelebrate from '@/components/screens/PhaseCelebrate'
 import PersonalResponse from '@/components/screens/PersonalResponse'
 import Complete from '@/components/screens/Complete'
+import FoundationBridge from '@/components/screens/FoundationBridge'
 import Search from '@/components/screens/Search'
 import SignIn from '@/components/SignIn'
 
@@ -27,6 +28,7 @@ const INITIAL_STATE: AppState = {
   screen: 'welcome',
   painPointId: null,
   idx: 0,
+  startingIdx: 0,
   completed: [],
   reflections: {},
   declaration: '',
@@ -45,19 +47,16 @@ export default function RootedApp() {
     if (authLoading) return
 
     if (!user) {
-      // Guest — check localStorage for existing progress
       setShowResume(hasProgress())
       setMounted(true)
       return
     }
 
-    // User signed in — load their cloud progress
     loadProgressFromFirestore(user.uid).then((saved) => {
       if (saved && saved.completed.length > 0) {
         setShowResume(true)
-        saveProgress(saved) // mirror to localStorage
+        saveProgress(saved)
       } else {
-        // Migrate any existing localStorage data up to Firestore
         const local = loadProgress()
         if (local && local.completed.length > 0) {
           saveProgressToFirestore(user.uid, local)
@@ -73,6 +72,7 @@ export default function RootedApp() {
       const data: SavedProgress = {
         painPointId: next.painPointId,
         idx: next.idx,
+        startingIdx: next.startingIdx,
         completed: next.completed,
         reflections: next.reflections,
         declaration: next.declaration,
@@ -109,6 +109,7 @@ export default function RootedApp() {
       screen: 'point',
       painPointId: saved.painPointId,
       idx: saved.idx,
+      startingIdx: saved.startingIdx ?? 0,
       completed: saved.completed,
       reflections: saved.reflections,
       declaration: saved.declaration ?? '',
@@ -117,7 +118,8 @@ export default function RootedApp() {
   }
 
   const handlePainPoint = (id: PainPointId) => {
-    update({ painPointId: id, screen: 'point', idx: 0 })
+    const startIdx = PAIN_POINT_ENTRY[id]
+    update({ painPointId: id, screen: 'point', idx: startIdx, startingIdx: startIdx })
   }
 
   const handleMarkDone = () => {
@@ -125,23 +127,31 @@ export default function RootedApp() {
       ? state.completed
       : [...state.completed, state.idx]
 
+    // Session celebration (fires wherever it falls in the journey)
     const breakIdx = SESSION_BREAK_INDICES.indexOf(state.idx)
     if (breakIdx !== -1 && !state.completed.includes(state.idx)) {
       update({ completed: newCompleted, celebrationIdx: breakIdx, screen: 'celebrate' })
       return
     }
 
+    // Reached Point 12 — circular journey: show Foundation Bridge before looping back
     if (state.idx === POINTS.length - 1) {
+      if (state.startingIdx > 0) {
+        update({ completed: newCompleted, screen: 'foundation-bridge' })
+      } else {
+        update({ completed: newCompleted, screen: 'personal-response' })
+      }
+      return
+    }
+
+    // Circular completion: user just finished the last foundation point (startingIdx - 1)
+    if (state.startingIdx > 0 && state.idx === state.startingIdx - 1) {
       update({ completed: newCompleted, screen: 'personal-response' })
       return
     }
 
     if (state.completed.includes(state.idx)) {
-      if (state.idx === POINTS.length - 1) {
-        update({ screen: 'personal-response' })
-      } else {
-        update({ idx: state.idx + 1 })
-      }
+      update({ idx: state.idx + 1 })
       return
     }
 
@@ -150,7 +160,15 @@ export default function RootedApp() {
 
   const handleBack = () => {
     if (state.idx === 0) {
-      setState({ ...INITIAL_STATE, screen: 'painpoint' })
+      // During backtrack phase, going back from Point 1 returns to welcome
+      if (state.startingIdx > 0) {
+        setState({ ...INITIAL_STATE, screen: 'welcome' })
+      } else {
+        setState({ ...INITIAL_STATE, screen: 'painpoint' })
+      }
+    } else if (state.startingIdx > 0 && state.idx === state.startingIdx) {
+      // At the original entry point in primary section — back goes to welcome
+      setState({ ...INITIAL_STATE, screen: 'welcome' })
     } else {
       update({ idx: state.idx - 1 })
     }
@@ -159,6 +177,10 @@ export default function RootedApp() {
   const handleCelebrationContinue = () => {
     const nextIdx = SESSION_BREAK_INDICES[state.celebrationIdx] + 1
     update({ screen: 'point', idx: nextIdx })
+  }
+
+  const handleFoundationBridgeContinue = () => {
+    update({ screen: 'point', idx: 0 })
   }
 
   const handleReflectionChange = (val: string) => {
@@ -179,11 +201,7 @@ export default function RootedApp() {
   }
 
   const handleSearchNavigate = (idx: number) => {
-    setState((prev) => ({
-      ...prev,
-      screen: 'point',
-      idx,
-    }))
+    setState((prev) => ({ ...prev, screen: 'point', idx }))
   }
 
   const handleSearchBack = () => {
@@ -197,7 +215,6 @@ export default function RootedApp() {
     setState(INITIAL_STATE)
   }
 
-  // Loading spinner while auth resolves or Firestore loads
   if (!mounted) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: '#F0F2F5' }}>
@@ -208,7 +225,6 @@ export default function RootedApp() {
     )
   }
 
-  // Show sign-in screen — but with a "skip" option
   if (!user && !guestMode) {
     return <SignIn onSkip={() => setGuestMode(true)} />
   }
@@ -217,7 +233,6 @@ export default function RootedApp() {
     <main style={{ background: '#F0F2F5', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
         <>
-          {/* Top-right: signed-in user OR guest sign-in prompt */}
           <div className="fixed top-4 right-4 flex items-center gap-3 z-10">
             {user ? (
               <>
@@ -250,6 +265,7 @@ export default function RootedApp() {
       {state.screen === 'point' && (
         <PointView
           idx={state.idx}
+          startingIdx={state.startingIdx}
           completed={state.completed}
           painPointId={state.painPointId}
           reflection={state.reflections[state.idx] ?? ''}
@@ -264,6 +280,15 @@ export default function RootedApp() {
         <PhaseCelebrate
           celebrationIdx={state.celebrationIdx}
           onContinue={handleCelebrationContinue}
+        />
+      )}
+
+      {state.screen === 'foundation-bridge' && (
+        <FoundationBridge
+          painPointId={state.painPointId}
+          startingIdx={state.startingIdx}
+          completed={state.completed}
+          onContinue={handleFoundationBridgeContinue}
         />
       )}
 

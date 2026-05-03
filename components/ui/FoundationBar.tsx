@@ -5,9 +5,10 @@ import { POINTS, PHASE_ACCENTS, PHASE_DIMS, PHASE_LABELS } from '@/lib/data'
 interface Props {
   completed: number[]
   currentIdx: number
+  startingIdx?: number
 }
 
-export default function FoundationBar({ completed, currentIdx }: Props) {
+export default function FoundationBar({ completed, currentIdx, startingIdx = 0 }: Props) {
   return (
     <div className="w-full px-3 py-3">
       <div className="flex gap-1.5 justify-center flex-wrap">
@@ -17,10 +18,14 @@ export default function FoundationBar({ completed, currentIdx }: Props) {
           const accent = PHASE_ACCENTS[pt.phase]
           const dim = PHASE_DIMS[pt.phase]
 
+          const isEntryPoint = startingIdx > 0 && i === startingIdx
+          const isFoundation = startingIdx > 0 && i < startingIdx && !isDone
+
           let bg = '#F0F2F5'
           let border = '#E4E6EB'
           let textColor = '#BCC0C4'
           let shadow = ''
+          let opacity = 1
 
           if (isDone) {
             bg = dim
@@ -31,30 +36,33 @@ export default function FoundationBar({ completed, currentIdx }: Props) {
             border = accent
             textColor = accent
             shadow = `0 0 8px ${accent}66`
+          } else if (isFoundation) {
+            opacity = 0.45
           }
 
           return (
             <div
               key={pt.n}
-              title={pt.short}
+              title={isEntryPoint ? `▼ Your starting point · ${pt.short}` : pt.short}
               style={{
                 width: 28,
                 height: 28,
                 background: bg,
-                border: `1.5px solid ${border}`,
+                border: isEntryPoint ? `2px solid #F59E0B` : `1.5px solid ${border}`,
                 borderRadius: 4,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: 10,
                 fontWeight: 700,
-                color: textColor,
-                boxShadow: shadow,
+                color: isEntryPoint && !isDone && !isCurrent ? '#F59E0B' : textColor,
+                boxShadow: isEntryPoint ? `0 0 6px #F59E0B66` : shadow,
                 fontFamily: 'Lato, sans-serif',
                 flexShrink: 0,
                 transition: 'all 0.2s ease',
                 cursor: 'default',
                 letterSpacing: 0,
+                opacity,
               }}
             >
               {isDone ? '✓' : pt.n}
