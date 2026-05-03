@@ -117,7 +117,7 @@ export default function PointView({
           }}
         >
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
-            GEISLER'S CLAIM
+            KEY POINT
           </div>
           <p
             className="leading-relaxed"
@@ -158,7 +158,7 @@ export default function PointView({
               className="text-sm font-bold"
               style={{ color: argsOpen ? accent : '#65676B', fontFamily: 'Lato, sans-serif' }}
             >
-              📚 Study Geisler's Arguments
+              📚 Study Key Arguments
             </span>
             <span style={{ color: accent, fontSize: 18 }}>{argsOpen ? '−' : '+'}</span>
           </button>
