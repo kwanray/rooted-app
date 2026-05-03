@@ -3,7 +3,11 @@
 import { useState } from 'react'
 import { useAuth } from '@/lib/AuthContext'
 
-export default function SignIn() {
+interface Props {
+  onSkip: () => void
+}
+
+export default function SignIn({ onSkip }: Props) {
   const { signInWithGoogle } = useAuth()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -48,13 +52,13 @@ export default function SignIn() {
         Build your faith on solid ground.
       </h1>
       <p className="text-sm text-center mb-10" style={{ color: '#65676B' }}>
-        Sign in to save your progress across devices.
+        Sign in to save your progress across devices — or continue without signing in.
       </p>
 
       <button
         onClick={handleSignIn}
         disabled={loading}
-        className="flex items-center gap-3 px-6 py-3 rounded-full font-medium text-sm transition-all disabled:opacity-60"
+        className="flex items-center gap-3 px-6 py-3 rounded-full font-medium text-sm transition-all disabled:opacity-60 mb-4"
         style={{ background: '#FFFFFF', border: '1px solid #E4E6EB', color: '#1C1E21', boxShadow: '0 1px 4px #0001' }}
         onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 2px 8px #0002')}
         onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 1px 4px #0001')}
@@ -66,6 +70,14 @@ export default function SignIn() {
           <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
         </svg>
         {loading ? 'Signing in…' : 'Continue with Google'}
+      </button>
+
+      <button
+        onClick={onSkip}
+        className="text-sm"
+        style={{ color: '#65676B' }}
+      >
+        Continue without signing in →
       </button>
 
       {error && (

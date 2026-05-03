@@ -6,6 +6,7 @@ import {
   loadProgress,
   saveProgress,
   clearProgress,
+  hasProgress,
   saveProgressToFirestore,
   loadProgressFromFirestore,
   clearProgressFromFirestore,
@@ -32,15 +33,18 @@ const INITIAL_STATE: AppState = {
 }
 
 export default function RootedApp() {
-  const { user, loading: authLoading, signOut } = useAuth()
+  const { user, loading: authLoading, signOut, signInWithGoogle } = useAuth()
   const [state, setState] = useState<AppState>(INITIAL_STATE)
   const [showResume, setShowResume] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [guestMode, setGuestMode] = useState(false)
 
   useEffect(() => {
     if (authLoading) return
 
     if (!user) {
+      // Guest — check localStorage for existing progress
+      setShowResume(hasProgress())
       setMounted(true)
       return
     }
@@ -174,50 +178,47 @@ export default function RootedApp() {
     setState(INITIAL_STATE)
   }
 
-  // Show loading spinner while auth resolves or Firestore loads
+  // Loading spinner while auth resolves or Firestore loads
   if (!mounted) {
     return (
-      <div
-        className="min-h-screen flex items-center justify-center"
-        style={{ background: '#0D0A05' }}
-      >
-        <div
-          className="text-xs font-bold tracking-widest"
-          style={{ color: '#D4A853', fontFamily: 'Lato, sans-serif', letterSpacing: '0.3em' }}
-        >
+      <div className="min-h-screen flex items-center justify-center" style={{ background: '#F0F2F5' }}>
+        <div className="text-xs font-bold tracking-widest" style={{ color: '#1877F2', fontFamily: 'Lato, sans-serif', letterSpacing: '0.3em' }}>
           ROOTED
         </div>
       </div>
     )
   }
 
-  // Require sign-in before accessing the app
-  if (!user) {
-    return <SignIn />
+  // Show sign-in screen — but with a "skip" option
+  if (!user && !guestMode) {
+    return <SignIn onSkip={() => setGuestMode(true)} />
   }
 
   return (
     <main style={{ background: '#F0F2F5', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
         <>
-          {/* User avatar + sign out */}
+          {/* Top-right: signed-in user OR guest sign-in prompt */}
           <div className="fixed top-4 right-4 flex items-center gap-3 z-10">
-            {user.photoURL && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={user.photoURL}
-                alt=""
-                className="w-7 h-7 rounded-full"
-                referrerPolicy="no-referrer"
-              />
+            {user ? (
+              <>
+                {user.photoURL && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={user.photoURL} alt="" className="w-7 h-7 rounded-full" referrerPolicy="no-referrer" />
+                )}
+                <button onClick={signOut} className="text-xs" style={{ color: '#65676B' }}>
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={signInWithGoogle}
+                className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
+                style={{ background: '#E7F0FD', color: '#1877F2', border: '1px solid #1877F244' }}
+              >
+                ☁️ Sign in to save
+              </button>
             )}
-            <button
-              onClick={signOut}
-              className="text-xs"
-              style={{ color: '#65676B' }}
-            >
-              Sign out
-            </button>
           </div>
           <Welcome onStart={handleStart} onResume={handleResume} hasProgress={showResume} />
         </>
