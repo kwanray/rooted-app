@@ -118,7 +118,7 @@ export const POINTS: Point[] = [
     highlightMsg: `The very existence of the universe — and its fine-tuning for life — points powerfully to a Creator.`,
     takeaway: `Something cannot come from nothing; the universe needs a Cause.`,
     claim: `An eternal, all-powerful, personal Creator necessarily exists as the explanation for the universe.`,
-    sg: `In Singapore, atheism is intellectually fashionable among the educated, but it faces a devastating problem: where did everything come from? The Big Bang confirms the universe had a beginning — and whatever begins to exist has a cause. The cause of all space, time, matter, and energy must itself be outside space, time, matter, and energy: eternal, immaterial, unimaginably powerful, and personal (since it chose to create). This is precisely what Christians mean by God.`,
+    sg: `In Singapore, many educated people identify as "free thinkers" — a label that sounds open-minded, but in practice often means closed to the idea that a creator God exists. The irony is that true open-mindedness has to follow the evidence wherever it leads. And the evidence is striking: the Big Bang confirms the universe had a beginning — and whatever begins to exist has a cause. The cause of all space, time, matter, and energy must itself be outside space, time, matter, and energy: eternal, immaterial, unimaginably powerful, and personal (since it chose to create). That is precisely what Christians mean by God. The real free thinker is the one willing to consider that.`,
     specialViz: 'surge',
     geisler: [
       {
