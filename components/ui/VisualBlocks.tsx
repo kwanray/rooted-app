@@ -9,11 +9,31 @@ interface Props {
 }
 
 const SURGE_ROWS = [
-  { letter: 'S', head: 'Second Law of Thermodynamics', body: 'Usable energy in the universe is constantly being depleted. Since the universe is running down, it cannot be eternal — it had a starting point with maximum usable energy.' },
-  { letter: 'U', head: 'Universe is Expanding', body: 'Galaxy redshifts show the universe is expanding outward from a single point. Wind the expansion back and everything converges to an absolute beginning — the Big Bang.' },
-  { letter: 'R', head: 'Radiation Afterglow', body: 'The cosmic microwave background radiation is the residual heat left over from the Big Bang explosion — a direct fingerprint confirming the universe had a fiery origin.' },
-  { letter: 'G', head: 'Great Galaxy Seeds', body: 'Tiny variations in the cosmic microwave background radiation provided the "seeds" that allowed matter to clump together and form galaxies. Without them, the universe would be a uniform void.' },
-  { letter: 'E', head: 'Einstein\'s General Relativity', body: 'Einstein\'s equations prove that space, time, and matter are interconnected and had a definite beginning. The universe is not a static, eternal backdrop — it came into existence.' },
+  {
+    letter: 'S',
+    head: 'Second Law of Thermodynamics',
+    body: 'The universe is constantly running out of usable energy — stars burn out, heat disperses, entropy increases. If the universe were infinitely old, all usable energy would already be gone and everything would be in a state of "heat death." Since stars are still burning and energy is still usable, the universe cannot be eternal. It had a beginning with a finite, fully wound-up store of energy.',
+  },
+  {
+    letter: 'U',
+    head: 'Universe is Expanding',
+    body: 'In the 1920s, Edwin Hubble discovered that galaxies are moving away from each other — confirmed by the redshift of their light. Einstein\'s General Relativity also predicted this expansion. Wind the expansion backwards and everything in the universe converges to a single point of infinite density — a singularity. This means space, time, and matter all burst into existence at a specific moment: the Big Bang.',
+  },
+  {
+    letter: 'R',
+    head: 'Radiation Afterglow',
+    body: 'In 1965, Arno Penzias and Robert Wilson accidentally discovered a faint, uniform microwave radiation coming from every direction in the sky — the Cosmic Microwave Background (CMB). This is the residual heat left over from the Big Bang explosion, still echoing through the universe 13.8 billion years later. It is direct physical evidence that the universe had a hot, explosive beginning. Penzias and Wilson won the Nobel Prize in Physics for the discovery.',
+  },
+  {
+    letter: 'G',
+    head: 'Great Galaxy Seeds',
+    body: 'In 1992, NASA\'s COBE satellite detected tiny temperature ripples in the CMB — fluctuations of about 1 part in 100,000. These microscopic variations in the early universe were the "seeds" around which gravity caused matter to clump and form galaxies, stars, and planets. Without them, the universe would be a featureless, uniform void with no structure — and no life. COBE lead scientist George Smoot described the discovery as "like seeing the face of God."',
+  },
+  {
+    letter: 'E',
+    head: 'Einstein\'s General Relativity',
+    body: 'Einstein\'s 1915 equations describe how gravity shapes space and time itself. They showed the universe cannot be static — it must be expanding or contracting. Einstein initially resisted this implication and added a "cosmological constant" to force a static universe, later calling it his "greatest blunder." When Hubble confirmed expansion, the equations pointed inevitably to a beginning: before the Big Bang, there was no space, no time, no matter. The cause of the universe must therefore exist outside all three.',
+  },
 ]
 
 const FIVES_ES_NT = [
