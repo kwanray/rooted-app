@@ -2,8 +2,16 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { POINTS, SESSION_BREAK_INDICES } from '@/lib/data'
-import { loadProgress, saveProgress, clearProgress, hasProgress } from '@/lib/storage'
-import type { AppState, PainPointId } from '@/lib/types'
+import {
+  loadProgress,
+  saveProgress,
+  clearProgress,
+  saveProgressToFirestore,
+  loadProgressFromFirestore,
+  clearProgressFromFirestore,
+} from '@/lib/storage'
+import { useAuth } from '@/lib/AuthContext'
+import type { AppState, PainPointId, SavedProgress } from '@/lib/types'
 
 import Welcome from '@/components/screens/Welcome'
 import PainPoint from '@/components/screens/PainPoint'
@@ -11,6 +19,7 @@ import PointView from '@/components/screens/PointView'
 import PhaseCelebrate from '@/components/screens/PhaseCelebrate'
 import PersonalResponse from '@/components/screens/PersonalResponse'
 import Complete from '@/components/screens/Complete'
+import SignIn from '@/components/SignIn'
 
 const INITIAL_STATE: AppState = {
   screen: 'welcome',
@@ -23,24 +32,50 @@ const INITIAL_STATE: AppState = {
 }
 
 export default function RootedApp() {
+  const { user, loading: authLoading, signOut } = useAuth()
   const [state, setState] = useState<AppState>(INITIAL_STATE)
   const [showResume, setShowResume] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setShowResume(hasProgress())
-    setMounted(true)
-  }, [])
+    if (authLoading) return
 
-  const persist = useCallback((next: AppState) => {
-    saveProgress({
-      painPointId: next.painPointId,
-      idx: next.idx,
-      completed: next.completed,
-      reflections: next.reflections,
-      declaration: next.declaration,
+    if (!user) {
+      setMounted(true)
+      return
+    }
+
+    // User signed in — load their cloud progress
+    loadProgressFromFirestore(user.uid).then((saved) => {
+      if (saved && saved.completed.length > 0) {
+        setShowResume(true)
+        saveProgress(saved) // mirror to localStorage
+      } else {
+        // Migrate any existing localStorage data up to Firestore
+        const local = loadProgress()
+        if (local && local.completed.length > 0) {
+          saveProgressToFirestore(user.uid, local)
+          setShowResume(true)
+        }
+      }
+      setMounted(true)
     })
-  }, [])
+  }, [user, authLoading])
+
+  const persist = useCallback(
+    (next: AppState) => {
+      const data: SavedProgress = {
+        painPointId: next.painPointId,
+        idx: next.idx,
+        completed: next.completed,
+        reflections: next.reflections,
+        declaration: next.declaration,
+      }
+      saveProgress(data)
+      if (user) saveProgressToFirestore(user.uid, data)
+    },
+    [user]
+  )
 
   const update = useCallback(
     (partial: Partial<AppState>) => {
@@ -55,11 +90,14 @@ export default function RootedApp() {
 
   const handleStart = () => {
     clearProgress()
+    if (user) clearProgressFromFirestore(user.uid)
     setState({ ...INITIAL_STATE, screen: 'painpoint' })
   }
 
-  const handleResume = () => {
-    const saved = loadProgress()
+  const handleResume = async () => {
+    let saved: SavedProgress | null = null
+    if (user) saved = await loadProgressFromFirestore(user.uid)
+    if (!saved) saved = loadProgress()
     if (!saved) return
     setState({
       screen: 'point',
@@ -81,25 +119,17 @@ export default function RootedApp() {
       ? state.completed
       : [...state.completed, state.idx]
 
-    // Check if this idx is a session break
     const breakIdx = SESSION_BREAK_INDICES.indexOf(state.idx)
     if (breakIdx !== -1 && !state.completed.includes(state.idx)) {
-      // Show celebration
-      update({
-        completed: newCompleted,
-        celebrationIdx: breakIdx,
-        screen: 'celebrate',
-      })
+      update({ completed: newCompleted, celebrationIdx: breakIdx, screen: 'celebrate' })
       return
     }
 
-    // Check if this is the last point
     if (state.idx === POINTS.length - 1) {
       update({ completed: newCompleted, screen: 'personal-response' })
       return
     }
 
-    // Already completed — just advance
     if (state.completed.includes(state.idx)) {
       if (state.idx === POINTS.length - 1) {
         update({ screen: 'personal-response' })
@@ -109,7 +139,6 @@ export default function RootedApp() {
       return
     }
 
-    // Advance normally
     update({ completed: newCompleted, idx: state.idx + 1 })
   }
 
@@ -140,10 +169,12 @@ export default function RootedApp() {
 
   const handleReset = () => {
     clearProgress()
+    if (user) clearProgressFromFirestore(user.uid)
     setShowResume(false)
     setState(INITIAL_STATE)
   }
 
+  // Show loading spinner while auth resolves or Firestore loads
   if (!mounted) {
     return (
       <div
@@ -160,14 +191,36 @@ export default function RootedApp() {
     )
   }
 
+  // Require sign-in before accessing the app
+  if (!user) {
+    return <SignIn />
+  }
+
   return (
     <main style={{ background: '#0D0A05', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
-        <Welcome
-          onStart={handleStart}
-          onResume={handleResume}
-          hasProgress={showResume}
-        />
+        <>
+          {/* User avatar + sign out */}
+          <div className="fixed top-4 right-4 flex items-center gap-3 z-10">
+            {user.photoURL && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={user.photoURL}
+                alt=""
+                className="w-7 h-7 rounded-full"
+                referrerPolicy="no-referrer"
+              />
+            )}
+            <button
+              onClick={signOut}
+              className="text-xs"
+              style={{ color: '#8A7A6A' }}
+            >
+              Sign out
+            </button>
+          </div>
+          <Welcome onStart={handleStart} onResume={handleResume} hasProgress={showResume} />
+        </>
       )}
 
       {state.screen === 'painpoint' && (
