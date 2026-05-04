@@ -21,6 +21,7 @@ export interface Point {
   sg: string
   specialViz: SpecialViz
   geisler: GeislerArg[]
+  objections?: GeislerArg[]
   insight: string
   reflect: string
   verses: string[]

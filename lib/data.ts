@@ -160,7 +160,17 @@ export const POINTS: Point[] = [
         body: `Objective moral values and duties exist (we all act as if genocide is really wrong, not just unfashionable). Objective moral values require a transcendent moral standard. Therefore, a morally perfect personal being — God — exists as the grounding for morality.`,
       },
     ],
-    insight: `The existence of God is not a leap of faith over the evidence — it is the most rational inference from the evidence. Science has not pushed God out; in many ways, modern cosmology and biology have only sharpened the argument for a Creator.`,
+    objections: [
+      {
+        head: `"But Who Made God?" — The Objection Answered`,
+        body: `Geisler distinguishes three kinds of beings: self-caused (logically impossible — you'd have to exist before you exist to cause yourself), caused (contingent things that began to exist and depend on something outside themselves), and uncaused (exists by the necessity of its own nature, never began). The cosmological argument's causal principle is precisely stated: "everything that begins to exist has a cause" — not "everything." Bertrand Russell's famous retort ("if everything has a cause, God must have one too") misquotes the argument. God, being eternal, never began. Asking "who made God?" is therefore a category mistake — like asking what is north of the North Pole. You are applying the concept of causation to the very thing defined as being outside that category.`,
+      },
+      {
+        head: `"The Universe Is Just There" — The Atheist's Same Problem`,
+        body: `Many atheists, following Russell and Hawking, argue the universe simply exists without a cause — it just "is." But notice: this is doing precisely what they accuse the theist of doing with God. Both positions require something uncaused at the foundation. The real question is not whether something is uncaused, but what it is. Here the theist has a decisive advantage: the scientific evidence — the Big Bang, thermodynamics running down, the universe expanding from a singularity — shows the universe had a beginning, which means it cannot be the uncaused foundation it is claimed to be. An uncaused God existing outside time and space faces no such contradiction. The atheist's "brute fact" universe is undermined by the very science they rely on.`,
+      },
+    ],
+    insight: `The existence of God is not a leap of faith over the evidence — it is the most rational inference from the evidence. Both the theist and the atheist agree that something must be uncaused at the foundation of reality. The question is whether that uncaused foundation is an impersonal universe that contradicts its own scientific evidence, or a personal God who is consistent with it.`,
     reflect: `What would it mean for your daily life if you became fully convinced that a personal God created you and is aware of you right now?`,
     verses: ['Genesis 1:1', 'Psalm 19:1', 'Romans 1:20'],
     scripture: `"The heavens declare the glory of God; the skies proclaim the work of his hands."`,

@@ -41,6 +41,7 @@ export default function PointView({
   const isHighlighted = painPointId ? pt.highlight.includes(painPointId) : false
   const isDone = completed.includes(idx)
   const [argsOpen, setArgsOpen] = useState(false)
+  const [objectionsOpen, setObjectionsOpen] = useState(false)
 
   const isEntryPoint = startingIdx > 0 && idx === startingIdx
   const isBacktracking = startingIdx > 0 && idx < startingIdx
@@ -250,6 +251,55 @@ export default function PointView({
             </div>
           )}
         </div>
+
+        {/* Expandable Objections */}
+        {pt.objections && pt.objections.length > 0 && (
+          <div className="mb-6">
+            <button
+              onClick={() => setObjectionsOpen((o) => !o)}
+              className="w-full flex items-center justify-between rounded-xl px-5 py-4 transition-all"
+              style={{
+                background: objectionsOpen ? '#FEF3C7' : '#FFFFFF',
+                border: `1.5px solid ${objectionsOpen ? '#F59E0B44' : '#E4E6EB'}`,
+              }}
+            >
+              <span
+                className="text-sm font-bold"
+                style={{ color: objectionsOpen ? '#92400E' : '#65676B', fontFamily: 'Lato, sans-serif' }}
+              >
+                ⚠️ Objections & Responses
+              </span>
+              <span style={{ color: '#F59E0B', fontSize: 18 }}>{objectionsOpen ? '−' : '+'}</span>
+            </button>
+
+            {objectionsOpen && (
+              <div className="rounded-b-xl border-x border-b overflow-hidden" style={{ borderColor: '#F59E0B33' }}>
+                {pt.objections.map((obj, i) => (
+                  <div
+                    key={i}
+                    className="px-5 py-4 border-t"
+                    style={{ borderColor: '#F59E0B1a', background: '#FFFBEB' }}
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span
+                        className="flex-shrink-0 flex items-center justify-center rounded-full text-xs font-bold"
+                        style={{ width: 20, height: 20, background: '#F59E0B', color: '#FFFFFF', fontFamily: 'Lato, sans-serif' }}
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="font-bold text-sm" style={{ color: '#92400E', fontFamily: 'Lato, sans-serif' }}>
+                        {obj.head}
+                      </div>
+                    </div>
+                    <p className="text-sm leading-relaxed pl-7" style={{ color: '#78350F', fontFamily: 'Lato, sans-serif' }}>
+                      {obj.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Key Insight */}
         <div
