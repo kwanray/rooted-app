@@ -22,6 +22,7 @@ export interface Point {
   specialViz: SpecialViz
   geisler: GeislerArg[]
   objections?: GeislerArg[]
+  deepDive?: GeislerArg[]
   insight: string
   reflect: string
   verses: string[]

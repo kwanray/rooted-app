@@ -42,6 +42,7 @@ export default function PointView({
   const isDone = completed.includes(idx)
   const [argsOpen, setArgsOpen] = useState(false)
   const [objectionsOpen, setObjectionsOpen] = useState(false)
+  const [deepDiveOpen, setDeepDiveOpen] = useState(false)
 
   const isEntryPoint = startingIdx > 0 && idx === startingIdx
   const isBacktracking = startingIdx > 0 && idx < startingIdx
@@ -296,6 +297,61 @@ export default function PointView({
                     </p>
                   </div>
                 ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Advanced Reading (Deep Dive) */}
+        {pt.deepDive && pt.deepDive.length > 0 && (
+          <div className="mb-6">
+            <button
+              onClick={() => setDeepDiveOpen((o) => !o)}
+              className="w-full flex items-center justify-between rounded-xl px-5 py-4 transition-all"
+              style={{
+                background: deepDiveOpen ? '#F0F4FF' : '#FFFFFF',
+                border: `1.5px solid ${deepDiveOpen ? '#6366F144' : '#E4E6EB'}`,
+              }}
+            >
+              <span
+                className="text-sm font-bold"
+                style={{ color: deepDiveOpen ? '#4338CA' : '#65676B', fontFamily: 'Lato, sans-serif' }}
+              >
+                📖 Advanced Reading
+              </span>
+              <span style={{ color: '#6366F1', fontSize: 18 }}>{deepDiveOpen ? '−' : '+'}</span>
+            </button>
+
+            {deepDiveOpen && (
+              <div className="rounded-b-xl border-x border-b overflow-hidden" style={{ borderColor: '#6366F133' }}>
+                {pt.deepDive.map((item, i) => (
+                  <div
+                    key={i}
+                    className="px-5 py-4 border-t"
+                    style={{ borderColor: '#6366F11a', background: '#F5F3FF' }}
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span
+                        className="flex-shrink-0 flex items-center justify-center rounded-full text-xs font-bold"
+                        style={{ width: 20, height: 20, background: '#6366F1', color: '#FFFFFF', fontFamily: 'Lato, sans-serif' }}
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="font-bold text-sm" style={{ color: '#4338CA', fontFamily: 'Lato, sans-serif' }}>
+                        {item.head}
+                      </div>
+                    </div>
+                    <p className="text-sm leading-relaxed pl-7" style={{ color: '#3730A3', fontFamily: 'Lato, sans-serif' }}>
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+                <div
+                  className="px-5 py-3 border-t text-xs"
+                  style={{ borderColor: '#6366F11a', background: '#EEF2FF', color: '#6366F1', fontFamily: 'Lato, sans-serif' }}
+                >
+                  Source: Deal & Geisler, <em>Is the Christian Faith Reasonable?</em> (NGIM, 2023)
+                </div>
               </div>
             )}
           </div>
