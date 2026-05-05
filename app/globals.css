@@ -5,27 +5,31 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0D0A05;
-  --surface: #161009;
-  --border: #1A1208;
-  --text: #F5E6C8;
-  --muted: #B8A08A;
+  --bg: #F0F2F5;
+  --surface: #FFFFFF;
+  --border: #E4E6EB;
+  --text: #1C1E21;
+  --muted: #65676B;
 
-  /* Phase 0 — Knowledge */
-  --p0-accent: #D4A853;
-  --p0-dim: #251800;
+  /* Phase 0 — Truth */
+  --p0-accent: #1877F2;
+  --p0-dim: #E7F0FD;
 
-  /* Phase 1 — Existence */
-  --p1-accent: #9B72CF;
-  --p1-dim: #190930;
+  /* Phase 1 — God */
+  --p1-accent: #8B5CF6;
+  --p1-dim: #EDE9FE;
 
-  /* Phase 2 — Identity */
-  --p2-accent: #CF6060;
-  --p2-dim: #2E0808;
+  /* Phase 2 — Miracles */
+  --p2-accent: #F59E0B;
+  --p2-dim: #FEF3C7;
 
-  /* Phase 3 — Authority */
-  --p3-accent: #5CCF88;
-  --p3-dim: #082416;
+  /* Phase 3 — Jesus */
+  --p3-accent: #EF4444;
+  --p3-dim: #FEE2E2;
+
+  /* Phase 4 — Bible */
+  --p4-accent: #10B981;
+  --p4-dim: #D1FAE5;
 }
 
 * {
@@ -50,10 +54,10 @@ h1, h2, h3, h4, .font-serif {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--surface);
+  background: #E4E6EB;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: #BCC0C4;
   border-radius: 2px;
 }
 

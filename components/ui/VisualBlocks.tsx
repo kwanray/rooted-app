@@ -9,11 +9,31 @@ interface Props {
 }
 
 const SURGE_ROWS = [
-  { letter: 'S', head: 'Something Exists', body: 'We know beyond doubt that something exists right now — including us. The question is: why is there something rather than nothing?' },
-  { letter: 'U', head: 'Universe Began', body: 'Modern cosmology (Big Bang, thermodynamic entropy) confirms the universe had an absolute beginning. It is not eternal.' },
-  { letter: 'R', head: 'Requires a Cause', body: 'Everything that begins to exist has a cause. The universe began. Therefore the universe has a cause outside itself.' },
-  { letter: 'G', head: 'God Is That Cause', body: 'The cause must be uncaused, spaceless, timeless, and immensely powerful. This is precisely what theists mean by God.' },
-  { letter: 'E', head: 'Eternal Personal Being', body: 'The cause must be personal — only a personal agent can choose to create. An impersonal force has no power of initiation.' },
+  {
+    letter: 'S',
+    head: 'Second Law of Thermodynamics',
+    body: 'The universe is constantly running out of usable energy — stars burn out, heat disperses, entropy increases. If the universe were infinitely old, all usable energy would already be gone and everything would be in a state of "heat death." Since stars are still burning and energy is still usable, the universe cannot be eternal. It had a beginning with a finite, fully wound-up store of energy.',
+  },
+  {
+    letter: 'U',
+    head: 'Universe is Expanding',
+    body: 'In the 1920s, Edwin Hubble discovered that galaxies are moving away from each other — confirmed by the redshift of their light. Einstein\'s General Relativity also predicted this expansion. Wind the expansion backwards and everything in the universe converges to a single point of infinite density — a singularity. This means space, time, and matter all burst into existence at a specific moment: the Big Bang.',
+  },
+  {
+    letter: 'R',
+    head: 'Radiation Afterglow',
+    body: 'In 1965, Arno Penzias and Robert Wilson accidentally discovered a faint, uniform microwave radiation coming from every direction in the sky — the Cosmic Microwave Background (CMB). This is the residual heat left over from the Big Bang explosion, still echoing through the universe 13.8 billion years later. It is direct physical evidence that the universe had a hot, explosive beginning. Penzias and Wilson won the Nobel Prize in Physics for the discovery.',
+  },
+  {
+    letter: 'G',
+    head: 'Great Galaxy Seeds',
+    body: 'In 1992, NASA\'s COBE satellite detected tiny temperature ripples in the CMB — fluctuations of about 1 part in 100,000. These microscopic variations in the early universe were the "seeds" around which gravity caused matter to clump and form galaxies, stars, and planets. Without them, the universe would be a featureless, uniform void with no structure — and no life. COBE lead scientist George Smoot described the discovery as "like seeing the face of God."',
+  },
+  {
+    letter: 'E',
+    head: 'Einstein\'s General Relativity',
+    body: 'Einstein\'s 1915 equations describe how gravity shapes space and time itself. They showed the universe cannot be static — it must be expanding or contracting. Einstein initially resisted this implication and added a "cosmological constant" to force a static universe, later calling it his "greatest blunder." When Hubble confirmed expansion, the equations pointed inevitably to a beginning: before the Big Bang, there was no space, no time, no matter. The cause of the universe must therefore exist outside all three.',
+  },
 ]
 
 const FIVES_ES_NT = [

@@ -42,13 +42,13 @@ export default function Complete({ onReset }: Props) {
         <div className="text-center mb-12">
           <div
             className="inline-flex items-center justify-center rounded-full mb-6"
-            style={{ width: 80, height: 80, background: '#082416', border: '2px solid #5CCF8844' }}
+            style={{ width: 80, height: 80, background: '#D1FAE5', border: '2px solid #10B98144' }}
           >
             <span style={{ fontSize: 36 }}>🌳</span>
           </div>
           <div
             className="text-xs font-bold tracking-widest mb-3"
-            style={{ color: '#5CCF88', fontFamily: 'Lato, sans-serif', letterSpacing: '0.25em' }}
+            style={{ color: '#10B981', fontFamily: 'Lato, sans-serif', letterSpacing: '0.25em' }}
           >
             JOURNEY COMPLETE
           </div>
@@ -58,14 +58,14 @@ export default function Complete({ onReset }: Props) {
               fontFamily: 'Cormorant Garamond, serif',
               fontSize: 'clamp(2.2rem, 6vw, 3.5rem)',
               fontWeight: 400,
-              color: '#F5E6C8',
+              color: '#1C1E21',
             }}
           >
             You are Rooted.
           </h1>
           <p
             className="text-sm leading-relaxed max-w-sm mx-auto"
-            style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}
+            style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}
           >
             You've worked through the complete logical case for Christianity. This is a foundation — not a ceiling. Keep building.
           </p>
@@ -75,7 +75,7 @@ export default function Complete({ onReset }: Props) {
         <div className="mb-10">
           <div
             className="text-xs font-bold tracking-widest mb-4 text-center"
-            style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}
+            style={{ color: '#65676B', fontFamily: 'Lato, sans-serif' }}
           >
             YOUR FOUNDATION
           </div>
@@ -106,7 +106,7 @@ export default function Complete({ onReset }: Props) {
         <div className="mb-10">
           <div
             className="text-xs font-bold tracking-widest mb-4"
-            style={{ color: '#5CCF88', fontFamily: 'Lato, sans-serif' }}
+            style={{ color: '#10B981', fontFamily: 'Lato, sans-serif' }}
           >
             WHAT'S NEXT
           </div>
@@ -115,17 +115,17 @@ export default function Complete({ onReset }: Props) {
               <div
                 key={i}
                 className="rounded-xl p-4 flex items-start gap-3"
-                style={{ background: '#161009', border: '1px solid #1A1208' }}
+                style={{ background: '#FFFFFF', border: '1px solid #E4E6EB' }}
               >
                 <span style={{ fontSize: 20, flexShrink: 0 }}>{step.icon}</span>
                 <div>
                   <div
                     className="font-bold text-sm mb-0.5"
-                    style={{ color: '#F5E6C8', fontFamily: 'Lato, sans-serif' }}
+                    style={{ color: '#1C1E21', fontFamily: 'Lato, sans-serif' }}
                   >
                     {step.title}
                   </div>
-                  <div className="text-sm" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif', lineHeight: 1.6 }}>
+                  <div className="text-sm" style={{ color: '#65676B', fontFamily: 'Lato, sans-serif', lineHeight: 1.6 }}>
                     {step.desc}
                   </div>
                 </div>
@@ -137,15 +137,15 @@ export default function Complete({ onReset }: Props) {
         {/* Scripture */}
         <div
           className="text-center rounded-xl p-6 mb-10"
-          style={{ background: '#082416', border: '1px solid #5CCF8822' }}
+          style={{ background: '#D1FAE5', border: '1px solid #10B98122' }}
         >
           <p
             className="text-lg mb-2"
-            style={{ color: '#F5E6C8', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 300 }}
+            style={{ color: '#1C1E21', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 300 }}
           >
             &ldquo;So then, just as you received Christ Jesus as Lord, continue to live your lives in him, rooted and built up in him, strengthened in the faith as you were taught, and overflowing with thankfulness.&rdquo;
           </p>
-          <p className="text-sm" style={{ color: '#5CCF88', fontFamily: 'Lato, sans-serif' }}>
+          <p className="text-sm" style={{ color: '#10B981', fontFamily: 'Lato, sans-serif' }}>
             — Colossians 2:6–7
           </p>
         </div>
@@ -156,13 +156,13 @@ export default function Complete({ onReset }: Props) {
           className="w-full rounded-xl px-6 py-4 text-sm font-bold transition-all"
           style={{
             background: 'transparent',
-            color: '#4a3f2f',
-            border: '1.5px solid #1A1208',
+            color: '#8A8D91',
+            border: '1.5px solid #E4E6EB',
             fontFamily: 'Lato, sans-serif',
             letterSpacing: '0.08em',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#4a3f2f')}
-          onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#1A1208')}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#8A8D91')}
+          onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#E4E6EB')}
         >
           Go Through Again →
         </button>

@@ -38,7 +38,7 @@ export default function ReflectField({ prompt, pointIdx, value, onChange, accent
       <div className="text-xs font-bold tracking-widest mb-2" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
         REFLECT
       </div>
-      <p className="text-sm mb-3 leading-relaxed" style={{ color: '#B8A08A' }}>{prompt}</p>
+      <p className="text-sm mb-3 leading-relaxed" style={{ color: '#65676B' }}>{prompt}</p>
       <div className="relative">
         <textarea
           ref={ref}
@@ -48,9 +48,9 @@ export default function ReflectField({ prompt, pointIdx, value, onChange, accent
           rows={3}
           className="w-full rounded-lg px-4 py-3 text-sm resize-none outline-none transition-colors"
           style={{
-            background: dim,
+            background: '#FFFFFF',
             border: `1.5px solid ${accent}33`,
-            color: '#F5E6C8',
+            color: '#1C1E21',
             fontFamily: 'Lato, sans-serif',
             lineHeight: 1.7,
             minHeight: 96,

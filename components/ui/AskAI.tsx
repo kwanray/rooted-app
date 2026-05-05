@@ -49,7 +49,7 @@ export default function AskAI({ pointN, pointTitle, accent, dim }: Props) {
       <div className="text-xs font-bold tracking-widest mb-2" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>
         ASK A QUESTION
       </div>
-      <p className="text-sm mb-4" style={{ color: '#B8A08A' }}>
+      <p className="text-sm mb-4" style={{ color: '#65676B' }}>
         Have a question about this point? Ask our AI apologist — grounded in Geisler's framework and Singapore context.
       </p>
 
@@ -59,13 +59,13 @@ export default function AskAI({ pointN, pointTitle, accent, dim }: Props) {
             <div key={i} className="flex flex-col gap-2">
               <div
                 className="rounded-lg px-4 py-3 text-sm self-end max-w-[85%]"
-                style={{ background: accent + '22', color: '#F5E6C8', fontFamily: 'Lato, sans-serif' }}
+                style={{ background: accent + '22', color: '#1C1E21', fontFamily: 'Lato, sans-serif' }}
               >
                 {pair.question}
               </div>
               <div
                 className="rounded-lg px-4 py-3 text-sm leading-relaxed"
-                style={{ background: dim, color: '#B8A08A', border: `1px solid ${accent}22`, fontFamily: 'Lato, sans-serif', whiteSpace: 'pre-wrap' }}
+                style={{ background: dim, color: '#65676B', border: `1px solid ${accent}22`, fontFamily: 'Lato, sans-serif', whiteSpace: 'pre-wrap' }}
               >
                 {pair.answer}
               </div>
@@ -93,7 +93,7 @@ export default function AskAI({ pointN, pointTitle, accent, dim }: Props) {
       )}
 
       {error && (
-        <div className="text-sm mb-3 rounded px-3 py-2" style={{ color: '#CF6060', background: '#2E080833', border: '1px solid #CF606033' }}>
+        <div className="text-sm mb-3 rounded px-3 py-2" style={{ color: '#EF4444', background: '#FEE2E233', border: '1px solid #EF444433' }}>
           {error}
         </div>
       )}
@@ -106,9 +106,9 @@ export default function AskAI({ pointN, pointTitle, accent, dim }: Props) {
           rows={2}
           className="w-full rounded-lg px-4 py-3 text-sm resize-none outline-none"
           style={{
-            background: dim,
+            background: '#FFFFFF',
             border: `1.5px solid ${accent}33`,
-            color: '#F5E6C8',
+            color: '#1C1E21',
             fontFamily: 'Lato, sans-serif',
             lineHeight: 1.6,
           }}
@@ -125,7 +125,7 @@ export default function AskAI({ pointN, pointTitle, accent, dim }: Props) {
           className="rounded-lg px-4 py-2.5 text-sm font-bold transition-all self-end"
           style={{
             background: loading || !question.trim() ? accent + '33' : accent,
-            color: loading || !question.trim() ? '#B8A08A' : '#0D0A05',
+            color: loading || !question.trim() ? '#8A8D91' : '#FFFFFF',
             fontFamily: 'Lato, sans-serif',
             letterSpacing: '0.05em',
             cursor: loading || !question.trim() ? 'not-allowed' : 'pointer',
