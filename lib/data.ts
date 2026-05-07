@@ -81,7 +81,7 @@ export const POINTS: Point[] = [
     deepDive: [
       {
         head: `What Is Truth? The Correspondence Theory`,
-        body: `Deal & Geisler define truth precisely: "A statement is true if and only if the statement corresponds to reality." When Anne says "I feel cold," it is objectively true for everyone that Anne feels cold — her relative preference is subjective, but the fact of her feeling is not. We discover truth; we do not create it.`,
+        body: `Truth is defined precisely here: "A statement is true if and only if the statement corresponds to reality." When Anne says "I feel cold," it is objectively true for everyone that Anne feels cold — her relative preference is subjective, but the fact of her feeling is not. We discover truth; we do not create it.`,
       },
       {
         head: `The Self-Defeating Nature of Scepticism`,
@@ -143,7 +143,7 @@ export const POINTS: Point[] = [
       },
       {
         head: `A Spectrum, Not an Absolute Dismissal`,
-        body: `Deal & Geisler make a nuanced point: religions can operate on a spectrum — somewhat true, mostly true, or completely true. A religion is false only inasmuch as it contradicts the truth. This is not a claim that every tradition is worthless — it is a call to examine which tradition is most consistent with what we can know to be true.`,
+        body: `A nuanced point worth noting: religions can operate on a spectrum — somewhat true, mostly true, or completely true. A religion is false only inasmuch as it contradicts the truth. This is not a claim that every tradition is worthless — it is a call to examine which tradition is most consistent with what we can know to be true.`,
       },
     ],
     insight: `This point protects the conversation from dissolving into comfortable vagueness. It insists that claims matter, words have meaning, and being kind does not require us to pretend contradictions don't exist.`,
@@ -201,7 +201,7 @@ export const POINTS: Point[] = [
     deepDive: [
       {
         head: `The Kalam: Scientific Support in Detail`,
-        body: `The Kalam argument's second premise — "the universe had a beginning" — is backed by two lines of scientific evidence. First, the second law of thermodynamics: in a closed system, usable energy is constantly decreasing. A universe running down must have started. Second, Big Bang cosmology: matter, space, and time came into existence together. Before the singularity, there was nothing of the universe. As Deal & Geisler note, 99.9% of the National Academies of Science accept the universe's beginning as established fact.`,
+        body: `The Kalam argument's second premise — "the universe had a beginning" — is backed by two lines of scientific evidence. First, the second law of thermodynamics: in a closed system, usable energy is constantly decreasing. A universe running down must have started. Second, Big Bang cosmology: matter, space, and time came into existence together. Before the singularity, there was nothing of the universe. Notably, 99.9% of the National Academies of Science accept the universe's beginning as established fact.`,
       },
       {
         head: `DNA and the Teleological Argument`,
@@ -258,7 +258,7 @@ export const POINTS: Point[] = [
     deepDive: [
       {
         head: `Hume's Argument Examined`,
-        body: `David Hume argued: (1) A miracle violates the laws of nature. (2) The laws of nature are established by "firm and unalterable human experience." (3) Therefore, a miracle is always less probable than the testimony for it. Deal & Geisler show that both premises fail. Premise 1 misdefines miracles — theists don't believe miracles violate natural law, but that God (who sustains the natural order) acts in an extraordinary way. Premise 2 is circular — it assumes no miracles have occurred before the investigation even begins.`,
+        body: `David Hume argued: (1) A miracle violates the laws of nature. (2) The laws of nature are established by "firm and unalterable human experience." (3) Therefore, a miracle is always less probable than the testimony for it. Both premises fail. Premise 1 misdefines miracles — theists don't believe miracles violate natural law, but that God (who sustains the natural order) acts in an extraordinary way. Premise 2 is circular — it assumes no miracles have occurred before the investigation even begins.`,
       },
       {
         head: `The Chandelier Illustration`,
@@ -311,7 +311,7 @@ export const POINTS: Point[] = [
     deepDive: [
       {
         head: `The Five Criteria for a Confirming Miracle`,
-        body: `Deal & Geisler set out five tests a miracle must pass to confirm a divine messenger: (1) It must be truly supernatural — not a psychosomatic cure or anomaly. (2) There must be multiple miracles — the legal principle of two or three witnesses. (3) The miracle must relate to a specific truth claim made in God's name. (4) The miracles must be unique — conflicting miracle claims from opposing religions cancel each other out. (5) A predictive element is helpful — prediction eliminates the charge that the event was a fluke rather than a genuine sign.`,
+        body: `Five tests a miracle must pass to confirm a divine messenger: (1) It must be truly supernatural — not a psychosomatic cure or anomaly. (2) There must be multiple miracles — the legal principle of two or three witnesses. (3) The miracle must relate to a specific truth claim made in God's name. (4) The miracles must be unique — conflicting miracle claims from opposing religions cancel each other out. (5) A predictive element is helpful — prediction eliminates the charge that the event was a fluke rather than a genuine sign.`,
       },
       {
         head: `Jesus Explicitly Used Miracles as Evidence`,
@@ -478,7 +478,7 @@ export const POINTS: Point[] = [
     deepDive: [
       {
         head: `Five Lines of Historical Evidence`,
-        body: `Deal & Geisler enumerate five independent evidential lines: (1) Jesus predicted his resurrection and cited it as proof of his mission (Matthew 12:40; 17:22-23). (2) Jesus really died — the Romans were experts at execution, the penalty for guards letting a prisoner survive was death, and a 1986 study in the Journal of the American Medical Association confirmed death by crucifixion from the medical evidence in John 19:34. (3) The tomb was found empty — the authorities who wanted to suppress the movement never produced the body. (4) Post-resurrection appearances to named individuals, groups of 500, and at multiple locations. (5) The explosive origin of the church in Jerusalem — the worst possible city for a legend, where hostile witnesses could walk to the tomb.`,
+        body: `Five independent evidential lines support the resurrection: (1) Jesus predicted his resurrection and cited it as proof of his mission (Matthew 12:40; 17:22-23). (2) Jesus really died — the Romans were experts at execution, the penalty for guards letting a prisoner survive was death, and a 1986 study in the Journal of the American Medical Association confirmed death by crucifixion from the medical evidence in John 19:34. (3) The tomb was found empty — the authorities who wanted to suppress the movement never produced the body. (4) Post-resurrection appearances to named individuals, groups of 500, and at multiple locations. (5) The explosive origin of the church in Jerusalem — the worst possible city for a legend, where hostile witnesses could walk to the tomb.`,
       },
       {
         head: `The Watergate Comparison`,
@@ -584,7 +584,7 @@ export const POINTS: Point[] = [
     deepDive: [
       {
         head: `Why God Cannot Lie: The Perfection Argument`,
-        body: `Deal & Geisler argue from classical theism: in order for a perfect being to change, it must either gain something it lacks or lose something it has. But God is perfect — there is nothing to add or subtract. Therefore God cannot change, and since lying or making errors would represent a change from perfection, God is incapable of lying. As Hebrews 6:18 states: "it is impossible for God to lie." This is not an external constraint on God but flows from the nature of what perfect being means.`,
+        body: `From classical theism: in order for a perfect being to change, it must either gain something it lacks or lose something it has. But God is perfect — there is nothing to add or subtract. Therefore God cannot change, and since lying or making errors would represent a change from perfection, God is incapable of lying. As Hebrews 6:18 states: "it is impossible for God to lie." This is not an external constraint on God but flows from the nature of what perfect being means.`,
       },
       {
         head: `Evil as Privation`,
@@ -691,7 +691,7 @@ export const POINTS: Point[] = [
     deepDive: [
       {
         head: `Attitude vs. Truth: An Important Distinction`,
-        body: `Deal & Geisler address the charge that claiming one religion is right is arrogant. Their response: arrogance is a criticism of a person's attitude, not of the truth of their belief. Someone can be very kind and still wrong. Someone can be very arrogant and still right. Whether the Bible is the word of God is a question about evidence and logic — not about the tone of the person making the claim. Truth does not become false because it is stated proudly, and it does not become true because it is stated humbly.`,
+        body: `One common charge is that claiming one religion is right is arrogant. But arrogance is a criticism of a person's attitude, not of the truth of their belief. Someone can be very kind and still wrong. Someone can be very arrogant and still right. Whether the Bible is the word of God is a question about evidence and logic — not about the tone of the person making the claim. Truth does not become false because it is stated proudly, and it does not become true because it is stated humbly.`,
       },
       {
         head: `Faith and Reason Are Not Opposites`,

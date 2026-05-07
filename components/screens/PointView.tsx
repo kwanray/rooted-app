@@ -350,7 +350,7 @@ export default function PointView({
                   className="px-5 py-3 border-t text-xs"
                   style={{ borderColor: '#6366F11a', background: '#EEF2FF', color: '#6366F1', fontFamily: 'Lato, sans-serif' }}
                 >
-                  Source: Deal & Geisler, <em>Is the Christian Faith Reasonable?</em> (NGIM, 2023)
+                  Source: <em>Is the Christian Faith Reasonable?</em> (NGIM, 2023)
                 </div>
               </div>
             )}
