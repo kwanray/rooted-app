@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { POINTS, PHASE_ACCENTS, PHASE_DIMS, PHASE_LABELS } from '@/lib/data'
 import FoundationBar from '@/components/ui/FoundationBar'
 import VisualBlocks from '@/components/ui/VisualBlocks'
@@ -34,6 +34,10 @@ export default function PointView({
   onBack,
   onSearch,
 }: Props) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [idx])
+
   const pt = POINTS[idx]
   const accent = PHASE_ACCENTS[pt.phase]
   const dim = PHASE_DIMS[pt.phase]

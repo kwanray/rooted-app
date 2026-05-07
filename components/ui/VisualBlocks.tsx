@@ -108,7 +108,7 @@ export default function VisualBlocks({ type, accent, dim }: Props) {
               </div>
               <div>
                 <div className="font-bold text-sm mb-0.5" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>{row.head}</div>
-                <div className="text-sm leading-relaxed" style={{ color: '#B8A08A' }}>{row.body}</div>
+                <div className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{row.body}</div>
               </div>
             </div>
           ))}
@@ -137,7 +137,7 @@ export default function VisualBlocks({ type, accent, dim }: Props) {
               </div>
               <div>
                 <div className="font-bold text-sm mb-0.5" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>{row.head}</div>
-                <div className="text-sm leading-relaxed" style={{ color: '#B8A08A' }}>{row.body}</div>
+                <div className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{row.body}</div>
               </div>
             </div>
           ))}
@@ -168,10 +168,10 @@ export default function VisualBlocks({ type, accent, dim }: Props) {
               >
                 {card.label}
               </div>
-              <div className="text-xs font-bold mb-2" style={{ color: '#B8A08A', fontFamily: 'Lato, sans-serif' }}>
+              <div className="text-xs font-bold mb-2" style={{ color: '#4B5563', fontFamily: 'Lato, sans-serif' }}>
                 {card.summary}
               </div>
-              <div className="text-sm leading-relaxed mb-3 flex-1" style={{ color: '#B8A08A' }}>
+              <div className="text-sm leading-relaxed mb-3 flex-1" style={{ color: '#4B5563' }}>
                 {card.body}
               </div>
               <div
@@ -210,7 +210,7 @@ export default function VisualBlocks({ type, accent, dim }: Props) {
               </div>
               <div>
                 <div className="font-bold text-sm mb-0.5" style={{ color: accent, fontFamily: 'Lato, sans-serif' }}>{attr.head}</div>
-                <div className="text-sm leading-relaxed" style={{ color: '#B8A08A' }}>{attr.body}</div>
+                <div className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{attr.body}</div>
               </div>
             </div>
           ))}
