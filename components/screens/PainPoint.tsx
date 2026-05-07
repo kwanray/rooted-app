@@ -87,12 +87,31 @@ export default function PainPoint({ onSelect }: Props) {
                             const accent = PHASE_ACCENTS[phase]
                             const dim = PHASE_DIMS[phase]
                             return (
-                              <span
-                                className="text-xs font-bold px-2 py-0.5 rounded-full"
-                                style={{ background: dim, color: accent, border: `1px solid ${accent}33`, fontFamily: 'Lato, sans-serif' }}
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  onSelect(pp.id)
+                                }}
+                                className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full transition-all"
+                                style={{
+                                  background: dim,
+                                  color: accent,
+                                  border: `1.5px solid ${accent}55`,
+                                  fontFamily: 'Lato, sans-serif',
+                                  cursor: 'pointer',
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.background = accent
+                                  e.currentTarget.style.color = '#FFFFFF'
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.background = dim
+                                  e.currentTarget.style.color = accent
+                                }}
                               >
                                 {pp.journeyHint}
-                              </span>
+                                <span style={{ fontSize: 11 }}>→</span>
+                              </button>
                             )
                           })()}
                         </div>
