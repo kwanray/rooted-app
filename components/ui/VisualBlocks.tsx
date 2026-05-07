@@ -158,27 +158,27 @@ export default function VisualBlocks({ type, accent, dim }: Props) {
               key={card.label}
               className="rounded-xl p-4 border flex flex-col"
               style={{
-                background: card.ok ? dim : '#0D0A05',
-                borderColor: card.ok ? accent : '#1A1208',
+                background: card.ok ? dim : '#F3F4F6',
+                borderColor: card.ok ? accent : '#D1D5DB',
               }}
             >
               <div
                 className="text-xl font-bold mb-1"
-                style={{ color: card.ok ? accent : '#4a3f2f', fontFamily: 'Cormorant Garamond, serif' }}
+                style={{ color: card.ok ? accent : '#6B7280', fontFamily: 'Cormorant Garamond, serif' }}
               >
                 {card.label}
               </div>
-              <div className="text-xs font-bold mb-2" style={{ color: '#4B5563', fontFamily: 'Lato, sans-serif' }}>
+              <div className="text-xs font-bold mb-2" style={{ color: card.ok ? '#4B5563' : '#6B7280', fontFamily: 'Lato, sans-serif' }}>
                 {card.summary}
               </div>
-              <div className="text-sm leading-relaxed mb-3 flex-1" style={{ color: '#4B5563' }}>
+              <div className="text-sm leading-relaxed mb-3 flex-1" style={{ color: card.ok ? '#4B5563' : '#6B7280' }}>
                 {card.body}
               </div>
               <div
                 className="text-xs font-bold px-2 py-1 rounded"
                 style={{
-                  background: card.ok ? accent + '22' : '#1A1208',
-                  color: card.ok ? accent : '#4a3f2f',
+                  background: card.ok ? accent + '22' : '#E5E7EB',
+                  color: card.ok ? accent : '#6B7280',
                   fontFamily: 'Lato, sans-serif',
                 }}
               >
