@@ -59,7 +59,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
         className="max-w-sm mb-12 text-sm"
         style={{ color: '#8A8D91', fontFamily: 'Lato, sans-serif' }}
       >
-        Designed for young Christians in Singapore asking real questions.
+        Designed for young Christians in Singapore asking big questions.
       </p>
 
       {/* Phase tags */}
