@@ -58,7 +58,15 @@ My question is: ${question.trim()}`
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err)
     console.error('[/api/ask] Error:', message)
-    // DEBUG: return raw message temporarily to diagnose the issue
-    return NextResponse.json({ error: `[debug] ${message}` }, { status: 500 })
+
+    const userFacing = message.includes('401') || message.includes('API key') || message.includes('Unauthorized')
+      ? 'Invalid API key — please contact the site administrator.'
+      : message.includes('Model not found') || message.includes('model')
+      ? 'AI model unavailable — please contact the site administrator.'
+      : message.includes('429')
+      ? 'Too many requests — please wait a moment and try again.'
+      : 'Something went wrong. Please try again.'
+
+    return NextResponse.json({ error: userFacing }, { status: 500 })
   }
 }
