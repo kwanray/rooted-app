@@ -117,6 +117,10 @@ export default function RootedApp() {
     })
   }
 
+  const handleWelcomeNavigate = (idx: number) => {
+    setState({ ...INITIAL_STATE, screen: 'point', idx, startingIdx: 0 })
+  }
+
   const handlePainPoint = (id: PainPointId) => {
     const startIdx = PAIN_POINT_ENTRY[id]
     update({ painPointId: id, screen: 'point', idx: startIdx, startingIdx: startIdx })
@@ -254,7 +258,7 @@ export default function RootedApp() {
               </button>
             )}
           </div>
-          <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} />
+          <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} onNavigate={handleWelcomeNavigate} hasProgress={showResume} />
         </>
       )}
 
