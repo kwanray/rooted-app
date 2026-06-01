@@ -58,38 +58,23 @@ export default function PointView({
     : pt.highlightMsg
 
   return (
-    <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: 'var(--bg)' }}>
+    <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: '#FFFFFF' }}>
       {/* NGIM nav bar */}
-      <div
-        className="sticky top-0 z-10"
-        style={{ background: '#1A1A2A', borderBottom: '1px solid #FFFFFF11' }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 1rem', height: 50 }}>
-          {/* Home button */}
-          <button
-            onClick={onHome}
-            style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
-            aria-label="Home"
-          >
+      <div className="sticky top-0 z-10" style={{ background: '#1A1A2A', borderBottom: '1px solid #FFFFFF11' }}>
+        <div style={{ display: 'flex', alignItems: 'center', padding: '0 1rem', height: 50, gap: 12 }}>
+          <button onClick={onHome} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: 'none', cursor: 'pointer', flexShrink: 0 }} aria-label="Home">
             <svg width="18" height="18" viewBox="0 0 36 36" fill="none">
               <path d="M18 4 L18 32 M8 14 Q18 8 28 14" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               <circle cx="18" cy="4" r="2.5" fill="#D4A847"/>
             </svg>
             <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, color: '#D4A847', letterSpacing: '0.1em' }}>ROOTED</span>
           </button>
-          {/* Foundation bar */}
-          <div style={{ flex: 1, margin: '0 12px' }}>
+          <div style={{ flex: 1 }}>
             <FoundationBar completed={completed} currentIdx={idx} startingIdx={startingIdx} />
           </div>
-          {/* Search */}
-          <button
-            onClick={onSearch}
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 32, height: 32, background: 'transparent', border: '1px solid #FFFFFF22', cursor: 'pointer', color: '#AAAABB', flexShrink: 0 }}
-            aria-label="Search"
-          >
+          <button onClick={onSearch} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 32, height: 32, background: 'transparent', border: '1px solid #FFFFFF22', cursor: 'pointer', color: '#AAAABB', flexShrink: 0 }} aria-label="Search">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
             </svg>
           </button>
         </div>
@@ -100,13 +85,7 @@ export default function PointView({
         <div className="flex items-center gap-2 mb-6">
           <span
             className="px-3 py-1 text-xs font-bold"
-            style={{
-              background: '#1A1A2A',
-              color: '#D4A847',
-              border: '1px solid #D4A84744',
-              fontFamily: 'Montserrat, sans-serif',
-              letterSpacing: '0.12em',
-            }}
+            style={{ background: '#1A1A2A', color: '#D4A847', border: '1px solid #D4A84744', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.12em' }}
           >
             {phaseLabel.toUpperCase()}
           </span>
@@ -138,7 +117,7 @@ export default function PointView({
           >
             <div className="flex items-start gap-2">
               <span style={{ fontSize: 16, flexShrink: 0 }}>🏗️</span>
-              <p className="text-sm leading-relaxed" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em' }}>
+              <p className="text-sm leading-relaxed" style={{ color: accent, fontFamily: 'Montserrat, sans-serif' }}>
                 Foundation point — this underpins everything you've already read.
               </p>
             </div>
@@ -149,11 +128,11 @@ export default function PointView({
         {isHighlighted && (
           <div
             className="rounded-xl p-4 mb-6 border"
-            style={{ background: '#E7F0FD', borderColor: '#1877F244' }}
+            style={{ background: '#1A1A2A', border: '1px solid #D4A84744' }}
           >
             <div className="flex items-start gap-2">
               <span style={{ fontSize: 16, flexShrink: 0 }}>✦</span>
-              <p className="text-sm leading-relaxed" style={{ color: '#1877F2', fontFamily: 'Montserrat, sans-serif' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif' }}>
                 {activeHighlightMsg}
               </p>
             </div>
@@ -182,24 +161,15 @@ export default function PointView({
         </div>
         <div
           className="mb-8 rounded-full"
-          style={{ height: 2, width: '4rem', background: `linear-gradient(90deg, ${accent} 0%, transparent 100%)` }}
+          style={{ height: 2, width: '4rem', background: '#D4A847' }}
         />
 
         {/* Geisler's Claim */}
-        <div
-          className="p-5 mb-6"
-          style={{
-            background: '#F7F7F9',
-            borderLeft: '3px solid #D4A847',
-          }}
-        >
+        <div className="p-5 mb-6" style={{ background: '#F7F7F9', borderLeft: '3px solid #D4A847' }}>
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
             KEY POINT
           </div>
-          <p
-            className="leading-relaxed"
-            style={{ color: '#1A1A2A', fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontStyle: 'italic' }}
-          >
+          <p className="leading-relaxed" style={{ color: '#1A1A2A', fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontStyle: 'italic' }}>
             {pt.claim}
           </p>
         </div>
@@ -209,7 +179,7 @@ export default function PointView({
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
             🇸🇬 YOUR CONTEXT
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: '#555577', fontFamily: 'Montserrat, sans-serif', lineHeight: 1.75 }}>
+          <p className="text-sm leading-relaxed" style={{ color: '#555577', fontFamily: 'Montserrat, sans-serif', lineHeight: '1.75' }}>
             {pt.sg}
           </p>
         </div>
@@ -225,7 +195,7 @@ export default function PointView({
         <div className="mb-6">
           <button
             onClick={() => setArgsOpen((o) => !o)}
-            className="w-full flex items-center justify-between rounded-xl px-5 py-4 transition-all"
+            className="w-full flex items-center justify-between px-5 py-4 transition-all"
             style={{
               background: argsOpen ? dim : '#FFFFFF',
               border: `1.5px solid ${argsOpen ? accent + '44' : '#E4E6EB'}`,
@@ -242,7 +212,7 @@ export default function PointView({
 
           {argsOpen && (
             <div
-              className="rounded-b-xl border-x border-b overflow-hidden"
+              className="border-x border-b overflow-hidden"
               style={{ borderColor: accent + '33' }}
             >
               {pt.geisler.map((arg, i) => (
@@ -260,7 +230,7 @@ export default function PointView({
                     </span>
                     <div
                       className="font-bold text-sm"
-                      style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em' }}
+                      style={{ color: accent, fontFamily: 'Montserrat, sans-serif' }}
                     >
                       {arg.head}
                     </div>
@@ -279,7 +249,7 @@ export default function PointView({
           <div className="mb-6">
             <button
               onClick={() => setObjectionsOpen((o) => !o)}
-              className="w-full flex items-center justify-between rounded-xl px-5 py-4 transition-all"
+              className="w-full flex items-center justify-between px-5 py-4 transition-all"
               style={{
                 background: objectionsOpen ? '#FEF3C7' : '#FFFFFF',
                 border: `1.5px solid ${objectionsOpen ? '#F59E0B44' : '#E4E6EB'}`,
@@ -295,7 +265,7 @@ export default function PointView({
             </button>
 
             {objectionsOpen && (
-              <div className="rounded-b-xl border-x border-b overflow-hidden" style={{ borderColor: '#F59E0B33' }}>
+              <div className="border-x border-b overflow-hidden" style={{ borderColor: '#F59E0B33' }}>
                 {pt.objections.map((obj, i) => (
                   <div
                     key={i}
@@ -328,7 +298,7 @@ export default function PointView({
           <div className="mb-6">
             <button
               onClick={() => setDeepDiveOpen((o) => !o)}
-              className="w-full flex items-center justify-between rounded-xl px-5 py-4 transition-all"
+              className="w-full flex items-center justify-between px-5 py-4 transition-all"
               style={{
                 background: deepDiveOpen ? '#F0F4FF' : '#FFFFFF',
                 border: `1.5px solid ${deepDiveOpen ? '#6366F144' : '#E4E6EB'}`,
@@ -344,7 +314,7 @@ export default function PointView({
             </button>
 
             {deepDiveOpen && (
-              <div className="rounded-b-xl border-x border-b overflow-hidden" style={{ borderColor: '#6366F133' }}>
+              <div className="border-x border-b overflow-hidden" style={{ borderColor: '#6366F133' }}>
                 {pt.deepDive.map((item, i) => (
                   <div
                     key={i}
@@ -379,17 +349,11 @@ export default function PointView({
         )}
 
         {/* Key Insight */}
-        <div
-          className="p-5 mb-6"
-          style={{
-            background: '#1A1A2A',
-            borderLeft: '3px solid #D4A847',
-          }}
-        >
+        <div className="p-5 mb-6" style={{ background: '#1A1A2A', borderLeft: '3px solid #D4A847' }}>
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
             💡 KEY INSIGHT
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: '#AAAABB', fontFamily: 'Montserrat, sans-serif', lineHeight: 1.75 }}>
+          <p className="text-sm leading-relaxed" style={{ color: '#AAAABB', fontFamily: 'Montserrat, sans-serif', lineHeight: '1.75' }}>
             {pt.insight}
           </p>
         </div>
@@ -418,13 +382,14 @@ export default function PointView({
 
         {/* Scripture */}
         <div className="text-center mb-10 px-4 py-6" style={{ background: '#1A1A2A' }}>
+          <div className="text-xs font-bold tracking-widest mb-3" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>KEY VERSE</div>
           <p
             className="text-lg mb-1"
             style={{ color: '#FFFFFF', fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 300 }}
           >
             &ldquo;{pt.scripture}&rdquo;
           </p>
-          <p className="text-sm mt-2" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em' }}>
+          <p className="text-xs mt-2 font-bold" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.1em' }}>
             — {pt.ref}
           </p>
           {pt.verses.length > 0 && (
@@ -439,28 +404,16 @@ export default function PointView({
           <button
             onClick={onBack}
             className="flex-1 rounded-xl px-4 py-3 text-sm font-bold transition-all"
-            style={{
-              background: 'transparent',
-              color: '#AAAABB',
-              border: '1.5px solid #E0E0E8',
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: 11, fontWeight: 700, letterSpacing: '0.08em',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#1A1A2A', e.currentTarget.style.color = '#1A1A2A')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#E0E0E8', e.currentTarget.style.color = '#AAAABB')}
+            style={{ background: 'transparent', color: '#AAAABB', border: '1.5px solid #E0E0E8', fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em' }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1A1A2A'; e.currentTarget.style.color = '#1A1A2A' }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E0E0E8'; e.currentTarget.style.color = '#AAAABB' }}
           >
             ← BACK
           </button>
           <button
             onClick={onMarkDone}
             className="flex-2 flex-grow rounded-xl px-4 py-3 text-sm font-bold transition-all"
-            style={{
-              background: isDone ? '#F7F7F9' : '#D4A847',
-              color: isDone ? '#1A1A2A' : '#1A1A2A',
-              border: isDone ? '1.5px solid #E0E0E8' : 'none',
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: 11, fontWeight: 800, letterSpacing: '0.08em',
-            }}
+            style={{ background: isDone ? '#F7F7F9' : '#D4A847', color: '#1A1A2A', border: isDone ? '1.5px solid #E0E0E8' : 'none', fontFamily: 'Montserrat, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.08em' }}
           >
             {isDone ? '✓ CONTINUE →' : 'MARK AS READ & CONTINUE →'}
           </button>
