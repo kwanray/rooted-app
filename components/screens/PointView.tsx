@@ -22,74 +22,84 @@ interface Props {
   onSearch: () => void
 }
 
-const POINT_ICONS = ['🔍', '⚖️', '🌌', '✨', '📜', '📖', '✝️', '☀️', '👑', '💬', '📝', '📕']
-
-// Dark-mode safe colour tokens
 const C = {
-  page:       '#12121E',  // deepest navy — page bg
-  surface:    '#1E1E2E',  // card surface
-  surfaceAlt: '#252536',  // slightly lighter card
-  border:     '#FFFFFF14',// subtle dividers
-  borderGold: '#D4A84740',// gold-tinted borders
-  gold:       '#D4A847',  // primary accent
-  goldDim:    '#D4A84722',// gold tint bg
-  white:      '#F0EEE8',  // warm white for body text
-  muted:      '#8888AA',  // secondary text
-  hint:       '#555570',  // tertiary / placeholders
+  page:       '#12121E',
+  surface:    '#1E1E2E',
+  surfaceAlt: '#252536',
+  border:     '#FFFFFF14',
+  borderGold: '#D4A84740',
+  gold:       '#D4A847',
+  goldDim:    '#D4A84722',
+  white:      '#F0EEE8',
+  muted:      '#9090B0',
+  hint:       '#555570',
 }
 
 const ms = { fontFamily: 'Montserrat, sans-serif' }
 const cg = { fontFamily: 'Cormorant Garamond, serif' }
 
+const PHASE_COLORS = ['#8888AA', '#8B5CF6', '#D4A847', '#C0392B', '#2E7D52']
+
+const POINT_ICONS = ['🔍','⚖️','🌌','✨','📜','📖','✝️','☀️','👑','💬','📝','📕']
+
+// Argument card — tappable, expands inline
+function ArgCard({ n, head, body }: { n: number; head: string; body: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <button
+      onClick={() => setOpen(o => !o)}
+      style={{
+        width: '100%', textAlign: 'left', background: open ? C.surfaceAlt : C.surface,
+        border: `1px solid ${open ? C.borderGold : C.border}`,
+        padding: '1rem 1.1rem', marginBottom: 8, cursor: 'pointer',
+        transition: 'background 0.2s, border-color 0.2s',
+        display: 'block',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <span style={{
+          width: 24, height: 24, background: open ? C.gold : C.surfaceAlt,
+          color: open ? C.page : C.muted,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 10, fontWeight: 800, ...ms, flexShrink: 0,
+          transition: 'background 0.2s',
+        }}>{n}</span>
+        <span style={{ ...ms, fontSize: 12, fontWeight: 700, color: open ? C.gold : C.white, flex: 1, lineHeight: 1.4 }}>{head}</span>
+        <span style={{ color: C.gold, fontSize: 16, fontWeight: 300, flexShrink: 0 }}>{open ? '−' : '+'}</span>
+      </div>
+      {open && (
+        <p style={{ ...ms, fontSize: 13, color: C.muted, lineHeight: 1.8, marginTop: 12, paddingLeft: 34 }}>{body}</p>
+      )}
+    </button>
+  )
+}
+
 export default function PointView({
-  idx,
-  startingIdx,
-  completed,
-  painPointId,
-  reflection,
-  onReflectionChange,
-  onMarkDone,
-  onBack,
-  onHome,
-  onSearch,
+  idx, startingIdx, completed, painPointId,
+  reflection, onReflectionChange, onMarkDone, onBack, onHome, onSearch,
 }: Props) {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [idx])
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }) }, [idx])
 
   const pt = POINTS[idx]
   const phaseLabel = PHASE_LABELS[pt.phase]
+  const phaseColor = PHASE_COLORS[pt.phase] ?? C.gold
   const isHighlighted = painPointId ? pt.highlight.includes(painPointId) : false
   const isDone = completed.includes(idx)
-  const [argsOpen, setArgsOpen]         = useState(false)
-  const [objectionsOpen, setObjectionsOpen] = useState(false)
   const [deepDiveOpen, setDeepDiveOpen] = useState(false)
 
-  const isEntryPoint  = startingIdx > 0 && idx === startingIdx
+  const isEntryPoint   = startingIdx > 0 && idx === startingIdx
   const isBacktracking = startingIdx > 0 && idx < startingIdx
-  const entryBanner   = isEntryPoint && painPointId ? pt.entryBanners?.[painPointId] : null
+  const entryBanner    = isEntryPoint && painPointId ? pt.entryBanners?.[painPointId] : null
   const activeHighlightMsg = painPointId && pt.highlightMsgs?.[painPointId]
     ? pt.highlightMsgs[painPointId] : pt.highlightMsg
 
-  const card = (children: React.ReactNode, style?: React.CSSProperties) => (
-    <div style={{ background: C.surface, border: `1px solid ${C.border}`, padding: '1.25rem', marginBottom: '1rem', ...style }}>
-      {children}
-    </div>
-  )
-
-  const sectionLabel = (text: string) => (
-    <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.gold, marginBottom: 8 }}>
-      {text}
-    </div>
-  )
-
   return (
-    <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: C.page }}>
+    <div style={{ minHeight: '100vh', background: C.page }}>
 
       {/* ── Sticky nav ── */}
       <div className="sticky top-0 z-10" style={{ background: C.page, borderBottom: `1px solid ${C.border}` }}>
         <div style={{ display: 'flex', alignItems: 'center', padding: '0 1rem', height: 50, gap: 12 }}>
-          <button onClick={onHome} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: 'none', cursor: 'pointer', flexShrink: 0 }} aria-label="Home">
+          <button onClick={onHome} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: 'none', cursor: 'pointer', flexShrink: 0 }}>
             <svg width="18" height="18" viewBox="0 0 36 36" fill="none">
               <path d="M18 4 L18 32 M8 14 Q18 8 28 14" stroke={C.gold} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               <circle cx="18" cy="4" r="2.5" fill={C.gold}/>
@@ -99,7 +109,7 @@ export default function PointView({
           <div style={{ flex: 1 }}>
             <FoundationBar completed={completed} currentIdx={idx} startingIdx={startingIdx} />
           </div>
-          <button onClick={onSearch} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 32, height: 32, background: 'transparent', border: `1px solid ${C.border}`, cursor: 'pointer', color: C.muted, flexShrink: 0 }} aria-label="Search">
+          <button onClick={onSearch} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 32, height: 32, background: 'transparent', border: `1px solid ${C.border}`, cursor: 'pointer', color: C.muted, flexShrink: 0 }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
@@ -107,192 +117,144 @@ export default function PointView({
         </div>
       </div>
 
-      {/* ── Content ── */}
-      <div className="flex-1 w-full max-w-2xl mx-auto px-4 py-8">
-
-        {/* Phase pill */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
-          <span style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', color: C.gold, background: C.goldDim, border: `1px solid ${C.borderGold}`, padding: '4px 12px' }}>
+      {/* ── HERO BAND ── */}
+      <div style={{ background: `linear-gradient(160deg, #1A1A2E 0%, ${C.page} 100%)`, padding: '2rem 1.5rem 1.5rem', borderBottom: `1px solid ${C.border}` }}>
+        {/* Phase + number */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+          <span style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: phaseColor, background: `${phaseColor}18`, border: `1px solid ${phaseColor}40`, padding: '4px 10px' }}>
             {phaseLabel.toUpperCase()}
           </span>
-          <span style={{ ...ms, fontSize: 10, color: C.hint, letterSpacing: '0.08em' }}>
-            POINT {pt.n} OF 12
-          </span>
+          <span style={{ ...ms, fontSize: 10, color: C.hint, letterSpacing: '0.06em' }}>POINT {pt.n} / 12</span>
         </div>
 
-        {/* Entry / backtrack / highlight banners */}
-        {entryBanner && (
-          <div style={{ background: C.surfaceAlt, borderLeft: `3px solid ${C.gold}`, padding: '1rem 1.2rem', marginBottom: '1rem' }}>
-            <p style={{ ...ms, fontSize: 12, color: C.white, lineHeight: 1.7 }}>🧭 {entryBanner}</p>
-          </div>
-        )}
-        {isBacktracking && (
-          <div style={{ background: C.surfaceAlt, borderLeft: `3px solid ${C.gold}`, padding: '1rem 1.2rem', marginBottom: '1rem' }}>
-            <p style={{ ...ms, fontSize: 12, color: C.muted, lineHeight: 1.7 }}>🏗️ Foundation point — this underpins everything you've already read.</p>
-          </div>
-        )}
-        {isHighlighted && (
-          <div style={{ background: C.surfaceAlt, borderLeft: `3px solid ${C.gold}`, padding: '1rem 1.2rem', marginBottom: '1rem' }}>
-            <p style={{ ...ms, fontSize: 12, color: C.white, lineHeight: 1.7 }}>✦ {activeHighlightMsg}</p>
-          </div>
-        )}
-
-        {/* Icon + Title */}
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, marginBottom: 8 }}>
-          <div style={{ flexShrink: 0, width: 48, height: 48, background: C.surfaceAlt, border: `1px solid ${C.borderGold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26 }}>
-            {POINT_ICONS[idx] ?? '📌'}
-          </div>
-          <h1 style={{ ...cg, fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 400, color: C.white, lineHeight: 1.15, flex: 1 }}>
+        {/* Big emoji + title */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
+          <span style={{ fontSize: 44, lineHeight: 1, flexShrink: 0 }}>{POINT_ICONS[idx] ?? '📌'}</span>
+          <h1 style={{ ...cg, fontSize: 'clamp(1.7rem, 6vw, 2.6rem)', fontWeight: 400, color: C.white, lineHeight: 1.2 }}>
             {pt.title}
           </h1>
         </div>
-        <div style={{ height: 2, width: '4rem', background: C.gold, marginBottom: 32 }}/>
 
-        {/* KEY POINT */}
-        {card(
-          <>
-            {sectionLabel('KEY POINT')}
-            <p style={{ ...cg, fontSize: 18, fontStyle: 'italic', color: C.white, lineHeight: 1.7 }}>{pt.claim}</p>
-          </>,
-          { borderLeft: `3px solid ${C.gold}` }
+        {/* Takeaway pill — the "so what" up front */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: C.goldDim, border: `1px solid ${C.borderGold}`, padding: '8px 14px', marginBottom: 8 }}>
+          <span style={{ color: C.gold, fontSize: 14 }}>💡</span>
+          <span style={{ ...ms, fontSize: 12, fontWeight: 700, color: C.gold, lineHeight: 1.4 }}>{pt.takeaway}</span>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: 600, margin: '0 auto', padding: '0 1rem 2rem' }}>
+
+        {/* ── CONTEXTUAL BANNER ── */}
+        {(entryBanner || isBacktracking || isHighlighted) && (
+          <div style={{ background: C.surfaceAlt, borderLeft: `3px solid ${C.gold}`, padding: '1rem 1.2rem', margin: '1.2rem 0 0' }}>
+            <p style={{ ...ms, fontSize: 12, color: C.white, lineHeight: 1.75 }}>
+              {entryBanner
+                ? `🧭 ${entryBanner}`
+                : isBacktracking
+                  ? '🏗️ Foundation point — this underpins everything you\'ve already read.'
+                  : `✦ ${activeHighlightMsg}`}
+            </p>
+          </div>
         )}
 
-        {/* YOUR CONTEXT */}
-        {card(
-          <>
-            {sectionLabel('🇸🇬 YOUR CONTEXT')}
-            <p style={{ ...ms, fontSize: 13, color: C.muted, lineHeight: 1.8 }}>{pt.sg}</p>
-          </>
-        )}
+        {/* ── BIG CLAIM — pull-quote style ── */}
+        <div style={{ margin: '1.5rem 0', padding: '1.5rem', background: C.surface, borderTop: `3px solid ${C.gold}` }}>
+          <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.gold, marginBottom: 10 }}>THE CLAIM</div>
+          <p style={{ ...cg, fontSize: 'clamp(1.15rem, 3.5vw, 1.5rem)', fontStyle: 'italic', color: C.white, lineHeight: 1.7, margin: 0 }}>
+            &ldquo;{pt.claim}&rdquo;
+          </p>
+        </div>
 
-        {/* Visual Block */}
+        {/* ── SINGAPORE CONTEXT ── */}
+        <div style={{ margin: '0 0 1.2rem', padding: '1.2rem', background: C.surface, border: `1px solid ${C.border}` }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+            <span style={{ fontSize: 16 }}>🇸🇬</span>
+            <span style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.muted }}>WHY THIS MATTERS HERE</span>
+          </div>
+          <p style={{ ...ms, fontSize: 13, color: C.muted, lineHeight: 1.85, margin: 0 }}>{pt.sg}</p>
+        </div>
+
+        {/* ── VISUAL BLOCK ── */}
         {pt.specialViz && (
-          <div style={{ marginBottom: 16 }}>
+          <div style={{ marginBottom: '1.2rem' }}>
             <VisualBlocks type={pt.specialViz} accent={C.gold} dim={C.goldDim} />
           </div>
         )}
 
-        {/* Study Key Arguments */}
-        <div style={{ marginBottom: 12 }}>
-          <button
-            onClick={() => setArgsOpen(o => !o)}
-            style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.25rem', background: argsOpen ? C.surfaceAlt : C.surface, border: `1px solid ${argsOpen ? C.borderGold : C.border}`, cursor: 'pointer' }}
-          >
-            <span style={{ ...ms, fontSize: 13, fontWeight: 700, color: argsOpen ? C.gold : C.muted }}>📚 Study Key Arguments</span>
-            <span style={{ color: C.gold, fontSize: 18, fontWeight: 300 }}>{argsOpen ? '−' : '+'}</span>
-          </button>
-          {argsOpen && pt.geisler.map((arg, i) => (
-            <div key={i} style={{ background: C.surfaceAlt, borderBottom: `1px solid ${C.border}`, borderLeft: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: '1rem 1.25rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                <span style={{ width: 20, height: 20, background: C.gold, color: C.page, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 800, ...ms, flexShrink: 0 }}>{i + 1}</span>
-                <span style={{ ...ms, fontSize: 12, fontWeight: 700, color: C.gold }}>{arg.head}</span>
-              </div>
-              <p style={{ ...ms, fontSize: 12, color: C.muted, lineHeight: 1.75, paddingLeft: 28 }}>{arg.body}</p>
-            </div>
+        {/* ── THE ARGUMENTS — each card taps open ── */}
+        <div style={{ margin: '0 0 0.5rem' }}>
+          <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.gold, marginBottom: 10 }}>
+            THE ARGUMENTS — TAP TO EXPLORE
+          </div>
+          {pt.geisler.map((arg, i) => (
+            <ArgCard key={i} n={i + 1} head={arg.head} body={arg.body} />
           ))}
         </div>
 
-        {/* Objections */}
+        {/* ── OBJECTIONS ── */}
         {pt.objections && pt.objections.length > 0 && (
-          <div style={{ marginBottom: 12 }}>
+          <div style={{ margin: '1rem 0 0.5rem' }}>
+            <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.muted, marginBottom: 10 }}>
+              COMMON OBJECTIONS
+            </div>
+            {pt.objections.map((obj, i) => (
+              <ArgCard key={i} n={i + 1} head={obj.head} body={obj.body} />
+            ))}
+          </div>
+        )}
+
+        {/* ── KEY INSIGHT — bold callout ── */}
+        <div style={{ margin: '1.5rem 0', padding: '1.5rem', background: '#1E1E2E', borderLeft: `4px solid ${C.gold}` }}>
+          <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.gold, marginBottom: 10 }}>KEY INSIGHT</div>
+          <p style={{ ...ms, fontSize: 14, color: C.white, lineHeight: 1.85, margin: 0, fontWeight: 600 }}>{pt.insight}</p>
+        </div>
+
+        {/* ── REFLECT ── */}
+        <div style={{ marginBottom: '1.2rem' }}>
+          <ReflectField prompt={pt.reflect} pointIdx={idx} value={reflection} onChange={onReflectionChange} accent={C.gold} dim={C.goldDim} />
+        </div>
+
+        {/* ── ASK AI ── */}
+        <div style={{ marginBottom: '1.2rem' }}>
+          <AskAI pointN={pt.n} pointTitle={pt.title} accent={C.gold} dim={C.goldDim} />
+        </div>
+
+        {/* ── ADVANCED READING ── collapsible, out of the way ── */}
+        {pt.deepDive && pt.deepDive.length > 0 && (
+          <div style={{ marginBottom: '1.2rem' }}>
             <button
-              onClick={() => setObjectionsOpen(o => !o)}
-              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.25rem', background: objectionsOpen ? C.surfaceAlt : C.surface, border: `1px solid ${objectionsOpen ? C.borderGold : C.border}`, cursor: 'pointer' }}
+              onClick={() => setDeepDiveOpen(o => !o)}
+              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.9rem 1.1rem', background: C.surface, border: `1px solid ${deepDiveOpen ? C.borderGold : C.border}`, cursor: 'pointer' }}
             >
-              <span style={{ ...ms, fontSize: 13, fontWeight: 700, color: objectionsOpen ? C.gold : C.muted }}>⚠️ Objections & Responses</span>
-              <span style={{ color: C.gold, fontSize: 18, fontWeight: 300 }}>{objectionsOpen ? '−' : '+'}</span>
+              <span style={{ ...ms, fontSize: 12, fontWeight: 700, color: deepDiveOpen ? C.gold : C.muted }}>📖 Advanced Reading</span>
+              <span style={{ color: C.gold, fontSize: 16 }}>{deepDiveOpen ? '−' : '+'}</span>
             </button>
-            {objectionsOpen && pt.objections.map((obj, i) => (
-              <div key={i} style={{ background: C.surfaceAlt, borderBottom: `1px solid ${C.border}`, borderLeft: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: '1rem 1.25rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                  <span style={{ width: 20, height: 20, background: C.gold, color: C.page, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 800, ...ms, flexShrink: 0 }}>{i + 1}</span>
-                  <span style={{ ...ms, fontSize: 12, fontWeight: 700, color: C.gold }}>{obj.head}</span>
-                </div>
-                <p style={{ ...ms, fontSize: 12, color: C.muted, lineHeight: 1.75, paddingLeft: 28 }}>{obj.body}</p>
+            {deepDiveOpen && pt.deepDive.map((item, i) => (
+              <div key={i} style={{ background: C.surfaceAlt, borderBottom: `1px solid ${C.border}`, borderLeft: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: '1rem 1.1rem' }}>
+                <div style={{ ...ms, fontSize: 11, fontWeight: 700, color: C.gold, marginBottom: 6 }}>{item.head}</div>
+                <p style={{ ...ms, fontSize: 12, color: C.muted, lineHeight: 1.8, margin: 0 }}>{item.body}</p>
               </div>
             ))}
           </div>
         )}
 
-        {/* Advanced Reading */}
-        {pt.deepDive && pt.deepDive.length > 0 && (
-          <div style={{ marginBottom: 12 }}>
-            <button
-              onClick={() => setDeepDiveOpen(o => !o)}
-              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.25rem', background: deepDiveOpen ? C.surfaceAlt : C.surface, border: `1px solid ${deepDiveOpen ? C.borderGold : C.border}`, cursor: 'pointer' }}
-            >
-              <span style={{ ...ms, fontSize: 13, fontWeight: 700, color: deepDiveOpen ? C.gold : C.muted }}>📖 Advanced Reading</span>
-              <span style={{ color: C.gold, fontSize: 18, fontWeight: 300 }}>{deepDiveOpen ? '−' : '+'}</span>
-            </button>
-            {deepDiveOpen && (
-              <>
-                {pt.deepDive.map((item, i) => (
-                  <div key={i} style={{ background: C.surfaceAlt, borderBottom: `1px solid ${C.border}`, borderLeft: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: '1rem 1.25rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                      <span style={{ width: 20, height: 20, background: C.gold, color: C.page, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 800, ...ms, flexShrink: 0 }}>{i + 1}</span>
-                      <span style={{ ...ms, fontSize: 12, fontWeight: 700, color: C.gold }}>{item.head}</span>
-                    </div>
-                    <p style={{ ...ms, fontSize: 12, color: C.muted, lineHeight: 1.75, paddingLeft: 28 }}>{item.body}</p>
-                  </div>
-                ))}
-                <div style={{ background: C.surface, borderLeft: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`, padding: '0.75rem 1.25rem' }}>
-                  <span style={{ ...ms, fontSize: 11, color: C.hint }}>Source: <em>Is the Christian Faith Reasonable?</em> (NGIM, 2023)</span>
-                </div>
-              </>
-            )}
-          </div>
-        )}
-
-        {/* KEY INSIGHT */}
-        <div style={{ marginBottom: 16 }}>
-          {card(
-            <>
-              {sectionLabel('💡 KEY INSIGHT')}
-              <p style={{ ...ms, fontSize: 13, color: C.white, lineHeight: 1.8 }}>{pt.insight}</p>
-            </>,
-            { borderLeft: `3px solid ${C.gold}`, background: C.surfaceAlt }
-          )}
-        </div>
-
-        {/* Takeaway */}
-        <div style={{ marginBottom: 16 }}>
-          <TakeawayCard text={pt.takeaway} accent={C.gold} dim={C.goldDim} />
-        </div>
-
-        {/* Reflect */}
-        <div style={{ marginBottom: 16 }}>
-          <ReflectField
-            prompt={pt.reflect}
-            pointIdx={idx}
-            value={reflection}
-            onChange={onReflectionChange}
-            accent={C.gold}
-            dim={C.goldDim}
-          />
-        </div>
-
-        {/* Ask AI */}
-        <div style={{ marginBottom: 32 }}>
-          <AskAI pointN={pt.n} pointTitle={pt.title} accent={C.gold} dim={C.goldDim} />
-        </div>
-
-        {/* Scripture */}
-        <div style={{ textAlign: 'center', padding: '2rem 1.5rem', background: C.surfaceAlt, borderTop: `3px solid ${C.gold}`, marginBottom: 32 }}>
+        {/* ── SCRIPTURE ── */}
+        <div style={{ margin: '1.5rem 0', padding: '1.8rem 1.5rem', background: C.surfaceAlt, textAlign: 'center', borderTop: `3px solid ${C.gold}` }}>
           <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.gold, marginBottom: 12 }}>KEY VERSE</div>
-          <p style={{ ...cg, fontStyle: 'italic', fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', color: C.white, lineHeight: 1.8, marginBottom: 8 }}>
+          <p style={{ ...cg, fontStyle: 'italic', fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', color: C.white, lineHeight: 1.8, margin: '0 0 10px' }}>
             &ldquo;{pt.scripture}&rdquo;
           </p>
-          <p style={{ ...ms, fontSize: 10, fontWeight: 800, color: C.gold, letterSpacing: '0.1em' }}>— {pt.ref}</p>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, color: C.gold, letterSpacing: '0.1em' }}>— {pt.ref}</div>
           {pt.verses.length > 0 && (
-            <p style={{ ...ms, fontSize: 10, color: C.hint, marginTop: 4 }}>Also: {pt.verses.join(' · ')}</p>
+            <div style={{ ...ms, fontSize: 10, color: C.hint, marginTop: 6 }}>Also: {pt.verses.join(' · ')}</div>
           )}
         </div>
 
-        {/* Navigation */}
-        <div style={{ display: 'flex', gap: 12 }}>
+        {/* ── CTA ── */}
+        <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
           <button
             onClick={onBack}
-            style={{ flex: 1, padding: '13px 16px', background: 'transparent', color: C.muted, border: `1.5px solid ${C.border}`, ...ms, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', cursor: 'pointer' }}
+            style={{ flex: 1, padding: '14px', background: 'transparent', color: C.muted, border: `1.5px solid ${C.border}`, ...ms, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', cursor: 'pointer' }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = C.gold; e.currentTarget.style.color = C.gold }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.muted }}
           >
@@ -300,7 +262,7 @@ export default function PointView({
           </button>
           <button
             onClick={onMarkDone}
-            style={{ flex: 3, padding: '13px 16px', background: isDone ? C.surface : C.gold, color: isDone ? C.muted : C.page, border: isDone ? `1.5px solid ${C.border}` : 'none', ...ms, fontSize: 11, fontWeight: 800, letterSpacing: '0.08em', cursor: 'pointer' }}
+            style={{ flex: 3, padding: '14px', background: isDone ? C.surface : C.gold, color: isDone ? C.muted : C.page, border: isDone ? `1.5px solid ${C.border}` : 'none', ...ms, fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', cursor: 'pointer' }}
           >
             {isDone ? '✓ CONTINUE →' : 'MARK AS READ & CONTINUE →'}
           </button>
