@@ -58,7 +58,7 @@ export default function PointView({
     : pt.highlightMsg
 
   return (
-    <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: '#FFFFFF' }}>
+    <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: '#F7F7F9' }}>
       {/* NGIM nav bar */}
       <div className="sticky top-0 z-10" style={{ background: '#1A1A2A', borderBottom: '1px solid #FFFFFF11' }}>
         <div style={{ display: 'flex', alignItems: 'center', padding: '0 1rem', height: 50, gap: 12 }}>
@@ -98,11 +98,11 @@ export default function PointView({
         {entryBanner && (
           <div
             className="rounded-xl p-4 mb-6 border"
-            style={{ background: '#FEF3C7', borderColor: '#F59E0B44' }}
+            style={{ background: '#1A1A2A', border: '1px solid #D4A84744' }}
           >
             <div className="flex items-start gap-2">
               <span style={{ fontSize: 16, flexShrink: 0 }}>🧭</span>
-              <p className="text-sm leading-relaxed" style={{ color: '#92400E', fontFamily: 'Montserrat, sans-serif' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif' }}>
                 {entryBanner}
               </p>
             </div>
@@ -113,11 +113,11 @@ export default function PointView({
         {isBacktracking && (
           <div
             className="rounded-xl p-4 mb-6 border"
-            style={{ background: dim, borderColor: accent + '44' }}
+            style={{ background: '#F7F7F9', border: '1px solid #D4A84744' }}
           >
             <div className="flex items-start gap-2">
               <span style={{ fontSize: 16, flexShrink: 0 }}>🏗️</span>
-              <p className="text-sm leading-relaxed" style={{ color: accent, fontFamily: 'Montserrat, sans-serif' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif' }}>
                 Foundation point — this underpins everything you've already read.
               </p>
             </div>
@@ -175,7 +175,7 @@ export default function PointView({
         </div>
 
         {/* Singapore Context */}
-        <div className="mb-6 p-5" style={{ background: '#FFFFFF', border: '1px solid #E0E0E8' }}>
+        <div className="mb-6 p-5" style={{ background: '#FFFFFF', border: '1px solid #E0E0E8', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}>
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
             🇸🇬 YOUR CONTEXT
           </div>
@@ -198,7 +198,7 @@ export default function PointView({
             className="w-full flex items-center justify-between px-5 py-4 transition-all"
             style={{
               background: argsOpen ? dim : '#FFFFFF',
-              border: `1.5px solid ${argsOpen ? accent + '44' : '#E4E6EB'}`,
+              border: `1.5px solid ${argsOpen ? accent + '44' : '#D4A84733'}`,
             }}
           >
             <span
@@ -230,7 +230,7 @@ export default function PointView({
                     </span>
                     <div
                       className="font-bold text-sm"
-                      style={{ color: accent, fontFamily: 'Montserrat, sans-serif' }}
+                      style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif' }}
                     >
                       {arg.head}
                     </div>
@@ -252,7 +252,7 @@ export default function PointView({
               className="w-full flex items-center justify-between px-5 py-4 transition-all"
               style={{
                 background: objectionsOpen ? '#FEF3C7' : '#FFFFFF',
-                border: `1.5px solid ${objectionsOpen ? '#F59E0B44' : '#E4E6EB'}`,
+                border: `1.5px solid ${objectionsOpen ? '#F59E0B44' : '#D4A84733'}`,
               }}
             >
               <span
@@ -279,7 +279,7 @@ export default function PointView({
                       >
                         {i + 1}
                       </span>
-                      <div className="font-bold text-sm" style={{ color: '#92400E', fontFamily: 'Montserrat, sans-serif' }}>
+                      <div className="font-bold text-sm" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif' }}>
                         {obj.head}
                       </div>
                     </div>
@@ -301,7 +301,7 @@ export default function PointView({
               className="w-full flex items-center justify-between px-5 py-4 transition-all"
               style={{
                 background: deepDiveOpen ? '#F0F4FF' : '#FFFFFF',
-                border: `1.5px solid ${deepDiveOpen ? '#6366F144' : '#E4E6EB'}`,
+                border: `1.5px solid ${deepDiveOpen ? '#6366F144' : '#D4A84733'}`,
               }}
             >
               <span
