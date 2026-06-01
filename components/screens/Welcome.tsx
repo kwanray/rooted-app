@@ -39,10 +39,11 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
 
       {/* ── NAV ── */}
       <nav style={{ background: '#1A1A2A', borderBottom: '1px solid #FFFFFF11', position: 'sticky', top: 0, zIndex: 50 }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 1.5rem', height: 54, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <svg width="22" height="22" viewBox="0 0 36 36" fill="none">
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 1rem', height: 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+          {/* Logo — always visible */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
+            <svg width="20" height="20" viewBox="0 0 36 36" fill="none">
               <path d="M18 4 L18 32 M8 14 Q18 8 28 14" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               <circle cx="18" cy="4" r="2.5" fill="#D4A847"/>
             </svg>
@@ -50,27 +51,32 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               ROOTED<span style={{ color: '#D4A847' }}>.</span>
             </span>
           </div>
-          {/* Nav links */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+
+          {/* Desktop links — hidden on mobile */}
+          <div className="hidden sm:flex" style={{ alignItems: 'center', gap: 20 }}>
             <a href="#points" style={{ ...ms, fontSize: 10, fontWeight: 700, color: '#AAAABB', letterSpacing: '0.1em', textDecoration: 'none' }}>12 POINTS</a>
             <a href="#why" style={{ ...ms, fontSize: 10, fontWeight: 700, color: '#AAAABB', letterSpacing: '0.1em', textDecoration: 'none' }}>ABOUT</a>
-            {/* Search icon */}
+          </div>
+
+          {/* Right actions — always visible */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
             <button
               onClick={onSearch}
               aria-label="Search"
-              style={{ background: 'transparent', border: 'none', color: '#AAAABB', cursor: 'pointer', padding: 4, display: 'flex', alignItems: 'center' }}
+              style={{ background: 'transparent', border: '1px solid #FFFFFF22', color: '#AAAABB', cursor: 'pointer', padding: 7, display: 'flex', alignItems: 'center', borderRadius: 2 }}
             >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
               </svg>
             </button>
             <button
               onClick={onStart}
-              style={{ ...ms, fontSize: 10, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '7px 16px', letterSpacing: '0.1em', cursor: 'pointer' }}
+              style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '8px 18px', letterSpacing: '0.08em', cursor: 'pointer', whiteSpace: 'nowrap' }}
             >
               BEGIN
             </button>
           </div>
+
         </div>
       </nav>
 
