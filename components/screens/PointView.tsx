@@ -58,7 +58,7 @@ export default function PointView({
     : pt.highlightMsg
 
   return (
-    <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: '#F7F7F9' }}>
+    <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: '#1A1A2A' }}>
       {/* NGIM nav bar */}
       <div className="sticky top-0 z-10" style={{ background: '#1A1A2A', borderBottom: '1px solid #FFFFFF11' }}>
         <div style={{ display: 'flex', alignItems: 'center', padding: '0 1rem', height: 50, gap: 12 }}>
@@ -80,7 +80,7 @@ export default function PointView({
         </div>
       </div>
 
-      <div className="flex-1 w-full max-w-2xl mx-auto px-4 py-8">
+      <div className="flex-1 w-full max-w-2xl mx-auto px-4 py-8" style={{ background: "#FFFFFF", minHeight: "100vh" }}>
         {/* Phase pill + counter */}
         <div className="flex items-center gap-2 mb-6">
           <span
@@ -165,7 +165,7 @@ export default function PointView({
         />
 
         {/* Geisler's Claim */}
-        <div className="p-5 mb-6" style={{ background: '#F7F7F9', borderLeft: '3px solid #D4A847' }}>
+        <div className="p-5 mb-6" style={{ background: '#FAFAFA', borderLeft: '3px solid #D4A847', border: '1px solid #E8E8EE', borderLeftWidth: '3px', borderLeftColor: '#D4A847' }}>
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
             KEY POINT
           </div>
@@ -175,7 +175,7 @@ export default function PointView({
         </div>
 
         {/* Singapore Context */}
-        <div className="mb-6 p-5" style={{ background: '#FFFFFF', border: '1px solid #E0E0E8', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}>
+        <div className="mb-6 p-5" style={{ background: '#FAFAFA', border: '1px solid #E0E0E8' }}>
           <div className="text-xs font-bold tracking-widest mb-2" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
             🇸🇬 YOUR CONTEXT
           </div>
@@ -197,7 +197,7 @@ export default function PointView({
             onClick={() => setArgsOpen((o) => !o)}
             className="w-full flex items-center justify-between px-5 py-4 transition-all"
             style={{
-              background: argsOpen ? dim : '#FFFFFF',
+              background: argsOpen ? dim : '#F7F7F9',
               border: `1.5px solid ${argsOpen ? accent + '44' : '#D4A84733'}`,
             }}
           >
@@ -251,7 +251,7 @@ export default function PointView({
               onClick={() => setObjectionsOpen((o) => !o)}
               className="w-full flex items-center justify-between px-5 py-4 transition-all"
               style={{
-                background: objectionsOpen ? '#FEF3C7' : '#FFFFFF',
+                background: objectionsOpen ? '#FEF3C7' : '#F7F7F9',
                 border: `1.5px solid ${objectionsOpen ? '#F59E0B44' : '#D4A84733'}`,
               }}
             >
@@ -300,7 +300,7 @@ export default function PointView({
               onClick={() => setDeepDiveOpen((o) => !o)}
               className="w-full flex items-center justify-between px-5 py-4 transition-all"
               style={{
-                background: deepDiveOpen ? '#F0F4FF' : '#FFFFFF',
+                background: deepDiveOpen ? '#F0F4FF' : '#F7F7F9',
                 border: `1.5px solid ${deepDiveOpen ? '#6366F144' : '#D4A84733'}`,
               }}
             >
