@@ -76,11 +76,19 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                 }
               </button>
             ) : (
-              <button onClick={onSignIn} style={{ ...ms, fontSize: 10, fontWeight: 700, color: '#D4A847', background: 'transparent', border: '1px solid #D4A84744', padding: '6px 10px', cursor: 'pointer', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>
-                SIGN IN
-              </button>
+              <>
+                {/* Icon-only on mobile, text on sm+ */}
+                <button onClick={onSignIn} className="hidden sm:block" style={{ ...ms, fontSize: 10, fontWeight: 700, color: '#D4A847', background: 'transparent', border: '1px solid #D4A84744', padding: '6px 10px', cursor: 'pointer', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>
+                  SIGN IN
+                </button>
+                <button onClick={onSignIn} className="sm:hidden" aria-label="Sign in" style={{ background: 'transparent', border: '1px solid #D4A84744', cursor: 'pointer', width: 30, height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#D4A847', padding: 0 }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </button>
+              </>
             )}
-            <button onClick={onStart} style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '8px 16px', letterSpacing: '0.08em', cursor: 'pointer', whiteSpace: 'nowrap' }}>
+            <button onClick={onStart} style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '8px 14px', letterSpacing: '0.08em', cursor: 'pointer', whiteSpace: 'nowrap' }}>
               BEGIN
             </button>
           </div>
