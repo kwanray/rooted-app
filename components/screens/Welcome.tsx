@@ -136,7 +136,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           <p style={{ ...ms, fontSize: 12, color: '#888899' }}>Each point builds on the last. Tap a card when you complete it.</p>
           <div style={{ width: 36, height: 3, background: '#D4A847', margin: '0.8rem auto 0' }}/>
         </div>
-        <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(168px, 1fr))', gap: 1, background: '#E0E0E8' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#E0E0E8' }}>
           {POINTS_SUMMARY.map((pt) => (
             <div
               key={pt.n}
