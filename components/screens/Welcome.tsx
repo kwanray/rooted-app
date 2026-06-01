@@ -6,6 +6,9 @@ interface Props {
   onSearch: () => void
   onNavigate: (idx: number) => void
   hasProgress: boolean
+  user?: { photoURL?: string | null; displayName?: string | null } | null
+  onSignIn?: () => void
+  onSignOut?: () => void
 }
 
 const POINTS_SUMMARY = [
@@ -33,7 +36,7 @@ const WHY = [
 const ms: React.CSSProperties = { fontFamily: 'Montserrat, sans-serif' }
 const cg: React.CSSProperties = { fontFamily: 'Cormorant Garamond, serif' }
 
-export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasProgress }: Props) {
+export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasProgress, user, onSignIn, onSignOut }: Props) {
   return (
     <div className="animate-fade-in" style={{ background: '#FFFFFF' }}>
 
