@@ -4,6 +4,7 @@ interface Props {
   onStart: () => void
   onResume: () => void
   onSearch: () => void
+  onNavigate: (idx: number) => void
   hasProgress: boolean
 }
 
@@ -32,7 +33,7 @@ const WHY = [
 const ms: React.CSSProperties = { fontFamily: 'Montserrat, sans-serif' }
 const cg: React.CSSProperties = { fontFamily: 'Cormorant Garamond, serif' }
 
-export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Props) {
+export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasProgress }: Props) {
   return (
     <div className="animate-fade-in" style={{ background: '#FFFFFF' }}>
 
@@ -140,7 +141,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
             <div
               key={pt.n}
               style={{ background: '#FFFFFF', padding: '1.1rem 1rem', cursor: 'pointer' }}
-              onClick={onStart}
+              onClick={() => onNavigate(parseInt(pt.n, 10) - 1)}
               onMouseEnter={(e) => (e.currentTarget.style.background = '#1A1A2A')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#FFFFFF')}
             >
