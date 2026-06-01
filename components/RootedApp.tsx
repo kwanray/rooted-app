@@ -241,28 +241,16 @@ export default function RootedApp() {
     <main style={{ background: '#12121E', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
         <>
-          <div style={{ position: "fixed", bottom: 16, right: 16, display: "flex", alignItems: "center", gap: 8, zIndex: 50, background: "#1E1E2E", border: "1px solid #FFFFFF14", padding: "6px 10px" }}>
-            {user ? (
-              <>
-                {user.photoURL && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={user.photoURL} alt="" className="w-7 h-7 rounded-full" referrerPolicy="no-referrer" />
-                )}
-                <button onClick={signOut} className="text-xs" style={{ color: '#AAAABB', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.05em' }}>
-                  Sign out
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={signInWithGoogle}
-                className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
-                style={{ background: '#D4A84722', color: '#D4A847', border: '1px solid #D4A84744' }}
-              >
-                ☁️ Sign in to save
-              </button>
-            )}
-          </div>
-          <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} onNavigate={handleWelcomeNavigate} hasProgress={showResume} />
+          <Welcome
+            onStart={handleStart}
+            onResume={handleResume}
+            onSearch={handleOpenSearch}
+            onNavigate={handleWelcomeNavigate}
+            hasProgress={showResume}
+            user={user}
+            onSignIn={signInWithGoogle}
+            onSignOut={signOut}
+          />
         </>
       )}
 
