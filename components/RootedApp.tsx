@@ -117,6 +117,10 @@ export default function RootedApp() {
     })
   }
 
+  const handleGoHome = () => {
+    setState((prev) => ({ ...prev, screen: 'welcome' }))
+  }
+
   const handleWelcomeNavigate = (idx: number) => {
     setState({ ...INITIAL_STATE, screen: 'point', idx, startingIdx: 0 })
   }
@@ -276,6 +280,7 @@ export default function RootedApp() {
           onReflectionChange={handleReflectionChange}
           onMarkDone={handleMarkDone}
           onBack={handleBack}
+          onHome={handleGoHome}
           onSearch={handleOpenSearch}
         />
       )}
