@@ -217,8 +217,8 @@ export default function RootedApp() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#F0F2F5' }}>
-        <div className="text-xs font-bold tracking-widest" style={{ color: '#1877F2', fontFamily: 'Lato, sans-serif', letterSpacing: '0.3em' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: '#1A1A2A' }}>
+        <div className="text-xs font-bold tracking-widest" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.3em' }}>
           ROOTED
         </div>
       </div>
@@ -230,7 +230,7 @@ export default function RootedApp() {
   }
 
   return (
-    <main style={{ background: '#F0F2F5', minHeight: '100vh' }}>
+    <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
         <>
           <div className="fixed top-4 right-4 flex items-center gap-3 z-10">

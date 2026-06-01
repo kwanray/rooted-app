@@ -1,35 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg: #F0F2F5;
-  --surface: #FFFFFF;
-  --border: #E4E6EB;
-  --text: #1C1E21;
-  --muted: #65676B;
+  /* NGIM companion palette */
+  --bg:      #FFFFFF;
+  --surface: #F7F7F9;
+  --border:  #E0E0E8;
+  --text:    #1A1A2A;
+  --muted:   #555577;
+  --gold:    #D4A847;
+  --gold-dim:#FDF6DF;
+  --navy:    #1A1A2A;
 
+  /* Phase accents — warm and readable on white */
   /* Phase 0 — Truth */
-  --p0-accent: #1877F2;
-  --p0-dim: #E7F0FD;
+  --p0-accent: #1A1A2A;
+  --p0-dim:    #F0F0F4;
 
   /* Phase 1 — God */
   --p1-accent: #8B5CF6;
-  --p1-dim: #EDE9FE;
+  --p1-dim:    #F0ECFE;
 
   /* Phase 2 — Miracles */
-  --p2-accent: #F59E0B;
-  --p2-dim: #FEF3C7;
+  --p2-accent: #D4A847;
+  --p2-dim:    #FDF6DF;
 
   /* Phase 3 — Jesus */
-  --p3-accent: #EF4444;
-  --p3-dim: #FEE2E2;
+  --p3-accent: #C0392B;
+  --p3-dim:    #FCF0EF;
 
   /* Phase 4 — Bible */
-  --p4-accent: #10B981;
-  --p4-dim: #D1FAE5;
+  --p4-accent: #2E7D52;
+  --p4-dim:    #EBF5EF;
 }
 
 * {
@@ -40,7 +45,7 @@ html,
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: 'Lato', system-ui, sans-serif;
+  font-family: 'Montserrat', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -50,16 +55,9 @@ h1, h2, h3, h4, .font-serif {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: #E4E6EB;
-}
-::-webkit-scrollbar-thumb {
-  background: #BCC0C4;
-  border-radius: 2px;
-}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #E0E0E8; }
+::-webkit-scrollbar-thumb { background: #AAAABB; border-radius: 2px; }
 
 /* Animations */
 @keyframes fadeIn {
@@ -98,7 +96,6 @@ h1, h2, h3, h4, .font-serif {
   animation: copy-flash 0.3s ease;
 }
 
-/* Gradient text utilities */
 .gradient-underline {
   position: relative;
 }
