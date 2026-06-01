@@ -61,21 +61,26 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <a href="#why" style={{ ...ms, fontSize: 10, fontWeight: 700, color: '#AAAABB', letterSpacing: '0.1em', textDecoration: 'none' }}>ABOUT</a>
           </div>
 
-          {/* Right actions — always visible */}
+          {/* Right actions */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-            <button
-              onClick={onSearch}
-              aria-label="Search"
-              style={{ background: 'transparent', border: '1px solid #FFFFFF22', color: '#AAAABB', cursor: 'pointer', padding: 7, display: 'flex', alignItems: 'center', borderRadius: 2 }}
-            >
+            <button onClick={onSearch} aria-label="Search" style={{ background: 'transparent', border: '1px solid #FFFFFF22', color: '#AAAABB', cursor: 'pointer', padding: 7, display: 'flex', alignItems: 'center' }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
               </svg>
             </button>
-            <button
-              onClick={onStart}
-              style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '8px 18px', letterSpacing: '0.08em', cursor: 'pointer', whiteSpace: 'nowrap' }}
-            >
+            {user ? (
+              <button onClick={onSignOut} style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}>
+                {user.photoURL
+                  ? <img src={user.photoURL} alt="" style={{ width: 28, height: 28, borderRadius: '50%', border: '1.5px solid #D4A84766' }} referrerPolicy="no-referrer" />
+                  : <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#D4A84722', border: '1.5px solid #D4A84766', display: 'flex', alignItems: 'center', justifyContent: 'center', ...ms, fontSize: 10, color: '#D4A847', fontWeight: 800 }}>✓</div>
+                }
+              </button>
+            ) : (
+              <button onClick={onSignIn} style={{ ...ms, fontSize: 10, fontWeight: 700, color: '#D4A847', background: 'transparent', border: '1px solid #D4A84744', padding: '6px 10px', cursor: 'pointer', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>
+                SIGN IN
+              </button>
+            )}
+            <button onClick={onStart} style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '8px 16px', letterSpacing: '0.08em', cursor: 'pointer', whiteSpace: 'nowrap' }}>
               BEGIN
             </button>
           </div>
