@@ -238,10 +238,10 @@ export default function RootedApp() {
   }
 
   return (
-    <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
+    <main style={{ background: '#12121E', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
         <>
-          <div className="fixed top-4 right-4 flex items-center gap-3 z-10">
+          <div style={{ position: "fixed", bottom: 16, right: 16, display: "flex", alignItems: "center", gap: 8, zIndex: 50, background: "#1E1E2E", border: "1px solid #FFFFFF14", padding: "6px 10px" }}>
             {user ? (
               <>
                 {user.photoURL && (
