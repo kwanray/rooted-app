@@ -12,7 +12,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
     <div className="min-h-screen flex flex-col animate-fade-in" style={{ background: '#1A1A2A' }}>
 
       {/* NGIM-style dark hero */}
-      <div className="flex flex-col items-center justify-center flex-1 px-6 py-16 text-center">
+      <div className="flex flex-col items-center justify-center flex-1 px-6 py-8 text-center">
 
         {/* Logo mark */}
         <div className="mb-6">
@@ -72,14 +72,14 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
           Walk through the foundations of truth, God, miracles, Bible and Jesus in 12 steps.
         </p>
         <p
-          className="max-w-sm mb-10 text-xs"
+          className="max-w-sm mb-6 text-xs"
           style={{ color: '#666688', fontFamily: 'Montserrat, sans-serif' }}
         >
           Designed for young Christians in Singapore asking big questions.
         </p>
 
         {/* NGIM trifecta pills */}
-        <div className="flex flex-wrap gap-2 justify-center mb-10">
+        <div className="flex flex-wrap gap-2 justify-center mb-6">
           {[
             { label: 'TRUTH',    color: '#AAAABB' },
             { label: 'GOD',      color: '#A78BFA' },
@@ -158,7 +158,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
           </button>
         </div>
 
-        <p className="mt-10 text-xs" style={{ color: '#333344', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.06em' }}>
+        <p className="mt-6 text-xs" style={{ color: '#333344', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.06em' }}>
           12 POINTS · 4 SESSIONS · PROGRESS SAVED TO CLOUD
         </p>
       </div>
