@@ -240,7 +240,7 @@ export default function RootedApp() {
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={user.photoURL} alt="" className="w-7 h-7 rounded-full" referrerPolicy="no-referrer" />
                 )}
-                <button onClick={signOut} className="text-xs" style={{ color: '#65676B' }}>
+                <button onClick={signOut} className="text-xs" style={{ color: '#AAAABB', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.05em' }}>
                   Sign out
                 </button>
               </>
@@ -248,7 +248,7 @@ export default function RootedApp() {
               <button
                 onClick={signInWithGoogle}
                 className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
-                style={{ background: '#E7F0FD', color: '#1877F2', border: '1px solid #1877F244' }}
+                style={{ background: '#D4A84722', color: '#D4A847', border: '1px solid #D4A84744' }}
               >
                 ☁️ Sign in to save
               </button>
