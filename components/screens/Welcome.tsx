@@ -12,18 +12,18 @@ interface Props {
 }
 
 const POINTS_SUMMARY = [
-  { n: '01', title: 'Truth About Reality is Knowable',       desc: 'Can we actually know anything for certain?' },
-  { n: '02', title: 'The Opposite of True is False',         desc: 'Opposites cannot both be true at the same time.' },
-  { n: '03', title: 'A Theistic God Exists',                 desc: 'The cosmological, moral and teleological arguments.' },
-  { n: '04', title: 'Since God Exists, Miracles are Possible', desc: 'A theistic God can act in the natural world.' },
-  { n: '05', title: 'Miracles Can Confirm a Message from God', desc: 'The sign confirms the sermon; the act confirms the word.' },
-  { n: '06', title: 'The NT is Historically Reliable',       desc: 'Earlier, more, and more accurately copied manuscripts.' },
-  { n: '07', title: 'Jesus Claimed to be God',               desc: 'NT writers and Jesus himself made this claim.' },
-  { n: '08', title: 'Jesus Demonstrated His Divinity',       desc: 'Fulfilled prophecy, sinless life, miracles, resurrection.' },
-  { n: '09', title: 'Therefore Jesus is God',                desc: 'His claim was confirmed — putting it all together.' },
-  { n: '10', title: 'Whatever Jesus Teaches is True',        desc: 'Since Jesus is God, his words carry divine authority.' },
-  { n: '11', title: 'Jesus Taught the Bible is God\'s Word', desc: 'Divine authority, infallible, inerrant, historically reliable.' },
-  { n: '12', title: 'The Bible is the Word of God',          desc: 'Anything opposed to it is false.' },
+  { n: '01', title: 'Truth About Reality is Knowable',        desc: 'Can we actually know anything for certain?',            icon: '🔍' },
+  { n: '02', title: 'The Opposite of True is False',          desc: 'Opposites cannot both be true at the same time.',       icon: '⚖️' },
+  { n: '03', title: 'A Theistic God Exists',                  desc: 'The cosmological, moral and teleological arguments.',   icon: '🌍' },
+  { n: '04', title: 'Since God Exists, Miracles are Possible',desc: 'A theistic God can act in the natural world.',          icon: '☀️' },
+  { n: '05', title: 'Miracles Can Confirm a Message from God',desc: 'The sign confirms the sermon; the act confirms the word.', icon: '💬' },
+  { n: '06', title: 'The NT is Historically Reliable',        desc: 'Earlier, more, and more accurately copied manuscripts.', icon: '📜' },
+  { n: '07', title: 'Jesus Claimed to be God',                desc: 'NT writers and Jesus himself made this claim.',         icon: '👑' },
+  { n: '08', title: 'Jesus Demonstrated His Divinity',        desc: 'Fulfilled prophecy, sinless life, miracles, resurrection.', icon: '✨' },
+  { n: '09', title: 'Therefore Jesus is God',                 desc: 'His claim was confirmed — putting it all together.',    icon: '🕊️' },
+  { n: '10', title: 'Whatever Jesus Teaches is True',         desc: 'Since Jesus is God, his words carry divine authority.', icon: '📖' },
+  { n: '11', title: "Jesus Taught the Bible is God's Word",   desc: 'Divine authority, infallible, inerrant, historically reliable.', icon: '🛡️' },
+  { n: '12', title: 'The Bible is the Word of God',           desc: 'Anything opposed to it is false.',                     icon: '📕' },
 ]
 
 const WHY = [
@@ -177,34 +177,72 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       </div>
 
       {/* ── 12 POINTS ── */}
-      <div id="points" style={{ padding: '3rem 1.5rem 2rem' }}>
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 6 }}>THE JOURNEY</div>
-          <h2 style={{ ...cg, fontSize: 'clamp(1.6rem, 4vw, 2.2rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 6 }}>12 Stepping Stones</h2>
-          <p style={{ ...ms, fontSize: 12, color: '#888899' }}>Each point builds on the last. Tap a card when you complete it.</p>
-          <div style={{ width: 36, height: 3, background: '#D4A847', margin: '0.8rem auto 0' }}/>
+      <div id="points" style={{ background: '#F9F7F2', padding: '3rem 1.5rem 2.5rem' }}>
+        {/* Section header */}
+        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 8 }}>THE JOURNEY</div>
+          <h2 style={{ ...cg, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 8 }}>12 Stepping Stones</h2>
+          <p style={{ ...ms, fontSize: 13, color: '#888899', lineHeight: 1.6 }}>Each point builds on the last.<br/>Tap a card when you complete it.</p>
+          <div style={{ width: 40, height: 3, background: '#D4A847', margin: '1rem auto 0', borderRadius: 2 }}/>
         </div>
-        <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: '#E0E0E8' }}>
+
+        {/* 4-column cards grid */}
+        <div style={{ maxWidth: 960, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
           {POINTS_SUMMARY.map((pt) => (
             <div
               key={pt.n}
-              style={{ background: '#FFFFFF', padding: '1.1rem 1rem', cursor: 'pointer' }}
               onClick={() => onNavigate(parseInt(pt.n, 10) - 1)}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#1A1A2A')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#FFFFFF')}
+              style={{ background: '#FFFFFF', borderRadius: 12, padding: '1.4rem 1.2rem 1rem', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid #EDE8DE', display: 'flex', flexDirection: 'column', gap: 0, transition: 'transform 0.15s, box-shadow 0.15s' }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(212,168,71,0.18)' }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)' }}
             >
-              <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', color: '#D4A847', marginBottom: 6 }}>{pt.n}</div>
-              <div style={{ ...cg, fontSize: '0.9rem', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.35, marginBottom: 4 }}>{pt.title}</div>
-              <div style={{ ...ms, fontSize: 11, color: '#888899', lineHeight: 1.5 }}>{pt.desc}</div>
+              {/* Gold number circle */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ ...ms, fontSize: 9, fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.05em' }}>{pt.n}</span>
+                </div>
+              </div>
+              {/* Beige icon circle */}
+              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#F5EFE0', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14, fontSize: 26 }}>
+                {pt.icon}
+              </div>
+              {/* Title */}
+              <div style={{ ...cg, fontSize: '1rem', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.35, marginBottom: 8, flex: 1 }}>{pt.title}</div>
+              {/* Desc */}
+              <div style={{ ...ms, fontSize: 11, color: '#888899', lineHeight: 1.6, marginBottom: 14 }}>{pt.desc}</div>
+              {/* Arrow CTA */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                <span style={{ ...ms, fontSize: 18, color: '#D4A847', lineHeight: 1 }}>→</span>
+              </div>
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+
+        {/* Footer row matching mockup */}
+        <div style={{ maxWidth: 960, margin: '2rem auto 0', background: '#FFFFFF', borderRadius: 12, padding: '1.5rem 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, boxShadow: '0 2px 8px rgba(0,0,0,0.05)', border: '1px solid #EDE8DE' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, maxWidth: 420 }}>
+            <span style={{ fontSize: 28, flexShrink: 0 }}>📖</span>
+            <p style={{ ...ms, fontSize: 13, color: '#555577', lineHeight: 1.7 }}>
+              A 12-step journey through the big questions of faith — designed for young Christians who want real answers, not just <em>"just believe it."</em>
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {[['🛡️','Apologetics'],['👥','Evangelism'],['❤️','Discipleship']].map(([icon, label]) => (
+              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontSize: 16 }}>{icon}</span>
+                <span style={{ ...ms, fontSize: 12, fontWeight: 600, color: '#1A1A2A' }}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* BEGIN CTA */}
+        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
           <button
             onClick={onStart}
-            style={{ ...ms, background: '#1A1A2A', color: '#D4A847', border: 'none', padding: '12px 32px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#D4A847', e.currentTarget.style.color = '#1A1A2A')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = '#1A1A2A', e.currentTarget.style.color = '#D4A847')}
+            style={{ ...ms, background: '#1A1A2A', color: '#D4A847', border: 'none', padding: '16px 48px', fontSize: 12, fontWeight: 800, letterSpacing: '0.12em', cursor: 'pointer', borderRadius: 4, width: '100%', maxWidth: 480 }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A847'; e.currentTarget.style.color = '#1A1A2A' }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = '#1A1A2A'; e.currentTarget.style.color = '#D4A847' }}
           >
             BEGIN THE JOURNEY →
           </button>
