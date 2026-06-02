@@ -104,10 +104,10 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         .hero-text { position: relative; z-index: 2; }
         /* Desktop */
         @media (min-width: 641px) {
-          .hero-wrap    { min-height: clamp(460px, 55vw, 640px); display: flex; align-items: flex-end; }
-          .hero-img     { object-position: 62% center; }
-          .hero-overlay { background: linear-gradient(100deg, rgba(18,18,30,0.93) 0%, rgba(18,18,30,0.80) 36%, rgba(18,18,30,0.2) 62%, transparent 100%); }
-          .hero-text    { padding: clamp(2rem, 4vw, 3.5rem); max-width: 500px; }
+          .hero-wrap    { min-height: clamp(460px, 52vw, 620px); display: flex; align-items: center; }
+          .hero-img     { object-position: center center; object-fit: cover; transform: scale(0.92); transform-origin: center center; }
+          .hero-overlay { background: linear-gradient(100deg, rgba(12,12,24,0.94) 0%, rgba(12,12,24,0.82) 32%, rgba(12,12,24,0.30) 55%, rgba(12,12,24,0.05) 72%); }
+          .hero-text    { padding: clamp(2rem, 4vw, 3.5rem); max-width: 480px; }
         }
         /* Mobile — full image height, text overlaid at bottom */
         @media (max-width: 640px) {
