@@ -130,7 +130,7 @@ export default function PointView({
               <path d="M18 4 L18 32 M8 14 Q18 8 28 14" stroke={C.gold} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               <circle cx="18" cy="4" r="2.5" fill={C.gold}/>
             </svg>
-            <span style={{ ...ms, fontSize: 11, fontWeight: 800, color: C.gold, letterSpacing: '0.1em' }}>ROOTED</span>
+            <span style={{ ...ms, fontSize: 11, fontWeight: 800, color: C.gold, letterSpacing: '0.1em' }}>QUEST</span>
           </button>
           <div style={{ flex: 1 }}>
             <FoundationBar completed={completed} currentIdx={idx} startingIdx={startingIdx} />
@@ -150,7 +150,7 @@ export default function PointView({
           <span style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: phaseColor, background: `${phaseColor}18`, border: `1px solid ${phaseColor}40`, padding: '4px 10px' }}>
             {phaseLabel.toUpperCase()}
           </span>
-          <span style={{ ...ms, fontSize: 10, color: C.hint, letterSpacing: '0.06em' }}>POINT {pt.n} / 12</span>
+          <span style={{ ...ms, fontSize: 10, color: C.hint, letterSpacing: '0.06em' }}>STAGE {pt.n} / 12</span>
         </div>
 
         {/* Big emoji + title */}
@@ -292,7 +292,7 @@ export default function PointView({
             onClick={onMarkDone}
             style={{ flex: 3, padding: '14px', background: isDone ? C.surface : C.gold, color: isDone ? C.muted : C.page, border: isDone ? `1.5px solid ${C.border}` : 'none', ...ms, fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', cursor: 'pointer' }}
           >
-            {isDone ? '✓ CONTINUE →' : 'MARK AS READ & CONTINUE →'}
+            {isDone ? '✓ NEXT STAGE →' : 'COMPLETE STAGE & CONTINUE →'}
           </button>
         </div>
 
