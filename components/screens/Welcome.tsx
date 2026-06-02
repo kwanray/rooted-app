@@ -96,40 +96,74 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         </div>
       </nav>
 
-      {/* ── HERO ── */}
-      <div style={{ background: '#1A1A2A', padding: '4rem 1.5rem 3.5rem', textAlign: 'center' }}>
-        <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1rem' }}>
-          A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
-        </div>
-        <h1 style={{ ...cg, fontSize: 'clamp(2.6rem, 7vw, 4.5rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '1.2rem' }}>
-          Build your faith<br />
-          on <em style={{ color: '#D4A847', fontStyle: 'italic' }}>solid ground</em>
-        </h1>
-        <p style={{ ...ms, fontSize: 14, color: '#AAAABB', maxWidth: 460, margin: '0 auto 1rem', lineHeight: 1.75 }}>
-          A 12-step journey through the big questions of faith — designed for young Christians who want real answers, not just "just believe it."
-        </p>
-        <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '2rem' }}>
-          APOLOGETICS · EVANGELISM · DISCIPLESHIP
-        </div>
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button
-            onClick={onStart}
-            style={{ ...ms, background: '#D4A847', color: '#1A1A2A', border: 'none', padding: '13px 32px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
-          >
-            START MY JOURNEY
-          </button>
-          {hasProgress && (
+      {/* ── HERO — full bleed image ── */}
+      <div style={{
+        position: 'relative',
+        minHeight: 'clamp(420px, 70vw, 620px)',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'flex-end',
+      }}>
+        {/* Background image */}
+        <img
+          src="/hero-journey.png"
+          alt="A signpost on a mountain path at sunset pointing to Christianity, God and Truth"
+          style={{
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center center',
+          }}
+        />
+        {/* Gradient overlay — dark left/bottom for text legibility */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(105deg, rgba(18,18,30,0.92) 0%, rgba(18,18,30,0.75) 45%, rgba(18,18,30,0.1) 100%)',
+        }}/>
+        {/* Mobile bottom fade */}
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%',
+          background: 'linear-gradient(to top, rgba(18,18,30,0.85) 0%, transparent 100%)',
+        }}/>
+
+        {/* Content — left-aligned on desktop, centred on mobile */}
+        <div style={{
+          position: 'relative', zIndex: 2,
+          padding: 'clamp(1.5rem, 4vw, 3rem)',
+          maxWidth: 560,
+          width: '100%',
+        }}>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1rem' }}>
+            A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
+          </div>
+          <h1 style={{ ...cg, fontSize: 'clamp(2.2rem, 6vw, 4rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '1rem' }}>
+            Build your faith<br />
+            on <em style={{ color: '#D4A847', fontStyle: 'italic' }}>solid ground</em>
+          </h1>
+          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.8)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75 }}>
+            A 12-step journey through the big questions of faith — designed for young Christians who want real answers, not just "just believe it."
+          </p>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.8rem' }}>
+            APOLOGETICS · EVANGELISM · DISCIPLESHIP
+          </div>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <button
-              onClick={onResume}
-              style={{ ...ms, background: 'transparent', color: '#D4A847', border: '1.5px solid #D4A84766', padding: '11px 28px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#D4A847')}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#D4A84766')}
+              onClick={onStart}
+              style={{ ...ms, background: '#D4A847', color: '#1A1A2A', border: 'none', padding: '13px 28px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
             >
-              RESUME JOURNEY
+              START MY JOURNEY
             </button>
-          )}
+            {hasProgress && (
+              <button
+                onClick={onResume}
+                style={{ ...ms, background: 'transparent', color: '#F0EEE8', border: '1.5px solid rgba(240,238,232,0.4)', padding: '11px 24px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#D4A847', e.currentTarget.style.color = '#D4A847')}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(240,238,232,0.4)', e.currentTarget.style.color = '#F0EEE8')}
+              >
+                RESUME JOURNEY
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
