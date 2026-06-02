@@ -113,8 +113,8 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         @media (max-width: 640px) {
           .hero-wrap    { min-height: 88vw; display: flex; align-items: flex-end; }
           .hero-img     { object-position: 70% center; }
-          .hero-overlay { background: linear-gradient(to top, rgba(18,18,30,0.97) 0%, rgba(18,18,30,0.80) 40%, rgba(18,18,30,0.25) 70%, rgba(18,18,30,0.05) 100%); }
-          .hero-text    { padding: 1.5rem 1.2rem 1.8rem; width: 100%; }
+          .hero-overlay { background: linear-gradient(to top, rgba(12,12,24,0.98) 0%, rgba(12,12,24,0.92) 35%, rgba(12,12,24,0.70) 55%, rgba(12,12,24,0.30) 75%, rgba(12,12,24,0.05) 100%); }
+          .hero-text    { padding: 1.5rem 1.2rem 1.8rem; width: 100%; text-shadow: 0 1px 12px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7); }
         }
       `}</style>
 
@@ -123,17 +123,17 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         <div className="hero-overlay" style={{ position: 'absolute', inset: 0 }}/>
 
         <div className="hero-text">
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.75rem' }}>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.75rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
           </div>
-          <h1 style={{ ...cg, fontSize: 'clamp(2rem, 5.5vw, 3.8rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.9rem' }}>
+          <h1 style={{ ...cg, fontSize: 'clamp(2rem, 5.5vw, 3.8rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.9rem', textShadow: '0 2px 16px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.8)' }}>
             Build your faith<br />
             on <em style={{ color: '#D4A847', fontStyle: 'italic' }}>solid ground</em>
           </h1>
-          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.82)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75 }}>
+          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.95)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             A 12-step journey through the big questions of faith — designed for young Christians who want real answers, not just "just believe it."
           </p>
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.5rem' }}>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.5rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             APOLOGETICS · EVANGELISM · DISCIPLESHIP
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
