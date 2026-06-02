@@ -107,7 +107,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .hero-wrap    { min-height: clamp(460px, 52vw, 600px); display: flex; align-items: center; }
           .hero-img     { object-fit: cover; object-position: 75% 35%; }
           .hero-overlay { background: linear-gradient(100deg, rgba(12,12,24,0.94) 0%, rgba(12,12,24,0.82) 30%, rgba(12,12,24,0.28) 52%, rgba(12,12,24,0.0) 68%); }
-          .hero-text    { padding: clamp(2rem, 4vw, 3.5rem); max-width: 420px; }
+          .hero-text    { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
         }
         /* Mobile — full image height, text overlaid at bottom */
         @media (max-width: 640px) {
