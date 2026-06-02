@@ -12,18 +12,18 @@ interface Props {
 }
 
 const POINTS_SUMMARY = [
-  { n: '01', title: 'Truth is knowable',         desc: 'Can we actually know anything?' },
-  { n: '02', title: 'Opposites can\'t both be true', desc: 'Not all views can be right at once.' },
-  { n: '03', title: 'Something exists',           desc: 'Why is there anything at all?' },
-  { n: '04', title: 'Nothing causes itself',      desc: 'Everything that began had a cause.' },
-  { n: '05', title: 'The universe began',         desc: 'Science and logic agree — there was a start.' },
-  { n: '06', title: 'The first cause is God',     desc: 'Uncaused, eternal, all-powerful.' },
-  { n: '07', title: 'God speaks through miracles', desc: 'Are miracles even possible?' },
-  { n: '08', title: 'The NT is reliable',         desc: 'How do we know it wasn\'t changed?' },
-  { n: '09', title: 'Jesus claimed to be God',    desc: 'He didn\'t just claim to teach.' },
-  { n: '10', title: 'His claim was confirmed',    desc: 'The resurrection — why it matters.' },
-  { n: '11', title: 'Jesus is God',               desc: 'Putting it all together.' },
-  { n: '12', title: 'God\'s word is truth',       desc: 'Why the Bible is trustworthy.' },
+  { n: '01', title: 'Truth About Reality is Knowable',       desc: 'Can we actually know anything for certain?' },
+  { n: '02', title: 'The Opposite of True is False',         desc: 'Opposites cannot both be true at the same time.' },
+  { n: '03', title: 'A Theistic God Exists',                 desc: 'The cosmological, moral and teleological arguments.' },
+  { n: '04', title: 'Since God Exists, Miracles are Possible', desc: 'A theistic God can act in the natural world.' },
+  { n: '05', title: 'Miracles Can Confirm a Message from God', desc: 'The sign confirms the sermon; the act confirms the word.' },
+  { n: '06', title: 'The NT is Historically Reliable',       desc: 'Earlier, more, and more accurately copied manuscripts.' },
+  { n: '07', title: 'Jesus Claimed to be God',               desc: 'NT writers and Jesus himself made this claim.' },
+  { n: '08', title: 'Jesus Demonstrated His Divinity',       desc: 'Fulfilled prophecy, sinless life, miracles, resurrection.' },
+  { n: '09', title: 'Therefore Jesus is God',                desc: 'His claim was confirmed — putting it all together.' },
+  { n: '10', title: 'Whatever Jesus Teaches is True',        desc: 'Since Jesus is God, his words carry divine authority.' },
+  { n: '11', title: 'Jesus Taught the Bible is God\'s Word', desc: 'Divine authority, infallible, inerrant, historically reliable.' },
+  { n: '12', title: 'The Bible is the Word of God',          desc: 'Anything opposed to it is false.' },
 ]
 
 const WHY = [
