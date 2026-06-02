@@ -48,7 +48,7 @@ export default function Complete({ onReset }: Props) {
           className="text-xs font-bold tracking-widest mb-4"
           style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.25em' }}
         >
-          JOURNEY COMPLETE
+          QUEST COMPLETE
         </div>
         <h1
           className="mb-4"
@@ -59,13 +59,13 @@ export default function Complete({ onReset }: Props) {
             color: '#FFFFFF',
           }}
         >
-          You are Rooted.
+          Quest accomplished.
         </h1>
         <p
           className="text-sm leading-relaxed max-w-sm mx-auto"
           style={{ color: '#AAAABB', fontFamily: 'Montserrat, sans-serif', fontSize: 13 }}
         >
-          You've worked through the complete logical case for Christianity. This is a foundation — not a ceiling. Keep building.
+          You've completed all 12 stages of the quest. The case for Christianity stands. Now take it into the world.
         </p>
       </div>
 
@@ -77,7 +77,7 @@ export default function Complete({ onReset }: Props) {
             className="text-xs font-bold tracking-widest mb-4"
             style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}
           >
-            YOUR FOUNDATION
+            YOUR QUEST LOG
           </div>
           <div className="flex flex-wrap gap-2">
             {POINTS.map((pt) => {
@@ -109,7 +109,7 @@ export default function Complete({ onReset }: Props) {
             className="text-xs font-bold tracking-widest mb-4"
             style={{ color: '#1A1A2A', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}
           >
-            WHAT'S NEXT
+            NEXT QUEST
           </div>
           <div className="flex flex-col gap-0" style={{ border: '1px solid #E0E0E8' }}>
             {NEXT_STEPS.map((step, i) => (
@@ -184,7 +184,7 @@ export default function Complete({ onReset }: Props) {
           onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#AAAABB')}
           onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#E0E0E8')}
         >
-          GO THROUGH AGAIN →
+          RESTART THE QUEST →
         </button>
       </div>
 
