@@ -104,9 +104,9 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         .hero-text { position: relative; z-index: 2; }
         /* Desktop */
         @media (min-width: 641px) {
-          .hero-wrap    { min-height: clamp(460px, 52vw, 620px); display: flex; align-items: center; }
-          .hero-img     { object-fit: contain !important; object-position: center center; background: #12121E; }
-          .hero-overlay { background: linear-gradient(100deg, rgba(12,12,24,0.95) 0%, rgba(12,12,24,0.85) 28%, rgba(12,12,24,0.35) 48%, rgba(12,12,24,0.0) 65%); }
+          .hero-wrap    { min-height: clamp(460px, 52vw, 600px); display: flex; align-items: center; }
+          .hero-img     { object-fit: cover; object-position: 75% 35%; }
+          .hero-overlay { background: linear-gradient(100deg, rgba(12,12,24,0.94) 0%, rgba(12,12,24,0.82) 30%, rgba(12,12,24,0.28) 52%, rgba(12,12,24,0.0) 68%); }
           .hero-text    { padding: clamp(2rem, 4vw, 3.5rem); max-width: 420px; }
         }
         /* Mobile — full image height, text overlaid at bottom */
