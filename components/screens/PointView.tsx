@@ -57,7 +57,7 @@ const POINT_SVG_ICONS: React.ReactNode[] = [
   /* 07 Jesus Claimed — crown */
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M5 20h14"/></svg>,
   /* 08 Divinity — empty tomb */
-  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><line x1="1" y1="20" x2="23" y2="20"/><path d="M4 20 Q4 8 12 8 Q20 8 20 20"/><path d="M8 20 Q8 12 12 12 Q16 12 16 20"/><circle cx="19" cy="14" r="2.5"/></svg>,
+  <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="19" x2="23" y2="19" stroke="white" strokeWidth="1.8" strokeLinecap="round"/><path d="M5 19 Q5 7 12 7 Q19 7 19 19 Z" fill="white" opacity="0.9"/><path d="M9 19 Q9 13 12 13 Q15 13 15 19 Z" fill="#D4A847"/><circle cx="18" cy="17" r="2.8" fill="#D4A847" stroke="white" strokeWidth="1.5"/></svg>,
   /* 09 Jesus is God — heart */
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
   /* 10 Jesus Teaches — open book */
