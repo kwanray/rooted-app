@@ -97,51 +97,70 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       </nav>
 
       {/* ── HERO — full bleed image ── */}
-      <div style={{
+      {/* CSS media queries via a style tag injected once */}
+      <style>{`
+        .hero-img-desktop { object-position: 55% center; }
+        .hero-img-mobile  { object-position: 55% center; }
+        .hero-content     { padding: clamp(1.5rem, 4vw, 3rem); max-width: 520px; }
+        @media (max-width: 640px) {
+          .hero-wrap       { min-height: 520px !important; align-items: flex-start !important; }
+          .hero-img-mobile { object-position: 62% center !important; }
+          .hero-content    { padding: 2rem 1.2rem 1.5rem !important; max-width: 100% !important; }
+          .hero-overlay    { background: linear-gradient(160deg, rgba(18,18,30,0.88) 0%, rgba(18,18,30,0.65) 50%, rgba(18,18,30,0.15) 100%) !important; }
+        }
+        @media (min-width: 641px) {
+          .hero-wrap       { min-height: clamp(460px, 55vw, 640px) !important; }
+          .hero-img-desktop{ object-position: 60% center !important; }
+          .hero-overlay    { background: linear-gradient(100deg, rgba(18,18,30,0.93) 0%, rgba(18,18,30,0.78) 38%, rgba(18,18,30,0.25) 65%, rgba(18,18,30,0.05) 100%) !important; }
+        }
+      `}</style>
+
+      <div className="hero-wrap" style={{
         position: 'relative',
-        minHeight: 'clamp(420px, 70vw, 620px)',
+        minHeight: 520,
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'flex-end',
       }}>
         {/* Background image */}
         <img
+          className="hero-img-desktop hero-img-mobile"
           src="/hero-journey.png"
           alt="A signpost on a mountain path at sunset pointing to Christianity, God and Truth"
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
-            objectFit: 'cover', objectPosition: 'center center',
+            objectFit: 'cover',
           }}
         />
-        {/* Gradient overlay — dark left/bottom for text legibility */}
-        <div style={{
+        {/* Gradient overlay */}
+        <div className="hero-overlay" style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(105deg, rgba(18,18,30,0.92) 0%, rgba(18,18,30,0.75) 45%, rgba(18,18,30,0.1) 100%)',
+          background: 'linear-gradient(100deg, rgba(18,18,30,0.93) 0%, rgba(18,18,30,0.78) 38%, rgba(18,18,30,0.25) 65%, rgba(18,18,30,0.05) 100%)',
         }}/>
-        {/* Mobile bottom fade */}
+        {/* Bottom fade for mobile readability */}
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%',
-          background: 'linear-gradient(to top, rgba(18,18,30,0.85) 0%, transparent 100%)',
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '35%',
+          background: 'linear-gradient(to top, rgba(18,18,30,0.7) 0%, transparent 100%)',
         }}/>
 
-        {/* Content — left-aligned on desktop, centred on mobile */}
-        <div style={{
+        {/* Content */}
+        <div className="hero-content" style={{
           position: 'relative', zIndex: 2,
           padding: 'clamp(1.5rem, 4vw, 3rem)',
-          maxWidth: 560,
+          maxWidth: 520,
           width: '100%',
         }}>
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1rem' }}>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.8rem' }}>
             A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
           </div>
-          <h1 style={{ ...cg, fontSize: 'clamp(2.2rem, 6vw, 4rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '1rem' }}>
+          <h1 style={{ ...cg, fontSize: 'clamp(2rem, 5.5vw, 3.8rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.9rem' }}>
             Build your faith<br />
             on <em style={{ color: '#D4A847', fontStyle: 'italic' }}>solid ground</em>
           </h1>
-          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.8)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75 }}>
+          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.82)', maxWidth: 380, marginBottom: '0.8rem', lineHeight: 1.75 }}>
             A 12-step journey through the big questions of faith — designed for young Christians who want real answers, not just "just believe it."
           </p>
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.8rem' }}>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.5rem' }}>
             APOLOGETICS · EVANGELISM · DISCIPLESHIP
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -157,8 +176,8 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               <button
                 onClick={onResume}
                 style={{ ...ms, background: 'transparent', color: '#F0EEE8', border: '1.5px solid rgba(240,238,232,0.4)', padding: '11px 24px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#D4A847', e.currentTarget.style.color = '#D4A847')}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(240,238,232,0.4)', e.currentTarget.style.color = '#F0EEE8')}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A847'; e.currentTarget.style.color = '#D4A847' }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(240,238,232,0.4)'; e.currentTarget.style.color = '#F0EEE8' }}
               >
                 RESUME JOURNEY
               </button>
