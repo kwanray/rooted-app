@@ -187,12 +187,12 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         </div>
 
         {/* 4-column cards grid */}
-        <div style={{ maxWidth: 960, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
+        <div style={{ maxWidth: 960, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 12 }}>
           {POINTS_SUMMARY.map((pt) => (
             <div
               key={pt.n}
               onClick={() => onNavigate(parseInt(pt.n, 10) - 1)}
-              style={{ background: '#FFFFFF', borderRadius: 12, padding: '1.4rem 1.2rem 1rem', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid #EDE8DE', display: 'flex', flexDirection: 'column', gap: 0, transition: 'transform 0.15s, box-shadow 0.15s' }}
+              style={{ background: '#FFFFFF', borderRadius: 12, padding: '1.1rem 1rem 0.9rem', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid #EDE8DE', display: 'flex', flexDirection: 'column', gap: 0, transition: 'transform 0.15s, box-shadow 0.15s' }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(212,168,71,0.18)' }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)' }}
             >
@@ -202,8 +202,8 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                   <span style={{ ...ms, fontSize: 9, fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.05em' }}>{pt.n}</span>
                 </div>
               </div>
-              {/* Beige icon circle */}
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#F5EFE0', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14, fontSize: 26 }}>
+              {/* Gold icon circle with B&W filter */}
+              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14, fontSize: 24, filter: 'grayscale(1) brightness(10)' }}>
                 {pt.icon}
               </div>
               {/* Title */}
