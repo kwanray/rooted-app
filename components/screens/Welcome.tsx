@@ -99,53 +99,30 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       {/* ── HERO — full bleed image ── */}
       {/* CSS media queries via a style tag injected once */}
       <style>{`
-        /* ── Desktop: cover, shift right so signs fully visible ── */
+        .hero-wrap { position: relative; overflow: hidden; background: #12121E; }
+        .hero-img  { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .hero-text { position: relative; z-index: 2; }
+        /* Desktop */
         @media (min-width: 641px) {
-          .hero-wrap     { min-height: clamp(460px, 55vw, 640px); display: flex; align-items: flex-end; }
-          .hero-img      { object-fit: cover; object-position: 62% center; }
-          .hero-overlay  { background: linear-gradient(100deg, rgba(18,18,30,0.93) 0%, rgba(18,18,30,0.78) 36%, rgba(18,18,30,0.2) 62%, rgba(18,18,30,0.0) 100%); }
-          .hero-content  { padding: clamp(2rem, 4vw, 3.5rem); max-width: 500px; }
+          .hero-wrap    { min-height: clamp(460px, 55vw, 640px); display: flex; align-items: flex-end; }
+          .hero-img     { object-position: 62% center; }
+          .hero-overlay { background: linear-gradient(100deg, rgba(18,18,30,0.93) 0%, rgba(18,18,30,0.80) 36%, rgba(18,18,30,0.2) 62%, transparent 100%); }
+          .hero-text    { padding: clamp(2rem, 4vw, 3.5rem); max-width: 500px; }
         }
-        /* ── Mobile: two-row stacked layout ── */
+        /* Mobile — full image height, text overlaid at bottom */
         @media (max-width: 640px) {
-          .hero-wrap     { display: flex; flex-direction: column; min-height: unset; }
-          .hero-img-wrap { position: relative; width: 100%; height: 260px; overflow: hidden; flex-shrink: 0; }
-          .hero-img      { object-fit: cover; object-position: 70% center; width: 100%; height: 100%; }
-          .hero-overlay  { background: linear-gradient(to bottom, rgba(18,18,30,0.15) 0%, rgba(18,18,30,0.5) 100%); }
-          .hero-content  { position: relative; background: #12121E; padding: 1.5rem 1.2rem 2rem; width: 100%; max-width: 100%; }
-          .hero-content-abs { display: none !important; }
+          .hero-wrap    { min-height: 88vw; display: flex; align-items: flex-end; }
+          .hero-img     { object-position: 70% center; }
+          .hero-overlay { background: linear-gradient(to top, rgba(18,18,30,0.97) 0%, rgba(18,18,30,0.80) 40%, rgba(18,18,30,0.25) 70%, rgba(18,18,30,0.05) 100%); }
+          .hero-text    { padding: 1.5rem 1.2rem 1.8rem; width: 100%; }
         }
       `}</style>
 
-      {/* ── HERO ── */}
-      <div className="hero-wrap" style={{ position: 'relative', overflow: 'hidden', background: '#12121E' }}>
+      <div className="hero-wrap">
+        <img className="hero-img" src="/hero-journey.png" alt="Signpost on a mountain path pointing to Christianity, God and Truth"/>
+        <div className="hero-overlay" style={{ position: 'absolute', inset: 0 }}/>
 
-        {/* === MOBILE: stacked image then text === */}
-        <div className="hero-img-wrap sm:hidden" style={{ position: 'relative', width: '100%', height: 260, overflow: 'hidden', flexShrink: 0 }}>
-          <img
-            className="hero-img"
-            src="/hero-journey.png"
-            alt="Signpost pointing to Christianity, God and Truth on a mountain path"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '70% center' }}
-          />
-          <div className="hero-overlay" style={{ position: 'absolute', inset: 0 }}/>
-        </div>
-
-        {/* === DESKTOP: full bleed background === */}
-        <img
-          className="hero-img hidden sm:block"
-          src="/hero-journey.png"
-          alt="Signpost pointing to Christianity, God and Truth on a mountain path"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '62% center' }}
-        />
-        <div className="hero-overlay hidden sm:block" style={{ position: 'absolute', inset: 0 }}/>
-        <div className="hidden sm:block" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '35%', background: 'linear-gradient(to top, rgba(18,18,30,0.75) 0%, transparent 100%)' }}/>
-
-        {/* === Content — absolute on desktop, static on mobile === */}
-        <div
-          className="hero-content"
-          style={{ position: 'relative', zIndex: 2, width: '100%' }}
-        >
+        <div className="hero-text">
           <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.75rem' }}>
             A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
           </div>
@@ -182,7 +159,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         </div>
       </div>
 
-      {/* ── TRIFECTA ── */}
+            {/* ── TRIFECTA ── */}
       <div style={{ background: '#F7F7F9', borderTop: '3px solid #D4A847' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 1, background: '#E0E0E8' }}>
           {[
