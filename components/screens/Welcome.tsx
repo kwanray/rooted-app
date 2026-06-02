@@ -67,7 +67,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               <circle cx="18" cy="4" r="2.5" fill="#D4A847"/>
             </svg>
             <span style={{ ...ms, fontSize: 13, fontWeight: 800, color: '#FFFFFF', letterSpacing: '0.12em' }}>
-              ROOTED<span style={{ color: '#D4A847' }}>.</span>
+              QUEST<span style={{ color: '#D4A847' }}>.</span>
             </span>
           </div>
 
@@ -143,11 +143,11 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
           </div>
           <h1 style={{ ...cg, fontSize: 'clamp(2rem, 5.5vw, 3.8rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.9rem', textShadow: '0 2px 16px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.8)' }}>
-            Build your faith<br />
-            on <em style={{ color: '#D4A847', fontStyle: 'italic' }}>solid ground</em>
+            Begin your<br />
+            <em style={{ color: '#D4A847', fontStyle: 'italic' }}>quest for truth</em>
           </h1>
           <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.95)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
-            A 12-step journey through the big questions of faith — designed for young Christians who want real answers, not just "just believe it."
+            12 stages. 12 answers. One quest — designed for young Christians who want reasons, not just religion.
           </p>
           <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.5rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             APOLOGETICS · EVANGELISM · DISCIPLESHIP
@@ -159,7 +159,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
             >
-              START MY JOURNEY
+              START MY QUEST
             </button>
             {hasProgress && (
               <button
@@ -168,7 +168,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A847'; e.currentTarget.style.color = '#D4A847' }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(240,238,232,0.4)'; e.currentTarget.style.color = '#F0EEE8' }}
               >
-                RESUME JOURNEY
+                RESUME QUEST
               </button>
             )}
           </div>
@@ -179,9 +179,9 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       <div style={{ background: '#F7F7F9', borderTop: '3px solid #D4A847' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 1, background: '#E0E0E8' }}>
           {[
-            { label: 'APOLOGETICS', title: 'Understand', desc: 'Build a logical and historical framework to understand your faith.' },
-            { label: 'EVANGELISM',  title: 'Share',      desc: 'Become confident knowing how to share your faith with others.' },
-            { label: 'DISCIPLESHIP',title: 'Grow',       desc: 'Get motivated to grow and help others put Christ first.' },
+            { label: 'STAGE 1–3', title: 'Discover', desc: 'Establish that truth exists and a theistic God is real.' },
+            { label: 'STAGE 4–9', title: 'Investigate', desc: 'Examine miracles, the NT, and the claims of Jesus.' },
+            { label: 'STAGE 10–12', title: 'Conclude', desc: 'Establish that Jesus is God and the Bible is His Word.' },
           ].map((item) => (
             <div key={item.label} style={{ background: '#F7F7F9', padding: '1.8rem 1.5rem', textAlign: 'center' }}>
               <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 6 }}>{item.label}</div>
@@ -197,8 +197,8 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         {/* Section header */}
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
           <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 8 }}>THE JOURNEY</div>
-          <h2 style={{ ...cg, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 8 }}>12 Stepping Stones</h2>
-          <p style={{ ...ms, fontSize: 13, color: '#888899', lineHeight: 1.6 }}>Each point builds on the last.<br/>Tap a card when you complete it.</p>
+          <h2 style={{ ...cg, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 8 }}>12 Quest Stages</h2>
+          <p style={{ ...ms, fontSize: 13, color: '#888899', lineHeight: 1.6 }}>Each stage unlocks the next.<br/>Complete all 12 to finish your quest.</p>
           <div style={{ width: 40, height: 3, background: '#D4A847', margin: '1rem auto 0', borderRadius: 2 }}/>
         </div>
 
@@ -245,7 +245,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A847'; e.currentTarget.style.color = '#1A1A2A' }}
             onMouseLeave={(e) => { e.currentTarget.style.background = '#1A1A2A'; e.currentTarget.style.color = '#D4A847' }}
           >
-            BEGIN THE JOURNEY →
+            BEGIN THE QUEST →
           </button>
         </div>
       </div>
