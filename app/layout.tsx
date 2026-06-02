@@ -3,12 +3,12 @@ import './globals.css'
 import { AuthProvider } from '@/lib/AuthContext'
 
 export const metadata: Metadata = {
-  title: 'Rooted — A Faith Foundation Journey',
+  title: 'Quest — A Journey to Solid Faith',
   description:
     'A step-by-step journey through Norman Geisler\'s Twelve Points of classical apologetics, contextualised for young Christians in Singapore.',
   openGraph: {
-    title: 'Rooted — A Faith Foundation Journey',
-    description: 'Build your faith on solid ground. 12 points. Rock-solid logic.',
+    title: 'Quest — A Journey to Solid Faith',
+    description: 'Truth is worth the quest. 12 stages. Rock-solid answers.',
     type: 'website',
   },
 }
