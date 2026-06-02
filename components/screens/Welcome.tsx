@@ -11,19 +11,35 @@ interface Props {
   onSignOut?: () => void
 }
 
+// SVG paths for crisp B&W icons on gold background
+const POINT_ICONS: Record<string, React.ReactNode> = {
+  '01': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>,
+  '02': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>,
+  '03': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18"/><path d="M3 12h18"/><path d="M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9"/></svg>,
+  '04': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>,
+  '05': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+  '06': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>,
+  '07': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>,
+  '08': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+  '09': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+  '10': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
+  '11': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3"/><path d="M12 2v3"/></svg>,
+  '12': <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>,
+}
+
 const POINTS_SUMMARY = [
-  { n: '01', title: 'Truth About Reality is Knowable',        desc: 'Can we actually know anything for certain?',            icon: '🔍' },
-  { n: '02', title: 'The Opposite of True is False',          desc: 'Opposites cannot both be true at the same time.',       icon: '⚖️' },
-  { n: '03', title: 'A Theistic God Exists',                  desc: 'The cosmological, moral and teleological arguments.',   icon: '🌍' },
-  { n: '04', title: 'Since God Exists, Miracles are Possible',desc: 'A theistic God can act in the natural world.',          icon: '☀️' },
-  { n: '05', title: 'Miracles Can Confirm a Message from God',desc: 'The sign confirms the sermon; the act confirms the word.', icon: '💬' },
-  { n: '06', title: 'The NT is Historically Reliable',        desc: 'Earlier, more, and more accurately copied manuscripts.', icon: '📜' },
-  { n: '07', title: 'Jesus Claimed to be God',                desc: 'NT writers and Jesus himself made this claim.',         icon: '👑' },
-  { n: '08', title: 'Jesus Demonstrated His Divinity',        desc: 'Fulfilled prophecy, sinless life, miracles, resurrection.', icon: '✨' },
-  { n: '09', title: 'Therefore Jesus is God',                 desc: 'His claim was confirmed — putting it all together.',    icon: '🕊️' },
-  { n: '10', title: 'Whatever Jesus Teaches is True',         desc: 'Since Jesus is God, his words carry divine authority.', icon: '📖' },
-  { n: '11', title: "Jesus Taught the Bible is God's Word",   desc: 'Divine authority, infallible, inerrant, historically reliable.', icon: '🛡️' },
-  { n: '12', title: 'The Bible is the Word of God',           desc: 'Anything opposed to it is false.',                     icon: '📕' },
+  { n: '01', title: 'Truth About Reality is Knowable',        desc: 'Can we actually know anything for certain?' },
+  { n: '02', title: 'The Opposite of True is False',          desc: 'Opposites cannot both be true at the same time.' },
+  { n: '03', title: 'A Theistic God Exists',                  desc: 'The cosmological, moral and teleological arguments.' },
+  { n: '04', title: 'Since God Exists, Miracles are Possible',desc: 'A theistic God can act in the natural world.' },
+  { n: '05', title: 'Miracles Can Confirm a Message from God',desc: 'The sign confirms the sermon; the act confirms the word.' },
+  { n: '06', title: 'The NT is Historically Reliable',        desc: 'Earlier, more, and more accurately copied manuscripts.' },
+  { n: '07', title: 'Jesus Claimed to be God',                desc: 'NT writers and Jesus himself made this claim.' },
+  { n: '08', title: 'Jesus Demonstrated His Divinity',        desc: 'Fulfilled prophecy, sinless life, miracles, resurrection.' },
+  { n: '09', title: 'Therefore Jesus is God',                 desc: 'His claim was confirmed — putting it all together.' },
+  { n: '10', title: 'Whatever Jesus Teaches is True',         desc: 'Since Jesus is God, his words carry divine authority.' },
+  { n: '11', title: "Jesus Taught the Bible is God's Word",   desc: 'Divine authority, infallible, inerrant, historically reliable.' },
+  { n: '12', title: 'The Bible is the Word of God',           desc: 'Anything opposed to it is false.' },
 ]
 
 const WHY = [
@@ -187,7 +203,8 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         </div>
 
         {/* 4-column cards grid */}
-        <div style={{ maxWidth: 960, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 12 }}>
+        <style>{`.pts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; } @media (min-width: 640px) { .pts-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } }`}</style>
+        <div className="pts-grid" style={{ maxWidth: 960, margin: '0 auto' }}>
           {POINTS_SUMMARY.map((pt) => (
             <div
               key={pt.n}
@@ -202,9 +219,9 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                   <span style={{ ...ms, fontSize: 9, fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.05em' }}>{pt.n}</span>
                 </div>
               </div>
-              {/* Gold icon circle with B&W filter */}
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14, fontSize: 24, filter: 'grayscale(1) brightness(10)' }}>
-                {pt.icon}
+              {/* Gold icon circle with white SVG icon */}
+              <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
+                {POINT_ICONS[pt.n]}
               </div>
               {/* Title */}
               <div style={{ ...cg, fontSize: '1rem', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.35, marginBottom: 8, flex: 1 }}>{pt.title}</div>
