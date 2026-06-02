@@ -49,10 +49,10 @@ export default function SignIn({ onSkip }: Props) {
         className="text-center mb-3"
         style={{ fontFamily: 'Cormorant Garamond, serif', color: '#FFFFFF', fontWeight: 400, fontSize: '2rem' }}
       >
-        Build your faith on solid ground.
+        Begin your quest for truth.
       </h1>
       <p className="text-xs text-center mb-10" style={{ color: '#AAAABB', fontFamily: 'Montserrat, sans-serif', maxWidth: 320, lineHeight: 1.7 }}>
-        Sign in to save your progress across devices — or continue without signing in.
+        Save your quest progress across devices — or continue without signing in.
       </p>
 
       <button
