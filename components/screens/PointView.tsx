@@ -45,7 +45,7 @@ const POINT_SVG_ICONS: React.ReactNode[] = [
   /* 01 Truth — magnifier */
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>,
   /* 02 Logic — balance scales */
-  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><line x1="12" y1="3" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="3" y1="6" x2="21" y2="6"/><polyline points="3,6 6,12 9,6"/><polyline points="15,6 18,12 21,6"/><line x1="6" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="18" y2="12"/></svg>,
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><line x1="12" y1="3" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="7" x2="5" y2="13"/><line x1="9" y1="7" x2="7" y2="13"/><line x1="5" y1="13" x2="7" y2="13"/><line x1="15" y1="7" x2="17" y2="13"/><line x1="21" y1="7" x2="19" y2="13"/><line x1="17" y1="13" x2="19" y2="13"/></svg>,
   /* 03 God Exists — globe */
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c-2.5 4-4 6-4 9s1.5 5 4 9"/><path d="M12 3c2.5 4 4 6 4 9s-1.5 5-4 9"/></svg>,
   /* 04 Miracles Possible — sun */
