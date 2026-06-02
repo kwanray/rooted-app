@@ -40,7 +40,33 @@ const cg = { fontFamily: 'Cormorant Garamond, serif' }
 
 const PHASE_COLORS = ['#8888AA', '#8B5CF6', '#D4A847', '#C0392B', '#2E7D52']
 
-const POINT_ICONS = ['🔍','⚖️','🌌','✨','📜','📖','✝️','☀️','👑','💬','📝','📕']
+// White SVG icons on gold circles — matching landing page cards
+const POINT_SVG_ICONS: React.ReactNode[] = [
+  /* 01 Truth — magnifier */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>,
+  /* 02 Logic — balance scales */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M12 3v18"/><path d="M3 6h18"/><path d="M6 6l-3 6c0 1.66 1.34 3 3 3s3-1.34 3-3L6 6z"/><path d="M18 6l-3 6c0 1.66 1.34 3 3 3s3-1.34 3-3L18 6z"/><path d="M9 21h6"/></svg>,
+  /* 03 God Exists — globe */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c-2.5 4-4 6-4 9s1.5 5 4 9"/><path d="M12 3c2.5 4 4 6 4 9s-1.5 5-4 9"/></svg>,
+  /* 04 Miracles Possible — sun */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>,
+  /* 05 Miracles Confirm — speech bubble */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+  /* 06 NT Reliable — document */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>,
+  /* 07 Jesus Claimed — star */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+  /* 08 Divinity — shield */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+  /* 09 Jesus is God — heart */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+  /* 10 Jesus Teaches — open book */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
+  /* 11 Bible is Word — cross */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" width="24" height="24"><line x1="12" y1="3" x2="12" y2="21"/><line x1="5" y1="8" x2="19" y2="8"/></svg>,
+  /* 12 Word of God — closed book */
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>,
+]
 
 // Argument card — tappable, expands inline
 function ArgCard({ n, head, body }: { n: number; head: string; body: string }) {
@@ -129,7 +155,9 @@ export default function PointView({
 
         {/* Big emoji + title */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
-          <span style={{ fontSize: 44, lineHeight: 1, flexShrink: 0 }}>{POINT_ICONS[idx] ?? '📌'}</span>
+          <div style={{ width: 56, height: 56, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            {POINT_SVG_ICONS[idx] ?? POINT_SVG_ICONS[0]}
+          </div>
           <h1 style={{ ...cg, fontSize: 'clamp(1.7rem, 6vw, 2.6rem)', fontWeight: 400, color: C.white, lineHeight: 1.2 }}>
             {pt.title}
           </h1>
