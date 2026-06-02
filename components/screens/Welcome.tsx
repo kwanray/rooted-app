@@ -235,23 +235,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           ))}
         </div>
 
-        {/* Footer row matching mockup */}
-        <div style={{ maxWidth: 960, margin: '2rem auto 0', background: '#FFFFFF', borderRadius: 12, padding: '1.5rem 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, boxShadow: '0 2px 8px rgba(0,0,0,0.05)', border: '1px solid #EDE8DE' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, maxWidth: 420 }}>
-            <span style={{ fontSize: 28, flexShrink: 0 }}>📖</span>
-            <p style={{ ...ms, fontSize: 13, color: '#555577', lineHeight: 1.7 }}>
-              A 12-step journey through the big questions of faith — designed for young Christians who want real answers, not just <em>"just believe it."</em>
-            </p>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {[['🛡️','Apologetics'],['👥','Evangelism'],['❤️','Discipleship']].map(([icon, label]) => (
-              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontSize: 16 }}>{icon}</span>
-                <span style={{ ...ms, fontSize: 12, fontWeight: 600, color: '#1A1A2A' }}>{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+
 
         {/* BEGIN CTA */}
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
