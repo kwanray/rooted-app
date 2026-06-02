@@ -61,7 +61,7 @@ const POINT_SVG_ICONS: React.ReactNode[] = [
   /* 09 Jesus is God — heart */
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
   /* 10 — signpost */
-  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><line x1="9" y1="3" x2="9" y2="21"/><path d="M9 7 L18 7 L21 10 L18 13 L9 13 Z"/><path d="M9 14 L15 14 L18 17 L15 20 L9 20 Z"/></svg>,
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><line x1="7" y1="5" x2="7" y2="22"/><polygon points="7,4 17,4 20,7 17,10 7,10"/><polygon points="7,12 15,12 18,15 15,18 7,18"/></svg>,
   /* 11 — anchor */
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="20"/><path d="M5 14c0 3.87 3.13 7 7 7s7-3.13 7-7"/><line x1="7" y1="11" x2="17" y2="11"/></svg>,
   /* 12 — closed book */
