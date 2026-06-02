@@ -38,13 +38,13 @@ export default function PainPoint({ onSelect }: Props) {
       {/* ── Dark header ── */}
       <div style={{ background: C.page, borderBottom: `1px solid ${C.border}`, padding: '2rem 1.5rem 1.5rem', textAlign: 'center' }}>
         <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: C.gold, marginBottom: 10 }}>
-          STEP 1 OF YOUR JOURNEY
+          STAGE 0 · YOUR QUEST BEGINS
         </div>
         <h2 style={{ ...cg, fontSize: 'clamp(1.8rem, 5vw, 2.6rem)', fontWeight: 400, color: C.white, lineHeight: 1.2, marginBottom: 10 }}>
-          What's your biggest doubt?
+          What's driving your quest?
         </h2>
         <p style={{ ...ms, fontSize: 13, color: C.muted, maxWidth: 390, margin: '0 auto', lineHeight: 1.75 }}>
-          Select the one that resonates most. You'll cover all 12 points — starting with what matters to you, then building the complete foundation.
+          Choose your starting point. You'll complete all 12 stages — beginning where your questions are sharpest.
         </p>
       </div>
 
