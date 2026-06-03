@@ -64,7 +64,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
             border: '1px solid #FFFFFF11',
           }}
         >
-          A COMPANION TO NGIM · NORMAN GEISLER&apos;S 12 POINTS
+          A COMPANION TO NGIM - NORMAN GEISLERS 12 POINTS
         </div>
 
         <h1
@@ -185,7 +185,6 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
             <div className="flex items-center justify-between px-3 py-2" style={{ border: '1px solid #FFFFFF11' }}>
               <div className="flex items-center gap-2">
                 {user.photoURL && (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={user.photoURL} alt="" className="w-6 h-6 rounded-full" referrerPolicy="no-referrer" />
                 )}
                 <span className="text-xs" style={{ color: '#AAAABB', fontFamily: 'Montserrat, sans-serif' }}>
@@ -234,7 +233,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
         </div>
 
         <p className="mt-10 text-xs" style={{ color: '#333344', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.06em' }}>
-          12 POINTS · 4 SESSIONS · PROGRESS SAVED TO CLOUD
+          12 POINTS - 4 SESSIONS - PROGRESS SAVED TO CLOUD
         </p>
       </div>
 
@@ -245,7 +244,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
         <span className="text-xs font-bold" style={{ color: '#1A1A2A', letterSpacing: '0.08em', fontFamily: 'Montserrat, sans-serif' }}>
           A NORM GEISLER INTERNATIONAL MINISTRIES RESOURCE
         </span>
-        
+        <a
           href="https://ngim.org"
           target="_blank"
           rel="noopener noreferrer"
