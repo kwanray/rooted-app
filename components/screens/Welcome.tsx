@@ -164,7 +164,51 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         .pillar-divider { width: 1px; background: rgba(212,168,71,0.3); align-self: stretch; }
       `}</style>
 
-      <div className="qhero">
+      {/* ── MOBILE hero: image on top, text below ── */}
+      <div className="sm:hidden" style={{ display: 'flex', flexDirection: 'column', background: '#0A0814' }}>
+        <img
+          src="/quest-hero.jpg"
+          alt="A stone path to a castle with signpost"
+          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
+        />
+        <div style={{ borderTop: '2px solid rgba(212,168,71,0.45)', padding: '0.75rem 1rem 1.1rem', background: '#0A0814' }}>
+          <h1 className="cinzel-deco" style={{ fontSize: '1.6rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.2rem' }}>
+            BEGIN YOUR<br/><span style={{ color: '#D4A847' }}>QUEST</span>
+          </h1>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(10,8,24,0.85)', border: '1px solid #D4A847', borderLeft: '3px solid #D4A847', borderRight: '3px solid #D4A847', padding: '4px 12px', marginBottom: '0.5rem' }}>
+            <span style={{ color: '#D4A847', fontSize: 10 }}>◆</span>
+            <span className="cinzel" style={{ fontSize: '0.6rem', fontWeight: 700, color: '#D4A847', letterSpacing: '0.22em' }}>FOR TRUTH</span>
+            <span style={{ color: '#D4A847', fontSize: 10 }}>◆</span>
+          </div>
+          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, color: 'rgba(240,238,232,0.9)', marginBottom: '0.5rem', lineHeight: 1.6 }}>
+            <strong style={{ fontWeight: 800, color: '#FFFFFF' }}>Young disciple,</strong> the world will challenge your faith. Before it does — challenge it yourself.
+          </p>
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '0.65rem', borderTop: '1px solid rgba(212,168,71,0.2)', borderBottom: '1px solid rgba(212,168,71,0.2)', padding: '6px 0' }}>
+            {[
+              { icon: <svg viewBox="0 0 36 36" fill="none" width="22" height="22"><circle cx="18" cy="18" r="15" stroke="#D4A847" strokeWidth="1" opacity="0.5"/><polygon points="18,5 20,15 18,13 16,15" fill="#D4A847"/><circle cx="18" cy="18" r="2.2" fill="#D4A847"/></svg>, label: 'EXPLORE', desc: 'Big questions. Real answers.' },
+              { icon: <svg viewBox="0 0 36 36" fill="none" width="22" height="22"><path d="M18 3L5 9v9c0 7.5 5.5 14.5 13 16 7.5-1.5 13-8.5 13-16V9z" fill="rgba(212,168,71,0.1)" stroke="#D4A847" strokeWidth="1.2"/><line x1="18" y1="10" x2="18" y2="22" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/></svg>, label: 'EQUIP', desc: 'Build a faith that lasts.' },
+              { icon: <svg viewBox="0 0 36 36" fill="none" width="22" height="22"><path d="M4 30 L18 8 L32 30 Z" fill="rgba(212,168,71,0.1)" stroke="#D4A847" strokeWidth="1.2"/><line x1="18" y1="8" x2="18" y2="3" stroke="#D4A847" strokeWidth="1.2" strokeLinecap="round"/><path d="M18 3 L24 5 L18 7 Z" fill="#D4A847"/></svg>, label: 'EMBARK', desc: 'One quest. Eternal impact.' },
+            ].map((p) => (
+              <div key={p.label} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, padding: '0 4px' }}>
+                {p.icon}
+                <div className="cinzel" style={{ fontSize: 7, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>{p.label}</div>
+                <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 7.5, color: 'rgba(240,238,232,0.6)', lineHeight: 1.4, textAlign: 'center' }}>{p.desc}</div>
+              </div>
+            ))}
+          </div>
+          <button onClick={onStart} style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '11px 0', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+            <svg viewBox="0 0 20 20" fill="none" stroke="#0A0814" strokeWidth="2" strokeLinecap="round" width="14" height="14"><line x1="4" y1="16" x2="16" y2="4"/><line x1="16" y1="16" x2="4" y2="4"/><line x1="6.5" y1="13.5" x2="4" y2="16"/><line x1="13.5" y1="6.5" x2="16" y2="4"/><line x1="6.5" y1="6.5" x2="4" y2="4"/><line x1="13.5" y1="13.5" x2="16" y2="16"/></svg>
+            START MY QUEST
+          </button>
+          {hasProgress && (
+            <button onClick={onResume} style={{ fontFamily: "'Cinzel', serif", background: 'transparent', color: '#D4A847', border: '1px solid #D4A84766', padding: '9px 0', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%', marginTop: 8 }}>RESUME QUEST</button>
+          )}
+          <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, color: 'rgba(240,238,232,0.35)', letterSpacing: '0.1em', marginTop: 8 }}>12 CHALLENGES. ONE QUEST. ARE YOU READY?</div>
+        </div>
+      </div>
+
+      {/* ── DESKTOP hero: full bleed overlay ── */}
+      <div className="qhero hidden sm:flex">
         <img className="qhero-img" src="/quest-hero.jpg" alt="A stone path leading to a castle with a signpost pointing to Christianity, God and Truth"/>
         <div className="qhero-overlay"/>
 
