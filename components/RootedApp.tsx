@@ -22,7 +22,6 @@ import PersonalResponse from '@/components/screens/PersonalResponse'
 import Complete from '@/components/screens/Complete'
 import FoundationBridge from '@/components/screens/FoundationBridge'
 import Search from '@/components/screens/Search'
-import SignIn from '@/components/SignIn'
 
 const INITIAL_STATE: AppState = {
   screen: 'welcome',
@@ -36,11 +35,10 @@ const INITIAL_STATE: AppState = {
 }
 
 export default function RootedApp() {
-  const { user, loading: authLoading, signOut, signInWithGoogle } = useAuth()
+  const { user, loading: authLoading } = useAuth()
   const [state, setState] = useState<AppState>(INITIAL_STATE)
   const [showResume, setShowResume] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const [guestMode, setGuestMode] = useState(false)
   const [searchReturnScreen, setSearchReturnScreen] = useState<AppState['screen']>('welcome')
 
   useEffect(() => {
@@ -117,14 +115,6 @@ export default function RootedApp() {
     })
   }
 
-  const handleGoHome = () => {
-    setState((prev) => ({ ...prev, screen: 'welcome' }))
-  }
-
-  const handleWelcomeNavigate = (idx: number) => {
-    setState({ ...INITIAL_STATE, screen: 'point', idx, startingIdx: 0 })
-  }
-
   const handlePainPoint = (id: PainPointId) => {
     const startIdx = PAIN_POINT_ENTRY[id]
     update({ painPointId: id, screen: 'point', idx: startIdx, startingIdx: startIdx })
@@ -135,14 +125,12 @@ export default function RootedApp() {
       ? state.completed
       : [...state.completed, state.idx]
 
-    // Session celebration (fires wherever it falls in the journey)
     const breakIdx = SESSION_BREAK_INDICES.indexOf(state.idx)
     if (breakIdx !== -1 && !state.completed.includes(state.idx)) {
       update({ completed: newCompleted, celebrationIdx: breakIdx, screen: 'celebrate' })
       return
     }
 
-    // Reached Point 12 — circular journey: show Foundation Bridge before looping back
     if (state.idx === POINTS.length - 1) {
       if (state.startingIdx > 0) {
         update({ completed: newCompleted, screen: 'foundation-bridge' })
@@ -152,7 +140,6 @@ export default function RootedApp() {
       return
     }
 
-    // Circular completion: user just finished the last foundation point (startingIdx - 1)
     if (state.startingIdx > 0 && state.idx === state.startingIdx - 1) {
       update({ completed: newCompleted, screen: 'personal-response' })
       return
@@ -168,14 +155,12 @@ export default function RootedApp() {
 
   const handleBack = () => {
     if (state.idx === 0) {
-      // During backtrack phase, going back from Point 1 returns to welcome
       if (state.startingIdx > 0) {
         setState({ ...INITIAL_STATE, screen: 'welcome' })
       } else {
         setState({ ...INITIAL_STATE, screen: 'painpoint' })
       }
     } else if (state.startingIdx > 0 && state.idx === state.startingIdx) {
-      // At the original entry point in primary section — back goes to welcome
       setState({ ...INITIAL_STATE, screen: 'welcome' })
     } else {
       update({ idx: state.idx - 1 })
@@ -233,25 +218,10 @@ export default function RootedApp() {
     )
   }
 
-  if (!user && !guestMode) {
-    return <SignIn onSkip={() => setGuestMode(true)} />
-  }
-
   return (
-    <main style={{ background: '#12121E', minHeight: '100vh' }}>
+    <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
-        <>
-          <Welcome
-            onStart={handleStart}
-            onResume={handleResume}
-            onSearch={handleOpenSearch}
-            onNavigate={handleWelcomeNavigate}
-            hasProgress={showResume}
-            user={user}
-            onSignIn={signInWithGoogle}
-            onSignOut={signOut}
-          />
-        </>
+        <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} />
       )}
 
       {state.screen === 'painpoint' && (
@@ -268,7 +238,6 @@ export default function RootedApp() {
           onReflectionChange={handleReflectionChange}
           onMarkDone={handleMarkDone}
           onBack={handleBack}
-          onHome={handleGoHome}
           onSearch={handleOpenSearch}
         />
       )}
