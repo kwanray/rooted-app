@@ -145,14 +145,16 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           </div>
 
           {/* Big headline */}
-          <h1 style={{ ...ms, fontSize: 'clamp(2.4rem, 7vw, 4.5rem)', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.5rem', letterSpacing: '0.02em', textTransform: 'uppercase', textShadow: '0 2px 16px rgba(0,0,0,0.95)' }}>
+          <h1 style={{ fontFamily: "'Cinzel Decorative', serif", fontSize: 'clamp(1.8rem, 5.5vw, 3.8rem)', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '0.04em', textShadow: '0 2px 16px rgba(0,0,0,0.95), 0 0 40px rgba(212,168,71,0.3)' }}>
             BEGIN YOUR<br/>
             <span style={{ color: '#D4A847' }}>QUEST</span>
           </h1>
 
           {/* FOR TRUTH banner */}
-          <div style={{ display: 'inline-block', background: 'rgba(212,168,71,0.18)', border: '1px solid #D4A84777', padding: '5px 18px', marginBottom: '1rem' }}>
-            <span style={{ ...ms, fontSize: 'clamp(0.75rem, 2vw, 0.9rem)', fontWeight: 900, color: '#D4A847', letterSpacing: '0.2em' }}>FOR TRUTH</span>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,168,71,0.15)', border: '1px solid #D4A84777', padding: '6px 20px', marginBottom: '1rem' }}>
+            <span style={{ color: '#D4A847', fontSize: 12 }}>✦</span>
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(0.7rem, 2vw, 0.85rem)', fontWeight: 700, color: '#D4A847', letterSpacing: '0.25em' }}>FOR TRUTH</span>
+            <span style={{ color: '#D4A847', fontSize: 12 }}>✦</span>
           </div>
 
           {/* Body copy */}
@@ -160,21 +162,54 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <strong style={{ fontWeight: 800, color: '#FFFFFF' }}>Young disciple,</strong> the world will challenge your faith. Before it does — challenge it yourself.
           </p>
 
-          {/* Three pillars */}
-          <div style={{ display: 'flex', gap: 16, marginBottom: '1.4rem', flexWrap: 'wrap' }}>
-            {[
-              { icon: '🧭', label: 'EXPLORE',  sub: 'Big questions. Real answers.' },
-              { icon: '🛡️', label: 'EQUIP',    sub: 'Build a faith that lasts.' },
-              { icon: '⚔️', label: 'EMBARK',   sub: 'One quest. Eternal impact.' },
-            ].map((p) => (
-              <div key={p.label} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-                <span style={{ fontSize: 18, lineHeight: 1 }}>{p.icon}</span>
-                <div>
-                  <div style={{ ...ms, fontSize: 9, fontWeight: 900, color: '#D4A847', letterSpacing: '0.12em', textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>{p.label}</div>
-                  <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.65)', lineHeight: 1.4 }}>{p.sub}</div>
-                </div>
+          {/* Three pillars with medieval SVG icons */}
+          <div style={{ display: 'flex', gap: 20, marginBottom: '1.4rem', flexWrap: 'wrap' }}>
+
+            {/* EXPLORE — compass rose */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round" width="22" height="22">
+                <circle cx="12" cy="12" r="9"/>
+                <polygon points="12,4 13.5,10 12,8 10.5,10" fill="#D4A847"/>
+                <polygon points="12,20 13.5,14 12,16 10.5,14" fill="#D4A847" opacity="0.5"/>
+                <polygon points="4,12 10,10.5 8,12 10,13.5" fill="#D4A847" opacity="0.5"/>
+                <polygon points="20,12 14,10.5 16,12 14,13.5" fill="#D4A847" opacity="0.5"/>
+                <circle cx="12" cy="12" r="1.5" fill="#D4A847"/>
+              </svg>
+              <div>
+                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EXPLORE</div>
+                <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.4 }}>Big questions. Real answers.</div>
               </div>
-            ))}
+            </div>
+
+            {/* EQUIP — shield with cross */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round" width="22" height="22">
+                <path d="M12 2L4 6v6c0 5 3.5 9.74 8 11 4.5-1.26 8-6 8-11V6z" fill="rgba(212,168,71,0.15)" stroke="#D4A847"/>
+                <line x1="12" y1="8" x2="12" y2="16"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+              </svg>
+              <div>
+                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EQUIP</div>
+                <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.4 }}>Build a faith that lasts.</div>
+              </div>
+            </div>
+
+            {/* EMBARK — crossed swords */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round" width="22" height="22">
+                <line x1="5" y1="19" x2="19" y2="5"/>
+                <line x1="19" y1="19" x2="5" y2="5"/>
+                <line x1="8" y1="16" x2="5" y2="19"/>
+                <line x1="16" y1="8" x2="19" y2="5"/>
+                <line x1="8" y1="8" x2="5" y2="5"/>
+                <line x1="16" y1="16" x2="19" y2="19"/>
+              </svg>
+              <div>
+                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EMBARK</div>
+                <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.4 }}>One quest. Eternal impact.</div>
+              </div>
+            </div>
+
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <button
@@ -183,7 +218,8 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
             >
-              <span style={{ fontSize: 16 }}>⚔️</span> START MY QUEST
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A1A2A" strokeWidth="2" strokeLinecap="round" width="16" height="16"><line x1="5" y1="19" x2="19" y2="5"/><line x1="19" y1="19" x2="5" y2="5"/><line x1="8" y1="16" x2="5" y2="19"/><line x1="16" y1="8" x2="19" y2="5"/><line x1="8" y1="8" x2="5" y2="5"/><line x1="16" y1="16" x2="19" y2="19"/></svg>
+              <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.12em' }}>START MY QUEST</span>
             </button>
             {hasProgress && (
               <button
@@ -224,7 +260,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         {/* Section header */}
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
           <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 8 }}>THE JOURNEY</div>
-          <h2 style={{ ...cg, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 8 }}>12 Challenges</h2>
+          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 700, color: '#1A1A2A', marginBottom: 8, letterSpacing: '0.04em' }}>12 Challenges</h2>
           <p style={{ ...ms, fontSize: 13, color: '#888899', lineHeight: 1.6 }}>Each challenge unlocks the next.<br/>Complete all 12 to finish your quest.</p>
           <div style={{ width: 40, height: 3, background: '#D4A847', margin: '1rem auto 0', borderRadius: 2 }}/>
         </div>
@@ -292,7 +328,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       <div id="why" style={{ background: '#F7F7F9', borderTop: '3px solid #1A1A2A', padding: '3rem 1.5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 6 }}>WHY ROOTED</div>
-          <h2 style={{ ...cg, fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 6 }}>Built for you</h2>
+          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)', fontWeight: 700, color: '#1A1A2A', marginBottom: 6, letterSpacing: '0.04em' }}>Your Quest Journey</h2>
           <p style={{ ...ms, fontSize: 12, color: '#888899' }}>Young Christians in Singapore who ask the hard questions.</p>
           <div style={{ width: 36, height: 3, background: '#D4A847', margin: '0.8rem auto 0' }}/>
         </div>
@@ -329,7 +365,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <p style={{ ...cg, fontStyle: 'italic', fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: '#F0EEE8', lineHeight: 1.75, marginBottom: 8 }}>
               "The goal of this quest is not just to believe, but to know — and to live for the One who is Truth."
             </p>
-            <p style={{ ...ms, fontSize: 11, fontWeight: 700, color: '#D4A847', letterSpacing: '0.06em' }}>— Norman Geisler</p>
+            <p style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: '#D4A847', letterSpacing: '0.08em' }}>— Norman Geisler</p>
           </div>
         </div>
       </div>
