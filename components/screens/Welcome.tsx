@@ -147,7 +147,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <em style={{ color: '#D4A847', fontStyle: 'italic' }}>quest for truth</em>
           </h1>
           <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.95)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
-            <em style={{ ...cg, fontStyle: 'italic', color: 'rgba(240,238,232,0.72)', fontSize: '1rem' }}>Young disciple,</em><br/>
+            <strong style={{ ...ms, fontWeight: 800, color: 'rgba(240,238,232,0.98)', fontSize: '1.15rem', letterSpacing: '0.02em' }}>Young disciple,</strong><br/>
             the world will challenge your faith.<br/>
             Before it does — challenge it yourself.
           </p>
