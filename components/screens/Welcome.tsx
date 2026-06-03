@@ -142,10 +142,10 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           /* Gradient — top 50% clear (shows castle+signpost), bottom 50% dark (text) */
           .qhero-overlay  { display: block !important; background: linear-gradient(to top,
                               rgba(8,6,18,0.99) 0%,
-                              rgba(8,6,18,0.97) 25%,
-                              rgba(8,6,18,0.75) 45%,
-                              rgba(8,6,18,0.15) 65%,
-                              rgba(8,6,18,0.0)  80%); }
+                              rgba(8,6,18,0.96) 22%,
+                              rgba(8,6,18,0.55) 40%,
+                              rgba(8,6,18,0.08) 58%,
+                              rgba(8,6,18,0.00) 72%); }
           .qhero-content  { position: relative; z-index: 2; background: transparent;
                             border-top: none; padding: 1rem 1.1rem 1.4rem; width: 100%; }
           /* Compact text for mobile */
