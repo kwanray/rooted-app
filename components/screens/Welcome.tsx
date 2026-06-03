@@ -28,18 +28,18 @@ const POINT_ICONS: Record<string, React.ReactNode> = {
 }
 
 const POINTS_SUMMARY = [
-  { n: '01', title: 'Truth About Reality is Knowable',        desc: 'Can we actually know anything for certain?' },
-  { n: '02', title: 'The Opposite of True is False',          desc: 'Opposites cannot both be true at the same time.' },
-  { n: '03', title: 'A Theistic God Exists',                  desc: 'The cosmological, moral and teleological arguments.' },
-  { n: '04', title: 'Since God Exists, Miracles are Possible',desc: 'A theistic God can act in the natural world.' },
-  { n: '05', title: 'Miracles Can Confirm a Message from God',desc: 'The sign confirms the sermon; the act confirms the word.' },
-  { n: '06', title: 'The NT is Historically Reliable',        desc: 'Earlier, more, and more accurately copied manuscripts.' },
-  { n: '07', title: 'Jesus Claimed to be God',                desc: 'NT writers and Jesus himself made this claim.' },
-  { n: '08', title: 'Jesus Demonstrated His Divinity',        desc: 'Fulfilled prophecy, sinless life, miracles, resurrection.' },
-  { n: '09', title: 'Therefore Jesus is God',                 desc: 'His claim was confirmed — putting it all together.' },
-  { n: '10', title: 'Whatever Jesus Teaches is True',         desc: 'Since Jesus is God, his words carry divine authority.' },
-  { n: '11', title: "Jesus Taught the Bible is God's Word",   desc: 'Divine authority, infallible, inerrant, historically reliable.' },
-  { n: '12', title: 'The Bible is the Word of God',           desc: 'Anything opposed to it is false.' },
+  { n: '01', challenge: 'The Foundation Challenge', title: 'Truth About Reality is Knowable',        desc: 'Can you prove that truth even exists?' },
+  { n: '02', challenge: 'The Logic Challenge',       title: 'The Opposite of True is False',          desc: 'Can two opposites both be true at once?' },
+  { n: '03', challenge: 'The Creator Challenge',     title: 'A Theistic God Exists',                  desc: 'Is there evidence that God is real?' },
+  { n: '04', challenge: 'The Miracle Challenge',     title: 'Since God Exists, Miracles are Possible',desc: 'If God exists, can He break natural law?' },
+  { n: '05', challenge: 'The Sign Challenge',        title: 'Miracles Can Confirm a Message from God',desc: 'How do you know a miracle is from God?' },
+  { n: '06', challenge: 'The Evidence Challenge',    title: 'The NT is Historically Reliable',        desc: 'Can you trust a 2,000-year-old document?' },
+  { n: '07', challenge: 'The Identity Challenge',    title: 'Jesus Claimed to be God',                desc: 'Who did Jesus really claim to be?' },
+  { n: '08', challenge: 'The Proof Challenge',       title: 'Jesus Demonstrated His Divinity',        desc: 'What evidence backs up His claim?' },
+  { n: '09', challenge: 'The Verdict Challenge',     title: 'Therefore Jesus is God',                 desc: "What's the only logical conclusion?" },
+  { n: '10', challenge: 'The Authority Challenge',   title: 'Whatever Jesus Teaches is True',         desc: "If Jesus is God, what does that mean for His words?" },
+  { n: '11', challenge: 'The Scripture Challenge',   title: "Jesus Taught the Bible is God's Word",   desc: 'Did Jesus endorse the Bible as divine?' },
+  { n: '12', challenge: 'The Final Challenge',       title: 'The Bible is the Word of God',           desc: "What does it mean if the Bible is truly God's Word?" },
 ]
 
 const WHY = [
@@ -197,8 +197,8 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         {/* Section header */}
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
           <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 8 }}>THE JOURNEY</div>
-          <h2 style={{ ...cg, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 8 }}>12 Quest Stages</h2>
-          <p style={{ ...ms, fontSize: 13, color: '#888899', lineHeight: 1.6 }}>Each stage unlocks the next.<br/>Complete all 12 to finish your quest.</p>
+          <h2 style={{ ...cg, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 600, color: '#1A1A2A', marginBottom: 8 }}>12 Challenges</h2>
+          <p style={{ ...ms, fontSize: 13, color: '#888899', lineHeight: 1.6 }}>Each challenge unlocks the next.<br/>Complete all 12 to finish your quest.</p>
           <div style={{ width: 40, height: 3, background: '#D4A847', margin: '1rem auto 0', borderRadius: 2 }}/>
         </div>
 
@@ -223,10 +223,12 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
                 {POINT_ICONS[pt.n]}
               </div>
+              {/* Challenge name */}
+              <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', color: '#D4A847', textTransform: 'uppercase', marginBottom: 4 }}>{pt.challenge}</div>
               {/* Title */}
-              <div style={{ ...cg, fontSize: '1rem', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.35, marginBottom: 8, flex: 1 }}>{pt.title}</div>
-              {/* Desc */}
-              <div style={{ ...ms, fontSize: 11, color: '#888899', lineHeight: 1.6, marginBottom: 14 }}>{pt.desc}</div>
+              <div style={{ ...cg, fontSize: '0.95rem', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.35, marginBottom: 6, flex: 1 }}>{pt.title}</div>
+              {/* Desc — framing question */}
+              <div style={{ ...ms, fontSize: 11, color: '#888899', lineHeight: 1.6, marginBottom: 14, fontStyle: 'italic' }}>{pt.desc}</div>
               {/* Arrow CTA */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                 <span style={{ ...ms, fontSize: 18, color: '#D4A847', lineHeight: 1 }}>→</span>
