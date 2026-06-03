@@ -171,58 +171,71 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <strong style={{ fontWeight: 800, color: '#FFFFFF' }}>Young disciple,</strong> the world will challenge your faith. Before it does — challenge it yourself.
           </p>
 
-          {/* Three pillars — vertical dividers between them */}
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 0, marginBottom: '1.6rem' }}>
+          {/* Three pillars — icon on top, label + desc below, vertical gold dividers */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '1.6rem', background: 'rgba(0,0,0,0.25)', padding: '12px 0', borderTop: '1px solid rgba(212,168,71,0.2)', borderBottom: '1px solid rgba(212,168,71,0.2)' }}>
 
-            {/* EXPLORE */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1 }}>
-              <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
-                <circle cx="16" cy="16" r="13" stroke="#D4A847" strokeWidth="1.2" opacity="0.6"/>
-                <circle cx="16" cy="16" r="9" stroke="#D4A847" strokeWidth="1" opacity="0.35"/>
-                <polygon points="16,5 17.5,13 16,11 14.5,13" fill="#D4A847"/>
-                <polygon points="16,27 17.5,19 16,21 14.5,19" fill="#D4A847" opacity="0.4"/>
-                <polygon points="5,16 13,14.5 11,16 13,17.5" fill="#D4A847" opacity="0.4"/>
-                <polygon points="27,16 19,14.5 21,16 19,17.5" fill="#D4A847" opacity="0.4"/>
-                <circle cx="16" cy="16" r="2" fill="#D4A847"/>
+            {/* EXPLORE — compass rose */}
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5, padding: '0 8px' }}>
+              <svg viewBox="0 0 36 36" fill="none" width="34" height="34">
+                <circle cx="18" cy="18" r="15" stroke="#D4A847" strokeWidth="1" opacity="0.5"/>
+                <circle cx="18" cy="18" r="10" stroke="#D4A847" strokeWidth="0.8" opacity="0.3"/>
+                {/* N arrow — filled gold */}
+                <polygon points="18,5 20,15 18,13 16,15" fill="#D4A847"/>
+                {/* S arrow — dimmed */}
+                <polygon points="18,31 20,21 18,23 16,21" fill="#D4A847" opacity="0.35"/>
+                {/* W arrow */}
+                <polygon points="5,18 15,16 13,18 15,20" fill="#D4A847" opacity="0.35"/>
+                {/* E arrow */}
+                <polygon points="31,18 21,16 23,18 21,20" fill="#D4A847" opacity="0.35"/>
+                {/* Tick marks at 45deg */}
+                <line x1="25.2" y1="10.8" x2="26.6" y2="9.4" stroke="#D4A847" strokeWidth="0.8" opacity="0.4"/>
+                <line x1="25.2" y1="25.2" x2="26.6" y2="26.6" stroke="#D4A847" strokeWidth="0.8" opacity="0.4"/>
+                <line x1="10.8" y1="25.2" x2="9.4" y2="26.6" stroke="#D4A847" strokeWidth="0.8" opacity="0.4"/>
+                <line x1="10.8" y1="10.8" x2="9.4" y2="9.4" stroke="#D4A847" strokeWidth="0.8" opacity="0.4"/>
+                <circle cx="18" cy="18" r="2.2" fill="#D4A847"/>
+                <circle cx="18" cy="18" r="1" fill="#0A0814"/>
               </svg>
-              <div className="cinzel" style={{ fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EXPLORE</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.45, textAlign: 'center' }}>Big questions.<br/>Real answers.</div>
+              <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EXPLORE</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9.5, color: 'rgba(240,238,232,0.6)', lineHeight: 1.5, textAlign: 'center' }}>Big questions.<br/>Real answers.</div>
             </div>
 
-            <div className="pillar-divider"/>
+            {/* Divider */}
+            <div style={{ width: 1, alignSelf: 'stretch', background: 'rgba(212,168,71,0.3)', flexShrink: 0 }}/>
 
-            {/* EQUIP */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1 }}>
-              <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
-                <path d="M16 3L5 8v8c0 6.5 4.5 12.5 11 14 6.5-1.5 11-7.5 11-14V8z" fill="rgba(212,168,71,0.12)" stroke="#D4A847" strokeWidth="1.2" strokeLinejoin="round"/>
-                <line x1="16" y1="10" x2="16" y2="22" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
-                <line x1="10" y1="16" x2="22" y2="16" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
-                <circle cx="16" cy="16" r="2" fill="rgba(212,168,71,0.4)"/>
+            {/* EQUIP — shield with star/cross */}
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5, padding: '0 8px' }}>
+              <svg viewBox="0 0 36 36" fill="none" width="34" height="34">
+                <path d="M18 3L5 9v9c0 7.5 5.5 14.5 13 16 7.5-1.5 13-8.5 13-16V9z" fill="rgba(212,168,71,0.1)" stroke="#D4A847" strokeWidth="1.2" strokeLinejoin="round"/>
+                {/* 8-pointed star inside shield */}
+                <polygon points="18,10 19.5,15.5 25,14 20.5,17.5 23,23 18,20 13,23 15.5,17.5 11,14 16.5,15.5" fill="none" stroke="#D4A847" strokeWidth="0.9" opacity="0.8"/>
+                <circle cx="18" cy="17.5" r="2" fill="#D4A847" opacity="0.6"/>
               </svg>
-              <div className="cinzel" style={{ fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EQUIP</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.45, textAlign: 'center' }}>Build a faith<br/>that lasts.</div>
+              <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EQUIP</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9.5, color: 'rgba(240,238,232,0.6)', lineHeight: 1.5, textAlign: 'center' }}>Build a faith<br/>that lasts.</div>
             </div>
 
-            <div className="pillar-divider"/>
+            {/* Divider */}
+            <div style={{ width: 1, alignSelf: 'stretch', background: 'rgba(212,168,71,0.3)', flexShrink: 0 }}/>
 
-            {/* EMBARK */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1 }}>
-              <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
-                <line x1="8" y1="24" x2="24" y2="8" stroke="#D4A847" strokeWidth="1.8" strokeLinecap="round"/>
-                <line x1="24" y1="24" x2="8" y2="8" stroke="#D4A847" strokeWidth="1.8" strokeLinecap="round"/>
-                <line x1="11" y1="21" x2="8" y2="24" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="21" y1="11" x2="24" y2="8" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="11" y1="11" x2="8" y2="8" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="21" y1="21" x2="24" y2="24" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
-                <circle cx="16" cy="16" r="2.5" fill="rgba(212,168,71,0.3)" stroke="#D4A847" strokeWidth="1"/>
+            {/* EMBARK — mountain with flag */}
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5, padding: '0 8px' }}>
+              <svg viewBox="0 0 36 36" fill="none" width="34" height="34">
+                {/* Mountain */}
+                <path d="M4 30 L18 8 L32 30 Z" fill="rgba(212,168,71,0.1)" stroke="#D4A847" strokeWidth="1.2" strokeLinejoin="round"/>
+                {/* Inner peak highlight */}
+                <path d="M14 20 L18 8 L22 20" stroke="#D4A847" strokeWidth="0.8" strokeLinejoin="round" opacity="0.5"/>
+                {/* Flag pole at peak */}
+                <line x1="18" y1="8" x2="18" y2="3" stroke="#D4A847" strokeWidth="1.2" strokeLinecap="round"/>
+                {/* Flag */}
+                <path d="M18 3 L24 5 L18 7 Z" fill="#D4A847"/>
               </svg>
-              <div className="cinzel" style={{ fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EMBARK</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.45, textAlign: 'center' }}>One quest.<br/>Eternal impact.</div>
+              <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EMBARK</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9.5, color: 'rgba(240,238,232,0.6)', lineHeight: 1.5, textAlign: 'center' }}>One quest.<br/>Eternal impact.</div>
             </div>
 
           </div>
 
-          {/* CTA */}
+                    {/* CTA */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <button
               onClick={onStart}
