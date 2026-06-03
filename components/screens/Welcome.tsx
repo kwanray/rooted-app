@@ -114,127 +114,144 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
 
       {/* ── HERO — full bleed image ── */}
       {/* CSS media queries via a style tag injected once */}
+      {/* ── HERO ── */}
       <style>{`
-        .hero-wrap { position: relative; overflow: hidden; background: #12121E; }
-        .hero-img  { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-        .hero-text { position: relative; z-index: 2; }
-        /* Desktop */
+        .qhero { position: relative; overflow: hidden; background: #0A0A14; }
+        .qhero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% center; }
+        /* Dark gradient — left half dark for text, right half clear for signpost */
+        .qhero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(8,6,18,0.96) 0%, rgba(8,6,18,0.88) 30%, rgba(8,6,18,0.55) 52%, rgba(8,6,18,0.05) 72%); }
+        .qhero-content { position: relative; z-index: 2; padding: 2.5rem 1.5rem 2rem; max-width: 520px; }
         @media (min-width: 641px) {
-          .hero-wrap    { min-height: clamp(460px, 52vw, 600px); display: flex; align-items: center; }
-          .hero-img     { object-fit: cover; object-position: 75% 35%; }
-          .hero-overlay { background: linear-gradient(100deg, rgba(12,12,24,0.94) 0%, rgba(12,12,24,0.82) 30%, rgba(12,12,24,0.28) 52%, rgba(12,12,24,0.0) 68%); }
-          .hero-text    { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+          .qhero { min-height: clamp(480px, 54vw, 660px); display: flex; align-items: center; }
+          .qhero-img { object-position: 68% center; }
+          .qhero-content { padding: clamp(2.5rem, 5vw, 4rem); max-width: 560px; }
         }
-        /* Mobile — full image height, text overlaid at bottom */
         @media (max-width: 640px) {
-          .hero-wrap    { min-height: 88vw; display: flex; align-items: flex-end; }
-          .hero-img     { object-position: 70% center; }
-          .hero-overlay { background: linear-gradient(to top, rgba(12,12,24,0.98) 0%, rgba(12,12,24,0.92) 35%, rgba(12,12,24,0.70) 55%, rgba(12,12,24,0.30) 75%, rgba(12,12,24,0.05) 100%); }
-          .hero-text    { padding: 1.5rem 1.2rem 1.8rem; width: 100%; text-shadow: 0 1px 12px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7); }
+          .qhero { min-height: 90vw; display: flex; align-items: flex-end; }
+          .qhero-overlay { background: linear-gradient(to top, rgba(8,6,18,0.97) 0%, rgba(8,6,18,0.85) 40%, rgba(8,6,18,0.35) 70%, rgba(8,6,18,0.05) 100%); }
+          .qhero-content { padding: 1.5rem 1.2rem 2rem; width: 100%; max-width: 100%; }
         }
+        .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
+        .cinzel      { font-family: 'Cinzel', serif; }
+        .pillar-divider { width: 1px; background: rgba(212,168,71,0.3); align-self: stretch; }
       `}</style>
 
-      <div className="hero-wrap">
-        <img className="hero-img" src="/hero-journey.png" alt="Signpost on a mountain path pointing to Christianity, God and Truth"/>
-        <div className="hero-overlay" style={{ position: 'absolute', inset: 0 }}/>
+      <div className="qhero">
+        <img className="qhero-img" src="/quest-hero.jpg" alt="A stone path leading to a castle with a signpost pointing to Christianity, God and Truth"/>
+        <div className="qhero-overlay"/>
 
-        <div className="hero-text">
-          {/* NGIM badge */}
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', color: '#D4A847', marginBottom: '1rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
-            A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
+        <div className="qhero-content">
+
+          {/* NGIM badge — centred small caps */}
+          <div style={{ fontFamily: "'Cinzel', serif", fontSize: 10, fontWeight: 400, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.6rem', opacity: 0.9, textAlign: 'left' }}>
+            A COMPANION TO NGIM<br/>NORMAN GEISLER'S 12 POINTS
+          </div>
+          {/* Ornament line */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: '0.8rem' }}>
+            <div style={{ flex: 1, height: 1, background: 'rgba(212,168,71,0.3)' }}/>
+            <span style={{ color: '#D4A847', fontSize: 10 }}>◆</span>
+            <div style={{ flex: 1, height: 1, background: 'rgba(212,168,71,0.3)' }}/>
           </div>
 
-          {/* Big headline */}
-          <h1 style={{ fontFamily: "'Cinzel Decorative', serif", fontSize: 'clamp(1.8rem, 5.5vw, 3.8rem)', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '0.04em', textShadow: '0 2px 16px rgba(0,0,0,0.95), 0 0 40px rgba(212,168,71,0.3)' }}>
+          {/* Main headline — Cinzel Decorative, bold */}
+          <h1 className="cinzel-deco" style={{ fontSize: 'clamp(2rem, 6.5vw, 4.2rem)', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.05, marginBottom: '0.4rem', textShadow: '0 2px 20px rgba(0,0,0,0.9), 0 0 60px rgba(212,168,71,0.2)' }}>
             BEGIN YOUR<br/>
-            <span style={{ color: '#D4A847' }}>QUEST</span>
+            <span style={{ color: '#D4A847', textShadow: '0 0 30px rgba(212,168,71,0.5), 0 2px 20px rgba(0,0,0,0.9)' }}>QUEST</span>
           </h1>
 
-          {/* FOR TRUTH banner */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,168,71,0.15)', border: '1px solid #D4A84777', padding: '6px 20px', marginBottom: '1rem' }}>
-            <span style={{ color: '#D4A847', fontSize: 12 }}>✦</span>
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(0.7rem, 2vw, 0.85rem)', fontWeight: 700, color: '#D4A847', letterSpacing: '0.25em' }}>FOR TRUTH</span>
-            <span style={{ color: '#D4A847', fontSize: 12 }}>✦</span>
+          {/* FOR TRUTH banner — dark ribbon with gold border */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(10,8,24,0.85)', border: '1px solid #D4A847', borderLeft: '3px solid #D4A847', borderRight: '3px solid #D4A847', padding: '7px 20px', marginBottom: '1.2rem' }}>
+            <span style={{ color: '#D4A847', fontSize: 11 }}>◆</span>
+            <span className="cinzel" style={{ fontSize: 'clamp(0.72rem, 2vw, 0.88rem)', fontWeight: 700, color: '#D4A847', letterSpacing: '0.28em' }}>FOR TRUTH</span>
+            <span style={{ color: '#D4A847', fontSize: 11 }}>◆</span>
           </div>
 
           {/* Body copy */}
-          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.9)', maxWidth: 380, marginBottom: '1rem', lineHeight: 1.8, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
+          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(12px, 1.5vw, 14px)', color: 'rgba(240,238,232,0.88)', maxWidth: 380, marginBottom: '1.4rem', lineHeight: 1.85, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             <strong style={{ fontWeight: 800, color: '#FFFFFF' }}>Young disciple,</strong> the world will challenge your faith. Before it does — challenge it yourself.
           </p>
 
-          {/* Three pillars with medieval SVG icons */}
-          <div style={{ display: 'flex', gap: 20, marginBottom: '1.4rem', flexWrap: 'wrap' }}>
+          {/* Three pillars — vertical dividers between them */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 0, marginBottom: '1.6rem' }}>
 
-            {/* EXPLORE — compass rose */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round" width="22" height="22">
-                <circle cx="12" cy="12" r="9"/>
-                <polygon points="12,4 13.5,10 12,8 10.5,10" fill="#D4A847"/>
-                <polygon points="12,20 13.5,14 12,16 10.5,14" fill="#D4A847" opacity="0.5"/>
-                <polygon points="4,12 10,10.5 8,12 10,13.5" fill="#D4A847" opacity="0.5"/>
-                <polygon points="20,12 14,10.5 16,12 14,13.5" fill="#D4A847" opacity="0.5"/>
-                <circle cx="12" cy="12" r="1.5" fill="#D4A847"/>
+            {/* EXPLORE */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1 }}>
+              <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
+                <circle cx="16" cy="16" r="13" stroke="#D4A847" strokeWidth="1.2" opacity="0.6"/>
+                <circle cx="16" cy="16" r="9" stroke="#D4A847" strokeWidth="1" opacity="0.35"/>
+                <polygon points="16,5 17.5,13 16,11 14.5,13" fill="#D4A847"/>
+                <polygon points="16,27 17.5,19 16,21 14.5,19" fill="#D4A847" opacity="0.4"/>
+                <polygon points="5,16 13,14.5 11,16 13,17.5" fill="#D4A847" opacity="0.4"/>
+                <polygon points="27,16 19,14.5 21,16 19,17.5" fill="#D4A847" opacity="0.4"/>
+                <circle cx="16" cy="16" r="2" fill="#D4A847"/>
               </svg>
-              <div>
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EXPLORE</div>
-                <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.4 }}>Big questions. Real answers.</div>
-              </div>
+              <div className="cinzel" style={{ fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EXPLORE</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.45, textAlign: 'center' }}>Big questions.<br/>Real answers.</div>
             </div>
 
-            {/* EQUIP — shield with cross */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round" width="22" height="22">
-                <path d="M12 2L4 6v6c0 5 3.5 9.74 8 11 4.5-1.26 8-6 8-11V6z" fill="rgba(212,168,71,0.15)" stroke="#D4A847"/>
-                <line x1="12" y1="8" x2="12" y2="16"/>
-                <line x1="8" y1="12" x2="16" y2="12"/>
+            <div className="pillar-divider"/>
+
+            {/* EQUIP */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1 }}>
+              <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
+                <path d="M16 3L5 8v8c0 6.5 4.5 12.5 11 14 6.5-1.5 11-7.5 11-14V8z" fill="rgba(212,168,71,0.12)" stroke="#D4A847" strokeWidth="1.2" strokeLinejoin="round"/>
+                <line x1="16" y1="10" x2="16" y2="22" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="10" y1="16" x2="22" y2="16" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
+                <circle cx="16" cy="16" r="2" fill="rgba(212,168,71,0.4)"/>
               </svg>
-              <div>
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EQUIP</div>
-                <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.4 }}>Build a faith that lasts.</div>
-              </div>
+              <div className="cinzel" style={{ fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EQUIP</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.45, textAlign: 'center' }}>Build a faith<br/>that lasts.</div>
             </div>
 
-            {/* EMBARK — crossed swords */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round" width="22" height="22">
-                <line x1="5" y1="19" x2="19" y2="5"/>
-                <line x1="19" y1="19" x2="5" y2="5"/>
-                <line x1="8" y1="16" x2="5" y2="19"/>
-                <line x1="16" y1="8" x2="19" y2="5"/>
-                <line x1="8" y1="8" x2="5" y2="5"/>
-                <line x1="16" y1="16" x2="19" y2="19"/>
+            <div className="pillar-divider"/>
+
+            {/* EMBARK */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1 }}>
+              <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
+                <line x1="8" y1="24" x2="24" y2="8" stroke="#D4A847" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="24" y1="24" x2="8" y2="8" stroke="#D4A847" strokeWidth="1.8" strokeLinecap="round"/>
+                <line x1="11" y1="21" x2="8" y2="24" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="21" y1="11" x2="24" y2="8" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="11" y1="11" x2="8" y2="8" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="21" y1="21" x2="24" y2="24" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
+                <circle cx="16" cy="16" r="2.5" fill="rgba(212,168,71,0.3)" stroke="#D4A847" strokeWidth="1"/>
               </svg>
-              <div>
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EMBARK</div>
-                <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.4 }}>One quest. Eternal impact.</div>
-              </div>
+              <div className="cinzel" style={{ fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.12em' }}>EMBARK</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.6)', lineHeight: 1.45, textAlign: 'center' }}>One quest.<br/>Eternal impact.</div>
             </div>
 
           </div>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+
+          {/* CTA */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <button
               onClick={onStart}
-              style={{ ...ms, background: '#D4A847', color: '#1A1A2A', border: 'none', padding: '14px 32px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8 }}
+              style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '14px 32px', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, boxShadow: '0 4px 20px rgba(212,168,71,0.4)' }}
               onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1A1A2A" strokeWidth="2" strokeLinecap="round" width="16" height="16"><line x1="5" y1="19" x2="19" y2="5"/><line x1="19" y1="19" x2="5" y2="5"/><line x1="8" y1="16" x2="5" y2="19"/><line x1="16" y1="8" x2="19" y2="5"/><line x1="8" y1="8" x2="5" y2="5"/><line x1="16" y1="16" x2="19" y2="19"/></svg>
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.12em' }}>START MY QUEST</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="#0A0814" strokeWidth="2" strokeLinecap="round" width="16" height="16">
+                <line x1="4" y1="16" x2="16" y2="4"/><line x1="16" y1="16" x2="4" y2="4"/>
+                <line x1="6.5" y1="13.5" x2="4" y2="16"/><line x1="13.5" y1="6.5" x2="16" y2="4"/>
+                <line x1="6.5" y1="6.5" x2="4" y2="4"/><line x1="13.5" y1="13.5" x2="16" y2="16"/>
+              </svg>
+              START MY QUEST
             </button>
             {hasProgress && (
               <button
                 onClick={onResume}
-                style={{ ...ms, background: 'transparent', color: '#F0EEE8', border: '1.5px solid rgba(240,238,232,0.4)', padding: '11px 24px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A847'; e.currentTarget.style.color = '#D4A847' }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(240,238,232,0.4)'; e.currentTarget.style.color = '#F0EEE8' }}
+                style={{ fontFamily: "'Cinzel', serif", background: 'transparent', color: '#D4A847', border: '1px solid #D4A84766', padding: '11px 28px', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A847' }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#D4A84766' }}
               >
                 RESUME QUEST
               </button>
             )}
+            <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.4)', letterSpacing: '0.1em', marginTop: 4 }}>
+              12 CHALLENGES. ONE QUEST. ARE YOU READY?
+            </div>
           </div>
-          <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.45)', letterSpacing: '0.1em', marginTop: '0.8rem', textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
-            12 CHALLENGES. ONE QUEST. ARE YOU READY?
-          </div>
+
         </div>
       </div>
 
