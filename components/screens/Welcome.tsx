@@ -136,22 +136,17 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         /* ── Mobile ── full overlay, image fills screen, text at bottom half ── */
         @media (max-width: 640px) {
           /* Single block — image fills everything, text overlaid */
-          .qhero         { min-height: 170vw; display: flex; align-items: flex-end; }
-          .qhero-img     { position: absolute !important; inset: 0 !important;
-                           width: 100%; height: 100%;
-                           object-fit: cover; object-position: 72% 12%; }
-          /* Top 45% totally clear — shows sky, castle, signpost
-             Bottom 55% dark — text readable */
-          .qhero-overlay { display: block !important;
-                           background: linear-gradient(to top,
-                             rgba(8,6,18,1.00)  0%,
-                             rgba(8,6,18,0.98) 20%,
-                             rgba(8,6,18,0.88) 38%,
-                             rgba(8,6,18,0.30) 52%,
-                             rgba(8,6,18,0.00) 62%); }
-          .qhero-content { position: relative; z-index: 2;
-                           padding: 0.8rem 1rem 1.2rem; width: 100%;
-                           background: transparent; border-top: none; }
+          .qhero         { min-height: unset; display: flex; flex-direction: column; }
+          .qhero-img     { position: relative !important; inset: unset !important;
+                           display: block !important;
+                           width: 100%; height: auto;
+                           object-fit: contain; object-position: center top;
+                           flex-shrink: 0; }
+          .qhero-overlay { display: none !important; }
+          .qhero-content { position: relative !important; z-index: 2;
+                           padding: 0.75rem 1rem 1.1rem; width: 100%;
+                           background: #0A0814;
+                           border-top: 2px solid rgba(212,168,71,0.45); }
           /* Hide NGIM badge + ornament to save space */
           .qhero-content .cinzel-badge  { display: none !important; }
           .qhero-content .ornament-line { display: none !important; }
