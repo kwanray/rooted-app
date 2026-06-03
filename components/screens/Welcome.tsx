@@ -147,10 +147,12 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <em style={{ color: '#D4A847', fontStyle: 'italic' }}>quest for truth</em>
           </h1>
           <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.95)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
-            12 stages. 12 answers. One quest — designed for young Christians who want reasons, not just religion.
+            <em style={{ ...cg, fontStyle: 'italic', color: 'rgba(240,238,232,0.72)', fontSize: '1rem' }}>Young disciple,</em><br/>
+            the world will challenge your faith.<br/>
+            Before it does — challenge it yourself.
           </p>
           <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.5rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
-            APOLOGETICS · EVANGELISM · DISCIPLESHIP
+            12 CHALLENGES. ONE QUEST. ARE YOU READY?
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <button
