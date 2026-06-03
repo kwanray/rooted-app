@@ -133,16 +133,27 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
         }
 
-        /* ── Mobile ── stacked: image on top visible, text below on dark bg */
+        /* ── Mobile ── image on top, compact text below */
         @media (max-width: 640px) {
-          .qhero          { min-height: unset; display: flex; flex-direction: column; }
-          .qhero-img      { position: relative !important; inset: unset !important;
-                            width: 100%; height: 72vw; object-fit: cover;
-                            object-position: 62% 20%; flex-shrink: 0; }
-          .qhero-overlay  { display: none; }
-          .qhero-content  { position: relative; background: #0A0814;
-                            border-top: 2px solid rgba(212,168,71,0.4);
-                            padding: 1.4rem 1.2rem 2rem; width: 100%; z-index: 2; }
+          .qhero            { min-height: unset; display: flex; flex-direction: column; }
+          .qhero-img        { position: relative !important; inset: unset !important;
+                              width: 100%; height: 62vw; object-fit: cover;
+                              object-position: 55% 15%; flex-shrink: 0; }
+          .qhero-overlay    { display: none; }
+          .qhero-content    { position: relative; background: #0A0814;
+                              border-top: 2px solid rgba(212,168,71,0.4);
+                              padding: 0.9rem 1rem 1.2rem; width: 100%; z-index: 2; }
+          /* Tighten mobile text sizes */
+          .qhero-content .cinzel-badge  { font-size: 8px !important; margin-bottom: 0.4rem !important; }
+          .qhero-content .ornament-line { margin-bottom: 0.4rem !important; }
+          .qhero-content h1             { font-size: 1.7rem !important; margin-bottom: 0.3rem !important; line-height: 1.0 !important; }
+          .qhero-content .for-truth     { padding: 4px 14px !important; margin-bottom: 0.6rem !important; }
+          .qhero-content .for-truth span.cinzel { font-size: 0.65rem !important; }
+          .qhero-content .body-copy     { font-size: 11px !important; margin-bottom: 0.7rem !important; line-height: 1.65 !important; }
+          .qhero-content .pillars-wrap  { margin-bottom: 0.9rem !important; padding: 8px 0 !important; }
+          .qhero-content .pillars-wrap svg { width: 26px !important; height: 26px !important; }
+          .qhero-content .pillar-label  { font-size: 8px !important; }
+          .qhero-content .pillar-desc   { font-size: 8.5px !important; }
         }
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
         .cinzel      { font-family: 'Cinzel', serif; }
@@ -155,12 +166,12 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
 
         <div className="qhero-content">
 
-          {/* NGIM badge — centred small caps */}
-          <div style={{ fontFamily: "'Cinzel', serif", fontSize: 10, fontWeight: 400, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.6rem', opacity: 0.9, textAlign: 'left' }}>
+          {/* NGIM badge */}
+          <div className="cinzel-badge" style={{ fontFamily: "'Cinzel', serif", fontSize: 10, fontWeight: 400, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.6rem', opacity: 0.9, textAlign: 'left' }}>
             A COMPANION TO NGIM<br/>NORMAN GEISLER'S 12 POINTS
           </div>
           {/* Ornament line */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: '0.8rem' }}>
+          <div className="ornament-line" style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: '0.8rem' }}>
             <div style={{ flex: 1, height: 1, background: 'rgba(212,168,71,0.3)' }}/>
             <span style={{ color: '#D4A847', fontSize: 10 }}>◆</span>
             <div style={{ flex: 1, height: 1, background: 'rgba(212,168,71,0.3)' }}/>
@@ -173,19 +184,19 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           </h1>
 
           {/* FOR TRUTH banner — dark ribbon with gold border */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(10,8,24,0.85)', border: '1px solid #D4A847', borderLeft: '3px solid #D4A847', borderRight: '3px solid #D4A847', padding: '7px 20px', marginBottom: '1.2rem' }}>
+          <div className="for-truth" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(10,8,24,0.85)', border: '1px solid #D4A847', borderLeft: '3px solid #D4A847', borderRight: '3px solid #D4A847', padding: '7px 20px', marginBottom: '1.2rem' }}>
             <span style={{ color: '#D4A847', fontSize: 11 }}>◆</span>
             <span className="cinzel" style={{ fontSize: 'clamp(0.72rem, 2vw, 0.88rem)', fontWeight: 700, color: '#D4A847', letterSpacing: '0.28em' }}>FOR TRUTH</span>
             <span style={{ color: '#D4A847', fontSize: 11 }}>◆</span>
           </div>
 
           {/* Body copy */}
-          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(12px, 1.5vw, 14px)', color: 'rgba(240,238,232,0.88)', maxWidth: 380, marginBottom: '1.4rem', lineHeight: 1.85, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
+          <p className="body-copy" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 'clamp(12px, 1.5vw, 14px)', color: 'rgba(240,238,232,0.88)', maxWidth: 380, marginBottom: '1.4rem', lineHeight: 1.85, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             <strong style={{ fontWeight: 800, color: '#FFFFFF' }}>Young disciple,</strong> the world will challenge your faith. Before it does — challenge it yourself.
           </p>
 
           {/* Three pillars — icon on top, label + desc below, vertical gold dividers */}
-          <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '1.6rem', background: 'rgba(0,0,0,0.25)', padding: '12px 0', borderTop: '1px solid rgba(212,168,71,0.2)', borderBottom: '1px solid rgba(212,168,71,0.2)' }}>
+          <div className="pillars-wrap" style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '1.6rem', background: 'rgba(0,0,0,0.25)', padding: '12px 0', borderTop: '1px solid rgba(212,168,71,0.2)', borderBottom: '1px solid rgba(212,168,71,0.2)' }}>
 
             {/* EXPLORE — compass rose */}
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5, padding: '0 8px' }}>
@@ -208,7 +219,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                 <circle cx="18" cy="18" r="2.2" fill="#D4A847"/>
                 <circle cx="18" cy="18" r="1" fill="#0A0814"/>
               </svg>
-              <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EXPLORE</div>
+              <div className="pillar-label" style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EXPLORE</div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9.5, color: 'rgba(240,238,232,0.6)', lineHeight: 1.5, textAlign: 'center' }}>Big questions.<br/>Real answers.</div>
             </div>
 
@@ -223,7 +234,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                 <polygon points="18,10 19.5,15.5 25,14 20.5,17.5 23,23 18,20 13,23 15.5,17.5 11,14 16.5,15.5" fill="none" stroke="#D4A847" strokeWidth="0.9" opacity="0.8"/>
                 <circle cx="18" cy="17.5" r="2" fill="#D4A847" opacity="0.6"/>
               </svg>
-              <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EQUIP</div>
+              <div className="pillar-label" style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EQUIP</div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9.5, color: 'rgba(240,238,232,0.6)', lineHeight: 1.5, textAlign: 'center' }}>Build a faith<br/>that lasts.</div>
             </div>
 
@@ -242,7 +253,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                 {/* Flag */}
                 <path d="M18 3 L24 5 L18 7 Z" fill="#D4A847"/>
               </svg>
-              <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EMBARK</div>
+              <div className="pillar-label" style={{ fontFamily: "'Cinzel', serif", fontSize: 9, fontWeight: 700, color: '#D4A847', letterSpacing: '0.14em', textAlign: 'center' }}>EMBARK</div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9.5, color: 'rgba(240,238,232,0.6)', lineHeight: 1.5, textAlign: 'center' }}>One quest.<br/>Eternal impact.</div>
             </div>
 
