@@ -225,12 +225,12 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
                 {POINT_ICONS[pt.n]}
               </div>
-              {/* Challenge name */}
-              <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', color: '#D4A847', textTransform: 'uppercase', marginBottom: 4 }}>{pt.challenge}</div>
-              {/* Title */}
-              <div style={{ ...cg, fontSize: '0.95rem', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.35, marginBottom: 6, flex: 1 }}>{pt.title}</div>
-              {/* Desc — framing question */}
-              <div style={{ ...ms, fontSize: 11, color: '#888899', lineHeight: 1.6, marginBottom: 14, fontStyle: 'italic' }}>{pt.desc}</div>
+              {/* Challenge name — small label */}
+              <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', color: '#D4A847', textTransform: 'uppercase', marginBottom: 10 }}>{pt.challenge}</div>
+              {/* Framing question — BIG, hero text */}
+              <div style={{ ...cg, fontSize: 'clamp(1.05rem, 3vw, 1.25rem)', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.3, marginBottom: 8, flex: 1, fontStyle: 'italic' }}>{pt.desc}</div>
+              {/* Point title — small supporting context */}
+              <div style={{ ...ms, fontSize: 10, color: '#AAAAAA', lineHeight: 1.5, marginBottom: 14, letterSpacing: '0.02em' }}>{pt.title}</div>
               {/* Arrow CTA */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                 <span style={{ ...ms, fontSize: 18, color: '#D4A847', lineHeight: 1 }}>→</span>
