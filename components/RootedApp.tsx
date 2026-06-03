@@ -239,6 +239,7 @@ export default function RootedApp() {
           onMarkDone={handleMarkDone}
           onBack={handleBack}
           onSearch={handleOpenSearch}
+          onHome={() => setState({ ...INITIAL_STATE, screen: 'welcome' })}
         />
       )}
 
