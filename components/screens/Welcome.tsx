@@ -157,11 +157,11 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <button
               onClick={onStart}
-              style={{ ...ms, background: '#D4A847', color: '#1A1A2A', border: 'none', padding: '13px 28px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer' }}
+              style={{ ...ms, background: '#D4A847', color: '#1A1A2A', border: 'none', padding: '14px 32px', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8 }}
               onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
             >
-              START MY QUEST
+              <span style={{ fontSize: 16 }}>⚔️</span> START MY QUEST
             </button>
             {hasProgress && (
               <button
@@ -181,9 +181,9 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       <div style={{ background: '#F7F7F9', borderTop: '3px solid #D4A847' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 1, background: '#E0E0E8' }}>
           {[
-            { label: 'STAGE 1–3', title: 'Discover', desc: 'Establish that truth exists and a theistic God is real.' },
+            { label: 'STAGE 1–3', title: 'Discover',     desc: 'Establish that truth exists and a theistic God is real.' },
             { label: 'STAGE 4–9', title: 'Investigate', desc: 'Examine miracles, the NT, and the claims of Jesus.' },
-            { label: 'STAGE 10–12', title: 'Conclude', desc: 'Establish that Jesus is God and the Bible is His Word.' },
+            { label: 'STAGE 10–12', title: 'Commit',      desc: 'Understand the authority of Scripture and what it means for your life.' },
           ].map((item) => (
             <div key={item.label} style={{ background: '#F7F7F9', padding: '1.8rem 1.5rem', textAlign: 'center' }}>
               <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 6 }}>{item.label}</div>
@@ -294,6 +294,19 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           </svg>
           SEARCH ALL CONTENT
         </button>
+      </div>
+
+      {/* ── GEISLER QUOTE ── */}
+      <div style={{ background: '#1A1A2A', borderTop: '1px solid #D4A84733', padding: '2rem 1.5rem' }}>
+        <div style={{ maxWidth: 720, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 32, flexShrink: 0 }}>📖</span>
+          <div style={{ flex: 1 }}>
+            <p style={{ ...cg, fontStyle: 'italic', fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: '#F0EEE8', lineHeight: 1.75, marginBottom: 8 }}>
+              "The goal of this quest is not just to believe, but to know — and to live for the One who is Truth."
+            </p>
+            <p style={{ ...ms, fontSize: 11, fontWeight: 700, color: '#D4A847', letterSpacing: '0.06em' }}>— Norman Geisler</p>
+          </div>
+        </div>
       </div>
 
       {/* ── FOOTER ── */}
