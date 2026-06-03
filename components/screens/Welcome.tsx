@@ -133,32 +133,34 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
         }
 
-        /* ── Mobile ── two-row: image on top (full width), text below on dark bg ── */
+        /* ── Mobile ── image top, compact text + CTA below, fits one screen ── */
         @media (max-width: 640px) {
-          /* Hero becomes a column — image row then text row */
-          .qhero          { min-height: unset; display: flex; flex-direction: column; }
-          /* Image: natural aspect ratio crop showing full scene */
-          .qhero-img      { position: relative !important; inset: unset !important;
-                            width: 100%; aspect-ratio: 4/3;
-                            object-fit: cover; object-position: 48% 18%;
-                            flex-shrink: 0; display: block; }
-          .qhero-overlay  { display: none !important; }
-          /* Text section: solid dark navy below image */
-          .qhero-content  { position: relative !important; z-index: 2;
-                            background: #0A0814;
-                            border-top: 2px solid rgba(212,168,71,0.5);
-                            padding: 1rem 1.1rem 1.4rem; width: 100%; }
-          /* Compact text */
-          .qhero-content .cinzel-badge  { font-size: 8px !important; margin-bottom: 0.3rem !important; }
-          .qhero-content .ornament-line { margin-bottom: 0.3rem !important; }
-          .qhero-content h1             { font-size: 1.75rem !important; margin-bottom: 0.25rem !important; line-height: 1.0 !important; }
-          .qhero-content .for-truth     { padding: 4px 12px !important; margin-bottom: 0.5rem !important; }
-          .qhero-content .for-truth span.cinzel { font-size: 0.62rem !important; }
-          .qhero-content .body-copy     { font-size: 11.5px !important; margin-bottom: 0.6rem !important; line-height: 1.6 !important; }
-          .qhero-content .pillars-wrap  { margin-bottom: 0.8rem !important; padding: 7px 0 !important; }
-          .qhero-content .pillars-wrap svg { width: 24px !important; height: 24px !important; }
-          .qhero-content .pillar-label  { font-size: 7.5px !important; }
-          .qhero-content .pillar-desc   { font-size: 8px !important; }
+          .qhero         { min-height: unset; display: flex; flex-direction: column; }
+          /* Image: 16:10 crop — wide enough to show full signpost */
+          .qhero-img     { position: relative !important; inset: unset !important;
+                           width: 100%; aspect-ratio: 16/10;
+                           object-fit: cover; object-position: 48% 18%;
+                           flex-shrink: 0; display: block; }
+          .qhero-overlay { display: none !important; }
+          /* Text: compact dark section */
+          .qhero-content { position: relative !important; background: #0A0814;
+                           border-top: 2px solid rgba(212,168,71,0.5);
+                           padding: 0.7rem 1rem 1rem; width: 100%; }
+          /* Hide NGIM badge + ornament line on mobile to save space */
+          .qhero-content .cinzel-badge  { display: none !important; }
+          .qhero-content .ornament-line { display: none !important; }
+          /* Headline */
+          .qhero-content h1             { font-size: 1.6rem !important; margin-bottom: 0.2rem !important; line-height: 1.0 !important; }
+          /* FOR TRUTH */
+          .qhero-content .for-truth     { padding: 3px 10px !important; margin-bottom: 0.4rem !important; }
+          .qhero-content .for-truth span.cinzel { font-size: 0.58rem !important; letter-spacing: 0.2em !important; }
+          /* Body text */
+          .qhero-content .body-copy     { font-size: 11px !important; margin-bottom: 0.5rem !important; line-height: 1.55 !important; }
+          /* Pillars */
+          .qhero-content .pillars-wrap  { margin-bottom: 0.65rem !important; padding: 6px 0 !important; }
+          .qhero-content .pillars-wrap svg { width: 22px !important; height: 22px !important; }
+          .qhero-content .pillar-label  { font-size: 7px !important; letter-spacing: 0.1em !important; }
+          .qhero-content .pillar-desc   { font-size: 7.5px !important; }
         }
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
         .cinzel      { font-family: 'Cinzel', serif; }
@@ -268,7 +270,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <button
               onClick={onStart}
-              style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '14px 32px', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, boxShadow: '0 4px 20px rgba(212,168,71,0.4)' }}
+              style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '11px 28px', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 4px 20px rgba(212,168,71,0.3)', width: '100%' }}
               onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
             >
