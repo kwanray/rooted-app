@@ -222,7 +222,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                 </svg>
-                {signingIn ? 'SIGNING IN…' : '☁️ SIGN IN TO SAVE PROGRESS'}
+                {signingIn ? 'SIGNING IN...' : 'SIGN IN TO SAVE PROGRESS'}
               </button>
               {authError && (
                 <p className="text-xs mt-2 text-center" style={{ color: '#E07070', fontFamily: 'Montserrat, sans-serif' }}>
@@ -252,7 +252,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
           className="text-xs font-bold"
           style={{ color: '#1A1A2A', letterSpacing: '0.06em', fontFamily: 'Montserrat, sans-serif', textDecoration: 'none', borderBottom: '1px solid #1A1A2A55' }}
         >
-          NGIM.ORG →
+          NGIM.ORG
         </a>
       </div>
     </div>
