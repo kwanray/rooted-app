@@ -139,7 +139,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .qhero         { min-height: 170vw; display: flex; align-items: flex-end; }
           .qhero-img     { position: absolute !important; inset: 0 !important;
                            width: 100%; height: 100%;
-                           object-fit: cover; object-position: 52% 12%; }
+                           object-fit: cover; object-position: 72% 12%; }
           /* Top 45% totally clear — shows sky, castle, signpost
              Bottom 55% dark — text readable */
           .qhero-overlay { display: block !important;
