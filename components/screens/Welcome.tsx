@@ -139,20 +139,42 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         <div className="hero-overlay" style={{ position: 'absolute', inset: 0 }}/>
 
         <div className="hero-text">
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '0.75rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
+          {/* NGIM badge */}
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', color: '#D4A847', marginBottom: '1rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
           </div>
-          <h1 style={{ ...cg, fontSize: 'clamp(2rem, 5.5vw, 3.8rem)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.9rem', textShadow: '0 2px 16px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.8)' }}>
-            Begin your<br />
-            <em style={{ color: '#D4A847', fontStyle: 'italic' }}>quest for truth</em>
+
+          {/* Big headline */}
+          <h1 style={{ ...ms, fontSize: 'clamp(2.4rem, 7vw, 4.5rem)', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.5rem', letterSpacing: '0.02em', textTransform: 'uppercase', textShadow: '0 2px 16px rgba(0,0,0,0.95)' }}>
+            BEGIN YOUR<br/>
+            <span style={{ color: '#D4A847' }}>QUEST</span>
           </h1>
-          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.95)', maxWidth: 400, marginBottom: '0.8rem', lineHeight: 1.75, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
-            <strong style={{ ...ms, fontWeight: 800, color: 'rgba(240,238,232,0.98)', fontSize: '1.15rem', letterSpacing: '0.02em' }}>Young disciple,</strong><br/>
-            the world will challenge your faith.<br/>
-            Before it does — challenge it yourself.
+
+          {/* FOR TRUTH banner */}
+          <div style={{ display: 'inline-block', background: 'rgba(212,168,71,0.18)', border: '1px solid #D4A84777', padding: '5px 18px', marginBottom: '1rem' }}>
+            <span style={{ ...ms, fontSize: 'clamp(0.75rem, 2vw, 0.9rem)', fontWeight: 900, color: '#D4A847', letterSpacing: '0.2em' }}>FOR TRUTH</span>
+          </div>
+
+          {/* Body copy */}
+          <p style={{ ...ms, fontSize: 13, color: 'rgba(240,238,232,0.9)', maxWidth: 380, marginBottom: '1rem', lineHeight: 1.8, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
+            <strong style={{ fontWeight: 800, color: '#FFFFFF' }}>Young disciple,</strong> the world will challenge your faith. Before it does — challenge it yourself.
           </p>
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: '1.5rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
-            12 CHALLENGES. ONE QUEST. ARE YOU READY?
+
+          {/* Three pillars */}
+          <div style={{ display: 'flex', gap: 16, marginBottom: '1.4rem', flexWrap: 'wrap' }}>
+            {[
+              { icon: '🧭', label: 'EXPLORE',  sub: 'Big questions. Real answers.' },
+              { icon: '🛡️', label: 'EQUIP',    sub: 'Build a faith that lasts.' },
+              { icon: '⚔️', label: 'EMBARK',   sub: 'One quest. Eternal impact.' },
+            ].map((p) => (
+              <div key={p.label} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                <span style={{ fontSize: 18, lineHeight: 1 }}>{p.icon}</span>
+                <div>
+                  <div style={{ ...ms, fontSize: 9, fontWeight: 900, color: '#D4A847', letterSpacing: '0.12em', textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>{p.label}</div>
+                  <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.65)', lineHeight: 1.4 }}>{p.sub}</div>
+                </div>
+              </div>
+            ))}
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <button
@@ -173,6 +195,9 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                 RESUME QUEST
               </button>
             )}
+          </div>
+          <div style={{ ...ms, fontSize: 10, color: 'rgba(240,238,232,0.45)', letterSpacing: '0.1em', marginTop: '0.8rem', textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
+            12 CHALLENGES. ONE QUEST. ARE YOU READY?
           </div>
         </div>
       </div>
