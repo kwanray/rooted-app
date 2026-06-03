@@ -116,20 +116,33 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       {/* CSS media queries via a style tag injected once */}
       {/* ── HERO ── */}
       <style>{`
-        .qhero { position: relative; overflow: hidden; background: #0A0A14; }
-        .qhero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% center; }
-        /* Dark gradient — left half dark for text, right half clear for signpost */
-        .qhero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(8,6,18,0.96) 0%, rgba(8,6,18,0.88) 30%, rgba(8,6,18,0.55) 52%, rgba(8,6,18,0.05) 72%); }
-        .qhero-content { position: relative; z-index: 2; padding: 2.5rem 1.5rem 2rem; max-width: 520px; }
+        .qhero { position: relative; overflow: hidden; background: #0A0814; }
+        .qhero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .qhero-overlay { position: absolute; inset: 0; }
+        .qhero-content { position: relative; z-index: 2; }
+
+        /* ── Desktop ── text left, signpost right, image centred */
         @media (min-width: 641px) {
-          .qhero { min-height: clamp(480px, 54vw, 660px); display: flex; align-items: center; }
-          .qhero-img { object-position: 68% center; }
-          .qhero-content { padding: clamp(2.5rem, 5vw, 4rem); max-width: 560px; }
+          .qhero          { min-height: clamp(500px, 56vw, 680px); display: flex; align-items: center; }
+          .qhero-img      { object-position: 55% center; }
+          .qhero-overlay  { background: linear-gradient(105deg,
+                              rgba(8,6,18,0.97) 0%,
+                              rgba(8,6,18,0.90) 28%,
+                              rgba(8,6,18,0.50) 50%,
+                              rgba(8,6,18,0.05) 68%); }
+          .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
         }
+
+        /* ── Mobile ── show full image height, text overlaid at bottom */
         @media (max-width: 640px) {
-          .qhero { min-height: 90vw; display: flex; align-items: flex-end; }
-          .qhero-overlay { background: linear-gradient(to top, rgba(8,6,18,0.97) 0%, rgba(8,6,18,0.85) 40%, rgba(8,6,18,0.35) 70%, rgba(8,6,18,0.05) 100%); }
-          .qhero-content { padding: 1.5rem 1.2rem 2rem; width: 100%; max-width: 100%; }
+          .qhero          { min-height: 100vw; display: flex; align-items: flex-end; }
+          .qhero-img      { object-position: 65% top; }
+          .qhero-overlay  { background: linear-gradient(to top,
+                              rgba(8,6,18,0.98) 0%,
+                              rgba(8,6,18,0.92) 30%,
+                              rgba(8,6,18,0.55) 55%,
+                              rgba(8,6,18,0.0)  80%); }
+          .qhero-content  { padding: 1.5rem 1.2rem 2rem; width: 100%; }
         }
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
         .cinzel      { font-family: 'Cinzel', serif; }
