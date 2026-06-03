@@ -133,16 +133,16 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
         }
 
-        /* ── Mobile ── show full image height, text overlaid at bottom */
+        /* ── Mobile ── stacked: image on top visible, text below on dark bg */
         @media (max-width: 640px) {
-          .qhero          { min-height: 100vw; display: flex; align-items: flex-end; }
-          .qhero-img      { object-position: 65% top; }
-          .qhero-overlay  { background: linear-gradient(to top,
-                              rgba(8,6,18,0.98) 0%,
-                              rgba(8,6,18,0.92) 30%,
-                              rgba(8,6,18,0.55) 55%,
-                              rgba(8,6,18,0.0)  80%); }
-          .qhero-content  { padding: 1.5rem 1.2rem 2rem; width: 100%; }
+          .qhero          { min-height: unset; display: flex; flex-direction: column; }
+          .qhero-img      { position: relative !important; inset: unset !important;
+                            width: 100%; height: 72vw; object-fit: cover;
+                            object-position: 62% 20%; flex-shrink: 0; }
+          .qhero-overlay  { display: none; }
+          .qhero-content  { position: relative; background: #0A0814;
+                            border-top: 2px solid rgba(212,168,71,0.4);
+                            padding: 1.4rem 1.2rem 2rem; width: 100%; z-index: 2; }
         }
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
         .cinzel      { font-family: 'Cinzel', serif; }
