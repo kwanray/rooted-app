@@ -133,33 +133,35 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
         }
 
-        /* ── Mobile ── image top, compact text + CTA below, fits one screen ── */
+        /* ── Mobile ── full overlay, image fills screen, text at bottom half ── */
         @media (max-width: 640px) {
-          .qhero         { min-height: unset; display: flex; flex-direction: column; }
-          /* Image: 16:10 crop — wide enough to show full signpost */
-          .qhero-img     { position: relative !important; inset: unset !important;
-                           width: 100%; aspect-ratio: 16/10;
-                           object-fit: cover; object-position: 48% 18%;
-                           flex-shrink: 0; display: block; }
-          .qhero-overlay { display: none !important; }
-          /* Text: compact dark section */
-          .qhero-content { position: relative !important; background: #0A0814;
-                           border-top: 2px solid rgba(212,168,71,0.5);
-                           padding: 0.7rem 1rem 1rem; width: 100%; }
-          /* Hide NGIM badge + ornament line on mobile to save space */
+          /* Single block — image fills everything, text overlaid */
+          .qhero         { min-height: 170vw; display: flex; align-items: flex-end; }
+          .qhero-img     { position: absolute !important; inset: 0 !important;
+                           width: 100%; height: 100%;
+                           object-fit: cover; object-position: 52% 12%; }
+          /* Top 45% totally clear — shows sky, castle, signpost
+             Bottom 55% dark — text readable */
+          .qhero-overlay { display: block !important;
+                           background: linear-gradient(to top,
+                             rgba(8,6,18,1.00)  0%,
+                             rgba(8,6,18,0.98) 20%,
+                             rgba(8,6,18,0.88) 38%,
+                             rgba(8,6,18,0.30) 52%,
+                             rgba(8,6,18,0.00) 62%); }
+          .qhero-content { position: relative; z-index: 2;
+                           padding: 0.8rem 1rem 1.2rem; width: 100%;
+                           background: transparent; border-top: none; }
+          /* Hide NGIM badge + ornament to save space */
           .qhero-content .cinzel-badge  { display: none !important; }
           .qhero-content .ornament-line { display: none !important; }
-          /* Headline */
-          .qhero-content h1             { font-size: 1.6rem !important; margin-bottom: 0.2rem !important; line-height: 1.0 !important; }
-          /* FOR TRUTH */
-          .qhero-content .for-truth     { padding: 3px 10px !important; margin-bottom: 0.4rem !important; }
-          .qhero-content .for-truth span.cinzel { font-size: 0.58rem !important; letter-spacing: 0.2em !important; }
-          /* Body text */
-          .qhero-content .body-copy     { font-size: 11px !important; margin-bottom: 0.5rem !important; line-height: 1.55 !important; }
-          /* Pillars */
+          .qhero-content h1             { font-size: 1.65rem !important; margin-bottom: 0.2rem !important; line-height: 1.0 !important; text-shadow: 0 2px 12px rgba(0,0,0,0.95) !important; }
+          .qhero-content .for-truth     { padding: 4px 10px !important; margin-bottom: 0.45rem !important; }
+          .qhero-content .for-truth span.cinzel { font-size: 0.6rem !important; }
+          .qhero-content .body-copy     { font-size: 11px !important; margin-bottom: 0.5rem !important; line-height: 1.55 !important; text-shadow: 0 1px 8px rgba(0,0,0,0.95) !important; }
           .qhero-content .pillars-wrap  { margin-bottom: 0.65rem !important; padding: 6px 0 !important; }
           .qhero-content .pillars-wrap svg { width: 22px !important; height: 22px !important; }
-          .qhero-content .pillar-label  { font-size: 7px !important; letter-spacing: 0.1em !important; }
+          .qhero-content .pillar-label  { font-size: 7px !important; }
           .qhero-content .pillar-desc   { font-size: 7.5px !important; }
         }
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
