@@ -228,7 +228,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
               {/* Challenge name — small label */}
               <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', color: '#D4A847', textTransform: 'uppercase', marginBottom: 10 }}>{pt.challenge}</div>
               {/* Framing question — BIG, hero text */}
-              <div style={{ ...cg, fontSize: 'clamp(1.05rem, 3vw, 1.25rem)', fontWeight: 600, color: '#1A1A2A', lineHeight: 1.3, marginBottom: 8, flex: 1, fontStyle: 'italic' }}>{pt.desc}</div>
+              <div style={{ ...ms, fontSize: 'clamp(0.9rem, 2.5vw, 1.05rem)', fontWeight: 800, color: '#1A1A2A', lineHeight: 1.35, marginBottom: 8, flex: 1 }}>{pt.desc}</div>
               {/* Point title — small supporting context */}
               <div style={{ ...ms, fontSize: 10, color: '#AAAAAA', lineHeight: 1.5, marginBottom: 14, letterSpacing: '0.02em' }}>{pt.title}</div>
               {/* Arrow CTA */}
