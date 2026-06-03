@@ -64,7 +64,7 @@ export default function Welcome({ onStart, onResume, onSearch, hasProgress }: Pr
             border: '1px solid #FFFFFF11',
           }}
         >
-          A COMPANION TO NGIM · NORMAN GEISLER'S 12 POINTS
+          A COMPANION TO NGIM · NORMAN GEISLER&apos;S 12 POINTS
         </div>
 
         <h1
