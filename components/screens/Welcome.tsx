@@ -133,27 +133,32 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
         }
 
-        /* ── Mobile ── image on top, compact text below */
+        /* ── Mobile ── full overlay, image fills screen, text at bottom */
         @media (max-width: 640px) {
-          .qhero            { min-height: unset; display: flex; flex-direction: column; }
-          .qhero-img        { position: relative !important; inset: unset !important;
-                              width: 100%; height: 62vw; object-fit: cover;
-                              object-position: 55% 15%; flex-shrink: 0; }
-          .qhero-overlay    { display: none; }
-          .qhero-content    { position: relative; background: #0A0814;
-                              border-top: 2px solid rgba(212,168,71,0.4);
-                              padding: 0.9rem 1rem 1.2rem; width: 100%; z-index: 2; }
-          /* Tighten mobile text sizes */
-          .qhero-content .cinzel-badge  { font-size: 8px !important; margin-bottom: 0.4rem !important; }
-          .qhero-content .ornament-line { margin-bottom: 0.4rem !important; }
-          .qhero-content h1             { font-size: 1.7rem !important; margin-bottom: 0.3rem !important; line-height: 1.0 !important; }
-          .qhero-content .for-truth     { padding: 4px 14px !important; margin-bottom: 0.6rem !important; }
-          .qhero-content .for-truth span.cinzel { font-size: 0.65rem !important; }
-          .qhero-content .body-copy     { font-size: 11px !important; margin-bottom: 0.7rem !important; line-height: 1.65 !important; }
-          .qhero-content .pillars-wrap  { margin-bottom: 0.9rem !important; padding: 8px 0 !important; }
-          .qhero-content .pillars-wrap svg { width: 26px !important; height: 26px !important; }
-          .qhero-content .pillar-label  { font-size: 8px !important; }
-          .qhero-content .pillar-desc   { font-size: 8.5px !important; }
+          .qhero          { min-height: 155vw; display: flex; align-items: flex-end; }
+          .qhero-img      { position: absolute !important; inset: 0 !important;
+                            width: 100%; height: 100%; object-fit: cover;
+                            object-position: 58% 10%; }
+          /* Gradient — top 50% clear (shows castle+signpost), bottom 50% dark (text) */
+          .qhero-overlay  { display: block !important; background: linear-gradient(to top,
+                              rgba(8,6,18,0.99) 0%,
+                              rgba(8,6,18,0.97) 25%,
+                              rgba(8,6,18,0.75) 45%,
+                              rgba(8,6,18,0.15) 65%,
+                              rgba(8,6,18,0.0)  80%); }
+          .qhero-content  { position: relative; z-index: 2; background: transparent;
+                            border-top: none; padding: 1rem 1.1rem 1.4rem; width: 100%; }
+          /* Compact text for mobile */
+          .qhero-content .cinzel-badge  { font-size: 8px !important; margin-bottom: 0.3rem !important; }
+          .qhero-content .ornament-line { margin-bottom: 0.3rem !important; }
+          .qhero-content h1             { font-size: 1.75rem !important; margin-bottom: 0.25rem !important; line-height: 1.0 !important; }
+          .qhero-content .for-truth     { padding: 4px 12px !important; margin-bottom: 0.5rem !important; }
+          .qhero-content .for-truth span.cinzel { font-size: 0.62rem !important; }
+          .qhero-content .body-copy     { font-size: 11.5px !important; margin-bottom: 0.6rem !important; line-height: 1.65 !important; }
+          .qhero-content .pillars-wrap  { margin-bottom: 0.8rem !important; padding: 7px 0 !important; }
+          .qhero-content .pillars-wrap svg { width: 24px !important; height: 24px !important; }
+          .qhero-content .pillar-label  { font-size: 7.5px !important; }
+          .qhero-content .pillar-desc   { font-size: 8px !important; }
         }
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
         .cinzel      { font-family: 'Cinzel', serif; }
