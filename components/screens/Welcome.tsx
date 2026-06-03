@@ -133,28 +133,28 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
         }
 
-        /* ── Mobile ── full overlay, image fills screen, text at bottom */
+        /* ── Mobile ── two-row: image on top (full width), text below on dark bg ── */
         @media (max-width: 640px) {
-          .qhero          { min-height: 155vw; display: flex; align-items: flex-end; }
-          .qhero-img      { position: absolute !important; inset: 0 !important;
-                            width: 100%; height: 100%; object-fit: cover;
-                            object-position: 58% 10%; }
-          /* Gradient — top 50% clear (shows castle+signpost), bottom 50% dark (text) */
-          .qhero-overlay  { display: block !important; background: linear-gradient(to top,
-                              rgba(8,6,18,0.99) 0%,
-                              rgba(8,6,18,0.96) 22%,
-                              rgba(8,6,18,0.55) 40%,
-                              rgba(8,6,18,0.08) 58%,
-                              rgba(8,6,18,0.00) 72%); }
-          .qhero-content  { position: relative; z-index: 2; background: transparent;
-                            border-top: none; padding: 1rem 1.1rem 1.4rem; width: 100%; }
-          /* Compact text for mobile */
+          /* Hero becomes a column — image row then text row */
+          .qhero          { min-height: unset; display: flex; flex-direction: column; }
+          /* Image: natural aspect ratio crop showing full scene */
+          .qhero-img      { position: relative !important; inset: unset !important;
+                            width: 100%; aspect-ratio: 4/3;
+                            object-fit: cover; object-position: 48% 18%;
+                            flex-shrink: 0; display: block; }
+          .qhero-overlay  { display: none !important; }
+          /* Text section: solid dark navy below image */
+          .qhero-content  { position: relative !important; z-index: 2;
+                            background: #0A0814;
+                            border-top: 2px solid rgba(212,168,71,0.5);
+                            padding: 1rem 1.1rem 1.4rem; width: 100%; }
+          /* Compact text */
           .qhero-content .cinzel-badge  { font-size: 8px !important; margin-bottom: 0.3rem !important; }
           .qhero-content .ornament-line { margin-bottom: 0.3rem !important; }
           .qhero-content h1             { font-size: 1.75rem !important; margin-bottom: 0.25rem !important; line-height: 1.0 !important; }
           .qhero-content .for-truth     { padding: 4px 12px !important; margin-bottom: 0.5rem !important; }
           .qhero-content .for-truth span.cinzel { font-size: 0.62rem !important; }
-          .qhero-content .body-copy     { font-size: 11.5px !important; margin-bottom: 0.6rem !important; line-height: 1.65 !important; }
+          .qhero-content .body-copy     { font-size: 11.5px !important; margin-bottom: 0.6rem !important; line-height: 1.6 !important; }
           .qhero-content .pillars-wrap  { margin-bottom: 0.8rem !important; padding: 7px 0 !important; }
           .qhero-content .pillars-wrap svg { width: 24px !important; height: 24px !important; }
           .qhero-content .pillar-label  { font-size: 7.5px !important; }
