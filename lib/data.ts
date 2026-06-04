@@ -3,7 +3,7 @@ import type { Point, Celebration, PainPoint } from './types'
 export const PAIN_POINTS: PainPoint[] = [
   {
     id: 'inherited',
-    icon: '🏛️',
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'><line x1='3' y1='21' x2='21' y2='21'/><line x1='3' y1='10' x2='21' y2='10'/><polyline points='5,10 5,3 19,3 19,10'/><line x1='5' y1='21' x2='5' y2='10'/><line x1='9' y1='21' x2='9' y2='10'/><line x1='15' y1='21' x2='15' y2='10'/><line x1='19' y1='21' x2='19' y2='10'/></svg>`,
     label: `I inherited this faith`,
     desc: `I grew up Christian but wonder if I actually believe it for myself.`,
     hint: `Your faith can move from borrowed to owned — built on reasons you've examined yourself.`,
@@ -11,7 +11,7 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'science',
-    icon: '🔬',
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'><circle cx='12' cy='12' r='3'/><path d='M12 2a10 10 0 0 1 10 10'/><path d='M12 22a10 10 0 0 1-10-10'/><path d='M2 12a10 10 0 0 1 10-10'/><path d='M22 12a10 10 0 0 1-10 10'/><line x1='4.93' y1='4.93' x2='19.07' y2='19.07'/><line x1='19.07' y1='4.93' x2='4.93' y2='19.07'/></svg>`,
     label: `Science seems to contradict faith`,
     desc: `Evolution, the Big Bang, neuroscience — it feels like Christianity can't keep up.`,
     hint: `Many of the best arguments for God come from science itself. You may be surprised.`,
@@ -19,7 +19,7 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'bible',
-    icon: '📜',
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14,2 14,8 20,8'/><line x1='16' y1='13' x2='8' y2='13'/><line x1='16' y1='17' x2='8' y2='17'/><polyline points='10,9 9,9 8,9'/></svg>`,
     label: `I doubt the Bible's reliability`,
     desc: `How do we know it wasn't changed, fabricated, or just legend?`,
     hint: `The NT is among the best-attested ancient documents in history. Let's look at the evidence.`,
@@ -27,7 +27,7 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'jesus',
-    icon: '✝️',
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.8' strokeLinecap='round'><line x1='12' y1='2' x2='12' y2='22'/><line x1='5' y1='8' x2='19' y2='8'/></svg>`,
     label: `I'm not sure about Jesus`,
     desc: `Maybe he was a great teacher, but claiming to be God seems like a stretch.`,
     hint: `The evidence for the resurrection is stronger than most people realise. Let's examine it.`,
@@ -35,7 +35,7 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'defense',
-    icon: '🛡️',
+    icon: `<svg width='28' height='28' viewBox='0 0 22 22' fill='none'><path d='M11 2L3 5.5V11C3 15.5 6.5 19.2 11 20.5C15.5 19.2 19 15.5 19 11V5.5L11 2Z' fill='rgba(212,168,71,0.15)' stroke='#D4A847' strokeWidth='1.4' strokeLinejoin='round'/><line x1='11' y1='1' x2='11' y2='17' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/><line x1='7.5' y1='7.5' x2='14.5' y2='7.5' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/><circle cx='11' cy='18.5' r='1.3' fill='#D4A847'/></svg>`,
     label: `I want to defend my faith better`,
     desc: `Friends and colleagues challenge me and I don't know how to respond.`,
     hint: `Classical apologetics gives you a logical, step-by-step framework anyone can follow.`,
