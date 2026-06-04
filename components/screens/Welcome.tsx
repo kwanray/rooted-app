@@ -45,7 +45,7 @@ const POINTS_SUMMARY = [
 const WHY = [
   { title: 'Real logic',           desc: 'Arguments you can follow, test, and share with friends.' },
   { title: 'Plain language',       desc: 'No heavy theology. Just honest, clear explanations.' },
-  { title: 'Made for Singapore',   desc: 'Context rooted in your world — school, NS, uni, work.' },
+  { title: 'Made for Singapore',   desc: 'Grounded in your world — school, NS, uni, work.' },
   { title: 'Step by step',         desc: 'Each point unlocks the next. You\'ll never feel lost.' },
 ]
 
@@ -451,10 +451,10 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', color: '#D4A847' }}>1 PETER 3:15</div>
       </div>
 
-      {/* ── WHY ROOTED ── */}
+      {/* ── WHY QUEST ── */}
       <div id="why" style={{ background: '#F7F7F9', borderTop: '3px solid #1A1A2A', padding: '3rem 1.5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 6 }}>WHY ROOTED</div>
+          <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 6 }}>WHY QUEST</div>
           <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(1.3rem, 3.5vw, 1.8rem)', fontWeight: 700, color: '#1A1A2A', marginBottom: 6, letterSpacing: '0.04em' }}>Your Quest Journey</h2>
           <p style={{ ...ms, fontSize: 12, color: '#888899' }}>Young Christians in Singapore who ask the hard questions.</p>
           <div style={{ width: 36, height: 3, background: '#D4A847', margin: '0.8rem auto 0' }}/>
@@ -513,7 +513,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       </div>
       <div style={{ background: '#111118', padding: '1.5rem', textAlign: 'center' }}>
         <div style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#FFFFFF', letterSpacing: '0.1em', marginBottom: 4 }}>
-          ROOTED<span style={{ color: '#D4A847' }}>.</span>
+          QUEST<span style={{ color: '#D4A847' }}>.</span>
         </div>
         <div style={{ ...ms, fontSize: 10, color: '#444466', lineHeight: 1.7 }}>
           Based on Norman Geisler's Twelve Points of Classical Apologetics<br />
