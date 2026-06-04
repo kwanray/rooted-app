@@ -79,7 +79,7 @@ h1, h2, h3, h4, .font-serif {
 }
 
 /* Prose */
-.prose-rooted p {
+.prose-quest p {
   margin-bottom: 0.75rem;
   line-height: 1.7;
   color: var(--text);
