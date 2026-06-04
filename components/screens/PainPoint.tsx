@@ -72,7 +72,7 @@ export default function PainPoint({ onSelect }: Props) {
                   onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
                 >
                   <div style={{ width: 44, height: 44, background: 'rgba(0,0,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, flexShrink: 0 }}>
-                    {pp.icon}
+                    <span dangerouslySetInnerHTML={{ __html: pp.icon }} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{ ...ms, fontSize: 12, fontWeight: 800, color: '#12121E', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 }}>
@@ -109,7 +109,7 @@ export default function PainPoint({ onSelect }: Props) {
                 }}
               >
                 <div style={{ width: 44, height: 44, background: C.surfaceAlt, border: `1px solid ${C.borderGold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, flexShrink: 0 }}>
-                  {pp.icon}
+                  <span dangerouslySetInnerHTML={{ __html: pp.icon }} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ ...ms, fontSize: 12, fontWeight: 700, color: C.white, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 3 }}>
