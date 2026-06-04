@@ -187,17 +187,17 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       {/* ── MOBILE hero: image on top, text below ── */}
       {/* ── MOBILE HERO: single relative container, text overlaid at bottom ── */}
       {/* ── MOBILE HERO ── */}
-      <div className="mobile-hero-only" style={{ position: 'relative', background: '#0A0814', overflow: 'hidden' }}>
-        {/* Image at natural 3:2 ratio — zero cropping */}
+      <div className="mobile-hero-only" style={{ position: 'relative', background: '#0A0814' }}>
+        {/* Image: full width, natural 3:2 height */}
         <img
           src="/quest-hero.jpg"
           alt="A stone path to a castle with signpost"
           style={{ width: '100%', height: 'auto', display: 'block' }}
         />
-        {/* Dark gradient — bottom 55% darkens so text is readable */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0.97) 30%, rgba(8,6,18,0.6) 50%, rgba(8,6,18,0) 65%)' }}/>
-        {/* Text absolutely positioned at bottom of image */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '0 1rem 0.8rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        {/* Gradient fades image bottom into dark text area */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0.85) 25%, rgba(8,6,18,0.3) 50%, rgba(8,6,18,0) 65%)', pointerEvents: 'none' }}/>
+        {/* Text sits in a dark block flush below image, no gap */}
+        <div style={{ background: '#0A0814', marginTop: '-4px', padding: '0.5rem 1rem 1rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <h1 className="cinzel-deco" style={{ fontSize: '1.65rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.2rem', textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
             BEGIN YOUR<br/><span style={{ color: '#D4A847' }}>QUEST</span>
           </h1>
