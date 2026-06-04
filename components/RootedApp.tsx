@@ -36,7 +36,7 @@ const INITIAL_STATE: AppState = {
 }
 
 export default function RootedApp() {
-  const { user, loading: authLoading } = useAuth()
+  const { user, loading: authLoading, signOut } = useAuth()
   const [state, setState] = useState<AppState>(INITIAL_STATE)
   const [showResume, setShowResume] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -98,8 +98,8 @@ export default function RootedApp() {
   }
 
   const handleSignOut = async () => {
-    const { signOut } = await import('@/lib/AuthContext')
-    // use auth context signOut
+    await signOut()
+    setState({ ...INITIAL_STATE, screen: 'welcome' })
   }
 
   const handleStart = () => {
