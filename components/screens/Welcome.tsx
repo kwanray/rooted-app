@@ -178,16 +178,16 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         <img
           src="/quest-hero.jpg"
           alt="A stone path to a castle with signpost"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '52% 15%' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '45% 10%' }}
         />
         {/* Dark gradient — clear top, dark bottom for text */}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0.97) 28%, rgba(8,6,18,0.55) 50%, rgba(8,6,18,0) 68%)' }}/>
         {/* Text overlaid at bottom */}
-        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', minHeight: '100vw', padding: '1rem 1rem 1.2rem' }}>
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-end', minHeight: '160vw', padding: '1rem 1rem 1.2rem' }}>
           <h1 className="cinzel-deco" style={{ fontSize: '1.65rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.2rem', textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
             BEGIN YOUR<br/><span style={{ color: '#D4A847' }}>QUEST</span>
           </h1>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(10,8,24,0.85)', border: '1px solid #D4A847', borderLeft: '3px solid #D4A847', borderRight: '3px solid #D4A847', padding: '4px 12px', marginBottom: '0.5rem' }}>
+          <div style={{ display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', gap: 8, background: 'rgba(10,8,24,0.85)', border: '1px solid #D4A847', borderLeft: '3px solid #D4A847', borderRight: '3px solid #D4A847', padding: '4px 12px', marginBottom: '0.5rem' }}>
             <span style={{ color: '#D4A847', fontSize: 10 }}>◆</span>
             <span className="cinzel" style={{ fontSize: '0.6rem', fontWeight: 700, color: '#D4A847', letterSpacing: '0.22em' }}>FOR TRUTH</span>
             <span style={{ color: '#D4A847', fontSize: 10 }}>◆</span>
