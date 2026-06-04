@@ -221,7 +221,7 @@ export default function RootedApp() {
   return (
     <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
-        <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} onNavigate={(idx) => handleNavigate(idx)} />
+        <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} onNavigate={(idx) => handleSearchNavigate(idx)} />
       )}
 
       {state.screen === 'painpoint' && (
