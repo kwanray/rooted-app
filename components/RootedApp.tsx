@@ -234,6 +234,10 @@ export default function RootedApp() {
         <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} onNavigate={(idx) => handleSearchNavigate(idx)} user={user} onSignIn={handleSignIn} onSignOut={async () => { const { signOut: so } = await import('firebase/auth'); const { auth } = await import('@/lib/firebase'); await so(auth); }} />
       )}
 
+      {state.screen === 'signin' && (
+        <SignIn onSkip={() => setState({ ...INITIAL_STATE, screen: 'painpoint' })} />
+      )}
+
       {state.screen === 'painpoint' && (
         <PainPoint onSelect={handlePainPoint} />
       )}
