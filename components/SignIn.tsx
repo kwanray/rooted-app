@@ -42,7 +42,7 @@ export default function SignIn({ onSkip }: Props) {
         className="text-xs font-bold tracking-widest mb-8"
         style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.3em' }}
       >
-        ROOTED
+        QUEST
       </div>
 
       <h1
