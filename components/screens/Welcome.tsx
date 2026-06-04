@@ -172,14 +172,19 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       `}</style>
 
       {/* ── MOBILE hero: image on top, text below ── */}
-      <div className="mobile-hero-only" style={{ background: '#0A0814' }}>
+      {/* ── MOBILE HERO: single relative container, text overlaid at bottom ── */}
+      <div className="mobile-hero-only" style={{ position: 'relative', background: '#0A0814', minHeight: '100vw' }}>
+        {/* Full background image */}
         <img
           src="/quest-hero.jpg"
           alt="A stone path to a castle with signpost"
-          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '52% 15%' }}
         />
-        <div style={{ borderTop: '2px solid rgba(212,168,71,0.45)', padding: '0.75rem 1rem 1.1rem', background: '#0A0814' }}>
-          <h1 className="cinzel-deco" style={{ fontSize: '1.6rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.2rem' }}>
+        {/* Dark gradient — clear top, dark bottom for text */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0.97) 28%, rgba(8,6,18,0.55) 50%, rgba(8,6,18,0) 68%)' }}/>
+        {/* Text overlaid at bottom */}
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', minHeight: '100vw', padding: '1rem 1rem 1.2rem' }}>
+          <h1 className="cinzel-deco" style={{ fontSize: '1.65rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.2rem', textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
             BEGIN YOUR<br/><span style={{ color: '#D4A847' }}>QUEST</span>
           </h1>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(10,8,24,0.85)', border: '1px solid #D4A847', borderLeft: '3px solid #D4A847', borderRight: '3px solid #D4A847', padding: '4px 12px', marginBottom: '0.5rem' }}>
@@ -187,10 +192,10 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <span className="cinzel" style={{ fontSize: '0.6rem', fontWeight: 700, color: '#D4A847', letterSpacing: '0.22em' }}>FOR TRUTH</span>
             <span style={{ color: '#D4A847', fontSize: 10 }}>◆</span>
           </div>
-          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, color: 'rgba(240,238,232,0.9)', marginBottom: '0.5rem', lineHeight: 1.6 }}>
+          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, color: 'rgba(240,238,232,0.9)', marginBottom: '0.5rem', lineHeight: 1.6, textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
             <strong style={{ fontWeight: 800, color: '#FFFFFF' }}>Young disciple,</strong> the world will challenge your faith. Before it does — challenge it yourself.
           </p>
-          <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '0.65rem', borderTop: '1px solid rgba(212,168,71,0.2)', borderBottom: '1px solid rgba(212,168,71,0.2)', padding: '6px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '0.65rem', borderTop: '1px solid rgba(212,168,71,0.25)', borderBottom: '1px solid rgba(212,168,71,0.25)', padding: '6px 0' }}>
             {[
               { icon: <svg viewBox="0 0 36 36" fill="none" width="22" height="22"><circle cx="18" cy="18" r="15" stroke="#D4A847" strokeWidth="1" opacity="0.5"/><polygon points="18,5 20,15 18,13 16,15" fill="#D4A847"/><circle cx="18" cy="18" r="2.2" fill="#D4A847"/></svg>, label: 'EXPLORE', desc: 'Big questions. Real answers.' },
               { icon: <svg viewBox="0 0 36 36" fill="none" width="22" height="22"><path d="M18 3L5 9v9c0 7.5 5.5 14.5 13 16 7.5-1.5 13-8.5 13-16V9z" fill="rgba(212,168,71,0.1)" stroke="#D4A847" strokeWidth="1.2"/><line x1="18" y1="10" x2="18" y2="22" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/></svg>, label: 'EQUIP', desc: 'Build a faith that lasts.' },
