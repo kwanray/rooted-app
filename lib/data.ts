@@ -3,7 +3,18 @@ import type { Point, Celebration, PainPoint } from './types'
 export const PAIN_POINTS: PainPoint[] = [
   {
     id: 'inherited',
-    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'><line x1='3' y1='21' x2='21' y2='21'/><line x1='3' y1='10' x2='21' y2='10'/><polyline points='5,10 5,3 19,3 19,10'/><line x1='5' y1='21' x2='5' y2='10'/><line x1='9' y1='21' x2='9' y2='10'/><line x1='15' y1='21' x2='15' y2='10'/><line x1='19' y1='21' x2='19' y2='10'/></svg>`,
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <!-- Adult figure (left, taller) -->
+  <circle cx='8' cy='4.5' r='2.2' fill='#D4A847'/>
+  <path d='M4.5 21V13.5C4.5 12 5.5 11 7 10.5L8 10L9 10.5C10.5 11 11.5 12 11.5 13.5V21' fill='#D4A847'/>
+  <!-- Child figure (right, shorter) -->
+  <circle cx='16.5' cy='6.5' r='1.6' fill='#D4A847'/>
+  <path d='M13.5 21V15C13.5 13.8 14.3 13 15.5 12.5L16.5 12L17.5 12.5C18.7 13 19.5 13.8 19.5 15V21' fill='#D4A847'/>
+  <!-- Ground line -->
+  <line x1='3' y1='21' x2='21' y2='21' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/>
+  <!-- Connecting hand-hold line -->
+  <line x1='11.5' y1='15' x2='13.5' y2='15.5' stroke='#D4A847' strokeWidth='1.2' strokeLinecap='round'/>
+</svg>`,
     label: `I inherited this faith`,
     desc: `I grew up Christian but wonder if I actually believe it for myself.`,
     hint: `Your faith can move from borrowed to owned — built on reasons you've examined yourself.`,
