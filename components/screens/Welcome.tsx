@@ -62,10 +62,12 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
 
           {/* Logo — always visible */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-            <svg width="20" height="20" viewBox="0 0 36 36" fill="none">
-              <path d="M18 4 L18 32 M8 14 Q18 8 28 14" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-              <circle cx="18" cy="4" r="2.5" fill="#D4A847"/>
-            </svg>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 2L3 5.5V11C3 15.5 6.5 19.2 11 20.5C15.5 19.2 19 15.5 19 11V5.5L11 2Z" fill="rgba(212,168,71,0.15)" stroke="#D4A847" strokeWidth="1.4" strokeLinejoin="round"/>
+                <line x1="11" y1="1" x2="11" y2="17" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="7.5" y1="7.5" x2="14.5" y2="7.5" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
+                <circle cx="11" cy="18.5" r="1.3" fill="#D4A847"/>
+              </svg>
             <span style={{ ...ms, fontSize: 13, fontWeight: 800, color: '#FFFFFF', letterSpacing: '0.12em' }}>
               QUEST<span style={{ color: '#D4A847' }}>.</span>
             </span>
