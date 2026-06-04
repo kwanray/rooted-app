@@ -222,7 +222,7 @@ export default function RootedApp() {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: '#1A1A2A' }}>
         <div className="text-xs font-bold tracking-widest" style={{ color: '#D4A847', fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.3em' }}>
-          ROOTED
+          QUEST
         </div>
       </div>
     )
