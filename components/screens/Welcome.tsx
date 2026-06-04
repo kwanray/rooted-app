@@ -162,10 +162,17 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
         .cinzel      { font-family: 'Cinzel', serif; }
         .pillar-divider { width: 1px; background: rgba(212,168,71,0.3); align-self: stretch; }
+        /* Show/hide heroes by screen size */
+        .mobile-hero-only  { display: flex; flex-direction: column; }
+        .desktop-hero-only { display: none; }
+        @media (min-width: 641px) {
+          .mobile-hero-only  { display: none; }
+          .desktop-hero-only { display: flex; }
+        }
       `}</style>
 
       {/* ── MOBILE hero: image on top, text below ── */}
-      <div className="sm:hidden" style={{ display: 'flex', flexDirection: 'column', background: '#0A0814' }}>
+      <div className="mobile-hero-only" style={{ background: '#0A0814' }}>
         <img
           src="/quest-hero.jpg"
           alt="A stone path to a castle with signpost"
@@ -208,7 +215,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       </div>
 
       {/* ── DESKTOP hero: full bleed overlay ── */}
-      <div className="qhero hidden sm:flex">
+      <div className="qhero desktop-hero-only">
         <img className="qhero-img" src="/quest-hero.jpg" alt="A stone path leading to a castle with a signpost pointing to Christianity, God and Truth"/>
         <div className="qhero-overlay"/>
 
