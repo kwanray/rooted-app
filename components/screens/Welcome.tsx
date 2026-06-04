@@ -123,14 +123,27 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
 
         /* ── Desktop ── text left, signpost right, image centred */
         @media (min-width: 641px) {
-          .qhero          { min-height: clamp(500px, 56vw, 680px); display: flex; align-items: center; }
+          /* Use padding-bottom aspect-ratio trick so hero is always tall enough */
+          .qhero          { min-height: clamp(480px, 52vw, 660px); display: flex;
+                            align-items: flex-start; }
           .qhero-img      { object-position: 55% center; }
           .qhero-overlay  { background: linear-gradient(105deg,
                               rgba(8,6,18,0.97) 0%,
                               rgba(8,6,18,0.90) 28%,
                               rgba(8,6,18,0.50) 50%,
                               rgba(8,6,18,0.05) 68%); }
-          .qhero-content  { padding: clamp(2.5rem, 5vw, 4rem); max-width: 540px; width: 100%; }
+          /* Content: left-aligned, natural height, padded from top */
+          .qhero-content  { padding: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4rem);
+                            max-width: 520px; width: 100%; align-self: center; }
+          /* Scale down elements at narrow desktop widths (641–800px) */
+          .qhero-content h1             { font-size: clamp(1.6rem, 4.5vw, 4.2rem) !important; }
+          .qhero-content .for-truth     { padding: clamp(4px,0.4vw,7px) clamp(10px,1.5vw,20px) !important; margin-bottom: clamp(0.6rem,1vw,1.2rem) !important; }
+          .qhero-content .for-truth span.cinzel { font-size: clamp(0.58rem,0.9vw,0.88rem) !important; }
+          .qhero-content .body-copy     { font-size: clamp(11px,1.3vw,14px) !important; margin-bottom: clamp(0.7rem,1.2vw,1.4rem) !important; }
+          .qhero-content .pillars-wrap  { margin-bottom: clamp(0.9rem,1.5vw,1.6rem) !important; }
+          .qhero-content .pillars-wrap svg { width: clamp(24px,2.5vw,34px) !important; height: clamp(24px,2.5vw,34px) !important; }
+          .qhero-content .pillar-label  { font-size: clamp(7px,0.8vw,9px) !important; }
+          .qhero-content .pillar-desc   { font-size: clamp(8px,0.9vw,9.5px) !important; }
         }
 
         /* ── Mobile ── full overlay, image fills screen, text at bottom half ── */
@@ -325,7 +338,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <button
               onClick={onStart}
-              style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '11px 28px', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 4px 20px rgba(212,168,71,0.3)', width: '100%' }}
+              style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '14px 32px', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 4px 20px rgba(212,168,71,0.3)' }}
               onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}
             >
