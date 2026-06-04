@@ -22,6 +22,7 @@ import PersonalResponse from '@/components/screens/PersonalResponse'
 import Complete from '@/components/screens/Complete'
 import FoundationBridge from '@/components/screens/FoundationBridge'
 import Search from '@/components/screens/Search'
+import SignIn from '@/components/SignIn'
 
 const INITIAL_STATE: AppState = {
   screen: 'welcome',
@@ -91,6 +92,15 @@ export default function RootedApp() {
     },
     [persist]
   )
+
+  const handleSignIn = () => {
+    setState({ ...INITIAL_STATE, screen: 'signin' })
+  }
+
+  const handleSignOut = async () => {
+    const { signOut } = await import('@/lib/AuthContext')
+    // use auth context signOut
+  }
 
   const handleStart = () => {
     clearProgress()
@@ -221,7 +231,7 @@ export default function RootedApp() {
   return (
     <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       {state.screen === 'welcome' && (
-        <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} onNavigate={(idx) => handleSearchNavigate(idx)} />
+        <Welcome onStart={handleStart} onResume={handleResume} onSearch={handleOpenSearch} hasProgress={showResume} onNavigate={(idx) => handleSearchNavigate(idx)} user={user} onSignIn={handleSignIn} onSignOut={async () => { const { signOut: so } = await import('firebase/auth'); const { auth } = await import('@/lib/firebase'); await so(auth); }} />
       )}
 
       {state.screen === 'painpoint' && (
