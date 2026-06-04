@@ -173,17 +173,19 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
 
       {/* ── MOBILE hero: image on top, text below ── */}
       {/* ── MOBILE HERO: single relative container, text overlaid at bottom ── */}
-      <div className="mobile-hero-only" style={{ position: 'relative', background: '#0A0814', minHeight: '100vw' }}>
-        {/* Full background image */}
-        <img
-          src="/quest-hero.jpg"
-          alt="A stone path to a castle with signpost"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '45% 10%' }}
-        />
-        {/* Dark gradient — clear top, dark bottom for text */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0.97) 28%, rgba(8,6,18,0.55) 50%, rgba(8,6,18,0) 68%)' }}/>
-        {/* Text overlaid at bottom */}
-        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-end', minHeight: '160vw', padding: '1rem 1rem 1.2rem' }}>
+      <div className="mobile-hero-only" style={{ background: '#0A0814' }}>
+        {/* Full image — contain so nothing ever crops */}
+        <div style={{ position: 'relative', width: '100%' }}>
+          <img
+            src="/quest-hero.jpg"
+            alt="A stone path to a castle with signpost"
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+          {/* Gradient over image bottom — transitions into text section */}
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0) 100%)' }}/>
+        </div>
+        {/* Text section — solid dark bg, starts immediately below image */}
+        <div style={{ background: '#0A0814', padding: '0.6rem 1rem 1.2rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <h1 className="cinzel-deco" style={{ fontSize: '1.65rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.2rem', textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
             BEGIN YOUR<br/><span style={{ color: '#D4A847' }}>QUEST</span>
           </h1>
