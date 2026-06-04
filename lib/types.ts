@@ -52,6 +52,7 @@ export interface PainPoint {
 
 export type Screen =
   | 'welcome'
+  | 'signin'
   | 'painpoint'
   | 'point'
   | 'celebrate'
