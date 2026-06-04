@@ -4,16 +4,20 @@ export const PAIN_POINTS: PainPoint[] = [
   {
     id: 'inherited',
     icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-  <!-- Adult figure (left, taller) -->
-  <circle cx='8' cy='4.5' r='2.2' fill='#D4A847'/>
-  <path d='M4.5 21V13.5C4.5 12 5.5 11 7 10.5L8 10L9 10.5C10.5 11 11.5 12 11.5 13.5V21' fill='#D4A847'/>
-  <!-- Child figure (right, shorter) -->
-  <circle cx='16.5' cy='6.5' r='1.6' fill='#D4A847'/>
-  <path d='M13.5 21V15C13.5 13.8 14.3 13 15.5 12.5L16.5 12L17.5 12.5C18.7 13 19.5 13.8 19.5 15V21' fill='#D4A847'/>
-  <!-- Ground line -->
-  <line x1='3' y1='21' x2='21' y2='21' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/>
-  <!-- Connecting hand-hold line -->
-  <line x1='11.5' y1='15' x2='13.5' y2='15.5' stroke='#D4A847' strokeWidth='1.2' strokeLinecap='round'/>
+  <!-- Roots spreading underground -->
+  <path d='M12 22v-8' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/>
+  <path d='M12 18 Q9 19 7 22' stroke='#D4A847' strokeWidth='1.2' strokeLinecap='round' fill='none'/>
+  <path d='M12 18 Q15 19 17 22' stroke='#D4A847' strokeWidth='1.2' strokeLinecap='round' fill='none'/>
+  <path d='M12 20 Q10 21 9 23' stroke='#D4A847' strokeWidth='1' strokeLinecap='round' fill='none' opacity='0.6'/>
+  <path d='M12 20 Q14 21 15 23' stroke='#D4A847' strokeWidth='1' strokeLinecap='round' fill='none' opacity='0.6'/>
+  <!-- Stem growing upward -->
+  <path d='M12 14 Q11 10 12 6' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round' fill='none'/>
+  <!-- Left leaf -->
+  <path d='M12 10 Q8 8 7 4 Q11 4 12 8' fill='rgba(212,168,71,0.7)' stroke='#D4A847' strokeWidth='1'/>
+  <!-- Right leaf -->
+  <path d='M12 8 Q16 6 17 2 Q13 3 12 7' fill='rgba(212,168,71,0.5)' stroke='#D4A847' strokeWidth='1'/>
+  <!-- Shoot tip -->
+  <circle cx='12' cy='5.5' r='1.2' fill='#D4A847'/>
 </svg>`,
     label: `I inherited this faith`,
     desc: `I grew up Christian but wonder if I actually believe it for myself.`,
@@ -22,7 +26,22 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'science',
-    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'><circle cx='12' cy='12' r='3'/><path d='M12 2a10 10 0 0 1 10 10'/><path d='M12 22a10 10 0 0 1-10-10'/><path d='M2 12a10 10 0 0 1 10-10'/><path d='M22 12a10 10 0 0 1-10 10'/><line x1='4.93' y1='4.93' x2='19.07' y2='19.07'/><line x1='19.07' y1='4.93' x2='4.93' y2='19.07'/></svg>`,
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <!-- Telescope barrel -->
+  <path d='M3 16 L14 9' stroke='#D4A847' strokeWidth='2' strokeLinecap='round'/>
+  <path d='M2 13.5 L5 18.5' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/>
+  <path d='M12 7.5 L15 12.5' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/>
+  <!-- Telescope lens end (wide) -->
+  <ellipse cx='13.5' cy='10' rx='2' ry='1.2' transform='rotate(-35 13.5 10)' stroke='#D4A847' strokeWidth='1.2' fill='rgba(212,168,71,0.1)'/>
+  <!-- Tripod leg -->
+  <line x1='7' y1='16' x2='6' y2='21' stroke='#D4A847' strokeWidth='1.2' strokeLinecap='round'/>
+  <!-- Cross/star constellation in sky -->
+  <line x1='19' y1='4' x2='19' y2='9' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/>
+  <line x1='17' y1='6.5' x2='21' y2='6.5' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/>
+  <!-- Small stars -->
+  <circle cx='21' cy='3' r='0.8' fill='#D4A847'/>
+  <circle cx='17' cy='2' r='0.6' fill='#D4A847' opacity='0.7'/>
+</svg>`,
     label: `Science seems to contradict faith`,
     desc: `Evolution, the Big Bang, neuroscience — it feels like Christianity can't keep up.`,
     hint: `Many of the best arguments for God come from science itself. You may be surprised.`,
@@ -30,7 +49,24 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'bible',
-    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14,2 14,8 20,8'/><line x1='16' y1='13' x2='8' y2='13'/><line x1='16' y1='17' x2='8' y2='17'/><polyline points='10,9 9,9 8,9'/></svg>`,
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <!-- Scroll body -->
+  <rect x='5' y='4' width='14' height='16' rx='1' fill='rgba(212,168,71,0.12)' stroke='#D4A847' strokeWidth='1.3'/>
+  <!-- Scroll rolled ends top and bottom -->
+  <path d='M5 5 Q3 6 3 8 Q3 10 5 10' stroke='#D4A847' strokeWidth='1.2' fill='rgba(212,168,71,0.15)'/>
+  <path d='M19 5 Q21 6 21 8 Q21 10 19 10' stroke='#D4A847' strokeWidth='1.2' fill='rgba(212,168,71,0.15)'/>
+  <path d='M5 14 Q3 15 3 17 Q3 19 5 19' stroke='#D4A847' strokeWidth='1.2' fill='rgba(212,168,71,0.1)'/>
+  <path d='M19 14 Q21 15 21 17 Q21 19 19 19' stroke='#D4A847' strokeWidth='1.2' fill='rgba(212,168,71,0.1)'/>
+  <!-- Text lines on scroll -->
+  <line x1='8' y1='9' x2='16' y2='9' stroke='#D4A847' strokeWidth='1' strokeLinecap='round' opacity='0.7'/>
+  <line x1='8' y1='12' x2='16' y2='12' stroke='#D4A847' strokeWidth='1' strokeLinecap='round' opacity='0.7'/>
+  <line x1='8' y1='15' x2='13' y2='15' stroke='#D4A847' strokeWidth='1' strokeLinecap='round' opacity='0.7'/>
+  <!-- Wax seal (bottom right) -->
+  <circle cx='16' cy='17.5' r='2.5' fill='rgba(212,168,71,0.3)' stroke='#D4A847' strokeWidth='1.2'/>
+  <!-- Seal cross mark -->
+  <line x1='16' y1='16' x2='16' y2='19' stroke='#D4A847' strokeWidth='1' strokeLinecap='round'/>
+  <line x1='14.5' y1='17.5' x2='17.5' y2='17.5' stroke='#D4A847' strokeWidth='1' strokeLinecap='round'/>
+</svg>`,
     label: `I doubt the Bible's reliability`,
     desc: `How do we know it wasn't changed, fabricated, or just legend?`,
     hint: `The NT is among the best-attested ancient documents in history. Let's look at the evidence.`,
@@ -38,7 +74,20 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'jesus',
-    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D4A847' strokeWidth='1.8' strokeLinecap='round'><line x1='12' y1='2' x2='12' y2='22'/><line x1='5' y1='8' x2='19' y2='8'/></svg>`,
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <!-- Cross (destination) top right -->
+  <line x1='18' y1='2' x2='18' y2='10' stroke='#D4A847' strokeWidth='1.8' strokeLinecap='round'/>
+  <line x1='15' y1='5' x2='21' y2='5' stroke='#D4A847' strokeWidth='1.8' strokeLinecap='round'/>
+  <!-- Footprints leading toward cross (bottom left to upper right) -->
+  <!-- Left foot 1 -->
+  <ellipse cx='5' cy='19' rx='1.4' ry='2' transform='rotate(-20 5 19)' fill='#D4A847' opacity='0.9'/>
+  <!-- Right foot 2 -->
+  <ellipse cx='8' cy='16.5' rx='1.4' ry='2' transform='rotate(-25 8 16.5)' fill='#D4A847' opacity='0.75'/>
+  <!-- Left foot 3 -->
+  <ellipse cx='11' cy='14' rx='1.3' ry='1.8' transform='rotate(-30 11 14)' fill='#D4A847' opacity='0.6'/>
+  <!-- Right foot 4 (fading) -->
+  <ellipse cx='14' cy='11.5' rx='1.2' ry='1.6' transform='rotate(-35 14 11.5)' fill='#D4A847' opacity='0.4'/>
+</svg>`,
     label: `I'm not sure about Jesus`,
     desc: `Maybe he was a great teacher, but claiming to be God seems like a stretch.`,
     hint: `The evidence for the resurrection is stronger than most people realise. Let's examine it.`,
@@ -46,7 +95,16 @@ export const PAIN_POINTS: PainPoint[] = [
   },
   {
     id: 'defense',
-    icon: `<svg width='28' height='28' viewBox='0 0 22 22' fill='none'><path d='M11 2L3 5.5V11C3 15.5 6.5 19.2 11 20.5C15.5 19.2 19 15.5 19 11V5.5L11 2Z' fill='rgba(212,168,71,0.15)' stroke='#D4A847' strokeWidth='1.4' strokeLinejoin='round'/><line x1='11' y1='1' x2='11' y2='17' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/><line x1='7.5' y1='7.5' x2='14.5' y2='7.5' stroke='#D4A847' strokeWidth='1.5' strokeLinecap='round'/><circle cx='11' cy='18.5' r='1.3' fill='#D4A847'/></svg>`,
+    icon: `<svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <!-- Shield -->
+  <path d='M12 2L4 6v6c0 5.5 4 10.5 8 12 4-1.5 8-6.5 8-12V6z' fill='rgba(212,168,71,0.15)' stroke='#D4A847' strokeWidth='1.4' strokeLinejoin='round'/>
+  <!-- Sword blade pointing up-right through shield -->
+  <line x1='7' y1='19' x2='18' y2='5' stroke='#D4A847' strokeWidth='1.6' strokeLinecap='round'/>
+  <!-- Crossguard -->
+  <line x1='14' y1='8' x2='18' y2='12' stroke='#D4A847' strokeWidth='1.4' strokeLinecap='round'/>
+  <!-- Pommel -->
+  <circle cx='7.5' cy='18.5' r='1.2' fill='#D4A847'/>
+</svg>`,
     label: `I want to defend my faith better`,
     desc: `Friends and colleagues challenge me and I don't know how to respond.`,
     hint: `Classical apologetics gives you a logical, step-by-step framework anyone can follow.`,
