@@ -122,7 +122,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         .qhero-content { position: relative; z-index: 2; }
 
         /* ── Desktop ── text left, signpost right, image centred */
-        @media (min-width: 641px) {
+        @media (min-width: 900px) {
           /* Use padding-bottom aspect-ratio trick so hero is always tall enough */
           .qhero          { min-height: clamp(480px, 52vw, 660px); display: flex;
                             align-items: flex-start; }
@@ -175,10 +175,10 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         .cinzel-deco { font-family: 'Cinzel Decorative', serif; }
         .cinzel      { font-family: 'Cinzel', serif; }
         .pillar-divider { width: 1px; background: rgba(212,168,71,0.3); align-self: stretch; }
-        /* Show/hide heroes by screen size */
+        /* Show/hide heroes by screen size — 900px ensures narrow browser also gets mobile */
         .mobile-hero-only  { display: block; }
         .desktop-hero-only { display: none; }
-        @media (min-width: 641px) {
+        @media (min-width: 900px) {
           .mobile-hero-only  { display: none; }
           .desktop-hero-only { display: flex; }
         }
