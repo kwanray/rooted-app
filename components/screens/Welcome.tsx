@@ -194,11 +194,11 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             alt="A stone path to a castle with signpost"
             style={{ width: '100%', height: 'auto', display: 'block' }}
           />
-          {/* Gradient over image bottom — transitions into text section */}
-          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0) 100%)' }}/>
+          {/* Short gradient fade at bottom edge only */}
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '18%', background: 'linear-gradient(to top, rgba(8,6,18,1) 0%, rgba(8,6,18,0) 100%)' }}/>
         </div>
-        {/* Text section — solid dark bg, starts immediately below image */}
-        <div style={{ background: '#0A0814', padding: '0.6rem 1rem 1.2rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        {/* Text section — pulled up with negative margin to sit flush under image */}
+        <div style={{ background: '#0A0814', padding: '0.6rem 1rem 1.2rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginTop: '-2px' }}>
           <h1 className="cinzel-deco" style={{ fontSize: '1.65rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.0, marginBottom: '0.2rem', textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
             BEGIN YOUR<br/><span style={{ color: '#D4A847' }}>QUEST</span>
           </h1>
