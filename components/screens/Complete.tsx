@@ -39,9 +39,11 @@ export default function Complete({ onReset }: Props) {
           className="inline-flex items-center justify-center mb-4"
           style={{ width: 64, height: 64, border: '2px solid #D4A84744', borderRadius: 4 }}
         >
-          <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-            <path d="M18 4 L18 32 M8 14 Q18 8 28 14" stroke="#D4A847" strokeWidth="2" strokeLinecap="round" fill="none" />
-            <circle cx="18" cy="4" r="2" fill="#D4A847" />
+          <svg width="32" height="32" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2L3 5.5V11C3 15.5 6.5 19.2 11 20.5C15.5 19.2 19 15.5 19 11V5.5L11 2Z" fill="rgba(212,168,71,0.15)" stroke="#D4A847" strokeWidth="1.4" strokeLinejoin="round"/>
+            <line x1="11" y1="1" x2="11" y2="17" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
+            <line x1="7.5" y1="7.5" x2="14.5" y2="7.5" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round"/>
+            <circle cx="11" cy="18.5" r="1.3" fill="#D4A847"/>
           </svg>
         </div>
         <div
