@@ -36,6 +36,21 @@ const C = {
 }
 
 const ms = { fontFamily: 'Montserrat, sans-serif' }
+
+const CHALLENGE_DATA: Record<number, { challenge: string; question: string }> = {
+  0:  { challenge: 'The Foundation Challenge', question: 'Can you prove that truth even exists?' },
+  1:  { challenge: 'The Logic Challenge',       question: 'Can two opposites both be true at once?' },
+  2:  { challenge: 'The Creator Challenge',     question: 'Is there evidence that God is real?' },
+  3:  { challenge: 'The Miracle Challenge',     question: 'If God exists, can He break natural law?' },
+  4:  { challenge: 'The Sign Challenge',        question: 'How do you know a miracle is from God?' },
+  5:  { challenge: 'The Evidence Challenge',    question: 'Can you trust a 2,000-year-old document?' },
+  6:  { challenge: 'The Identity Challenge',    question: 'Who did Jesus really claim to be?' },
+  7:  { challenge: 'The Proof Challenge',       question: 'What evidence backs up His claim?' },
+  8:  { challenge: 'The Verdict Challenge',     question: "What's the only logical conclusion?" },
+  9:  { challenge: 'The Authority Challenge',   question: 'If Jesus is God, what does that mean for His words?' },
+  10: { challenge: 'The Scripture Challenge',   question: 'Did Jesus endorse the Bible as divine?' },
+  11: { challenge: 'The Final Challenge',       question: "What does it mean if the Bible is truly God's Word?" },
+}
 const cg = { fontFamily: 'Cormorant Garamond, serif' }
 
 const PHASE_COLORS = ['#8888AA', '#8B5CF6', '#D4A847', '#C0392B', '#2E7D52']
@@ -126,9 +141,11 @@ export default function PointView({
       <div className="sticky top-0 z-10" style={{ background: C.page, borderBottom: `1px solid ${C.border}` }}>
         <div style={{ display: 'flex', alignItems: 'center', padding: '0 1rem', height: 50, gap: 12 }}>
           <button onClick={onHome} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: 'none', cursor: 'pointer', flexShrink: 0 }}>
-            <svg width="18" height="18" viewBox="0 0 36 36" fill="none">
-              <path d="M18 4 L18 32 M8 14 Q18 8 28 14" stroke={C.gold} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-              <circle cx="18" cy="4" r="2.5" fill={C.gold}/>
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+              <path d="M11 2L3 5.5V11C3 15.5 6.5 19.2 11 20.5C15.5 19.2 19 15.5 19 11V5.5L11 2Z" fill="rgba(212,168,71,0.15)" stroke={C.gold} strokeWidth="1.4" strokeLinejoin="round"/>
+              <line x1="11" y1="1" x2="11" y2="17" stroke={C.gold} strokeWidth="1.5" strokeLinecap="round"/>
+              <line x1="7.5" y1="7.5" x2="14.5" y2="7.5" stroke={C.gold} strokeWidth="1.5" strokeLinecap="round"/>
+              <circle cx="11" cy="18.5" r="1.3" fill={C.gold}/>
             </svg>
             <span style={{ ...ms, fontSize: 11, fontWeight: 800, color: C.gold, letterSpacing: '0.1em' }}>QUEST</span>
           </button>
@@ -153,14 +170,23 @@ export default function PointView({
           <span style={{ ...ms, fontSize: 10, color: C.hint, letterSpacing: '0.06em' }}>STAGE {pt.n} / 12</span>
         </div>
 
-        {/* Big emoji + title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
+        {/* Challenge icon + name + question */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 8 }}>
           <div style={{ width: 56, height: 56, borderRadius: '50%', background: '#D4A847', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             {POINT_SVG_ICONS[idx] ?? POINT_SVG_ICONS[0]}
           </div>
-          <h1 style={{ ...cg, fontSize: 'clamp(1.7rem, 6vw, 2.6rem)', fontWeight: 400, color: C.white, lineHeight: 1.2 }}>
-            {pt.title}
-          </h1>
+          <div>
+            <div style={{ ...ms, fontSize: 9, fontWeight: 800, color: '#D4A847', letterSpacing: '0.12em', marginBottom: 4 }}>
+              {CHALLENGE_DATA[idx]?.challenge ?? ''}
+            </div>
+            <h1 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(1.2rem, 4.5vw, 1.9rem)', fontWeight: 700, color: C.white, lineHeight: 1.2 }}>
+              {CHALLENGE_DATA[idx]?.question ?? pt.title}
+            </h1>
+          </div>
+        </div>
+        {/* Point title as subtitle */}
+        <div style={{ ...ms, fontSize: 11, color: C.hint, marginBottom: 12, letterSpacing: '0.04em' }}>
+          {pt.title}
         </div>
 
         {/* Takeaway pill — the "so what" up front */}
