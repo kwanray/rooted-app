@@ -127,7 +127,7 @@ export const POINTS: Point[] = [
     },
     takeaway: `Truth is not relative; denying it proves it.`,
     claim: `Truth is that which corresponds to reality — and denying it proves it.`,
-    sg: `In Singapore's multicultural climate, it's common to hear "all religions are equally true" or "truth is what works for you." But if everything is equally true, then the statement "all truths are relative" must itself be absolutely true — a self-defeating contradiction. Geisler's starting point isn't aggressive; it's the foundation that makes any conversation meaningful. Without it, you cannot even say that science is more reliable than astrology.`,
+    sg: `Singapore's pragmatism — "does it work?" — actually assumes truth exists. When something "works better," you are already claiming some things are truer than others. The pragmatist cannot escape Geisler's first point.`,
     specialViz: null,
     geisler: [
       {
@@ -162,7 +162,7 @@ export const POINTS: Point[] = [
       },
     ],
     insight: `When someone says "you can't know truth," ask them: "Is that true?" The trap springs itself. Truth is not a leap of faith — it is the foundation of every conversation you have ever had.`,
-    reflect: `Have you ever found yourself saying "that may be true for you, but not for me"? What did you actually mean — and does it hold up under scrutiny?`,
+    reflect: `If someone told you "there is no truth," how would you respond?`,
     verses: ['John 14:6', 'John 8:32', 'John 18:37-38'],
     scripture: `"I am the way, the truth, and the life." — John 14:6`,
     ref: 'John 8:32',
@@ -506,9 +506,9 @@ export const POINTS: Point[] = [
       },
     ],
     insight: `"Jesus was just a great moral teacher" is the one option not available. Great moral teachers don't claim to be the God of the universe. Many Singaporeans respect Jesus alongside Buddha and Confucius — but none of those figures made this claim. Jesus's identity is in a category of its own.`,
-    reflect: `"Who do you say Jesus is?" is not a question you can answer with "a great teacher." What is your honest answer to this question right now?`,
+    reflect: `Which of the trilemma options — liar, lunatic, or Lord — do you find hardest to dismiss, and why?`,
     verses: ['John 10:30', 'John 8:58', 'Mark 14:61-64', 'John 14:6'],
-    scripture: `"I and the Father are one."`,
+    scripture: `"Before Abraham was born, I am!" — John 8:58`,
     ref: 'John 10:30',
   },
   {
@@ -561,7 +561,7 @@ export const POINTS: Point[] = [
     insight: `The resurrection is not a theological add-on — it is the central, falsifiable claim of Christianity. Paul himself says: "If Christ has not been raised, your faith is futile." Singapore is results-oriented. The resurrection is the ultimate result — publicly made, immediately contested, and never successfully refuted in a city where the tomb was ten minutes away.`,
     reflect: `What would be the most satisfying natural explanation for the empty tomb — and does it actually hold up under scrutiny?`,
     verses: ['1 Corinthians 15:3-8', 'Acts 1:3', 'Romans 1:4'],
-    scripture: `"He was declared to be the Son of God in power by his resurrection from the dead."`,
+    scripture: `"Christ died for our sins… he was buried… he was raised on the third day according to the Scriptures." — 1 Corinthians 15:3–4`,
     ref: 'Romans 1:4',
   },
   {
