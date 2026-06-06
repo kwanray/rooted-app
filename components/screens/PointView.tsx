@@ -228,13 +228,6 @@ export default function PointView({
           <p style={{ ...ms, fontSize: 13, color: C.muted, lineHeight: 1.85, margin: 0 }}>{pt.sg}</p>
         </div>
 
-        {/* ── VISUAL BLOCK ── */}
-        {pt.specialViz && (
-          <div style={{ marginBottom: '1.2rem' }}>
-            <VisualBlocks type={pt.specialViz} accent={C.gold} dim={C.goldDim} />
-          </div>
-        )}
-
         {/* ── THE ARGUMENTS — each card taps open ── */}
         <div style={{ margin: '0 0 0.5rem' }}>
           <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: C.gold, marginBottom: 10 }}>
@@ -254,6 +247,13 @@ export default function PointView({
             {pt.objections.map((obj, i) => (
               <ArgCard key={i} n={i + 1} head={obj.head} body={obj.body} />
             ))}
+          </div>
+        )}
+
+        {/* ── VISUAL BLOCK — after arguments, as a summary illustration ── */}
+        {pt.specialViz && (
+          <div style={{ marginBottom: '1.2rem', marginTop: '1rem' }}>
+            <VisualBlocks type={pt.specialViz} accent={C.gold} dim={C.goldDim} />
           </div>
         )}
 
