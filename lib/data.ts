@@ -191,47 +191,61 @@ export const POINTS: Point[] = [
     highlightMsg: `Science itself depends on this principle — without it, no experimental result could ever rule anything out.`,
     highlightMsgs: {
       science: `Every experiment assumes that a result either confirms or refutes a hypothesis — not both. Logic is science's silent foundation.`,
-      defense: `This is the tool that cuts through vague pluralism: Christianity and Islam cannot both be true. Words mean things.`,
+      defense: `This is the tool that cuts through vague pluralism: Christianity and Islam cannot both be true about the resurrection. Words mean things.`,
       inherited: `Inheriting a faith doesn't mean it's false — but it does mean you should examine whether its claims hold up logically. Start here.`,
     },
     takeaway: `A God who both exists and doesn't exist is no God at all.`,
-    claim: `The opposite of true is false — and this is the bedrock of all knowledge, including religious knowledge.`,
-    sg: `Singaporeans are culturally wired toward harmony and away from confrontation. This is a strength — but it can blur into a false tolerance where we treat incompatible worldviews as equally valid to avoid offence. Christianity, Islam, and atheism make mutually exclusive truth claims. They cannot all be true simultaneously. Acknowledging this is not intolerance; it is intellectual honesty, and it is the only path to genuine dialogue.`,
+    claim: `Stage 1 established that truth exists and is knowable. Stage 2 asks the next question: can two contradictory things both be true at the same time? Most people today want to say yes — it feels open-minded, nuanced, kind. But if they are right, every argument, every investigation, every verdict becomes meaningless. This stage examines that claim honestly.`,
+    sg: `Singapore's culture prizes harmony above confrontation — and that is genuinely a strength. But harmony between people is not the same as logical equivalence between ideas. Christianity, Islam, and atheism make mutually exclusive claims about the resurrection of Jesus. They cannot all be right simultaneously. Acknowledging this is not intolerance — it is intellectual honesty, and it is the only foundation for genuine dialogue. We can honour every person while still evaluating their claims.`,
     specialViz: null,
     geisler: [
       {
-        head: `The Foundation of All Reasoning`,
-        body: `Without the law of non-contradiction, no argument can be made, no experiment can be interpreted, and no sentence can carry meaning. It is not a Western or Christian invention — it is the precondition of all thought.`,
+        head: `The Challenge: Why People Resist This`,
+        body: `Most people today want to say that opposites can both be true. It sounds humble — "who am I to say what's right?" It sounds kind — "let's not judge other people's beliefs." It sounds sophisticated — "reality is complex, truth is nuanced." These are real instincts. But watch what happens when you press them. Ask someone who says "opposites can both be true" whether that statement itself is true — or whether its opposite (opposites cannot both be true) is equally valid. They cannot answer yes to both without defeating themselves. The appeal of contradiction turns out to be self-defeating at the first test.`,
       },
       {
-        head: `Religions Make Contradictory Claims`,
-        body: `Christianity says Jesus rose from the dead. Islam says he did not die. Both cannot be historically true. The Resurrection either happened or it didn't. Religious pluralism that ignores this is intellectually dishonest.`,
+        head: `The Law Defined — Not Western, Not Christian`,
+        body: `The Law of Non-Contradiction states: a statement cannot be both true and false at the same time and in the same sense. A door is either open or closed — not both simultaneously. A person is either alive or dead. This is not a Western invention or a Christian bias — it is the universal precondition of all thought, language, and logic. Aristotle articulated it, but every culture that has ever reasoned has relied on it. Without it, no argument can be made, no experiment can be interpreted, and no sentence can carry meaning.`,
       },
       {
-        head: `Even Paradoxes Obey the Law`,
-        body: `When theologians speak of paradox (the Trinity, two natures of Christ), they mean apparent contradiction that can be resolved with proper distinctions — not genuine logical contradiction. God is one in essence, three in person — not one and three in the same sense simultaneously.`,
+        head: `The Practical Test — They Can't Escape It`,
+        body: `Here is Geisler's practical demonstration. Ask someone who denies this law: "Are you sure that's true?" Their answer — whether yes or no — invokes the very law they are denying. If they say yes, they are claiming the denial is true and its opposite (the law) is false — which uses the law. If they say no, they have admitted the law might hold. They cannot escape it in practice. A doctor cannot tell you a tumour is both benign and malignant. A judge cannot rule that a defendant is both guilty and not guilty. We do not accept contradiction in medicine or law — there is no reason to accept it in the most important question of all.`,
       },
       {
-        head: `The Practical Test`,
-        body: `Ask someone who denies this law: "Are you sure that's true?" Their answer — either yes or no — will invoke the very law they deny. They cannot escape it in practice, which shows it is not culturally imposed but logically inescapable.`,
+        head: `Paradox Is Not the Same as Contradiction`,
+        body: `Many people respond: "But what about paradox? The Trinity? The two natures of Christ?" This is an important objection and deserves a real answer. A paradox is an apparent contradiction that can be resolved with proper distinctions. God is one in essence but three in persons — not one and three in the same sense simultaneously. Jesus is fully human and fully divine — two natures in one person, not one nature that is both human and non-human at once. Apparent contradiction resolved by careful definition is not genuine logical contradiction. The law of non-contradiction is not violated by paradox — it is what allows us to identify and resolve it.`,
+      },
+      {
+        head: `Applied to Religion — Pluralism Fails Here`,
+        body: `This is where the law does its most important work. Religious pluralism — the view that all religions are equally true — sounds tolerant and respectful. But apply the law and it collapses immediately. Christianity says Jesus rose bodily from the dead. Islam says Jesus did not die on the cross. Both are historical claims about the same event. They cannot both be true. Buddhism teaches that the self is an illusion. Christianity teaches that each person has an eternal soul. These are direct contradictions — not different emphases, not cultural variations, but mutually exclusive claims about reality. It is logically possible that all religions are partly wrong. It is logically impossible that all contradictory claims are simultaneously right. The question is not which religion feels most comfortable — it is which one corresponds to reality.`,
+      },
+    ],
+    objections: [
+      {
+        head: `"You're being too black and white — reality is complex"`,
+        body: `Complexity is real. Nuance is valuable. But complexity does not mean contradiction. A situation can be complex and still have a true answer. "Did Jesus rise from the dead?" is a complex historical question — but it has a yes or no answer. Acknowledging complexity does not mean abandoning the law of non-contradiction; it means applying it carefully.`,
+      },
+      {
+        head: `"Different religions are just different paths up the same mountain"`,
+        body: `This is a popular metaphor — but it only works if the religions actually agree on the destination. Christianity says the destination is a personal God who saves by grace through faith in Christ. Islam says salvation comes through submission and works. Buddhism says there is no personal God and the goal is the extinction of the self. These are not different paths to the same place — they are different maps pointing to different destinations. You cannot reconcile them without making one of them unrecognisable.`,
       },
     ],
     deepDive: [
       {
         head: `Avicenna's Challenge`,
-        body: `The medieval Persian philosopher ibn Sīnā (Avicenna) offered a sharp rejoinder to those who deny the law of non-contradiction: "Anyone who denies the Law of Non-Contradiction should be beaten and burned until he admits that to be beaten is not the same as not to be beaten, and to be burned is not the same as not to be burned." The point is that even those who verbally deny the law rely on it in every experience.`,
+        body: `The medieval philosopher Ibn Sina (Avicenna) offered a sharp rejoinder to those who deny the law of non-contradiction: "Anyone who denies the Law of Non-Contradiction should be beaten and burned until he admits that to be beaten is not the same as not to be beaten, and to be burned is not the same as not to be burned." The point is that even those who verbally deny the law rely on it in every experience — including the experience of pain.`,
       },
       {
         head: `Why Religious Pluralism Cannot Be Right`,
-        body: `Religions disagree on the most fundamental questions: does a personal God exist, did Jesus rise from the dead, is salvation by grace or works, is there an afterlife? These are not compatible differences of emphasis — they are direct contradictions. It is possible that all religions are wrong on some points, but logically impossible that all contradictory claims are simultaneously right.`,
+        body: `Religions disagree on the most fundamental questions: does a personal God exist, did Jesus rise from the dead, is salvation by grace or works, is there an afterlife, what is the nature of the self? These are not compatible differences of emphasis — they are direct contradictions. It is possible that all religions are wrong on some points. It is logically impossible that all contradictory claims are simultaneously right. Pluralism that ignores contradiction is not tolerance — it is intellectual evasion.`,
       },
       {
         head: `A Spectrum, Not an Absolute Dismissal`,
-        body: `A nuanced point worth noting: religions can operate on a spectrum — somewhat true, mostly true, or completely true. A religion is false only inasmuch as it contradicts the truth. This is not a claim that every tradition is worthless — it is a call to examine which tradition is most consistent with what we can know to be true.`,
+        body: `A nuanced point worth noting: religions can be evaluated on a spectrum — somewhat true, mostly true, or fully true. A religion is false only inasmuch as it contradicts what is actually true. This is not a claim that every tradition is worthless — it is a call to examine which tradition is most consistent with the evidence. The law of non-contradiction is not a sledgehammer; it is a scalpel.`,
       },
     ],
-    insight: `The law of non-contradiction isn't a weapon — it's a gift. It means faith either stands or falls on evidence, not just feeling. Singaporean harmony is a social value, not a logical claim. We can honour all people without pretending all truth claims are identical.`,
-    reflect: `Can two religions that directly contradict each other both be fully true? What does your answer mean for how you evaluate truth claims?`,
+    insight: `The law of non-contradiction is not a weapon — it is a gift. It means that truth claims can be evaluated, that evidence matters, and that faith either stands or falls on something real. Without it, Christianity cannot be defended — but neither can any other worldview. It is the precondition of honest inquiry, and it is what makes this quest worth taking.`,
+    reflect: `Think of a time you heard someone say "all religions are basically the same" or "that may be true for you." Apply the law of non-contradiction: can those statements survive their own test?`,
     verses: ['Matthew 5:37', 'James 5:12', 'Revelation 3:15-16'],
     scripture: `"Let your yes be yes and your no be no." — Matthew 5:37`,
     ref: 'Matthew 5:37',
