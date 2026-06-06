@@ -405,7 +405,7 @@ export const POINTS: Point[] = [
     takeaway: `Not every claimed miracle is from God — but there is a principled framework to test them, and when applied to Jesus, the result is unambiguous.`,
     claim: `Stage 4 established that miracles are possible — a Creator God can certainly act within His creation. Stage 5 asks the next question: how do you know a miracle is actually from God? Couldn't it be coincidence? Couldn't it be fraud? Couldn't other religions make the same claim? These are fair questions — and they have a principled answer. God has given us a framework to test miracle claims. And when that framework is applied to Jesus, the result is unambiguous.`,
     sg: `In Singapore's pluralistic context, the natural objection is: why trust Jesus over other religious founders? Geisler's answer is principled, not sectarian — it applies the same framework to every claim. The honest answer is that other religious founders' miracles are historically thin, poorly attested, or unverifiable by any independent standard. The resurrection of Jesus is a singular, testable historical claim supported by multiple independent lines of evidence — eyewitness testimony, empty tomb, transformed disciples, and hostile confirmation. It stands in a category of its own.`,
-    specialViz: '5es',
+    specialViz: null,
     geisler: [
       {
         head: `The Challenge: How Do You Know It's From God?`,
