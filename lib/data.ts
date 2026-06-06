@@ -464,57 +464,71 @@ export const POINTS: Point[] = [
     short: 'NT Reliable',
     phase: 3,
     highlight: ['bible', 'inherited'],
-    highlightMsg: `The NT is more historically attested than any other ancient document — better than Caesar or Plato.`,
+    highlightMsg: `The NT is more historically attested than any other ancient document — better than Caesar, Homer, or Plato.`,
     highlightMsgs: {
-      bible: `This point speaks directly to your doubt. The NT passes every test historians apply to ancient documents — manuscript count, eyewitness claims, external corroboration. It's not legend.`,
+      bible: `This point speaks directly to your doubt. The NT passes every test historians apply to ancient documents — manuscript count, eyewitness claims, external corroboration. It is not legend.`,
       jesus: `Before we evaluate what Jesus claimed, we need to know whether the documents reporting those claims can be trusted. This is that foundation.`,
       inherited: `Owning your faith means examining the evidence yourself. This is what the historical evidence for the NT actually looks like — not secondhand scepticism.`,
     },
     entryBanners: {
-      bible: `You're starting here because you're not sure the Bible can be trusted. This section examines the New Testament the way historians examine any ancient source — manuscript evidence, eyewitness claims, external records. After working through to Point 12, you'll loop back to see the logical foundation that makes it all coherent.`,
+      bible: `You're starting here because you're not sure the Bible can be trusted. This section examines the New Testament the way historians examine any ancient source — manuscript evidence, eyewitness claims, external records. After working through to Stage 12, you'll see the logical foundation that makes it all coherent.`,
     },
-    takeaway: `The New Testament passes every test applied to ancient documents.`,
-    claim: `The New Testament is the most historically reliable document of the ancient world — earlier, more numerous, and more accurately copied than any other text of its era.`,
-    sg: `Many Singapore students encounter the claim that the Bible was "changed" or "made up" by the Church — an idea that has spread through popular fiction and online content. But this is historically uninformed. The New Testament documents were written within the lifetime of eyewitnesses (some within 20 years of the events), are preserved in over 5,700 Greek manuscripts, and are corroborated by Roman and Jewish historians who had no interest in promoting Christianity. No serious ancient historian dismisses Jesus's existence.`,
+    takeaway: `The documents reporting Jesus's resurrection were written when hostile eyewitnesses were still alive, survive in more manuscripts than any other ancient text, are corroborated by non-Christian sources, and include details no forger would invent.`,
+    claim: `Stage 5 established that the resurrection is God's signature on Jesus's identity and message. But the sceptic now shifts: "How do we know the documents are reliable? Weren't they written centuries after Jesus? Changed by the Church? Full of contradictions?" These are exactly the right questions to ask — and they have answers that would satisfy any historian applying the same standards they apply to every other ancient document.`,
+    sg: `A common claim in Singapore — spread through popular fiction and online content — is that "the Bible was changed" or "written centuries after Jesus." This is historically uninformed. The New Testament documents were written within the lifetime of eyewitnesses, some within 20 years of the events. They survive in more manuscripts than any other ancient document. And they are corroborated by Roman and Jewish historians who had no interest in promoting Christianity. No serious ancient historian disputes Jesus's existence — the debate is only about His identity.`,
     specialViz: '5es',
     geisler: [
       {
-        head: `Bibliographic Test`,
-        body: `The NT is attested by 5,700+ Greek manuscripts, 10,000+ Latin manuscripts, and 9,000+ in other languages — a total manuscript tradition dwarfing any other ancient text. Homer's Iliad has ~1,900. Caesar's Gallic Wars has ~10. The gap between writing and earliest copies is also far shorter for the NT than for any comparable ancient document.`,
+        head: `The Challenge: Three Common Objections`,
+        body: `Three objections to NT reliability are heard most often. First: "It was written long after the events — legends had time to form." Second: "It was changed and corrupted over centuries of copying." Third: "There is no independent historical backing — it's just Christians writing about Christianity." All three are empirically testable. And all three fail when the evidence is examined.`,
       },
       {
-        head: `Internal Evidence Test`,
-        body: `The authors claim eyewitness status (Luke 1:1-4, 2 Peter 1:16, 1 John 1:1-3). They include embarrassing details (Peter's denial, disciples' doubting, women as first witnesses in a culture that discredited women's testimony) — the hallmark of honest testimony, not legend.`,
+        head: `Written Early — When Eyewitnesses Were Still Alive`,
+        body: `This is the most powerful argument for NT reliability and it comes first. Paul's first letter to the Corinthians dates to approximately AD 55 — roughly 22 years after the crucifixion. Within it, Paul preserves a creed (1 Corinthians 15:3–7) that scholars across the spectrum — including noted sceptics — date to within 1 to 3 years of the resurrection itself. This creed names specific eyewitnesses, including 500 people who saw the risen Jesus, and states they were still alive and could be questioned. This is not legend. Legends require generations to form — centuries of unchecked retelling. The NT documents were written and circulating when hostile eyewitnesses were still alive in the very city where Jesus was executed. If the core claims were false, they could have been — and would have been — publicly refuted.`,
       },
       {
-        head: `External Evidence Test`,
-        body: `Roman historian Tacitus (AD 116) records Christ's execution under Pilate. Jewish historian Josephus (AD 93) references Jesus and his brother James. Pliny the Younger (AD 112) describes early Christians worshipping Christ as God — written when eyewitnesses were still alive.`,
+        head: `More Manuscripts Than Any Other Ancient Document`,
+        body: `The second objection — that the text was corrupted through copying — collapses under the manuscript evidence. The NT survives in 5,700 Greek manuscripts, over 10,000 Latin manuscripts, and 9,000 in other languages — a total of nearly 25,000 manuscripts. No other ancient document comes close. Caesar's Gallic Wars survives in 10 manuscripts. Aristotle's works in 49. Homer's Iliad — the most attested secular ancient text — in 1,797. The sheer number of NT manuscripts means scholars can cross-reference them to identify and correct any copyist errors with high confidence. Greek scholar D.A. Carson concluded: "Nothing we believe to be true, and nothing we are commanded to do, is in any way jeopardised by the variants."`,
       },
       {
-        head: `Early Dating`,
-        body: `Paul's letters date to the 50s AD — within 20 years of the crucifixion. The early creed in 1 Corinthians 15:3-7 is dated by scholars (including sceptics) to within months or years of the resurrection itself, when eyewitnesses could have easily refuted fabrications.`,
+        head: `Internal Honesty — Details No Forger Would Invent`,
+        body: `The third mark of reliable testimony is what scholars call the criterion of embarrassment — a document is more credible when it includes details that are damaging to its own cause. Forgers and legend-makers do not include self-damaging details. The NT is full of them. The first witnesses to the resurrection were women — in a first-century Jewish context where women's testimony was legally discredited. Peter, the leader of the church, is recorded denying Jesus three times. The disciples are portrayed as doubting, slow, and afraid. Thomas refuses to believe without physical proof. None of these details serve a propaganda purpose. They are the hallmark of honest testimony.`,
+      },
+      {
+        head: `External Corroboration — Hostile Sources Confirm the Core`,
+        body: `The NT is not simply Christians writing about Christianity. The core facts are confirmed by sources with every reason to deny them. Roman historian Tacitus (AD 116) records that Christ was executed under Pontius Pilate during the reign of Tiberius — precisely what the Gospels say. Jewish historian Josephus (AD 93) references Jesus and describes him as "a wise man" whose followers reported seeing him alive after his death. Pliny the Younger (AD 112), writing to Emperor Trajan, describes early Christians singing hymns to Christ "as to a god" — dated when many eyewitnesses were still living. These are not Christian sources. They are hostile or neutral observers confirming the historical framework.`,
+      },
+    ],
+    objections: [
+      {
+        head: `"The Council of Nicaea changed the Bible in AD 325"`,
+        body: `This is one of the most persistent historical myths — popularised by The Da Vinci Code — and it is simply false. The Council of Nicaea (AD 325) dealt with the theological question of Christ's divine nature — it did not compile, select, or alter the biblical texts. The canon of the NT was already well established by the second century, as evidenced by early church fathers quoting NT books as authoritative Scripture decades before Nicaea. The NT we have today is textually identical to manuscripts that predate the Council by centuries.`,
+      },
+      {
+        head: `"The Gospels contradict each other — they can't all be true"`,
+        body: `Apparent contradictions in the Gospels are consistently one of three things: differences in perspective (two witnesses describing the same event from different angles), differences in emphasis (each author selecting details relevant to his audience), or apparent discrepancies that resolve when the historical and cultural context is understood. Crucially, independent accounts that agree on every detail are actually more suspicious — not less — because they suggest coordination rather than independent testimony. The minor variations in the Gospels are a sign of authentic independent accounts, not fabrication.`,
       },
     ],
     deepDive: [
       {
-        head: `The Manuscript Table`,
-        body: `No ancient document comes close to the NT's textual pedigree. Thucydides' History: 96 copies, 200-year gap. Herodotus: 109 copies, 500-year gap. Aristotle: 49 copies, 1,400-year gap. Homer's Iliad: 1,797 copies, 300-year gap. The New Testament: 23,986 manuscript copies, 30–50 year gap to earliest fragment. The John Rylands Papyrus (a fragment of John's Gospel) dates to approximately AD 120 — fewer than 40 years after the Gospel was first written.`,
-      },
-      {
-        head: `Variants Don't Undermine the Text`,
-        body: `Critics cite millions of "variants" among NT manuscripts — but the numbers are misleading. A variant is any difference between copies, including spelling. If one word differs in an older text and that difference is copied 1,000 times, that counts as 1,000 variants. When scholars compare older manuscripts to newer ones, they can identify and correct copyist drift. Greek scholar D.A. Carson concluded: "The purity of text is of such a substantial nature that nothing we believe to be true, and nothing we are commanded to do, is in any way jeopardized by the variants."`,
-      },
-      {
-        head: `Even Sceptics Agree on the Core`,
-        body: `NT textual scholar and noted sceptic Bart Ehrman (whose book Misquoting Jesus raised doubts about the NT text) admitted in an interview with Bruce Metzger: "We are in complete agreement on a number of very important historical and textual questions... The position I argue for in Misquoting Jesus does not actually stand at odds with Prof. Metzger's position that the essential Christian beliefs are not affected by textual variants in the manuscript tradition of the New Testament."`,
+        head: `The Manuscript Table — No Ancient Document Compares`,
+        body: `The evidence in numbers: Thucydides' History survives in 96 copies with a 200-year gap between writing and earliest copy. Herodotus: 109 copies, 500-year gap. Aristotle: 49 copies, 1,400-year gap. Homer's Iliad: 1,797 copies, 300-year gap. The New Testament: nearly 25,000 manuscript copies, with a gap of 30–50 years to the earliest fragment. The John Rylands Papyrus — a fragment of John's Gospel — dates to approximately AD 120, fewer than 40 years after the Gospel was written. By any standard of ancient textual scholarship, the NT is in an entirely different class.`,
       },
       {
         head: `Reconstructed from the Church Fathers Alone`,
-        body: `Early Christian writers quoted the NT so extensively that scholars have calculated we have at least 75% of the four Gospels and Paul's letters copied word-for-word in letters written before AD 325. By AD 350, the entire NT can be reconstructed from these quotations alone. As Metzger concluded: "If all other sources for our knowledge of the text of the NT were destroyed, [the patristic quotations] would be sufficient alone for the reconstruction of practically the entire New Testament."`,
+        body: `Early Christian writers quoted the NT so extensively that scholars have calculated we have at least 75% of the four Gospels and Paul's letters copied word-for-word in letters written before AD 325. By AD 350, the entire NT can be reconstructed from these quotations alone — even if every manuscript were destroyed. As Metzger concluded: "If all other sources for our knowledge of the text of the NT were destroyed, the patristic quotations would be sufficient alone for the reconstruction of practically the entire New Testament."`,
+      },
+      {
+        head: `Even Sceptics Agree on the Core`,
+        body: `NT textual scholar and noted sceptic Bart Ehrman — whose book Misquoting Jesus raised widespread doubts about the NT text — admitted in an interview with his own mentor Bruce Metzger: "We are in complete agreement on a number of very important historical and textual questions... The position I argue for in Misquoting Jesus does not actually stand at odds with Prof. Metzger's position that the essential Christian beliefs are not affected by textual variants." The sceptic's own expert witness concedes the text is reliable.`,
+      },
+      {
+        head: `The 1 Corinthians 15 Creed — The Earliest Evidence`,
+        body: `1 Corinthians 15:3–7 contains a formal creed — identifiable by its structure and language — that Paul explicitly says he "received" and "passed on." Most scholars, including sceptics like James Crossley and Gerd Lüdemann, date this creed to within 1 to 5 years of the crucifixion. It lists specific named witnesses: Peter, the Twelve, James, all the apostles, and 500 people at once. This is not a late legend. It is a datable, verifiable claim made when the witnesses were alive and could be cross-examined. Paul was essentially saying: "Don't take my word for it — go ask them."`,
       },
     ],
-    insight: `If you accept the historicity of Caesar or Socrates — based on far weaker manuscript evidence — intellectual consistency requires taking the NT seriously. Singaporeans trust data. The NT holds up under the same forensic standards applied to any ancient document — and outperforms them all.`,
-    reflect: `What standard of evidence would you need to trust a historical claim? Apply that same standard consistently to the New Testament.`,
+    insight: `If you accept the historicity of Caesar, Socrates, or Alexander the Great — based on far weaker manuscript evidence — intellectual consistency requires taking the NT seriously. The question is not whether the NT is reliable by ancient historical standards. It is. The question is whether you are willing to apply your standards consistently.`,
+    reflect: `If the NT were a secular historical document about a Roman emperor — with the same manuscript evidence, the same early dating, the same external corroboration — would you accept it as historically reliable? What changes when it is about Jesus, and why?`,
     verses: ['Luke 1:1-4', '2 Peter 1:16', '1 John 1:1-3'],
     scripture: `"We did not follow cleverly devised stories when we told you about the coming of Jesus Christ — we were eyewitnesses." — 2 Peter 1:16`,
     ref: '2 Peter 1:16',
