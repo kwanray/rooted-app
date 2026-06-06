@@ -146,6 +146,30 @@ export default function VisualBlocks({ type, accent, dim }: Props) {
     )
   }
 
+  if (type === 'resurrection') {
+    const rows = FIVES_ES_MIRACLES
+    return (
+      <div className="rounded-xl overflow-hidden border" style={{ borderColor: accent + '33', background: dim }}>
+        <div className="px-4 pt-4 pb-2">
+          <div className="text-xs font-bold tracking-widest mb-3" style={{ color: accent }}>
+            5 EVIDENCES FOR THE RESURRECTION
+          </div>
+        </div>
+        {rows.map((r, i) => (
+          <div key={i} className="flex gap-3 px-4 py-3 border-t" style={{ borderColor: accent + '22' }}>
+            <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-black" style={{ background: accent + '22', color: accent }}>
+              {r.letter}
+            </div>
+            <div>
+              <div className="text-xs font-bold mb-1" style={{ color: accent }}>{r.head}</div>
+              <div className="text-xs leading-relaxed" style={{ color: accent + 'bb' }}>{r.body}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
   if (type === 'trilemma') {
     return (
       <div>
