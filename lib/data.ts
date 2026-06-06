@@ -252,7 +252,7 @@ export const POINTS: Point[] = [
   },
   {
     n: 3,
-    title: 'The Theistic God Exists',
+    title: 'A Theistic God Exists',
     short: 'God Exists',
     phase: 1,
     highlight: ['science', 'inherited'],
@@ -262,44 +262,48 @@ export const POINTS: Point[] = [
       inherited: `If you're going to own your faith, this is where to start: does the universe actually require a cause? The evidence is stronger than you might think.`,
     },
     entryBanners: {
-      science: `You're starting here because science and faith feel at odds. These arguments come straight from physics and cosmology — and they point somewhere surprising. After this section, you'll complete the full case by briefly revisiting the philosophical foundations at the end.`,
+      science: `You're starting here because science and faith feel at odds. These arguments come straight from physics and cosmology — and they point somewhere surprising.`,
     },
-    takeaway: `Something cannot come from nothing; the universe needs a Cause.`,
-    claim: `The existence of the universe, moral law, and design all converge on one explanation: a theistic God.`,
-    sg: `In Singapore, many educated people identify as "free thinkers" — a label that sounds open-minded, but in practice often means closed to the idea that a creator God exists. The irony is that true open-mindedness has to follow the evidence wherever it leads. And the evidence is striking: the Big Bang confirms the universe had a beginning — and whatever begins to exist has a cause. The cause of all space, time, matter, and energy must itself be outside space, time, matter, and energy: eternal, immaterial, unimaginably powerful, and personal (since it chose to create). That is precisely what Christians mean by God. The real free thinker is the one willing to consider that.`,
+    takeaway: `Something cannot come from nothing — the universe needs a Cause that is timeless, powerful, intelligent, and personal.`,
+    claim: `Stages 1 and 2 established that truth exists and that contradictory claims cannot both be true. Now the biggest question of all: is there anyone behind it all? This is not a faith question yet — it is an evidence question. And the evidence is stronger than most people realise.`,
+    sg: `Many educated Singaporeans identify as "free thinkers" — a label that sounds open-minded, but in practice often means closed to the idea of a Creator. The irony is that true open-mindedness means following the evidence wherever it leads — even somewhere unexpected. The Big Bang is not a threat to faith — it is one of its strongest evidences. The universe had a beginning. Something caused it. And the cause, as we will see, has precisely the attributes of the God of the Bible. The real free thinker is the one willing to follow the evidence all the way.`,
     specialViz: 'surge',
     geisler: [
       {
-        head: `The Cosmological Argument (Kalam)`,
-        body: `Everything that begins to exist has a cause. The universe began to exist (confirmed by Big Bang cosmology and the Second Law of Thermodynamics). Therefore, the universe has a cause — one that is uncaused, timeless, spaceless, and enormously powerful.`,
+        head: `The Challenge: What Sceptics Say`,
+        body: `Sceptics say: "Science explains everything." "The universe just exists — it doesn't need a cause." "God is a hypothesis we invented before we had better answers." These are serious objections and they deserve serious answers. The claim of this stage is not that faith is needed — it is that the evidence, examined honestly, points to a Creator. Let's follow it.`,
       },
       {
-        head: `The Teleological Argument (Fine-Tuning)`,
-        body: `The cosmological constants of the universe are set to an incomprehensibly precise degree for life to exist. The probability of this occurring by chance is astronomically small. Design inference is the most reasonable conclusion — the same inference we use in archaeology, forensics, and SETI.`,
+        head: `The Universe Had a Beginning`,
+        body: `Everything that begins to exist has a cause. That is not a religious claim — it is the most basic principle of rational thought. Things do not pop into existence without a cause. Until the 20th century, most scientists assumed the universe was eternal. Then came the evidence. Edwin Hubble's observations in 1929 showed the universe is expanding — running it backwards leads to a single point of beginning. The Big Bang is now scientific consensus: matter, space, and time came into existence together approximately 13.8 billion years ago. The Second Law of Thermodynamics confirms this independently — a universe running down must have been wound up. If the universe had a beginning, it has a cause. And that cause must be timeless (since time began with the universe), spaceless (since space began with the universe), immaterial (since matter began with the universe), and enormously powerful (to bring everything into existence from nothing). This is not theology — it is logic applied to the physics.`,
       },
       {
-        head: `The Ontological Argument`,
-        body: `We can conceive of a being greater than which nothing can be conceived. If this being existed only in the mind and not in reality, we could conceive of a greater being (one that also exists in reality). Therefore, the greatest conceivable being must actually exist.`,
+        head: `The Universe Is Fine-Tuned for Life`,
+        body: `The cosmological constants of the universe — the strength of gravity, the mass of electrons, the rate of cosmic expansion — are calibrated to a precision that staggers the imagination. If the gravitational constant were slightly stronger, stars would burn out too quickly for life to develop. Slightly weaker, and matter would never coalesce into stars at all. Physicist Roger Penrose calculated the probability of the universe's initial low entropy state occurring by chance as 1 in 10 to the power of 10 to the power of 123 — a number with more zeroes than there are atoms in the observable universe. This is the same inference we use in forensics, archaeology, and SETI. When we find specified complexity — precision that serves a purpose — we infer design. An arrowhead does not form by random erosion. The universe is the most precisely specified structure in existence. Design inference is the most reasonable conclusion.`,
       },
       {
-        head: `The Moral Argument`,
-        body: `Objective moral values and duties exist (we all act as if genocide is really wrong, not just unfashionable). Objective moral values require a transcendent moral standard. Therefore, a morally perfect personal being — God — exists as the grounding for morality.`,
+        head: `Moral Law Points Beyond the Physical`,
+        body: `The first two arguments establish a powerful, timeless, immaterial cause. But they don't yet tell us whether that cause is personal or impersonal, moral or amoral. The moral argument bridges that gap. We all live as if some things are objectively wrong — not just unpopular, not just inconvenient, but genuinely, absolutely wrong. Torture of the innocent. Genocide. Betrayal of the defenceless. We don't react to these the way we react to an unfashionable haircut. Our moral outrage is not a preference — it is a recognition of something real. If there is no God, moral values are either evolutionary instincts, cultural preferences, or personal feelings. None of these is objectively binding. The Nazis had their own cultural preferences. Evolution has no moral direction. Your feelings don't obligate me. But we prosecute war criminals not because we personally dislike them but because what they did was actually wrong. That conviction requires a transcendent standard — a moral law above human law, rooted in a being who is the source of goodness itself. The moral law requires a Moral Lawgiver. Not a force, not a principle — a person.`,
+      },
+      {
+        head: `From First Cause to Theistic God`,
+        body: `Now notice what the three arguments yield together. From the cosmological argument: the cause is timeless, spaceless, immaterial, and enormously powerful. From the fine-tuning argument: the cause is infinitely intelligent — capable of calibrating the constants of physics to a precision no human mind can fully comprehend. From the moral argument: the cause is personal and morally perfect — the ground of objective goodness. Put these together: a being that is timeless, spaceless, immaterial, enormously powerful, infinitely intelligent, personal, and morally perfect. This is not a vague "higher power" or an impersonal force. This is precisely what Christians, Jews, and Muslims have always meant by God. The arguments don't just point to a cause — they point to this cause. The convergence is not coincidence. It is the evidence doing its work.`,
       },
     ],
     objections: [
       {
         head: `"But Who Made God?" — The Objection Answered`,
-        body: `Geisler distinguishes three kinds of beings: self-caused (logically impossible — you'd have to exist before you exist to cause yourself), caused (contingent things that began to exist and depend on something outside themselves), and uncaused (exists by the necessity of its own nature, never began). The cosmological argument's causal principle is precisely stated: "everything that begins to exist has a cause" — not "everything." Bertrand Russell's famous retort ("if everything has a cause, God must have one too") misquotes the argument. God, being eternal, never began. Asking "who made God?" is therefore a category mistake — like asking what is north of the North Pole. You are applying the concept of causation to the very thing defined as being outside that category.`,
+        body: `Geisler distinguishes three kinds of beings: self-caused (logically impossible — you'd have to exist before you exist), caused (contingent things that began to exist), and uncaused (exists by necessity of its own nature, never began). The argument's causal principle is precisely stated: "everything that begins to exist has a cause" — not "everything without exception." God, being eternal, never began. Asking "who made God?" is a category mistake — like asking what is north of the North Pole. You are applying the concept of causation to the very being defined as outside that category.`,
       },
       {
         head: `"The Universe Is Just There" — The Atheist's Same Problem`,
-        body: `Many atheists, following Russell and Hawking, argue the universe simply exists without a cause — it just "is." But notice: this is doing precisely what they accuse the theist of doing with God. Both positions require something uncaused at the foundation. The real question is not whether something is uncaused, but what it is. Here the theist has a decisive advantage: the scientific evidence — the Big Bang, thermodynamics running down, the universe expanding from a singularity — shows the universe had a beginning, which means it cannot be the uncaused foundation it is claimed to be. An uncaused God existing outside time and space faces no such contradiction. The atheist's "brute fact" universe is undermined by the very science they rely on.`,
+        body: `Many atheists argue the universe simply exists without a cause — it just "is." But notice: this does exactly what they accuse the theist of doing with God. Both positions require something uncaused at the foundation. The real question is what that uncaused thing is. Here the theist has a decisive advantage: the Big Bang and thermodynamics show the universe had a beginning — so it cannot be the uncaused foundation it is claimed to be. An eternal God existing outside time and space faces no such contradiction. The atheist's "brute fact" universe is undermined by the very science they rely on.`,
       },
     ],
     deepDive: [
       {
         head: `The Kalam: Scientific Support in Detail`,
-        body: `The Kalam argument's second premise — "the universe had a beginning" — is backed by two lines of scientific evidence. First, the second law of thermodynamics: in a closed system, usable energy is constantly decreasing. A universe running down must have started. Second, Big Bang cosmology: matter, space, and time came into existence together. Before the singularity, there was nothing of the universe. Notably, 99.9% of the National Academies of Science accept the universe's beginning as established fact.`,
+        body: `The Kalam argument's second premise — "the universe had a beginning" — is backed by two lines of scientific evidence. First, the Second Law of Thermodynamics: in a closed system, usable energy constantly decreases. A universe running down must have started. Second, Big Bang cosmology: matter, space, and time came into existence together. Before the singularity, there was nothing of the universe. Notably, the expanding universe, the cosmic microwave background radiation, and the abundance of light elements all converge on the same conclusion: the universe had a beginning.`,
       },
       {
         head: `DNA and the Teleological Argument`,
@@ -307,15 +311,15 @@ export const POINTS: Point[] = [
       },
       {
         head: `The Moral Argument: Evil Proves God`,
-        body: `If God does not exist, objective moral values don't exist either — morality collapses into preference or evolutionary instinct. But we don't react to child torture the way we react to an unfashionable haircut. Our moral outrage is not a mere discomfort; it reflects a genuine, objective wrongness. This moral law requires a transcendent Moral Lawgiver who embodies goodness and rightness. If the Nazis had won WWII, would that have made what they did right? Clearly not — there are laws above the laws of nations, and their source must transcend humanity.`,
+        body: `If God does not exist, objective moral values don't exist either — morality collapses into preference or evolutionary instinct. But we don't react to child torture the way we react to an unfashionable haircut. Our moral outrage reflects genuine, objective wrongness. This moral law requires a transcendent Moral Lawgiver who embodies goodness and rightness. If the Nazis had won WWII, would that have made what they did right? Clearly not — there are laws above the laws of nations, and their source must transcend humanity.`,
       },
       {
-        head: `God's Attributes from the Argument`,
-        body: `The cosmological argument alone yields the following: the cause of the universe must be (1) immaterial — since matter began with the universe; (2) spaceless — since space began with the universe; (3) timeless — since time began with the universe; (4) all-powerful — to bring everything into existence from nothing; (5) infinitely intelligent — to produce the precision of the cosmos; (6) personal — since it chose to create (an impersonal force cannot choose). These six attributes are precisely the classical description of the God of the Bible.`,
+        head: `God's Six Attributes from the Arguments`,
+        body: `The cosmological argument alone yields: (1) immaterial — since matter began with the universe; (2) spaceless — since space began with the universe; (3) timeless — since time began with the universe; (4) all-powerful — to bring everything into existence from nothing; (5) infinitely intelligent — to produce the precision of the cosmos; (6) personal — since it chose to create (an impersonal force cannot choose). These six attributes are precisely the classical description of the God of the Bible.`,
       },
     ],
-    insight: `These three arguments converge independently. Any one is enough to warrant serious investigation. Many Singaporeans accept evolution and the Big Bang — both are consistent with a Creator who used natural processes. The question isn't science vs God; it's whether anything exists beyond the physical.`,
-    reflect: `Which of the three arguments — cosmological, moral, or teleological — do you find most compelling, and why?`,
+    insight: `These three arguments converge independently. You don't need all three — any one, examined honestly, is sufficient to warrant serious investigation. Together they don't just argue for "something" — they argue for a specific kind of being: the foundation of existence, the source of order, and the ground of morality. That being is not a philosophical abstraction. The rest of this quest is about who He is and what He has done.`,
+    reflect: `Which of the three arguments do you find most compelling — the beginning of the universe, the fine-tuning of its constants, or the existence of moral law? What would it mean for your life if any one of them is right?`,
     verses: ['Genesis 1:1', 'Psalm 19:1', 'Romans 1:20'],
     scripture: `"For since the creation of the world God's invisible qualities — his eternal power and divine nature — have been clearly seen." — Romans 1:20`,
     ref: 'Psalm 19:1',
