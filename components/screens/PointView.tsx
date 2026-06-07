@@ -20,6 +20,7 @@ interface Props {
   onBack: () => void
   onHome: () => void
   onSearch: () => void
+  onNavigate: (idx: number) => void
 }
 
 const C = {
@@ -117,7 +118,7 @@ function ArgCard({ n, head, body }: { n: number; head: string; body: string }) {
 
 export default function PointView({
   idx, startingIdx, completed, painPointId,
-  reflection, onReflectionChange, onMarkDone, onBack, onHome, onSearch,
+  reflection, onReflectionChange, onMarkDone, onBack, onHome, onSearch, onNavigate,
 }: Props) {
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }) }, [idx])
 
@@ -150,7 +151,7 @@ export default function PointView({
             <span style={{ ...ms, fontSize: 11, fontWeight: 800, color: C.gold, letterSpacing: '0.1em' }}>QUEST</span>
           </button>
           <div style={{ flex: 1 }}>
-            <FoundationBar completed={completed} currentIdx={idx} startingIdx={startingIdx} />
+            <FoundationBar completed={completed} currentIdx={idx} startingIdx={startingIdx} onNavigate={onNavigate} />
           </div>
           <button onClick={onSearch} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 32, height: 32, background: 'transparent', border: `1px solid ${C.border}`, cursor: 'pointer', color: C.muted, flexShrink: 0 }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -326,3 +327,4 @@ export default function PointView({
     </div>
   )
 }
+
