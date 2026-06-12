@@ -238,7 +238,7 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
                 </button>
               </>
             )}
-            <button onClick={onStart} style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '8px 14px', letterSpacing: '0.08em', cursor: 'pointer', whiteSpace: 'nowrap' }}>BEGIN</button>
+            <button onClick={hasProgress ? onResume : onStart} style={{ ...ms, fontSize: 11, fontWeight: 800, color: '#1A1A2A', background: '#D4A847', border: 'none', padding: '8px 14px', letterSpacing: '0.08em', cursor: 'pointer', whiteSpace: 'nowrap' }}>{hasProgress ? 'RESUME' : 'BEGIN'}</button>
           </div>
         </div>
       </nav>
@@ -254,14 +254,6 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 700, color: '#FFFFFF', marginBottom: 10, letterSpacing: '0.04em', lineHeight: 1.2 }}>12 Challenges</h2>
             <div style={{ width: 36, height: 3, background: '#D4A847', marginBottom: 16 }}/>
             <p style={{ ...ms, fontSize: 12, color: '#888899', lineHeight: 1.7, marginBottom: 24 }}>Each challenge unlocks the next. Complete all 12 to finish your quest.</p>
-            <button onClick={onStart} style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '13px 0', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%', marginBottom: 10 }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}>
-              BEGIN THE QUEST →
-            </button>
-            {hasProgress && (
-              <button onClick={onResume} style={{ fontFamily: "'Cinzel', serif", background: 'transparent', color: '#D4A847', border: '1px solid #D4A84766', padding: '10px 0', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%' }}>RESUME QUEST</button>
-            )}
             <div className="pts-chain">
               <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', color: '#555577', marginBottom: 12 }}>THE 12 POINTS</div>
               <div style={{ position: 'relative', paddingLeft: 28 }}>
@@ -379,19 +371,12 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <button onClick={onStart} style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '14px 32px', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 4px 20px rgba(212,168,71,0.3)' }}
+            <button onClick={hasProgress ? onResume : onStart} style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '14px 32px', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 4px 20px rgba(212,168,71,0.3)' }}
               onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}>
               <svg viewBox="0 0 20 20" fill="none" stroke="#0A0814" strokeWidth="2" strokeLinecap="round" width="16" height="16"><line x1="4" y1="16" x2="16" y2="4"/><line x1="16" y1="16" x2="4" y2="4"/><line x1="6.5" y1="13.5" x2="4" y2="16"/><line x1="13.5" y1="6.5" x2="16" y2="4"/><line x1="6.5" y1="6.5" x2="4" y2="4"/><line x1="13.5" y1="13.5" x2="16" y2="16"/></svg>
-              START MY QUEST
+              {hasProgress ? 'RESUME MY QUEST' : 'START MY QUEST'}
             </button>
-            {hasProgress && (
-              <button onClick={onResume} style={{ fontFamily: "'Cinzel', serif", background: 'transparent', color: '#D4A847', border: '1px solid #D4A84766', padding: '11px 28px', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D4A847' }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#D4A84766' }}>
-                RESUME QUEST
-              </button>
-            )}
             <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 10, color: 'rgba(240,238,232,0.4)', letterSpacing: '0.1em', marginTop: 4 }}>12 CHALLENGES. ONE QUEST. ARE YOU READY?</div>
           </div>
         </div>
