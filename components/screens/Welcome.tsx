@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+
 interface Props {
   onStart: () => void
   onResume: () => void
@@ -52,6 +54,7 @@ const ms: React.CSSProperties = { fontFamily: 'Montserrat, sans-serif' }
 const cg: React.CSSProperties = { fontFamily: 'Cormorant Garamond, serif' }
 
 export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasProgress, user, onSignIn, onSignOut }: Props) {
+  const [sidebarOpen, setSidebarOpen] = useState(true)
   return (
     <div className="animate-fade-in" style={{ background: '#FFFFFF' }}>
 
@@ -132,27 +135,46 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           .pts-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
         }
 
+        /* ── Full-page-height collapsible left rail (desktop only) ── */
+        .site-rail {
+          display: none;
+        }
+        .site-content { margin-left: 0; }
+
         @media (min-width: 1024px) {
           .pts-section { padding: 0; }
-          .pts-layout  { display: flex; min-height: 600px; }
+          .pts-layout  { display: flex; }
+          .pts-header  { text-align: left; margin-bottom: 2rem; }
+          .pts-grid    { grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 100%; margin: 0; }
+          .pts-right   { flex: 1; padding: 3rem 2.5rem; background: #F9F7F2; }
+          .pts-chain   { display: block; margin-top: 2rem; }
 
-          /* Left panel — dark, sticky info column */
-          .pts-left {
-            width: 300px; flex-shrink: 0;
-            background: #1A1A2A;
-            padding: 3.5rem 2.5rem;
-            display: flex; flex-direction: column; justify-content: center;
-            position: sticky; top: 52px; align-self: flex-start;
-            min-height: calc(100vh - 52px);
+          /* The rail: fixed, full viewport height below nav */
+          .site-rail {
+            display: flex; flex-direction: column;
+            position: fixed; top: 52px; left: 0; bottom: 0;
+            background: #1A1A2A; z-index: 40;
+            transition: width 0.25s ease;
+            overflow-y: auto;
           }
+          .site-rail.rail-open    { width: 280px; }
+          .site-rail.rail-closed  { width: 60px; }
 
-          /* Right panel — cards */
-          .pts-right { flex: 1; padding: 3rem 2.5rem; background: #F9F7F2; }
-          .pts-header { text-align: left; margin-bottom: 2rem; }
-          .pts-grid   { grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 100%; margin: 0; }
+          /* Push all main content right by the rail width */
+          .site-content { transition: margin-left 0.25s ease; }
+          .site-content.content-open   { margin-left: 280px; }
+          .site-content.content-closed { margin-left: 60px; }
 
-          /* Chain nav in left panel */
-          .pts-chain { display: block; margin-top: 2rem; }
+          /* Expanded rail content */
+          .rail-expanded { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+          .rail-collapsed { display: flex; flex-direction: column; align-items: center; padding: 1rem 0; gap: 10px; flex: 1; }
+
+          .rail-toggle {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(212,168,71,0.12); border: 1px solid #D4A84755;
+            color: #D4A847; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; flex-shrink: 0;
+          }
         }
 
         /* Why Quest: full-width 4-col on desktop */
@@ -220,6 +242,59 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
           </div>
         </div>
       </nav>
+
+      {/* ── FULL-HEIGHT COLLAPSIBLE RAIL (desktop only) ── */}
+      <div className={`site-rail ${sidebarOpen ? 'rail-open' : 'rail-closed'}`}>
+        {sidebarOpen ? (
+          <div className="rail-expanded">
+            <button className="rail-toggle" onClick={() => setSidebarOpen(false)} aria-label="Collapse sidebar" style={{ alignSelf: 'flex-end', marginBottom: 16 }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 8 }}>THE JOURNEY</div>
+            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 700, color: '#FFFFFF', marginBottom: 10, letterSpacing: '0.04em', lineHeight: 1.2 }}>12 Challenges</h2>
+            <div style={{ width: 36, height: 3, background: '#D4A847', marginBottom: 16 }}/>
+            <p style={{ ...ms, fontSize: 12, color: '#888899', lineHeight: 1.7, marginBottom: 24 }}>Each challenge unlocks the next. Complete all 12 to finish your quest.</p>
+            <button onClick={onStart} style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '13px 0', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%', marginBottom: 10 }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}>
+              BEGIN THE QUEST →
+            </button>
+            {hasProgress && (
+              <button onClick={onResume} style={{ fontFamily: "'Cinzel', serif", background: 'transparent', color: '#D4A847', border: '1px solid #D4A84766', padding: '10px 0', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%' }}>RESUME QUEST</button>
+            )}
+            <div className="pts-chain">
+              <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', color: '#555577', marginBottom: 12 }}>THE 12 POINTS</div>
+              <div style={{ position: 'relative', paddingLeft: 28 }}>
+                <div style={{ position: 'absolute', left: 9, top: 6, bottom: 6, width: 1, background: 'rgba(212,168,71,0.2)' }}/>
+                {POINTS_SUMMARY.map((pt, i) => (
+                  <div key={i} onClick={() => onNavigate(i)}
+                    style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, cursor: 'pointer' }}>
+                    <div style={{ width: 18, height: 18, borderRadius: '50%', background: 'rgba(212,168,71,0.15)', border: '1px solid #D4A84755', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, position: 'absolute', left: 0 }}>
+                      <span style={{ ...ms, fontSize: 7, fontWeight: 800, color: '#D4A847' }}>{pt.n}</span>
+                    </div>
+                    <span style={{ ...ms, fontSize: 10, color: '#888899', lineHeight: 1.4 }}>{pt.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="rail-collapsed">
+            <button className="rail-toggle" onClick={() => setSidebarOpen(true)} aria-label="Expand sidebar" style={{ marginBottom: 8 }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            {POINTS_SUMMARY.map((pt, i) => (
+              <div key={i} onClick={() => onNavigate(i)} title={pt.title}
+                style={{ width: 28, height: 28, borderRadius: '50%', background: 'rgba(212,168,71,0.15)', border: '1px solid #D4A84755', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flexShrink: 0 }}>
+                <span style={{ ...ms, fontSize: 8, fontWeight: 800, color: '#D4A847' }}>{pt.n}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* ── MAIN CONTENT (offset by rail width on desktop) ── */}
+      <div className={`site-content ${sidebarOpen ? 'content-open' : 'content-closed'}`}>
 
       {/* ── MOBILE HERO ── */}
       <div className="mobile-hero-only" style={{ position: 'relative', background: '#0A0814', overflow: 'hidden' }}>
@@ -343,39 +418,6 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
       <div id="points" className="pts-section">
         <div className="pts-layout">
 
-          {/* Left sticky panel — desktop only */}
-          <div className="pts-left">
-            <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 8 }}>THE JOURNEY</div>
-            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 700, color: '#FFFFFF', marginBottom: 10, letterSpacing: '0.04em', lineHeight: 1.2 }}>12 Challenges</h2>
-            <div style={{ width: 36, height: 3, background: '#D4A847', marginBottom: 16 }}/>
-            <p style={{ ...ms, fontSize: 12, color: '#888899', lineHeight: 1.7, marginBottom: 24 }}>Each challenge unlocks the next. Complete all 12 to finish your quest.</p>
-            <button onClick={onStart} style={{ fontFamily: "'Cinzel', serif", background: '#D4A847', color: '#0A0814', border: 'none', padding: '13px 0', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%', marginBottom: 10 }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#B8922E')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#D4A847')}>
-              BEGIN THE QUEST →
-            </button>
-            {hasProgress && (
-              <button onClick={onResume} style={{ fontFamily: "'Cinzel', serif", background: 'transparent', color: '#D4A847', border: '1px solid #D4A84766', padding: '10px 0', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer', width: '100%' }}>RESUME QUEST</button>
-            )}
-            {/* Vertical chain — desktop only */}
-            <div className="pts-chain">
-              <div style={{ ...ms, fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', color: '#555577', marginBottom: 12 }}>THE 12 POINTS</div>
-              <div style={{ position: 'relative', paddingLeft: 28 }}>
-                <div style={{ position: 'absolute', left: 9, top: 6, bottom: 6, width: 1, background: 'rgba(212,168,71,0.2)' }}/>
-                {POINTS_SUMMARY.map((pt, i) => (
-                  <div key={i} onClick={() => onNavigate(i)}
-                    style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, cursor: 'pointer' }}>
-                    <div style={{ width: 18, height: 18, borderRadius: '50%', background: 'rgba(212,168,71,0.15)', border: '1px solid #D4A84755', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, position: 'absolute', left: 0 }}>
-                      <span style={{ ...ms, fontSize: 7, fontWeight: 800, color: '#D4A847' }}>{pt.n}</span>
-                    </div>
-                    <span style={{ ...ms, fontSize: 10, color: '#888899', lineHeight: 1.4 }}>{pt.title}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right: header + cards */}
           <div className="pts-right">
             <div className="pts-header">
               <div style={{ ...ms, fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: '#D4A847', marginBottom: 8 }}>THE JOURNEY</div>
@@ -489,6 +531,9 @@ export default function Welcome({ onStart, onResume, onSearch, onNavigate, hasPr
         </div>
         <div style={{ ...ms, fontSize: 10, color: '#333344', letterSpacing: '0.06em', marginTop: 12 }}>12 POINTS · 4 SESSIONS · PROGRESS SAVED TO CLOUD</div>
       </div>
+
+      </div>
+      {/* ── /site-content ── */}
 
     </div>
   )
